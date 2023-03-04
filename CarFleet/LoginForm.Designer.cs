@@ -38,7 +38,7 @@
             // tBLogin
             // 
             this.tBLogin.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.tBLogin.Location = new System.Drawing.Point(268, 40);
+            this.tBLogin.Location = new System.Drawing.Point(257, 39);
             this.tBLogin.Name = "tBLogin";
             this.tBLogin.Size = new System.Drawing.Size(100, 26);
             this.tBLogin.TabIndex = 0;
@@ -46,7 +46,7 @@
             // tBPassword
             // 
             this.tBPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.tBPassword.Location = new System.Drawing.Point(268, 110);
+            this.tBPassword.Location = new System.Drawing.Point(257, 109);
             this.tBPassword.Name = "tBPassword";
             this.tBPassword.PasswordChar = '*';
             this.tBPassword.Size = new System.Drawing.Size(100, 26);
@@ -56,7 +56,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.label1.Location = new System.Drawing.Point(153, 43);
+            this.label1.Location = new System.Drawing.Point(142, 42);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(48, 20);
             this.label1.TabIndex = 2;
@@ -66,7 +66,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.label2.Location = new System.Drawing.Point(153, 110);
+            this.label2.Location = new System.Drawing.Point(142, 109);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(78, 20);
             this.label2.TabIndex = 3;
@@ -75,7 +75,7 @@
             // btnLogin
             // 
             this.btnLogin.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.btnLogin.Location = new System.Drawing.Point(207, 174);
+            this.btnLogin.Location = new System.Drawing.Point(196, 173);
             this.btnLogin.Name = "btnLogin";
             this.btnLogin.Size = new System.Drawing.Size(90, 28);
             this.btnLogin.TabIndex = 4;
