@@ -1,4 +1,4 @@
-﻿namespace CarFleet
+﻿namespace CarFleet.Views
 {
     partial class LoginForm
     {

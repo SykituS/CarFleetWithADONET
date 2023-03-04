@@ -8,11 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace CarFleet
+namespace CarFleet.Views
 {
-    public partial class LoginForm : Form
+    public partial class EmployeeListForm : Form
     {
-        public LoginForm()
+        public EmployeeListForm()
         {
             InitializeComponent();
         }
