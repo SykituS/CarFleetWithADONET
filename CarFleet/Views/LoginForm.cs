@@ -16,5 +16,10 @@ namespace CarFleet.Views
 
             o.TestCon();
         }
+
+        private void btnClose_Click(object sender, System.EventArgs e)
+        {
+            Close();
+        }
     }
 }
