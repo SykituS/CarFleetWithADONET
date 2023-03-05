@@ -1,4 +1,5 @@
 ﻿using System.Windows.Forms;
+using CarFleetDomain;
 
 namespace CarFleet.Views
 {
@@ -9,24 +10,11 @@ namespace CarFleet.Views
             InitializeComponent();
         }
 
-        private void tBPassword_TextChanged(object sender, System.EventArgs e)
+        private void btnLogin_Click(object sender, System.EventArgs e)
         {
+            var o = new Context();
 
-        }
-
-        private void LoginForm_Load(object sender, System.EventArgs e)
-        {
-
-        }
-
-        private void tBLogin_TextChanged(object sender, System.EventArgs e)
-        {
-
-        }
-
-        private void iconButton1_Click(object sender, System.EventArgs e)
-        {
-            Close();
+            o.TestCon();
         }
     }
 }
