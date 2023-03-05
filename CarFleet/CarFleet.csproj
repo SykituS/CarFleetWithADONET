@@ -88,6 +88,11 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\CarFleetDomain\CarFleetDomain.csproj">
+      <Project>{d2c400cf-53e4-4d35-8c36-4c0ac25113ec}</Project>
+      <Name>CarFleetDomain</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

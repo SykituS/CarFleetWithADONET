@@ -14,8 +14,8 @@ CREATE TABLE Persons (
 	ID int IDENTITY(1, 1) NOT NULL PRIMARY KEY,
 	FirstName varchar(255) NOT NULL,
 	LastName varchar(255) NOT NULL,
-	PhoneNumber char(9) NOT NULL,
-	email nvarchar(255) NOT NULL,
+	PhoneNumber varchar(15) NOT NULL,
+	Email nvarchar(255) NOT NULL,
 )
 
 CREATE TABLE Users(
@@ -111,3 +111,7 @@ CREATE TABLE VehcileStatus(
 	CONSTRAINT FK_VehcileStatus_Vehicle FOREIGN KEY (VehicleID) REFERENCES Vehicle(ID),
 	CONSTRAINT FK_VehcileStatus_Person_Created FOREIGN KEY (CreatedByID) REFERENCES Persons(ID),
 )
+
+
+ALTER DATABASE SCOPED CONFIGURATION 
+  SET VERBOSE_TRUNCATION_WARNINGS = ON;
