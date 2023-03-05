@@ -6,6 +6,10 @@ using System.Threading.Tasks;
 
 namespace CarFleetDomain.Models
 {
+    /// <summary>
+    /// Response for given command
+    /// </summary>
+    /// <typeparam name="T">Model to use</typeparam>
     public class CommandResponse<T> where T : class
     {
         public CommandResponse(T returnedValue)

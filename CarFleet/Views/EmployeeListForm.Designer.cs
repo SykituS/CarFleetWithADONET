@@ -28,38 +28,51 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.DataGridViewEmployeeList = new System.Windows.Forms.DataGridView();
+            this.label1 = new System.Windows.Forms.Label();
+            ((System.ComponentModel.ISupportInitialize)(this.DataGridViewEmployeeList)).BeginInit();
             this.SuspendLayout();
             // 
-            // dataGridView1
+            // DataGridViewEmployeeList
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(41, 36);
-            this.dataGridView1.Margin = new System.Windows.Forms.Padding(4);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.Size = new System.Drawing.Size(634, 417);
-            this.dataGridView1.TabIndex = 0;
+            this.DataGridViewEmployeeList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DataGridViewEmployeeList.Location = new System.Drawing.Point(31, 29);
+            this.DataGridViewEmployeeList.Name = "DataGridViewEmployeeList";
+            this.DataGridViewEmployeeList.RowHeadersWidth = 51;
+            this.DataGridViewEmployeeList.Size = new System.Drawing.Size(731, 369);
+            this.DataGridViewEmployeeList.TabIndex = 0;
+            this.DataGridViewEmployeeList.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DataGridViewEmployeeList_CellContentClick);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(292, 414);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(35, 13);
+            this.label1.TabIndex = 1;
+            this.label1.Text = "label1";
             // 
             // EmployeeListForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1067, 554);
-            this.Controls.Add(this.dataGridView1);
+            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.DataGridViewEmployeeList);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "EmployeeListForm";
             this.Text = "EmployeeListForm";
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.Load += new System.EventHandler(this.EmployeeListForm_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.DataGridViewEmployeeList)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
 
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView DataGridViewEmployeeList;
+        private System.Windows.Forms.Label label1;
     }
 }
