@@ -1,0 +1,193 @@
+﻿namespace CarFleet.Views
+{
+    partial class MainAdministrationForm
+    {
+        /// <summary>
+        /// Required designer variable.
+        /// </summary>
+        private System.ComponentModel.IContainer components = null;
+
+        /// <summary>
+        /// Clean up any resources being used.
+        /// </summary>
+        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing && (components != null))
+            {
+                components.Dispose();
+            }
+            base.Dispose(disposing);
+        }
+
+        #region Windows Form Designer generated code
+
+        /// <summary>
+        /// Required method for Designer support - do not modify
+        /// the contents of this method with the code editor.
+        /// </summary>
+        private void InitializeComponent()
+        {
+            this.menupanel = new System.Windows.Forms.Panel();
+            this.iconPictureBox1 = new FontAwesome.Sharp.IconPictureBox();
+            this.BtnCarList = new FontAwesome.Sharp.IconButton();
+            this.BtnEmployeeList = new FontAwesome.Sharp.IconButton();
+            this.headerpanel = new System.Windows.Forms.Panel();
+            this.btnClose = new FontAwesome.Sharp.IconButton();
+            this.mainpanel = new System.Windows.Forms.Panel();
+            this.BtnApplication = new FontAwesome.Sharp.IconButton();
+            this.menupanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox1)).BeginInit();
+            this.headerpanel.SuspendLayout();
+            this.SuspendLayout();
+            // 
+            // menupanel
+            // 
+            this.menupanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(30)))), ((int)(((byte)(68)))));
+            this.menupanel.Controls.Add(this.BtnApplication);
+            this.menupanel.Controls.Add(this.iconPictureBox1);
+            this.menupanel.Controls.Add(this.BtnCarList);
+            this.menupanel.Controls.Add(this.BtnEmployeeList);
+            this.menupanel.Dock = System.Windows.Forms.DockStyle.Left;
+            this.menupanel.Location = new System.Drawing.Point(0, 0);
+            this.menupanel.Name = "menupanel";
+            this.menupanel.Size = new System.Drawing.Size(244, 560);
+            this.menupanel.TabIndex = 0;
+            // 
+            // iconPictureBox1
+            // 
+            this.iconPictureBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(30)))), ((int)(((byte)(68)))));
+            this.iconPictureBox1.IconChar = FontAwesome.Sharp.IconChar.HouseChimneyUser;
+            this.iconPictureBox1.IconColor = System.Drawing.Color.White;
+            this.iconPictureBox1.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.iconPictureBox1.IconSize = 172;
+            this.iconPictureBox1.Location = new System.Drawing.Point(34, 12);
+            this.iconPictureBox1.Name = "iconPictureBox1";
+            this.iconPictureBox1.Size = new System.Drawing.Size(172, 193);
+            this.iconPictureBox1.TabIndex = 4;
+            this.iconPictureBox1.TabStop = false;
+            // 
+            // BtnCarList
+            // 
+            this.BtnCarList.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(30)))), ((int)(((byte)(68)))));
+            this.BtnCarList.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnCarList.ForeColor = System.Drawing.Color.White;
+            this.BtnCarList.IconChar = FontAwesome.Sharp.IconChar.CarAlt;
+            this.BtnCarList.IconColor = System.Drawing.Color.Black;
+            this.BtnCarList.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.BtnCarList.IconSize = 32;
+            this.BtnCarList.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.BtnCarList.Location = new System.Drawing.Point(0, 289);
+            this.BtnCarList.Name = "BtnCarList";
+            this.BtnCarList.Size = new System.Drawing.Size(244, 53);
+            this.BtnCarList.TabIndex = 2;
+            this.BtnCarList.Text = "CAR LIST";
+            this.BtnCarList.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.BtnCarList.UseVisualStyleBackColor = false;
+            this.BtnCarList.Click += new System.EventHandler(this.btnCarList_Click);
+            // 
+            // BtnEmployeeList
+            // 
+            this.BtnEmployeeList.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(30)))), ((int)(((byte)(68)))));
+            this.BtnEmployeeList.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnEmployeeList.ForeColor = System.Drawing.Color.White;
+            this.BtnEmployeeList.IconChar = FontAwesome.Sharp.IconChar.PeopleGroup;
+            this.BtnEmployeeList.IconColor = System.Drawing.Color.Black;
+            this.BtnEmployeeList.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.BtnEmployeeList.IconSize = 32;
+            this.BtnEmployeeList.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.BtnEmployeeList.Location = new System.Drawing.Point(0, 230);
+            this.BtnEmployeeList.Name = "BtnEmployeeList";
+            this.BtnEmployeeList.Size = new System.Drawing.Size(244, 53);
+            this.BtnEmployeeList.TabIndex = 1;
+            this.BtnEmployeeList.Text = "EMPLOYEE LIST";
+            this.BtnEmployeeList.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.BtnEmployeeList.UseVisualStyleBackColor = false;
+            this.BtnEmployeeList.Click += new System.EventHandler(this.iconButton1_Click);
+            // 
+            // headerpanel
+            // 
+            this.headerpanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(30)))), ((int)(((byte)(68)))));
+            this.headerpanel.Controls.Add(this.btnClose);
+            this.headerpanel.Cursor = System.Windows.Forms.Cursors.Default;
+            this.headerpanel.Dock = System.Windows.Forms.DockStyle.Top;
+            this.headerpanel.Location = new System.Drawing.Point(244, 0);
+            this.headerpanel.Name = "headerpanel";
+            this.headerpanel.Size = new System.Drawing.Size(893, 29);
+            this.headerpanel.TabIndex = 1;
+            // 
+            // btnClose
+            // 
+            this.btnClose.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(30)))), ((int)(((byte)(68)))));
+            this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnClose.ForeColor = System.Drawing.Color.White;
+            this.btnClose.IconChar = FontAwesome.Sharp.IconChar.X;
+            this.btnClose.IconColor = System.Drawing.Color.WhiteSmoke;
+            this.btnClose.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnClose.IconSize = 32;
+            this.btnClose.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnClose.Location = new System.Drawing.Point(854, 0);
+            this.btnClose.Name = "btnClose";
+            this.btnClose.Size = new System.Drawing.Size(39, 29);
+            this.btnClose.TabIndex = 5;
+            this.btnClose.UseVisualStyleBackColor = false;
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
+            // 
+            // mainpanel
+            // 
+            this.mainpanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.mainpanel.Location = new System.Drawing.Point(244, 29);
+            this.mainpanel.Name = "mainpanel";
+            this.mainpanel.Size = new System.Drawing.Size(893, 531);
+            this.mainpanel.TabIndex = 2;
+            // 
+            // BtnApplication
+            // 
+            this.BtnApplication.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(30)))), ((int)(((byte)(68)))));
+            this.BtnApplication.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnApplication.ForeColor = System.Drawing.Color.White;
+            this.BtnApplication.IconChar = FontAwesome.Sharp.IconChar.Calendar;
+            this.BtnApplication.IconColor = System.Drawing.Color.Black;
+            this.BtnApplication.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.BtnApplication.IconSize = 32;
+            this.BtnApplication.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.BtnApplication.Location = new System.Drawing.Point(0, 348);
+            this.BtnApplication.Name = "BtnApplication";
+            this.BtnApplication.Size = new System.Drawing.Size(244, 53);
+            this.BtnApplication.TabIndex = 6;
+            this.BtnApplication.Text = "APPLICATIONS";
+            this.BtnApplication.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.BtnApplication.UseVisualStyleBackColor = false;
+            this.BtnApplication.Click += new System.EventHandler(this.BtnApplication_Click);
+            // 
+            // AdministrationMainForm
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.White;
+            this.ClientSize = new System.Drawing.Size(1137, 560);
+            this.Controls.Add(this.mainpanel);
+            this.Controls.Add(this.headerpanel);
+            this.Controls.Add(this.menupanel);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Name = "AdministrationMainForm";
+            this.Text = "MainForms";
+            this.menupanel.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox1)).EndInit();
+            this.headerpanel.ResumeLayout(false);
+            this.ResumeLayout(false);
+
+        }
+
+        #endregion
+
+        private System.Windows.Forms.Panel menupanel;
+        private System.Windows.Forms.Panel headerpanel;
+        private System.Windows.Forms.Panel mainpanel;
+        private FontAwesome.Sharp.IconButton BtnEmployeeList;
+        private FontAwesome.Sharp.IconButton BtnCarList;
+        private FontAwesome.Sharp.IconPictureBox iconPictureBox1;
+        private FontAwesome.Sharp.IconButton btnClose;
+        private FontAwesome.Sharp.IconButton BtnApplication;
+    }
+}

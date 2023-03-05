@@ -20,5 +20,10 @@ namespace CarFleet.Views
             var u = new LoginSystem().LoginUser("User", "Password");
             
         }
+
+        private void btnClose_Click(object sender, System.EventArgs e)
+        {
+            Close();
+        }
     }
 }
