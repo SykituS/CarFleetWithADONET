@@ -1,9 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using CarFleetDomain.Models;
+﻿using CarFleetDomain.Models;
+using System.Data;
+using System.Data.SqlClient;
 
 namespace CarFleetDomain.Functions
 {
@@ -11,18 +8,60 @@ namespace CarFleetDomain.Functions
     {
         public LoginSystem()
         {
-            
+
         }
 
         public CommandResponse<Users> LoginUser(string username, string password)
         {
             var reply = new CommandResponse<Users>(new Users());
+            var passwordHash = PasswordHasher.EncodePassword(password);
+
+            using (var connection = new SqlConnection(Context.ConnectionString))
+            {
+                var adapter = new SqlDataAdapter();
+                adapter.TableMappings.Add("Table", nameof(Users));
+
+                connection.Open();
+
+                var cmdText = "SELECT TOP(1) * FROM Users WHERE @username = UserName AND @password = PasswordHash";
+                var cmd = new SqlCommand
+                {
+                    CommandText = cmdText,
+                    Connection = connection,
+                };
+
+                cmd.Parameters.AddWithValue("username", username);
+                cmd.Parameters.AddWithValue("password", passwordHash);
+
+                adapter.SelectCommand = cmd;
+
+                var dataSet = new DataSet("Users");
+                adapter.Fill(dataSet);
 
 
-            reply.ReturnedValue.UserName = username;
-            reply.ReturnedValue.PasswordHash = password;
+                var personAdapter = new SqlDataAdapter();
+                personAdapter.TableMappings.Add("Table", nameof(Persons));
 
-            reply.ReturnedString = "test string";
+                var cmdTextPerson = "SELECT * FROM Persons";
+                var cmdPerson = new SqlCommand
+                {
+                    CommandText = cmdTextPerson,
+                    Connection = connection,
+                };
+
+                personAdapter.SelectCommand = cmdPerson;
+                personAdapter.Fill(dataSet);
+
+                var parentColumn = dataSet.Tables["Persons"].Columns["ID"];
+                var childColumn = dataSet.Tables["Users"].Columns["PersonID"];
+
+                var relation = new DataRelation("UserPerson", parentColumn, childColumn);
+                dataSet.Relations.Add(relation);
+
+                var data = dataSet.Tables["Users"].Rows[0];
+                reply.ReturnedValue.ID = (int)data["ID"];
+                reply.ReturnedValue.UserName = (string)data["UserName"];
+            }
 
             return reply;
         }

@@ -17,7 +17,7 @@ namespace CarFleet.Views
 
             o.TestCon();
 
-            var u = new LoginSystem().LoginUser("User", "Password");
+            var u = new LoginSystem().LoginUser(TBLogin.Text, TBPassword.Text);
             
         }
 

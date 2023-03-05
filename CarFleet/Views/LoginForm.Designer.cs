@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.tBLogin = new System.Windows.Forms.TextBox();
-            this.tBPassword = new System.Windows.Forms.TextBox();
+            this.TBLogin = new System.Windows.Forms.TextBox();
+            this.TBPassword = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.BtnLogin = new FontAwesome.Sharp.IconButton();
@@ -39,22 +39,22 @@
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // tBLogin
+            // TBLogin
             // 
-            this.tBLogin.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.tBLogin.Location = new System.Drawing.Point(106, 41);
-            this.tBLogin.Name = "tBLogin";
-            this.tBLogin.Size = new System.Drawing.Size(100, 26);
-            this.tBLogin.TabIndex = 0;
+            this.TBLogin.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.TBLogin.Location = new System.Drawing.Point(106, 41);
+            this.TBLogin.Name = "TBLogin";
+            this.TBLogin.Size = new System.Drawing.Size(100, 26);
+            this.TBLogin.TabIndex = 0;
             // 
-            // tBPassword
+            // TBPassword
             // 
-            this.tBPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.tBPassword.Location = new System.Drawing.Point(106, 88);
-            this.tBPassword.Name = "tBPassword";
-            this.tBPassword.PasswordChar = '*';
-            this.tBPassword.Size = new System.Drawing.Size(100, 26);
-            this.tBPassword.TabIndex = 1;
+            this.TBPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.TBPassword.Location = new System.Drawing.Point(106, 88);
+            this.TBPassword.Name = "TBPassword";
+            this.TBPassword.PasswordChar = '*';
+            this.TBPassword.Size = new System.Drawing.Size(100, 26);
+            this.TBPassword.TabIndex = 1;
             // 
             // label1
             // 
@@ -147,8 +147,8 @@
             this.Controls.Add(this.BtnLogin);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.tBPassword);
-            this.Controls.Add(this.tBLogin);
+            this.Controls.Add(this.TBPassword);
+            this.Controls.Add(this.TBLogin);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "LoginForm";
             this.Text = "Login";
@@ -161,8 +161,8 @@
 
         #endregion
 
-        private System.Windows.Forms.TextBox tBLogin;
-        private System.Windows.Forms.TextBox tBPassword;
+        private System.Windows.Forms.TextBox TBLogin;
+        private System.Windows.Forms.TextBox TBPassword;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private FontAwesome.Sharp.IconButton BtnLogin;
