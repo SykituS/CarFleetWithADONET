@@ -32,7 +32,7 @@
             this.tBPassword = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.btnLogin = new FontAwesome.Sharp.IconButton();
+            this.BtnLogin = new FontAwesome.Sharp.IconButton();
             this.btnClose = new FontAwesome.Sharp.IconButton();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label3 = new System.Windows.Forms.Label();
@@ -42,30 +42,27 @@
             // tBLogin
             // 
             this.tBLogin.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.tBLogin.Location = new System.Drawing.Point(142, 51);
-            this.tBLogin.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tBLogin.Location = new System.Drawing.Point(106, 41);
             this.tBLogin.Name = "tBLogin";
-            this.tBLogin.Size = new System.Drawing.Size(132, 30);
+            this.tBLogin.Size = new System.Drawing.Size(100, 26);
             this.tBLogin.TabIndex = 0;
             // 
             // tBPassword
             // 
             this.tBPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.tBPassword.Location = new System.Drawing.Point(142, 108);
-            this.tBPassword.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tBPassword.Location = new System.Drawing.Point(106, 88);
             this.tBPassword.Name = "tBPassword";
             this.tBPassword.PasswordChar = '*';
-            this.tBPassword.Size = new System.Drawing.Size(132, 30);
+            this.tBPassword.Size = new System.Drawing.Size(100, 26);
             this.tBPassword.TabIndex = 1;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.label1.Location = new System.Drawing.Point(39, 51);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Location = new System.Drawing.Point(29, 41);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(60, 25);
+            this.label1.Size = new System.Drawing.Size(48, 20);
             this.label1.TabIndex = 2;
             this.label1.Text = "Login";
             // 
@@ -73,30 +70,31 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.label2.Location = new System.Drawing.Point(39, 108);
-            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label2.Location = new System.Drawing.Point(29, 88);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(98, 25);
+            this.label2.Size = new System.Drawing.Size(78, 20);
             this.label2.TabIndex = 3;
             this.label2.Text = "Password";
             // 
-            // btnLogin
+            // BtnLogin
             // 
-            this.btnLogin.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(30)))), ((int)(((byte)(68)))));
-            this.btnLogin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnLogin.ForeColor = System.Drawing.Color.White;
-            this.btnLogin.IconChar = FontAwesome.Sharp.IconChar.RightToBracket;
-            this.btnLogin.IconColor = System.Drawing.Color.White;
-            this.btnLogin.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnLogin.IconSize = 32;
-            this.btnLogin.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnLogin.Location = new System.Drawing.Point(133, 157);
-            this.btnLogin.Name = "btnLogin";
-            this.btnLogin.Size = new System.Drawing.Size(132, 53);
-            this.btnLogin.TabIndex = 4;
-            this.btnLogin.Text = "LOGIN";
-            this.btnLogin.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnLogin.UseVisualStyleBackColor = false;
+            this.BtnLogin.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(30)))), ((int)(((byte)(68)))));
+            this.BtnLogin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnLogin.ForeColor = System.Drawing.Color.White;
+            this.BtnLogin.IconChar = FontAwesome.Sharp.IconChar.RightToBracket;
+            this.BtnLogin.IconColor = System.Drawing.Color.White;
+            this.BtnLogin.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.BtnLogin.IconSize = 32;
+            this.BtnLogin.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.BtnLogin.Location = new System.Drawing.Point(100, 128);
+            this.BtnLogin.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.BtnLogin.Name = "BtnLogin";
+            this.BtnLogin.Size = new System.Drawing.Size(99, 43);
+            this.BtnLogin.TabIndex = 4;
+            this.BtnLogin.Text = "LOGIN";
+            this.BtnLogin.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.BtnLogin.UseVisualStyleBackColor = false;
+            this.BtnLogin.Click += new System.EventHandler(this.BtnLogin_Click);
             // 
             // btnClose
             // 
@@ -108,9 +106,10 @@
             this.btnClose.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnClose.IconSize = 32;
             this.btnClose.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnClose.Location = new System.Drawing.Point(314, 3);
+            this.btnClose.Location = new System.Drawing.Point(236, 2);
+            this.btnClose.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(45, 38);
+            this.btnClose.Size = new System.Drawing.Size(34, 31);
             this.btnClose.TabIndex = 5;
             this.btnClose.UseVisualStyleBackColor = false;
             // 
@@ -121,8 +120,9 @@
             this.panel1.Controls.Add(this.btnClose);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(362, 41);
+            this.panel1.Size = new System.Drawing.Size(272, 33);
             this.panel1.TabIndex = 6;
             // 
             // label3
@@ -130,25 +130,25 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(115, 4);
+            this.label3.Location = new System.Drawing.Point(86, 3);
+            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(125, 27);
+            this.label3.Size = new System.Drawing.Size(103, 22);
             this.label3.TabIndex = 6;
             this.label3.Text = "CAR FLEET";
             // 
             // LoginForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(362, 235);
+            this.ClientSize = new System.Drawing.Size(272, 191);
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.btnLogin);
+            this.Controls.Add(this.BtnLogin);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.tBPassword);
             this.Controls.Add(this.tBLogin);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "LoginForm";
             this.Text = "Login";
             this.panel1.ResumeLayout(false);
@@ -164,7 +164,7 @@
         private System.Windows.Forms.TextBox tBPassword;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private FontAwesome.Sharp.IconButton btnLogin;
+        private FontAwesome.Sharp.IconButton BtnLogin;
         private FontAwesome.Sharp.IconButton btnClose;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label3;

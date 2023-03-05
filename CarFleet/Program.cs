@@ -17,7 +17,7 @@ namespace CarFleet
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new MainForms());
+            Application.Run(new LoginForm());
         }
     }
 }
