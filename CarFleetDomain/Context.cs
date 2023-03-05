@@ -5,6 +5,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data.Sql;
 using System.Data.SqlClient;
+using System.Security.Cryptography;
+using CarFleetDomain.Functions;
 
 namespace CarFleetDomain
 {
@@ -21,6 +23,8 @@ namespace CarFleetDomain
             cmd.Connection = con;
             var list = new List<string>();
             con.Open();
+            var c = PasswordHasher.EncodePassword("password");
+            
 
             var dr = cmd.ExecuteReader();
 
@@ -31,6 +35,6 @@ namespace CarFleetDomain
 
             con.Close();
         }
-
+        
     }
 }

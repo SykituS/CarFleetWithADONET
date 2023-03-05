@@ -15,6 +15,8 @@ namespace CarFleet.Views
             var o = new Context();
 
             o.TestCon();
+
+
         }
 
         private void btnClose_Click(object sender, System.EventArgs e)
