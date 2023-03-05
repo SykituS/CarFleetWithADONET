@@ -1,6 +1,6 @@
 ﻿namespace CarFleet.Views
 {
-    partial class MainForms
+    partial class MainEmployeeForms
     {
         /// <summary>
         /// Required designer variable.
@@ -30,8 +30,8 @@
         {
             this.menupanel = new System.Windows.Forms.Panel();
             this.iconPictureBox1 = new FontAwesome.Sharp.IconPictureBox();
-            this.btnCarList = new FontAwesome.Sharp.IconButton();
-            this.btnEmployeeList = new FontAwesome.Sharp.IconButton();
+            this.BtnCarHistory = new FontAwesome.Sharp.IconButton();
+            this.BtnEmployeeList = new FontAwesome.Sharp.IconButton();
             this.headerpanel = new System.Windows.Forms.Panel();
             this.btnClose = new FontAwesome.Sharp.IconButton();
             this.mainpanel = new System.Windows.Forms.Panel();
@@ -44,8 +44,8 @@
             // 
             this.menupanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(30)))), ((int)(((byte)(68)))));
             this.menupanel.Controls.Add(this.iconPictureBox1);
-            this.menupanel.Controls.Add(this.btnCarList);
-            this.menupanel.Controls.Add(this.btnEmployeeList);
+            this.menupanel.Controls.Add(this.BtnCarHistory);
+            this.menupanel.Controls.Add(this.BtnEmployeeList);
             this.menupanel.Dock = System.Windows.Forms.DockStyle.Left;
             this.menupanel.Location = new System.Drawing.Point(0, 0);
             this.menupanel.Name = "menupanel";
@@ -65,43 +65,43 @@
             this.iconPictureBox1.TabIndex = 4;
             this.iconPictureBox1.TabStop = false;
             // 
-            // btnCarList
+            // BtnCarHistory
             // 
-            this.btnCarList.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(30)))), ((int)(((byte)(68)))));
-            this.btnCarList.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCarList.ForeColor = System.Drawing.Color.White;
-            this.btnCarList.IconChar = FontAwesome.Sharp.IconChar.CarAlt;
-            this.btnCarList.IconColor = System.Drawing.Color.Black;
-            this.btnCarList.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnCarList.IconSize = 32;
-            this.btnCarList.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCarList.Location = new System.Drawing.Point(0, 289);
-            this.btnCarList.Name = "btnCarList";
-            this.btnCarList.Size = new System.Drawing.Size(244, 53);
-            this.btnCarList.TabIndex = 2;
-            this.btnCarList.Text = "CAR LIST";
-            this.btnCarList.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnCarList.UseVisualStyleBackColor = false;
-            this.btnCarList.Click += new System.EventHandler(this.btnCarList_Click);
+            this.BtnCarHistory.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(30)))), ((int)(((byte)(68)))));
+            this.BtnCarHistory.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnCarHistory.ForeColor = System.Drawing.Color.White;
+            this.BtnCarHistory.IconChar = FontAwesome.Sharp.IconChar.CarAlt;
+            this.BtnCarHistory.IconColor = System.Drawing.Color.Black;
+            this.BtnCarHistory.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.BtnCarHistory.IconSize = 32;
+            this.BtnCarHistory.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.BtnCarHistory.Location = new System.Drawing.Point(3, 230);
+            this.BtnCarHistory.Name = "BtnCarHistory";
+            this.BtnCarHistory.Size = new System.Drawing.Size(244, 53);
+            this.BtnCarHistory.TabIndex = 2;
+            this.BtnCarHistory.Text = "CAR HISTORY";
+            this.BtnCarHistory.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.BtnCarHistory.UseVisualStyleBackColor = false;
+            this.BtnCarHistory.Click += new System.EventHandler(this.btnCarList_Click);
             // 
-            // btnEmployeeList
+            // BtnEmployeeList
             // 
-            this.btnEmployeeList.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(30)))), ((int)(((byte)(68)))));
-            this.btnEmployeeList.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnEmployeeList.ForeColor = System.Drawing.Color.White;
-            this.btnEmployeeList.IconChar = FontAwesome.Sharp.IconChar.PeopleGroup;
-            this.btnEmployeeList.IconColor = System.Drawing.Color.Black;
-            this.btnEmployeeList.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnEmployeeList.IconSize = 32;
-            this.btnEmployeeList.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnEmployeeList.Location = new System.Drawing.Point(0, 230);
-            this.btnEmployeeList.Name = "btnEmployeeList";
-            this.btnEmployeeList.Size = new System.Drawing.Size(244, 53);
-            this.btnEmployeeList.TabIndex = 1;
-            this.btnEmployeeList.Text = "EMPLOYEE LIST";
-            this.btnEmployeeList.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnEmployeeList.UseVisualStyleBackColor = false;
-            this.btnEmployeeList.Click += new System.EventHandler(this.iconButton1_Click);
+            this.BtnEmployeeList.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(30)))), ((int)(((byte)(68)))));
+            this.BtnEmployeeList.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnEmployeeList.ForeColor = System.Drawing.Color.White;
+            this.BtnEmployeeList.IconChar = FontAwesome.Sharp.IconChar.PeopleGroup;
+            this.BtnEmployeeList.IconColor = System.Drawing.Color.Black;
+            this.BtnEmployeeList.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.BtnEmployeeList.IconSize = 32;
+            this.BtnEmployeeList.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.BtnEmployeeList.Location = new System.Drawing.Point(3, 289);
+            this.BtnEmployeeList.Name = "BtnEmployeeList";
+            this.BtnEmployeeList.Size = new System.Drawing.Size(244, 53);
+            this.BtnEmployeeList.TabIndex = 1;
+            this.BtnEmployeeList.Text = "EMPLOYEE LIST";
+            this.BtnEmployeeList.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.BtnEmployeeList.UseVisualStyleBackColor = false;
+            this.BtnEmployeeList.Click += new System.EventHandler(this.iconButton1_Click);
             // 
             // headerpanel
             // 
@@ -139,7 +139,7 @@
             this.mainpanel.Size = new System.Drawing.Size(893, 531);
             this.mainpanel.TabIndex = 2;
             // 
-            // MainForms
+            // MainEmployeeForms
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -149,7 +149,7 @@
             this.Controls.Add(this.headerpanel);
             this.Controls.Add(this.menupanel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "MainForms";
+            this.Name = "MainEmployeeForms";
             this.Text = "MainForms";
             this.menupanel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox1)).EndInit();
@@ -163,8 +163,8 @@
         private System.Windows.Forms.Panel menupanel;
         private System.Windows.Forms.Panel headerpanel;
         private System.Windows.Forms.Panel mainpanel;
-        private FontAwesome.Sharp.IconButton btnEmployeeList;
-        private FontAwesome.Sharp.IconButton btnCarList;
+        private FontAwesome.Sharp.IconButton BtnEmployeeList;
+        private FontAwesome.Sharp.IconButton BtnCarHistory;
         private FontAwesome.Sharp.IconPictureBox iconPictureBox1;
         private FontAwesome.Sharp.IconButton btnClose;
     }

@@ -12,11 +12,11 @@ using FontAwesome.Sharp;
 
 namespace CarFleet.Views
 {
-    public partial class MainForms : Form
+    public partial class MainEmployeeForms : Form
     {
         private IconButton currentBtn;
         private Panel leftBorderBtn;
-        public MainForms()
+        public MainEmployeeForms()
         {
             InitializeComponent();
             leftBorderBtn = new Panel();
@@ -94,7 +94,7 @@ namespace CarFleet.Views
         private void btnCarList_Click(object sender, EventArgs e)
         {
             ActiveButton(sender, RGBColors.color2);
-            loadForm(new CarListForm());
+            loadForm(new CarHistoryForm());
         }
 
         private void btnClose_Click(object sender, EventArgs e)
