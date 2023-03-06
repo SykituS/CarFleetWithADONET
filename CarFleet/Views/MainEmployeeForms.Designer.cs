@@ -33,8 +33,10 @@
             this.BtnCarHistory = new FontAwesome.Sharp.IconButton();
             this.BtnEmployeeList = new FontAwesome.Sharp.IconButton();
             this.headerpanel = new System.Windows.Forms.Panel();
+            this.BtnSize = new FontAwesome.Sharp.IconButton();
             this.btnClose = new FontAwesome.Sharp.IconButton();
             this.mainpanel = new System.Windows.Forms.Panel();
+            this.BtnMinimize = new FontAwesome.Sharp.IconButton();
             this.menupanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox1)).BeginInit();
             this.headerpanel.SuspendLayout();
@@ -106,6 +108,8 @@
             // headerpanel
             // 
             this.headerpanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(30)))), ((int)(((byte)(68)))));
+            this.headerpanel.Controls.Add(this.BtnMinimize);
+            this.headerpanel.Controls.Add(this.BtnSize);
             this.headerpanel.Controls.Add(this.btnClose);
             this.headerpanel.Cursor = System.Windows.Forms.Cursors.Default;
             this.headerpanel.Dock = System.Windows.Forms.DockStyle.Top;
@@ -114,8 +118,28 @@
             this.headerpanel.Size = new System.Drawing.Size(893, 29);
             this.headerpanel.TabIndex = 1;
             // 
+            // BtnSize
+            // 
+            this.BtnSize.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.BtnSize.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(30)))), ((int)(((byte)(68)))));
+            this.BtnSize.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnSize.ForeColor = System.Drawing.Color.White;
+            this.BtnSize.IconChar = FontAwesome.Sharp.IconChar.WindowMaximize;
+            this.BtnSize.IconColor = System.Drawing.Color.White;
+            this.BtnSize.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.BtnSize.IconSize = 32;
+            this.BtnSize.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.BtnSize.Location = new System.Drawing.Point(809, 0);
+            this.BtnSize.Name = "BtnSize";
+            this.BtnSize.Size = new System.Drawing.Size(39, 29);
+            this.BtnSize.TabIndex = 7;
+            this.BtnSize.UseVisualStyleBackColor = false;
+            this.BtnSize.Click += new System.EventHandler(this.BtnSize_Click);
+            // 
             // btnClose
             // 
+            this.btnClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnClose.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.btnClose.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(30)))), ((int)(((byte)(68)))));
             this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnClose.ForeColor = System.Drawing.Color.White;
@@ -138,6 +162,24 @@
             this.mainpanel.Name = "mainpanel";
             this.mainpanel.Size = new System.Drawing.Size(893, 531);
             this.mainpanel.TabIndex = 2;
+            // 
+            // BtnMinimize
+            // 
+            this.BtnMinimize.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.BtnMinimize.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(30)))), ((int)(((byte)(68)))));
+            this.BtnMinimize.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnMinimize.ForeColor = System.Drawing.Color.White;
+            this.BtnMinimize.IconChar = FontAwesome.Sharp.IconChar.WindowMinimize;
+            this.BtnMinimize.IconColor = System.Drawing.Color.WhiteSmoke;
+            this.BtnMinimize.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.BtnMinimize.IconSize = 32;
+            this.BtnMinimize.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.BtnMinimize.Location = new System.Drawing.Point(764, 0);
+            this.BtnMinimize.Name = "BtnMinimize";
+            this.BtnMinimize.Size = new System.Drawing.Size(39, 29);
+            this.BtnMinimize.TabIndex = 8;
+            this.BtnMinimize.UseVisualStyleBackColor = false;
+            this.BtnMinimize.Click += new System.EventHandler(this.BtnMinimize_Click);
             // 
             // MainEmployeeForms
             // 
@@ -167,5 +209,7 @@
         private FontAwesome.Sharp.IconButton BtnCarHistory;
         private FontAwesome.Sharp.IconPictureBox iconPictureBox1;
         private FontAwesome.Sharp.IconButton btnClose;
+        private FontAwesome.Sharp.IconButton BtnSize;
+        private FontAwesome.Sharp.IconButton BtnMinimize;
     }
 }

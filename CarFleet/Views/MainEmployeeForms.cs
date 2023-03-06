@@ -102,5 +102,25 @@ namespace CarFleet.Views
             ActiveButton(sender, RGBColors.color3);
             Close();
         }
+
+        private void BtnSize_Click(object sender, EventArgs e)
+        {
+
+            if (this.WindowState == FormWindowState.Normal)
+            {
+                this.WindowState = FormWindowState.Maximized;
+               
+            }
+            else
+            {
+                this.WindowState = FormWindowState.Normal;
+
+            }
+        }
+
+        private void BtnMinimize_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
+        }
     }
 }

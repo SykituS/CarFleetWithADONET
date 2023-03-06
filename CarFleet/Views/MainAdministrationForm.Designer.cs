@@ -28,63 +28,77 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.menupanel = new System.Windows.Forms.Panel();
-            this.iconPictureBox1 = new FontAwesome.Sharp.IconPictureBox();
-            this.BtnCarList = new FontAwesome.Sharp.IconButton();
-            this.BtnEmployeeList = new FontAwesome.Sharp.IconButton();
-            this.headerpanel = new System.Windows.Forms.Panel();
-            this.btnClose = new FontAwesome.Sharp.IconButton();
             this.mainpanel = new System.Windows.Forms.Panel();
+            this.btnClose = new FontAwesome.Sharp.IconButton();
+            this.BtnSize = new FontAwesome.Sharp.IconButton();
+            this.headerpanel = new System.Windows.Forms.Panel();
+            this.BtnEmployeeList = new FontAwesome.Sharp.IconButton();
+            this.BtnCarList = new FontAwesome.Sharp.IconButton();
+            this.iconPictureBox1 = new FontAwesome.Sharp.IconPictureBox();
             this.BtnApplication = new FontAwesome.Sharp.IconButton();
-            this.menupanel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox1)).BeginInit();
+            this.menupanel = new System.Windows.Forms.Panel();
+            this.BtnMinimize = new FontAwesome.Sharp.IconButton();
             this.headerpanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox1)).BeginInit();
+            this.menupanel.SuspendLayout();
             this.SuspendLayout();
             // 
-            // menupanel
+            // mainpanel
             // 
-            this.menupanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(30)))), ((int)(((byte)(68)))));
-            this.menupanel.Controls.Add(this.BtnApplication);
-            this.menupanel.Controls.Add(this.iconPictureBox1);
-            this.menupanel.Controls.Add(this.BtnCarList);
-            this.menupanel.Controls.Add(this.BtnEmployeeList);
-            this.menupanel.Dock = System.Windows.Forms.DockStyle.Left;
-            this.menupanel.Location = new System.Drawing.Point(0, 0);
-            this.menupanel.Name = "menupanel";
-            this.menupanel.Size = new System.Drawing.Size(244, 560);
-            this.menupanel.TabIndex = 0;
+            this.mainpanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.mainpanel.Location = new System.Drawing.Point(242, 29);
+            this.mainpanel.Name = "mainpanel";
+            this.mainpanel.Size = new System.Drawing.Size(895, 531);
+            this.mainpanel.TabIndex = 2;
             // 
-            // iconPictureBox1
+            // btnClose
             // 
-            this.iconPictureBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(30)))), ((int)(((byte)(68)))));
-            this.iconPictureBox1.IconChar = FontAwesome.Sharp.IconChar.HouseChimneyUser;
-            this.iconPictureBox1.IconColor = System.Drawing.Color.White;
-            this.iconPictureBox1.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconPictureBox1.IconSize = 172;
-            this.iconPictureBox1.Location = new System.Drawing.Point(34, 12);
-            this.iconPictureBox1.Name = "iconPictureBox1";
-            this.iconPictureBox1.Size = new System.Drawing.Size(172, 193);
-            this.iconPictureBox1.TabIndex = 4;
-            this.iconPictureBox1.TabStop = false;
+            this.btnClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnClose.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(30)))), ((int)(((byte)(68)))));
+            this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnClose.ForeColor = System.Drawing.Color.White;
+            this.btnClose.IconChar = FontAwesome.Sharp.IconChar.X;
+            this.btnClose.IconColor = System.Drawing.Color.WhiteSmoke;
+            this.btnClose.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnClose.IconSize = 32;
+            this.btnClose.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnClose.Location = new System.Drawing.Point(854, 0);
+            this.btnClose.Name = "btnClose";
+            this.btnClose.Size = new System.Drawing.Size(39, 29);
+            this.btnClose.TabIndex = 5;
+            this.btnClose.UseVisualStyleBackColor = false;
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
-            // BtnCarList
+            // BtnSize
             // 
-            this.BtnCarList.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(30)))), ((int)(((byte)(68)))));
-            this.BtnCarList.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnCarList.ForeColor = System.Drawing.Color.White;
-            this.BtnCarList.IconChar = FontAwesome.Sharp.IconChar.CarAlt;
-            this.BtnCarList.IconColor = System.Drawing.Color.Black;
-            this.BtnCarList.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.BtnCarList.IconSize = 32;
-            this.BtnCarList.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BtnCarList.Location = new System.Drawing.Point(0, 289);
-            this.BtnCarList.Name = "BtnCarList";
-            this.BtnCarList.Size = new System.Drawing.Size(244, 53);
-            this.BtnCarList.TabIndex = 2;
-            this.BtnCarList.Text = "CAR LIST";
-            this.BtnCarList.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.BtnCarList.UseVisualStyleBackColor = false;
-            this.BtnCarList.Click += new System.EventHandler(this.btnCarList_Click);
+            this.BtnSize.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.BtnSize.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(30)))), ((int)(((byte)(68)))));
+            this.BtnSize.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnSize.ForeColor = System.Drawing.Color.White;
+            this.BtnSize.IconChar = FontAwesome.Sharp.IconChar.WindowMaximize;
+            this.BtnSize.IconColor = System.Drawing.Color.WhiteSmoke;
+            this.BtnSize.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.BtnSize.IconSize = 32;
+            this.BtnSize.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.BtnSize.Location = new System.Drawing.Point(809, 0);
+            this.BtnSize.Name = "BtnSize";
+            this.BtnSize.Size = new System.Drawing.Size(39, 29);
+            this.BtnSize.TabIndex = 6;
+            this.BtnSize.UseVisualStyleBackColor = false;
+            this.BtnSize.Click += new System.EventHandler(this.BtnSize_Click);
+            // 
+            // headerpanel
+            // 
+            this.headerpanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(30)))), ((int)(((byte)(68)))));
+            this.headerpanel.Controls.Add(this.BtnMinimize);
+            this.headerpanel.Controls.Add(this.BtnSize);
+            this.headerpanel.Controls.Add(this.btnClose);
+            this.headerpanel.Cursor = System.Windows.Forms.Cursors.Default;
+            this.headerpanel.Dock = System.Windows.Forms.DockStyle.Top;
+            this.headerpanel.Location = new System.Drawing.Point(242, 0);
+            this.headerpanel.Name = "headerpanel";
+            this.headerpanel.Size = new System.Drawing.Size(895, 29);
+            this.headerpanel.TabIndex = 1;
             // 
             // BtnEmployeeList
             // 
@@ -105,41 +119,37 @@
             this.BtnEmployeeList.UseVisualStyleBackColor = false;
             this.BtnEmployeeList.Click += new System.EventHandler(this.iconButton1_Click);
             // 
-            // headerpanel
+            // BtnCarList
             // 
-            this.headerpanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(30)))), ((int)(((byte)(68)))));
-            this.headerpanel.Controls.Add(this.btnClose);
-            this.headerpanel.Cursor = System.Windows.Forms.Cursors.Default;
-            this.headerpanel.Dock = System.Windows.Forms.DockStyle.Top;
-            this.headerpanel.Location = new System.Drawing.Point(244, 0);
-            this.headerpanel.Name = "headerpanel";
-            this.headerpanel.Size = new System.Drawing.Size(893, 29);
-            this.headerpanel.TabIndex = 1;
+            this.BtnCarList.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(30)))), ((int)(((byte)(68)))));
+            this.BtnCarList.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnCarList.ForeColor = System.Drawing.Color.White;
+            this.BtnCarList.IconChar = FontAwesome.Sharp.IconChar.CarAlt;
+            this.BtnCarList.IconColor = System.Drawing.Color.Black;
+            this.BtnCarList.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.BtnCarList.IconSize = 32;
+            this.BtnCarList.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.BtnCarList.Location = new System.Drawing.Point(0, 289);
+            this.BtnCarList.Name = "BtnCarList";
+            this.BtnCarList.Size = new System.Drawing.Size(244, 53);
+            this.BtnCarList.TabIndex = 2;
+            this.BtnCarList.Text = "CAR LIST";
+            this.BtnCarList.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.BtnCarList.UseVisualStyleBackColor = false;
+            this.BtnCarList.Click += new System.EventHandler(this.btnCarList_Click);
             // 
-            // btnClose
+            // iconPictureBox1
             // 
-            this.btnClose.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(30)))), ((int)(((byte)(68)))));
-            this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnClose.ForeColor = System.Drawing.Color.White;
-            this.btnClose.IconChar = FontAwesome.Sharp.IconChar.X;
-            this.btnClose.IconColor = System.Drawing.Color.WhiteSmoke;
-            this.btnClose.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnClose.IconSize = 32;
-            this.btnClose.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnClose.Location = new System.Drawing.Point(854, 0);
-            this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(39, 29);
-            this.btnClose.TabIndex = 5;
-            this.btnClose.UseVisualStyleBackColor = false;
-            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
-            // 
-            // mainpanel
-            // 
-            this.mainpanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.mainpanel.Location = new System.Drawing.Point(244, 29);
-            this.mainpanel.Name = "mainpanel";
-            this.mainpanel.Size = new System.Drawing.Size(893, 531);
-            this.mainpanel.TabIndex = 2;
+            this.iconPictureBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(30)))), ((int)(((byte)(68)))));
+            this.iconPictureBox1.IconChar = FontAwesome.Sharp.IconChar.HouseChimneyUser;
+            this.iconPictureBox1.IconColor = System.Drawing.Color.White;
+            this.iconPictureBox1.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.iconPictureBox1.IconSize = 172;
+            this.iconPictureBox1.Location = new System.Drawing.Point(34, 12);
+            this.iconPictureBox1.Name = "iconPictureBox1";
+            this.iconPictureBox1.Size = new System.Drawing.Size(172, 193);
+            this.iconPictureBox1.TabIndex = 4;
+            this.iconPictureBox1.TabStop = false;
             // 
             // BtnApplication
             // 
@@ -160,7 +170,38 @@
             this.BtnApplication.UseVisualStyleBackColor = false;
             this.BtnApplication.Click += new System.EventHandler(this.BtnApplication_Click);
             // 
-            // AdministrationMainForm
+            // menupanel
+            // 
+            this.menupanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(30)))), ((int)(((byte)(68)))));
+            this.menupanel.Controls.Add(this.BtnApplication);
+            this.menupanel.Controls.Add(this.iconPictureBox1);
+            this.menupanel.Controls.Add(this.BtnCarList);
+            this.menupanel.Controls.Add(this.BtnEmployeeList);
+            this.menupanel.Dock = System.Windows.Forms.DockStyle.Left;
+            this.menupanel.Location = new System.Drawing.Point(0, 0);
+            this.menupanel.Name = "menupanel";
+            this.menupanel.Size = new System.Drawing.Size(242, 560);
+            this.menupanel.TabIndex = 0;
+            // 
+            // BtnMinimize
+            // 
+            this.BtnMinimize.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.BtnMinimize.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(30)))), ((int)(((byte)(68)))));
+            this.BtnMinimize.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnMinimize.ForeColor = System.Drawing.Color.White;
+            this.BtnMinimize.IconChar = FontAwesome.Sharp.IconChar.WindowMinimize;
+            this.BtnMinimize.IconColor = System.Drawing.Color.WhiteSmoke;
+            this.BtnMinimize.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.BtnMinimize.IconSize = 32;
+            this.BtnMinimize.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.BtnMinimize.Location = new System.Drawing.Point(764, 0);
+            this.BtnMinimize.Name = "BtnMinimize";
+            this.BtnMinimize.Size = new System.Drawing.Size(39, 29);
+            this.BtnMinimize.TabIndex = 7;
+            this.BtnMinimize.UseVisualStyleBackColor = false;
+            this.BtnMinimize.Click += new System.EventHandler(this.BtnMinimize_Click);
+            // 
+            // MainAdministrationForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -170,24 +211,26 @@
             this.Controls.Add(this.headerpanel);
             this.Controls.Add(this.menupanel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "AdministrationMainForm";
+            this.Name = "MainAdministrationForm";
             this.Text = "MainForms";
-            this.menupanel.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox1)).EndInit();
             this.headerpanel.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox1)).EndInit();
+            this.menupanel.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.Panel menupanel;
-        private System.Windows.Forms.Panel headerpanel;
         private System.Windows.Forms.Panel mainpanel;
+        private FontAwesome.Sharp.IconButton btnClose;
+        private FontAwesome.Sharp.IconButton BtnSize;
+        private System.Windows.Forms.Panel headerpanel;
         private FontAwesome.Sharp.IconButton BtnEmployeeList;
         private FontAwesome.Sharp.IconButton BtnCarList;
         private FontAwesome.Sharp.IconPictureBox iconPictureBox1;
-        private FontAwesome.Sharp.IconButton btnClose;
         private FontAwesome.Sharp.IconButton BtnApplication;
+        private System.Windows.Forms.Panel menupanel;
+        private FontAwesome.Sharp.IconButton BtnMinimize;
     }
 }
