@@ -57,6 +57,30 @@ namespace CarFleetDomain
         }
 
         #region DummyMethodsToBeDeleted
+        public void UpdateTable<T>(SqlCommand command, DataSet dataSet)
+        {
+            using (var connection = new SqlConnection(ConnectionString))
+            {
+                try
+                {
+                    var adapter = new SqlDataAdapter();
+                    
+                    command.Connection = connection;
+                    adapter.UpdateCommand = command;
+
+                    connection.Open();
+
+                    adapter.Update(dataSet.Tables[typeof(T).Name]);
+
+                    connection.Close();
+                }
+                catch (Exception ex)
+                {
+                    Debug.WriteLine(ex);
+                }
+            }
+        }
+
 
         public void TestCon()
         {
