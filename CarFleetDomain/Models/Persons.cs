@@ -1,5 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
+using System.Data;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,5 +16,47 @@ namespace CarFleetDomain.Models
         public string LastName { get; set; }
         public string PhoneNumber { get; set; }
         public string Email { get; set; }
+
+        private const string SelectCommand = "SELECT * FROM Persons";
+        private const string UpdateCommand = "UPDATE Persons SET FirstName = @fname, Lastname = @lname, PhoneNumber = @pnumber, Email = @email WHERE ID = @UID";
+        private const string InsertCommand = "SELECT * FROM Persons";
+        private const string DeleteCommand = "SELECT * FROM Persons";
+
+        public static void GetPersonsQuery(DataSet dataSet)
+        {
+            var context = new Context();
+            var cmd = new SqlCommand(SelectCommand);
+            context.GetTable<Persons>(cmd, dataSet);
+        }
+
+        public static void UpdatedPersonsCommand(DataSet dataSet)
+        {
+            using (var connection = new SqlConnection(Context.ConnectionString))
+            {
+                try
+                {
+                    var adapter = new SqlDataAdapter();
+
+                    adapter.UpdateCommand =
+                        new SqlCommand(UpdateCommand, connection);
+
+                    adapter.UpdateCommand.Parameters.Add("@fname", SqlDbType.NVarChar, 255, "FirstName");
+                    adapter.UpdateCommand.Parameters.Add("@lname", SqlDbType.NVarChar, 255, "Lastname");
+                    adapter.UpdateCommand.Parameters.Add("@pnumber", SqlDbType.VarChar, 15, "PhoneNumber");
+                    adapter.UpdateCommand.Parameters.Add("@email", SqlDbType.NVarChar, 255, "Email");
+
+                    var parameter = adapter.UpdateCommand.Parameters.Add("@UID", SqlDbType.Int);
+                    parameter.SourceColumn = "ID";
+                    parameter.SourceVersion = DataRowVersion.Original;
+
+                    var table = dataSet.Tables[nameof(Persons)];
+                    adapter.Update(table);
+                }
+                catch (Exception ex)
+                {
+                    Debug.WriteLine(ex);
+                }
+            }
+        }
     }
 }
