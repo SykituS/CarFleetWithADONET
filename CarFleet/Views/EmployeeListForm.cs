@@ -35,5 +35,18 @@ namespace CarFleet.Views
         {
 
         }
+        
+       
+
+        private void BtnAddEmployee_Click_1(object sender, EventArgs e)
+        {
+
+          
+        }
+
+        private void BtnEditEmployee_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

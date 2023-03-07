@@ -32,12 +32,12 @@
             this.btnClose = new FontAwesome.Sharp.IconButton();
             this.BtnSize = new FontAwesome.Sharp.IconButton();
             this.headerpanel = new System.Windows.Forms.Panel();
+            this.BtnMinimize = new FontAwesome.Sharp.IconButton();
             this.BtnEmployeeList = new FontAwesome.Sharp.IconButton();
             this.BtnCarList = new FontAwesome.Sharp.IconButton();
             this.iconPictureBox1 = new FontAwesome.Sharp.IconPictureBox();
             this.BtnApplication = new FontAwesome.Sharp.IconButton();
             this.menupanel = new System.Windows.Forms.Panel();
-            this.BtnMinimize = new FontAwesome.Sharp.IconButton();
             this.headerpanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox1)).BeginInit();
             this.menupanel.SuspendLayout();
@@ -61,7 +61,6 @@
             this.btnClose.IconColor = System.Drawing.Color.WhiteSmoke;
             this.btnClose.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnClose.IconSize = 32;
-            this.btnClose.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnClose.Location = new System.Drawing.Point(854, 0);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(39, 29);
@@ -79,7 +78,6 @@
             this.BtnSize.IconColor = System.Drawing.Color.WhiteSmoke;
             this.BtnSize.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.BtnSize.IconSize = 32;
-            this.BtnSize.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.BtnSize.Location = new System.Drawing.Point(809, 0);
             this.BtnSize.Name = "BtnSize";
             this.BtnSize.Size = new System.Drawing.Size(39, 29);
@@ -99,6 +97,23 @@
             this.headerpanel.Name = "headerpanel";
             this.headerpanel.Size = new System.Drawing.Size(895, 29);
             this.headerpanel.TabIndex = 1;
+            // 
+            // BtnMinimize
+            // 
+            this.BtnMinimize.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.BtnMinimize.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(30)))), ((int)(((byte)(68)))));
+            this.BtnMinimize.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnMinimize.ForeColor = System.Drawing.Color.White;
+            this.BtnMinimize.IconChar = FontAwesome.Sharp.IconChar.WindowMinimize;
+            this.BtnMinimize.IconColor = System.Drawing.Color.WhiteSmoke;
+            this.BtnMinimize.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.BtnMinimize.IconSize = 32;
+            this.BtnMinimize.Location = new System.Drawing.Point(764, 0);
+            this.BtnMinimize.Name = "BtnMinimize";
+            this.BtnMinimize.Size = new System.Drawing.Size(39, 29);
+            this.BtnMinimize.TabIndex = 7;
+            this.BtnMinimize.UseVisualStyleBackColor = false;
+            this.BtnMinimize.Click += new System.EventHandler(this.BtnMinimize_Click);
             // 
             // BtnEmployeeList
             // 
@@ -182,24 +197,6 @@
             this.menupanel.Name = "menupanel";
             this.menupanel.Size = new System.Drawing.Size(242, 560);
             this.menupanel.TabIndex = 0;
-            // 
-            // BtnMinimize
-            // 
-            this.BtnMinimize.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.BtnMinimize.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(30)))), ((int)(((byte)(68)))));
-            this.BtnMinimize.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnMinimize.ForeColor = System.Drawing.Color.White;
-            this.BtnMinimize.IconChar = FontAwesome.Sharp.IconChar.WindowMinimize;
-            this.BtnMinimize.IconColor = System.Drawing.Color.WhiteSmoke;
-            this.BtnMinimize.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.BtnMinimize.IconSize = 32;
-            this.BtnMinimize.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BtnMinimize.Location = new System.Drawing.Point(764, 0);
-            this.BtnMinimize.Name = "BtnMinimize";
-            this.BtnMinimize.Size = new System.Drawing.Size(39, 29);
-            this.BtnMinimize.TabIndex = 7;
-            this.BtnMinimize.UseVisualStyleBackColor = false;
-            this.BtnMinimize.Click += new System.EventHandler(this.BtnMinimize_Click);
             // 
             // MainAdministrationForm
             // 
