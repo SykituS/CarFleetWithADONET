@@ -57,42 +57,101 @@ namespace CarFleetDomain
         }
 
         #region DummyMethodsToBeDeleted
-        public void UpdateTable<T>(SqlCommand command, DataSet dataSet)
-        {
-            using (var connection = new SqlConnection(ConnectionString))
-            {
-                try
-                {
-                    var adapter = new SqlDataAdapter();
+        //public void UpdateTable<T>(SqlCommand command, DataSet dataSet)
+        //{
+        //    using (var connection = new SqlConnection(ConnectionString))
+        //    {
+        //        try
+        //        {
+        //            var adapter = new SqlDataAdapter();
                     
-                    command.Connection = connection;
-                    adapter.UpdateCommand = command;
+        //            command.Connection = connection;
+        //            adapter.UpdateCommand = command;
 
-                    connection.Open();
+        //            connection.Open();
 
-                    adapter.Update(dataSet.Tables[typeof(T).Name]);
+        //            adapter.Update(dataSet.Tables[typeof(T).Name]);
 
-                    connection.Close();
-                }
-                catch (Exception ex)
-                {
-                    Debug.WriteLine(ex);
-                }
-            }
-        }
+        //            connection.Close();
+        //        }
+        //        catch (Exception ex)
+        //        {
+        //            Debug.WriteLine(ex);
+        //        }
+        //    }
+        //}
+
+        //public void TestCon()
+        //{
+        //    var con = new SqlConnection(ConnectionString);
+        //    var cmd = new SqlCommand();
+
+        //    cmd.CommandText = "Select TOP (10) * from Persons";
+        //    cmd.Connection = con;
+        //    var list = new List<string>();
+        //    con.Open();
+        //    var c = PasswordHasher.EncodePassword("password");
+        //}
+
+        //public CommandResponse<DataSet> LoginUser(string username, string password)
+        //{
+        //    var reply = new CommandResponse<DataSet>(new DataSet("Data"));
+        //    var passwordHash = PasswordHasher.EncodePassword(password);
+
+        //    var cmdText = "SELECT TOP(1) * FROM Users WHERE @username = UserName AND @password = PasswordHash";
+        //    //var cmdText = "SELECT TOP(1) * FROM Users WHERE @username = UserName AND @password = PasswordHash";
+        //    var cmd = new SqlCommand(cmdText);
+
+        //    cmd.Parameters.AddWithValue("username", username);
+        //    cmd.Parameters.AddWithValue("password", passwordHash);
+
+        //    _context.GetTable<Users>(cmd, reply.ReturnedValue);
 
 
-        public void TestCon()
-        {
-            var con = new SqlConnection(ConnectionString);
-            var cmd = new SqlCommand();
+        //    var cmdTextPerson = "SELECT * FROM Persons";
+        //    var cmdPerson = new SqlCommand(cmdTextPerson);
+        //    _context.GetTable<Persons>(cmdPerson, reply.ReturnedValue);
 
-            cmd.CommandText = "Select TOP (10) * from Persons";
-            cmd.Connection = con;
-            var list = new List<string>();
-            con.Open();
-            var c = PasswordHasher.EncodePassword("password");
-        }
+
+        //    var parentColumn = reply.ReturnedValue.Tables["Persons"].Columns["ID"];
+        //    var childColumn = reply.ReturnedValue.Tables["Users"].Columns["PersonID"];
+
+        //    var relation = new DataRelation("UserPerson", parentColumn, childColumn);
+        //    reply.ReturnedValue.Relations.Add(relation);
+
+        //    var data = reply.ReturnedValue.Tables["Users"].Rows[0];
+
+        //    return reply;
+        //}
+
+        //public void UpdateTest()
+        //{
+        //    var dataSet = new DataSet();
+        //    Persons.GetPersonsQuery(dataSet);
+
+        //    var row = dataSet.Tables[nameof(Persons)]?.AsEnumerable()
+        //        .FirstOrDefault(e => e.Field<int>(nameof(Persons.ID)) == 1);
+        //    row[nameof(Persons.FirstName)] = "Janek";
+        //    row[nameof(Persons.LastName)] = "Torowek";
+        //    var response = Persons.UpdatedPersonsCommand(dataSet);
+        //}
+
+        //public void InsertTest()
+        //{
+        //    var dataSet = new DataSet();
+        //    Persons.GetPersonsQuery(dataSet);
+
+        //    var row = dataSet.Tables[nameof(Persons)].NewRow();
+
+        //    row[nameof(Persons.FirstName)] = "Januszek";
+        //    row[nameof(Persons.LastName)] = "Kowalczyk";
+        //    row[nameof(Persons.PhoneNumber)] = "123123123";
+        //    row[nameof(Persons.Email)] = "januszek.kowalczyk@gmail.com";
+
+        //    dataSet.Tables[nameof(Persons)].Rows.Add(row);
+
+        //    Persons.InsertPersonsCommand(dataSet);
+        //}
 
         #endregion
     }
