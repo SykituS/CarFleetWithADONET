@@ -23,8 +23,8 @@ namespace CarFleetDomain.Models
         private const string SelectCommand = "SELECT * FROM Users";
         private const string UpdateCommand =
             "UPDATE [dbo].[Users] SET [UserName] = @UserName, [PasswordHash] = @PasswordHash ,[PersonID] = @PersonID ,[RoleID] = @RoleID WHERE ID = @UID";
-        private const string InsertCommand = "SELECT * FROM Persons";
-        private const string DeleteCommand = "SELECT * FROM Persons";
+        private const string InsertCommand = "INSERT INTO Users (UserName, PasswordHash, PersonID) VALUES (@UserName, @PasswordHash, @PersonID)";
+        private const string DeleteCommand = "DELETE FROM Users WHERE ID = @id";
 
         public static void GetUsersQuery(DataSet dataSet)
         {
@@ -40,7 +40,7 @@ namespace CarFleetDomain.Models
                 try
                 {
                     var adapter = new SqlDataAdapter();
-                    
+
                     adapter.UpdateCommand =
                         new SqlCommand(UpdateCommand, connection);
 
@@ -55,6 +55,29 @@ namespace CarFleetDomain.Models
 
                     var table = dataSet.Tables[nameof(Users)];
                     adapter.Update(table);
+                }
+                catch (Exception ex)
+                {
+                    Debug.WriteLine(ex);
+                }
+            }
+        }
+
+        public void InsertUsersCommand(DataSet dataSet)
+        {
+            using (var connection = new SqlConnection(Context.ConnectionString))
+            {
+                try
+                {
+                    // Create a new SqlDataAdapter and configure the INSERT command
+                    var adapter = new SqlDataAdapter();
+                    adapter.InsertCommand = new SqlCommand(InsertCommand, connection);
+                    adapter.InsertCommand.Parameters.Add("@userName", SqlDbType.NVarChar, 50, "UserName");
+                    adapter.InsertCommand.Parameters.Add("@passwordHash", SqlDbType.NVarChar, 256, "PasswordHash");
+                    adapter.InsertCommand.Parameters.Add("@personID", SqlDbType.Int, 4, "PersonID");
+
+                    // Update the database with the changes made to the DataSet
+                    adapter.Update(dataSet, "Users");
                 }
                 catch (Exception ex)
                 {

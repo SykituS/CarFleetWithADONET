@@ -53,6 +53,12 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Views\AddEmployeeForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\AddEmployeeForm.Designer.cs">
+      <DependentUpon>AddEmployeeForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\CarHistoryForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -97,6 +103,9 @@
     <Compile Include="Views\MainEmployeeForms.Designer.cs">
       <DependentUpon>MainEmployeeForms.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Views\AddEmployeeForm.resx">
+      <DependentUpon>AddEmployeeForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\CarHistoryForm.resx">
       <DependentUpon>CarHistoryForm.cs</DependentUpon>
     </EmbeddedResource>

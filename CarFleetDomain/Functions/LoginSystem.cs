@@ -91,5 +91,22 @@ namespace CarFleetDomain.Functions
             row["FirstName"] = "Testowe imie";
             Persons.UpdatedPersonsCommand(dataSet);
         }
+
+        public void InsertTest()
+        {
+            var dataSet = new DataSet();
+            Persons.GetPersonsQuery(dataSet);
+
+            var row = dataSet.Tables[nameof(Persons)].NewRow();
+
+            row["FirstName"] = "Januszek";
+            row["LastName"] = "Kowalczyk";
+            row["PhoneNumber"] = "123123123";
+            row["Email"] = "januszek.kowalczyk@gmail.com";
+
+            dataSet.Tables[nameof(Persons)].Rows.Add(row);
+
+            Persons.InsertPersonsCommand(dataSet);
+        }
     }
 }

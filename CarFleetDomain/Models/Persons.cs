@@ -19,7 +19,7 @@ namespace CarFleetDomain.Models
 
         private const string SelectCommand = "SELECT * FROM Persons";
         private const string UpdateCommand = "UPDATE Persons SET FirstName = @fname, Lastname = @lname, PhoneNumber = @pnumber, Email = @email WHERE ID = @UID";
-        private const string InsertCommand = "SELECT * FROM Persons";
+        private const string InsertCommand = "INSERT INTO Persons (FirstName, LastName, PhoneNumber, Email) VALUES (@firstName, @lastName, @phoneNumber, @email)";
         private const string DeleteCommand = "SELECT * FROM Persons";
 
         public static void GetPersonsQuery(DataSet dataSet)
@@ -51,6 +51,31 @@ namespace CarFleetDomain.Models
 
                     var table = dataSet.Tables[nameof(Persons)];
                     adapter.Update(table);
+                }
+                catch (Exception ex)
+                {
+                    Debug.WriteLine(ex);
+                }
+            }
+        }
+        public static void InsertPersonsCommand(DataSet dataSet)
+        {
+            using (var connection = new SqlConnection(Context.ConnectionString))
+            {
+                try
+                {
+                    // Create a new SqlDataAdapter and update the database with the changes made to the DataSet
+                    var adapter = new SqlDataAdapter();
+
+                    // Define the INSERT command to insert new rows into the Persons table
+                    adapter.InsertCommand = new SqlCommand(InsertCommand, connection);
+                    adapter.InsertCommand.Parameters.Add("@firstName", SqlDbType.NVarChar, 50, "FirstName");
+                    adapter.InsertCommand.Parameters.Add("@lastName", SqlDbType.NVarChar, 50, "LastName");
+                    adapter.InsertCommand.Parameters.Add("@phoneNumber", SqlDbType.NVarChar, 20, "PhoneNumber");
+                    adapter.InsertCommand.Parameters.Add("@email", SqlDbType.NVarChar, 50, "Email");
+
+                    // Update the database with the changes made to the DataSet
+                    adapter.Update(dataSet.Tables[nameof(Persons)]);
                 }
                 catch (Exception ex)
                 {
