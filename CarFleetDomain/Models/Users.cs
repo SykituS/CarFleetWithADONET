@@ -20,20 +20,30 @@ namespace CarFleetDomain.Models
         public Persons Person { get; set; }
         public RoleEnum Role { get; set; }
 
+        #region Data Base Methods
+
         private const string SelectCommand = "SELECT * FROM Users";
         private const string UpdateCommand =
             "UPDATE [dbo].[Users] SET [UserName] = @UserName, [PasswordHash] = @PasswordHash ,[PersonID] = @PersonID ,[RoleID] = @RoleID WHERE ID = @UID";
         private const string InsertCommand = "INSERT INTO Users (UserName, PasswordHash, PersonID) VALUES (@UserName, @PasswordHash, @PersonID)";
-        private const string DeleteCommand = "DELETE FROM Users WHERE ID = @id";
+        private const string DeleteCommand = "DELETE FROM Users WHERE ID = @UID";
 
-        public static void GetUsersQuery(DataSet dataSet)
+        public static DataResponse GetUsersQuery(DataSet dataSet)
         {
             var context = new Context();
             var cmd = new SqlCommand(SelectCommand);
-            context.GetTable<Users>(cmd, dataSet);
+            var response = context.GetTable<Users>(cmd, dataSet);
+
+            if (response.Success)
+            {
+                return new DataResponse() { Success = true, Message = "Data was read successfully!" };
+            }
+
+            return new DataResponse() { Success = false, Message = "There was a problem while reading a data! " + response.Message };
+
         }
 
-        public static void UpdateUsersCommand(DataSet dataSet)
+        public static DataResponse UpdateUsersCommand(DataSet dataSet)
         {
             using (var connection = new SqlConnection(Context.ConnectionString))
             {
@@ -49,21 +59,34 @@ namespace CarFleetDomain.Models
                     adapter.UpdateCommand.Parameters.Add("@PersonID", SqlDbType.Int, Int32.MaxValue, "PersonID");
                     adapter.UpdateCommand.Parameters.Add("@RoleID", SqlDbType.Int, 2, "RoleID");
 
+                    // Read ID from Original source (data base) in case they have changed in the process
                     var parameter = adapter.UpdateCommand.Parameters.Add("@UID", SqlDbType.Int);
                     parameter.SourceColumn = "ID";
                     parameter.SourceVersion = DataRowVersion.Original;
 
                     var table = dataSet.Tables[nameof(Users)];
+
+                    if (!dataSet.HasChanges())
+                        return new DataResponse() { Success = false, Message = "In given data is no change" };
+
+                    if (dataSet.HasErrors)
+                    {
+                        dataSet.RejectChanges();
+                        return new DataResponse() { Success = false, Message = "Given data has errors!" };
+                    }
+
                     adapter.Update(table);
+                    return new DataResponse() { Success = true, Message = "Data was updated successfully" };
                 }
                 catch (Exception ex)
                 {
                     Debug.WriteLine(ex);
+                    return new DataResponse() { Success = false, Message = "There was error while updating data: " + ex };
                 }
             }
         }
 
-        public void InsertUsersCommand(DataSet dataSet)
+        public static DataResponse InsertUsersCommand(DataSet dataSet)
         {
             using (var connection = new SqlConnection(Context.ConnectionString))
             {
@@ -71,20 +94,43 @@ namespace CarFleetDomain.Models
                 {
                     // Create a new SqlDataAdapter and configure the INSERT command
                     var adapter = new SqlDataAdapter();
+
                     adapter.InsertCommand = new SqlCommand(InsertCommand, connection);
                     adapter.InsertCommand.Parameters.Add("@userName", SqlDbType.NVarChar, 50, "UserName");
                     adapter.InsertCommand.Parameters.Add("@passwordHash", SqlDbType.NVarChar, 256, "PasswordHash");
                     adapter.InsertCommand.Parameters.Add("@personID", SqlDbType.Int, 4, "PersonID");
 
                     // Update the database with the changes made to the DataSet
-                    adapter.Update(dataSet, "Users");
+                    var table = dataSet.Tables[nameof(Persons)];
+
+                    // Check if there are changes in data set
+                    if (!dataSet.HasChanges())
+                        return new DataResponse() { Success = false, Message = "In given data is no change" };
+
+                    // Check if data set contains errors
+                    if (dataSet.HasErrors)
+                    {
+                        dataSet.RejectChanges();
+                        return new DataResponse() { Success = false, Message = "Given data has errors!" };
+                    }
+
+                    // Update the database with the changes made to the DataSet
+                    adapter.Update(table);
+                    return new DataResponse() { Success = true, Message = "Data was updated successfully" };
                 }
                 catch (Exception ex)
                 {
                     Debug.WriteLine(ex);
+                    return new DataResponse() { Success = false, Message = "There was error while updating data: " + ex };
                 }
             }
         }
+
+        public static DataResponse DeletePeronsCommand(DataSet dataSet)
+        {
+            throw (new NotImplementedException());
+        }
+        #endregion
     }
 
     public enum RoleEnum
