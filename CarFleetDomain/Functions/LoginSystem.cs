@@ -86,10 +86,11 @@ namespace CarFleetDomain.Functions
             var dataSet = new DataSet();
             Persons.GetPersonsQuery(dataSet);
 
-            var row = dataSet.Tables["Persons"]?.AsEnumerable()
-                .FirstOrDefault(e => e.Field<int>("ID") == 5);
-            row["FirstName"] = "Testowe imie";
-            Persons.UpdatedPersonsCommand(dataSet);
+            var row = dataSet.Tables[nameof(Persons)]?.AsEnumerable()
+                .FirstOrDefault(e => e.Field<int>(nameof(Persons.ID)) == 1);
+            row[nameof(Persons.FirstName)] = "Janek";
+            row[nameof(Persons.LastName)] = "Torowek";
+            var response = Persons.UpdatedPersonsCommand(dataSet);
         }
 
         public void InsertTest()
@@ -99,10 +100,10 @@ namespace CarFleetDomain.Functions
 
             var row = dataSet.Tables[nameof(Persons)].NewRow();
 
-            row["FirstName"] = "Januszek";
-            row["LastName"] = "Kowalczyk";
-            row["PhoneNumber"] = "123123123";
-            row["Email"] = "januszek.kowalczyk@gmail.com";
+            row[nameof(Persons.FirstName)] = "Januszek";
+            row[nameof(Persons.LastName)] = "Kowalczyk";
+            row[nameof(Persons.PhoneNumber)] = "123123123";
+            row[nameof(Persons.Email)] = "januszek.kowalczyk@gmail.com";
 
             dataSet.Tables[nameof(Persons)].Rows.Add(row);
 

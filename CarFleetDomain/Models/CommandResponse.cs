@@ -20,4 +20,10 @@ namespace CarFleetDomain.Models
         public T ReturnedValue { get; set; }
         public string ReturnedString { get; set; }
     }
+
+    public class DataResponse
+    {
+        public bool Success { get; set; }
+        public string Message { get; set; }
+    }
 }

@@ -9,6 +9,7 @@ using System.Data.SqlClient;
 using System.Diagnostics;
 using System.Security.Cryptography;
 using CarFleetDomain.Functions;
+using CarFleetDomain.Models;
 
 namespace CarFleetDomain
 {
@@ -31,7 +32,7 @@ namespace CarFleetDomain
         /// <typeparam name="T">Model for data table</typeparam>
         /// <param name="command">Query ready to use</param>
         /// <param name="dataSet">Existing dataSet to be filled with new data table</param>
-        public void GetTable<T>(SqlCommand command, DataSet dataSet)
+        public DataResponse GetTable<T>(SqlCommand command, DataSet dataSet)
         {
             using (var connection = new SqlConnection(ConnectionString))
             {
@@ -42,16 +43,15 @@ namespace CarFleetDomain
 
                     command.Connection = connection;
                     adapter.SelectCommand = command;
-
-                    connection.Open();
-
+                    
                     adapter.Fill(dataSet);
 
-                    connection.Close();
+                    return new DataResponse() { Success = true, Message = "Data was read successfully!" };
                 }
                 catch (Exception ex)
                 {
                     Debug.WriteLine(ex);
+                    return new DataResponse() { Success = false, Message = "There was error while updating data: " + ex };
                 }
             }
         }
