@@ -29,7 +29,7 @@ namespace CarFleetDomain.Functions
 
             if (dataSet.Tables["Persons"].Rows.Count < 1)
             {
-                reply.ReturnedString = "No value returned";
+                reply.Message = "No value returned";
             }
 
             return reply;

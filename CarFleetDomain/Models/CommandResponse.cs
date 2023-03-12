@@ -10,7 +10,7 @@ namespace CarFleetDomain.Models
     /// Response for given command
     /// </summary>
     /// <typeparam name="T">Model to use</typeparam>
-    public class CommandResponse<T> where T : class
+    public class CommandResponse<T> : DataResponse where T : class
     {
         public CommandResponse(T returnedValue)
         {
@@ -18,9 +18,7 @@ namespace CarFleetDomain.Models
         }
 
         public T ReturnedValue { get; set; }
-        public string ReturnedString { get; set; }
     }
-
     public class DataResponse
     {
         public bool Success { get; set; }
