@@ -41,7 +41,7 @@ namespace CarFleet.Views
         private void BtnAddEmployee_Click_1(object sender, EventArgs e)
         {
             AddEmployeeForm addEmployeeForm = new AddEmployeeForm();  // create instance of AddEmployeeForm
-            MainEmployeeForms mainForm = (MainEmployeeForms)this.ParentForm;  // get reference to the parent form
+            MainAdministrationForm mainForm = (MainAdministrationForm)this.ParentForm;  // get reference to the parent form
 
             // load AddEmployeeForm in the mainpanel of the parent form
             mainForm.loadForm(addEmployeeForm);
@@ -50,7 +50,11 @@ namespace CarFleet.Views
 
         private void BtnEditEmployee_Click(object sender, EventArgs e)
         {
+            EditEmployeeForm editEmployeeForm = new EditEmployeeForm();  // create instance of AddEmployeeForm
+            MainAdministrationForm mainForm = (MainAdministrationForm)this.ParentForm;  // get reference to the parent form
 
+            // load AddEmployeeForm in the mainpanel of the parent form
+            mainForm.loadForm(editEmployeeForm);
         }
     }
 }

@@ -127,7 +127,7 @@
             this.BtnNewEmplyee.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnNewEmplyee.ForeColor = System.Drawing.Color.White;
             this.BtnNewEmplyee.IconChar = FontAwesome.Sharp.IconChar.Add;
-            this.BtnNewEmplyee.IconColor = System.Drawing.Color.Black;
+            this.BtnNewEmplyee.IconColor = System.Drawing.Color.White;
             this.BtnNewEmplyee.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.BtnNewEmplyee.IconSize = 32;
             this.BtnNewEmplyee.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -147,7 +147,7 @@
             this.BtnBack.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnBack.ForeColor = System.Drawing.Color.White;
             this.BtnBack.IconChar = FontAwesome.Sharp.IconChar.Backward;
-            this.BtnBack.IconColor = System.Drawing.Color.Black;
+            this.BtnBack.IconColor = System.Drawing.Color.White;
             this.BtnBack.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.BtnBack.IconSize = 32;
             this.BtnBack.Location = new System.Drawing.Point(203, 270);

@@ -104,7 +104,7 @@
             // 
             // BtnMinimize
             // 
-            this.BtnMinimize.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.BtnMinimize.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.BtnMinimize.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(30)))), ((int)(((byte)(68)))));
             this.BtnMinimize.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnMinimize.ForeColor = System.Drawing.Color.White;
