@@ -15,7 +15,7 @@ namespace CarFleet.Views
         {
             //var response = new LoginSystem().LoginUser(TBLogin.Text, TBPassword.Text);
            // var response = new LoginSystem().UpdateTest();
-           new LoginSystem().UpdateTest();
+           //new LoginSystem().UpdateTest();
         }
 
         private void btnClose_Click(object sender, System.EventArgs e)
