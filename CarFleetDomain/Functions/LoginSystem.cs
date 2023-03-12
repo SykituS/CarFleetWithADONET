@@ -30,8 +30,14 @@ namespace CarFleetDomain.Functions
             var dataSet = new DataSet("Data");
             _context.GetTable<Users>(cmd, dataSet);
 
+            if (dataSet.Tables[nameof(Users)].Rows.Count != 1)
+            {
+                reply.Message = "There was an error while login to system. Please contact with IT support team!";
+                reply.Success = false;
+                return reply;
+            }
 
-            var cmdTextPerson = "SELECT * FROM Persons";
+            var cmdTextPerson = "SELECT * FROM Persons WHERE";
             var cmdPerson = new SqlCommand(cmdTextPerson);
             _context.GetTable<Persons>(cmdPerson, dataSet);
 

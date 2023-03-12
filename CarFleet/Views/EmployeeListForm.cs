@@ -23,9 +23,9 @@ namespace CarFleet.Views
         {
             var data = new EmployeeSystem().GetEmployees();
 
-            if (data.ReturnedString != null)
+            if (data.Message != null)
             {
-                label1.Text = data.ReturnedString;
+                label1.Text = data.Message;
             }
 
             DataGridViewEmployeeList.DataSource = data.ReturnedValue.Tables["Persons"];
