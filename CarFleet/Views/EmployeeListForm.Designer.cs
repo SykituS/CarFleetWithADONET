@@ -41,15 +41,17 @@
             // DataGridViewEmployeeList
             // 
             this.DataGridViewEmployeeList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.DataGridViewEmployeeList.Location = new System.Drawing.Point(46, 50);
+            this.DataGridViewEmployeeList.Dock = System.Windows.Forms.DockStyle.Left;
+            this.DataGridViewEmployeeList.Location = new System.Drawing.Point(0, 0);
             this.DataGridViewEmployeeList.Margin = new System.Windows.Forms.Padding(4);
             this.DataGridViewEmployeeList.Name = "DataGridViewEmployeeList";
             this.DataGridViewEmployeeList.RowHeadersWidth = 51;
-            this.DataGridViewEmployeeList.Size = new System.Drawing.Size(697, 454);
+            this.DataGridViewEmployeeList.Size = new System.Drawing.Size(697, 554);
             this.DataGridViewEmployeeList.TabIndex = 6;
             // 
             // BtnAddEmployee
             // 
+            this.BtnAddEmployee.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.BtnAddEmployee.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(30)))), ((int)(((byte)(68)))));
             this.BtnAddEmployee.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnAddEmployee.ForeColor = System.Drawing.Color.White;
@@ -69,6 +71,7 @@
             // 
             // BtnEditEmployee
             // 
+            this.BtnEditEmployee.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.BtnEditEmployee.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(30)))), ((int)(((byte)(68)))));
             this.BtnEditEmployee.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnEditEmployee.ForeColor = System.Drawing.Color.White;
@@ -88,6 +91,7 @@
             // 
             // BtnDeleteEmployee
             // 
+            this.BtnDeleteEmployee.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.BtnDeleteEmployee.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(30)))), ((int)(((byte)(68)))));
             this.BtnDeleteEmployee.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnDeleteEmployee.ForeColor = System.Drawing.Color.White;
@@ -109,9 +113,9 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(798, 267);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(44, 16);
+            this.label1.Size = new System.Drawing.Size(28, 16);
             this.label1.TabIndex = 10;
-            this.label1.Text = "label1";
+            this.label1.Text = "123";
             // 
             // mainpanel
             // 
