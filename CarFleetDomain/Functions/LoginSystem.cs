@@ -20,50 +20,38 @@ namespace CarFleetDomain.Functions
             var reply = new CommandResponse<Users>(new Users());
             var passwordHash = PasswordHasher.EncodePassword(password);
 
-            var dataSet = new DataSet();
-            var response = Users.GetUsersQuery(dataSet);
-            
-            if (!response.Success)
-            {
-                reply.Message = response.Message;
-                reply.Success = response.Success;
-                return reply;
-            }
+            var cmdText = "SELECT TOP(1) * FROM Users WHERE @username = UserName AND @password = PasswordHash";
+            //var cmdText = "SELECT TOP(1) * FROM Users WHERE @username = UserName AND @password = PasswordHash";
+            var cmd = new SqlCommand(cmdText);
 
-            var userRow = dataSet.Tables[nameof(Users)].AsEnumerable().FirstOrDefault(e =>
-                e.Field<string>(nameof(Users.UserName)) == username &&
-                e.Field<string>(nameof(Users.PasswordHash)) == passwordHash);
+            cmd.Parameters.AddWithValue("username", username);
+            cmd.Parameters.AddWithValue("password", passwordHash);
 
-            if (userRow == null)
+            var dataSet = new DataSet("Data");
+            _context.GetTable<Users>(cmd, dataSet);
+
+            if (dataSet.Tables[nameof(Users)].Rows.Count != 1)
             {
                 reply.Message = "There was an error while login to system. Please contact with IT support team!";
                 reply.Success = false;
                 return reply;
             }
 
-            response = Persons.GetPersonsQuery(dataSet);
+            var cmdTextPerson = "SELECT * FROM Persons WHERE";
+            var cmdPerson = new SqlCommand(cmdTextPerson);
+            _context.GetTable<Persons>(cmdPerson, dataSet);
 
-            if (!response.Success)
-            {
-                reply.Message = response.Message;
-                reply.Success = response.Success;
-                return reply;
-            }
 
-            var personID = (int)userRow.ItemArray[3];
+            var parentColumn = dataSet.Tables["Persons"].Columns["ID"];
+            var childColumn = dataSet.Tables["Users"].Columns["PersonID"];
 
-            var personRow = dataSet.Tables[nameof(Persons)].AsEnumerable()
-                .FirstOrDefault(e => e.Field<int>(nameof(Persons.ID)) == personID);
+            var relation = new DataRelation("UserPerson", parentColumn, childColumn);
+            dataSet.Relations.Add(relation);
 
-            if (personRow == null)
-            {
-                reply.Message = "There was an error while login to system. Please contact with IT support team!";
-                reply.Success = false;
-                return reply;
-            }
+            var data = dataSet.Tables["Users"].Rows[0];
+            reply.ReturnedValue.ID = (int)data["ID"];
+            reply.ReturnedValue.UserName = (string)data["UserName"];
 
-            reply.ReturnedValue = CastObject.CreateItemFromRow<Users>(userRow);
-            reply.ReturnedValue.Person = CastObject.CreateItemFromRow<Persons>(personRow);
 
             return reply;
         }

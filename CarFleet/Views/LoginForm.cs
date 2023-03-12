@@ -1,11 +1,10 @@
-﻿using System;
-using System.Windows.Forms;
+﻿using System.Windows.Forms;
 using CarFleetDomain;
 using CarFleetDomain.Functions;
 
 namespace CarFleet.Views
 {
-    public partial class LoginForm : Form
+    public partial class LoginForm : Form 
     {
         public LoginForm()
         {
@@ -14,9 +13,9 @@ namespace CarFleet.Views
 
         private void BtnLogin_Click(object sender, System.EventArgs e)
         {
-            var response = new LoginSystem().LoginUser(TBLogin.Text, TBPassword.Text);
-            
-            new MainAdministrationForm(response.ReturnedValue).Show();
+            //var response = new LoginSystem().LoginUser(TBLogin.Text, TBPassword.Text);
+           // var response = new LoginSystem().UpdateTest();
+           //new LoginSystem().UpdateTest();
         }
 
         private void btnClose_Click(object sender, System.EventArgs e)

@@ -10,7 +10,6 @@ using System.Diagnostics;
 using System.Security.Cryptography;
 using CarFleetDomain.Functions;
 using CarFleetDomain.Models;
-using System.Reflection;
 
 namespace CarFleetDomain
 {
@@ -65,7 +64,7 @@ namespace CarFleetDomain
         //        try
         //        {
         //            var adapter = new SqlDataAdapter();
-
+                    
         //            command.Connection = connection;
         //            adapter.UpdateCommand = command;
 
