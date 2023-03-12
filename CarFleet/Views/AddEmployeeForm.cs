@@ -24,7 +24,11 @@ namespace CarFleet.Views
 
         private void BtnBack_Click(object sender, EventArgs e)
         {
-            
+            EmployeeListForm employeeListForm = new EmployeeListForm();  // create instance of AddEmployeeForm
+            MainEmployeeForms mainForm = (MainEmployeeForms)this.ParentForm;  // get reference to the parent form
+
+            // load AddEmployeeForm in the mainpanel of the parent form
+            mainForm.loadForm(employeeListForm);
         }
     }
 }

@@ -34,24 +34,6 @@ namespace CarFleetDomain.Functions
 
             return reply;
         }
-        public void AddPersonQuery(DataSet dataSet)
-        {
-            using (var connection = new SqlConnection(Context.ConnectionString)) {
-
-
-                // Create a new SqlDataAdapter and update the database with the changes made to the DataSet
-                var adapter = new SqlDataAdapter();
-                adapter.InsertCommand = new SqlCommand("INSERT INTO Persons (FirstName, LastName, PhoneNumber, Email) VALUES (@firstName, @lastName, @phoneNumber, @email)");
-                adapter.InsertCommand.Parameters.AddWithValue("@firstName", "FirstName");
-                adapter.InsertCommand.Parameters.AddWithValue("@lastName", "LastName");
-                adapter.InsertCommand.Parameters.AddWithValue("@phoneNumber", "PhoneNumber");
-                adapter.InsertCommand.Parameters.AddWithValue("@email", "Email");
-
-                var table = new DataTable();
-                adapter.Fill(table);
-                adapter.Update(table);
-
-
-            } }
+       
     }
     }
