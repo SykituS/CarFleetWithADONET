@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using CarFleetDomain.Models;
 
 namespace CarFleet.Views
 {
@@ -16,10 +17,12 @@ namespace CarFleet.Views
         
         private IconButton currentBtn;
         private Panel leftBorderBtn;
-        public MainAdministrationForm()
+        private Users loggedUser;
+
+        public MainAdministrationForm(Users loggedUser)
         {
-        
-        
+            this.loggedUser = loggedUser;
+
             InitializeComponent();
             leftBorderBtn = new Panel();
             leftBorderBtn.Size = new Size(7, 60);

@@ -42,6 +42,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Context.cs" />
+    <Compile Include="Functions\CastObject.cs" />
     <Compile Include="Functions\EmployeeSystem.cs" />
     <Compile Include="Functions\LoginSystem.cs" />
     <Compile Include="Functions\PasswordHasher.cs" />
