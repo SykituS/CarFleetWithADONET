@@ -64,6 +64,7 @@ namespace CarFleetDomain.Functions
 
             reply.ReturnedValue = CastObject.CreateItemFromRow<Users>(userRow);
             reply.ReturnedValue.Person = CastObject.CreateItemFromRow<Persons>(personRow);
+            reply.Success = true;
 
             return reply;
         }

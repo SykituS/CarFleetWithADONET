@@ -34,6 +34,14 @@ namespace CarFleetDomain.Functions
 
             return reply;
         }
-       
+
+        public CommandResponse<Persons> InserNewEmployee(Persons person)
+        {
+            var reply = new CommandResponse<Persons>(person);
+
+            
+            return reply;
+        }
+
     }
-    }
+}

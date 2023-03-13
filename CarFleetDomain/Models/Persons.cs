@@ -109,6 +109,10 @@ namespace CarFleetDomain.Models
                     }
 
                     adapter.Update(table);
+
+                    adapter.SelectCommand = new SqlCommand(SelectCommand, connection);
+
+                    adapter.Fill(table);
                     return new DataResponse() { Success = true, Message = "Data was updated successfully" };
                 }
                 catch (Exception ex)

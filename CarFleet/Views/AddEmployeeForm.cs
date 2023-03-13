@@ -82,6 +82,7 @@ namespace CarFleet.Views
                 var dataSet = new DataSet();
                 Persons.GetPersonsQuery(dataSet);
                 var row = dataSet.Tables[nameof(Persons)].NewRow();
+                row["ID"] = 0;
                 row["FirstName"] = TbFirstName.Text;
                 row["LastName"] = TbLastName.Text;
                 row["PhoneNumber"] = TbPhone.Text;
@@ -94,6 +95,9 @@ namespace CarFleet.Views
                 // Check if the update was successful and show a message
                 if (response.Success)
                 {
+                    var personID = dataSet.Tables[nameof(Persons)].AsEnumerable().Last().ItemArray[0];
+
+
                     // Retrieve the ID of the new employee
                     // Get the new Person ID
                     //    var newPersonId = (int)row["ID"];
@@ -116,6 +120,7 @@ namespace CarFleet.Views
                     //        {
                     //            MessageBox.Show("Error creating user: " + usersResponse.Message);
                     //            return;}
+
                     MessageBox.Show("Employee added successfully");
                     TbFirstName.Clear();
                     TbLastName.Clear();
