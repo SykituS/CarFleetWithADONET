@@ -62,7 +62,7 @@
             // TbFirstName
             // 
             this.TbFirstName.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.TbFirstName.Location = new System.Drawing.Point(376, 139);
+            this.TbFirstName.Location = new System.Drawing.Point(396, 139);
             this.TbFirstName.Name = "TbFirstName";
             this.TbFirstName.Size = new System.Drawing.Size(100, 22);
             this.TbFirstName.TabIndex = 10;
@@ -81,7 +81,7 @@
             // TbLastName
             // 
             this.TbLastName.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.TbLastName.Location = new System.Drawing.Point(376, 167);
+            this.TbLastName.Location = new System.Drawing.Point(396, 167);
             this.TbLastName.Name = "TbLastName";
             this.TbLastName.Size = new System.Drawing.Size(100, 22);
             this.TbLastName.TabIndex = 11;
@@ -108,9 +108,9 @@
             this.BtnEditEmplyee.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.BtnEditEmplyee.IconSize = 32;
             this.BtnEditEmplyee.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BtnEditEmplyee.Location = new System.Drawing.Point(254, 267);
+            this.BtnEditEmplyee.Location = new System.Drawing.Point(205, 267);
             this.BtnEditEmplyee.Name = "BtnEditEmplyee";
-            this.BtnEditEmplyee.Size = new System.Drawing.Size(145, 45);
+            this.BtnEditEmplyee.Size = new System.Drawing.Size(194, 45);
             this.BtnEditEmplyee.TabIndex = 18;
             this.BtnEditEmplyee.Text = "New Employee";
             this.BtnEditEmplyee.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -122,7 +122,7 @@
             this.label3.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label3.AutoSize = true;
             this.label3.ForeColor = System.Drawing.Color.Black;
-            this.label3.Location = new System.Drawing.Point(251, 201);
+            this.label3.Location = new System.Drawing.Point(236, 201);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(100, 16);
             this.label3.TabIndex = 16;
@@ -131,7 +131,7 @@
             // TbPhone
             // 
             this.TbPhone.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.TbPhone.Location = new System.Drawing.Point(376, 195);
+            this.TbPhone.Location = new System.Drawing.Point(396, 195);
             this.TbPhone.Name = "TbPhone";
             this.TbPhone.Size = new System.Drawing.Size(100, 22);
             this.TbPhone.TabIndex = 12;
@@ -139,7 +139,7 @@
             // TbEmail
             // 
             this.TbEmail.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.TbEmail.Location = new System.Drawing.Point(376, 223);
+            this.TbEmail.Location = new System.Drawing.Point(396, 223);
             this.TbEmail.Name = "TbEmail";
             this.TbEmail.Size = new System.Drawing.Size(100, 22);
             this.TbEmail.TabIndex = 13;
@@ -149,7 +149,7 @@
             this.label4.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label4.AutoSize = true;
             this.label4.ForeColor = System.Drawing.Color.Black;
-            this.label4.Location = new System.Drawing.Point(304, 229);
+            this.label4.Location = new System.Drawing.Point(315, 229);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(44, 16);
             this.label4.TabIndex = 17;

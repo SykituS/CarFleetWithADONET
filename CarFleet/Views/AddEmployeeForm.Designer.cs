@@ -29,96 +29,74 @@
         private void InitializeComponent()
         {
             this.TbFirstName = new System.Windows.Forms.TextBox();
-            this.TbLastName = new System.Windows.Forms.TextBox();
-            this.TbPhone = new System.Windows.Forms.TextBox();
-            this.TbEmail = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.TbLastName = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.BtnNewEmplyee = new FontAwesome.Sharp.IconButton();
             this.BtnBack = new FontAwesome.Sharp.IconButton();
-            this.leftpanel = new System.Windows.Forms.Panel();
-            this.rightpanel = new System.Windows.Forms.Panel();
-            this.mainpanel = new System.Windows.Forms.Panel();
-            this.mainpanel.SuspendLayout();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.TbEmail = new System.Windows.Forms.TextBox();
+            this.TbPhone = new System.Windows.Forms.TextBox();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // TbFirstName
             // 
             this.TbFirstName.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.TbFirstName.Location = new System.Drawing.Point(174, 142);
+            this.TbFirstName.Location = new System.Drawing.Point(412, 136);
             this.TbFirstName.Name = "TbFirstName";
             this.TbFirstName.Size = new System.Drawing.Size(100, 22);
             this.TbFirstName.TabIndex = 0;
-            // 
-            // TbLastName
-            // 
-            this.TbLastName.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.TbLastName.Location = new System.Drawing.Point(174, 170);
-            this.TbLastName.Name = "TbLastName";
-            this.TbLastName.Size = new System.Drawing.Size(100, 22);
-            this.TbLastName.TabIndex = 1;
-            // 
-            // TbPhone
-            // 
-            this.TbPhone.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.TbPhone.Location = new System.Drawing.Point(174, 198);
-            this.TbPhone.Name = "TbPhone";
-            this.TbPhone.Size = new System.Drawing.Size(100, 22);
-            this.TbPhone.TabIndex = 2;
-            // 
-            // TbEmail
-            // 
-            this.TbEmail.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.TbEmail.Location = new System.Drawing.Point(174, 226);
-            this.TbEmail.Name = "TbEmail";
-            this.TbEmail.Size = new System.Drawing.Size(100, 22);
-            this.TbEmail.TabIndex = 3;
             // 
             // label1
             // 
             this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label1.AutoSize = true;
             this.label1.ForeColor = System.Drawing.Color.Black;
-            this.label1.Location = new System.Drawing.Point(71, 142);
+            this.label1.Location = new System.Drawing.Point(303, 136);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(75, 16);
             this.label1.TabIndex = 4;
             this.label1.Text = "First Name:";
+            // 
+            // TbLastName
+            // 
+            this.TbLastName.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.TbLastName.Location = new System.Drawing.Point(412, 164);
+            this.TbLastName.Name = "TbLastName";
+            this.TbLastName.Size = new System.Drawing.Size(100, 22);
+            this.TbLastName.TabIndex = 1;
             // 
             // label2
             // 
             this.label2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label2.AutoSize = true;
             this.label2.ForeColor = System.Drawing.Color.Black;
-            this.label2.Location = new System.Drawing.Point(71, 173);
+            this.label2.Location = new System.Drawing.Point(303, 167);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(75, 16);
             this.label2.TabIndex = 5;
             this.label2.Text = "Last Name:";
             // 
-            // label3
+            // panel1
             // 
-            this.label3.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label3.AutoSize = true;
-            this.label3.ForeColor = System.Drawing.Color.Black;
-            this.label3.Location = new System.Drawing.Point(49, 204);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(100, 16);
-            this.label3.TabIndex = 6;
-            this.label3.Text = "Phone Number:";
-            // 
-            // label4
-            // 
-            this.label4.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label4.AutoSize = true;
-            this.label4.ForeColor = System.Drawing.Color.Black;
-            this.label4.Location = new System.Drawing.Point(102, 232);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(44, 16);
-            this.label4.TabIndex = 7;
-            this.label4.Text = "Email:";
+            this.panel1.Controls.Add(this.BtnNewEmplyee);
+            this.panel1.Controls.Add(this.TbFirstName);
+            this.panel1.Controls.Add(this.label1);
+            this.panel1.Controls.Add(this.BtnBack);
+            this.panel1.Controls.Add(this.label3);
+            this.panel1.Controls.Add(this.label4);
+            this.panel1.Controls.Add(this.TbLastName);
+            this.panel1.Controls.Add(this.TbEmail);
+            this.panel1.Controls.Add(this.TbPhone);
+            this.panel1.Controls.Add(this.label2);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(800, 450);
+            this.panel1.TabIndex = 14;
             // 
             // BtnNewEmplyee
             // 
@@ -130,15 +108,14 @@
             this.BtnNewEmplyee.IconColor = System.Drawing.Color.White;
             this.BtnNewEmplyee.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.BtnNewEmplyee.IconSize = 32;
-            this.BtnNewEmplyee.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BtnNewEmplyee.Location = new System.Drawing.Point(52, 270);
+            this.BtnNewEmplyee.Location = new System.Drawing.Point(412, 248);
             this.BtnNewEmplyee.Name = "BtnNewEmplyee";
-            this.BtnNewEmplyee.Size = new System.Drawing.Size(145, 45);
-            this.BtnNewEmplyee.TabIndex = 8;
+            this.BtnNewEmplyee.Size = new System.Drawing.Size(202, 45);
+            this.BtnNewEmplyee.TabIndex = 11;
             this.BtnNewEmplyee.Text = "New Employee";
             this.BtnNewEmplyee.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.BtnNewEmplyee.UseVisualStyleBackColor = false;
-            this.BtnNewEmplyee.Click += new System.EventHandler(this.BtnNewEmplyee_Click);
+            this.BtnNewEmplyee.Click += new System.EventHandler(this.BtnNewEmplyee_Click_1);
             // 
             // BtnBack
             // 
@@ -150,48 +127,52 @@
             this.BtnBack.IconColor = System.Drawing.Color.White;
             this.BtnBack.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.BtnBack.IconSize = 32;
-            this.BtnBack.Location = new System.Drawing.Point(203, 270);
+            this.BtnBack.Location = new System.Drawing.Point(261, 248);
             this.BtnBack.Name = "BtnBack";
             this.BtnBack.Size = new System.Drawing.Size(145, 45);
             this.BtnBack.TabIndex = 9;
             this.BtnBack.Text = "Back";
             this.BtnBack.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.BtnBack.UseVisualStyleBackColor = false;
-            this.BtnBack.Click += new System.EventHandler(this.BtnBack_Click);
+            this.BtnBack.Click += new System.EventHandler(this.BtnBack_Click_1);
             // 
-            // leftpanel
+            // label3
             // 
-            this.leftpanel.Dock = System.Windows.Forms.DockStyle.Left;
-            this.leftpanel.Location = new System.Drawing.Point(0, 0);
-            this.leftpanel.Name = "leftpanel";
-            this.leftpanel.Size = new System.Drawing.Size(200, 450);
-            this.leftpanel.TabIndex = 10;
+            this.label3.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label3.AutoSize = true;
+            this.label3.ForeColor = System.Drawing.Color.Black;
+            this.label3.Location = new System.Drawing.Point(266, 195);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(100, 16);
+            this.label3.TabIndex = 6;
+            this.label3.Text = "Phone Number:";
             // 
-            // rightpanel
+            // label4
             // 
-            this.rightpanel.Dock = System.Windows.Forms.DockStyle.Right;
-            this.rightpanel.Location = new System.Drawing.Point(600, 0);
-            this.rightpanel.Name = "rightpanel";
-            this.rightpanel.Size = new System.Drawing.Size(200, 450);
-            this.rightpanel.TabIndex = 11;
+            this.label4.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label4.AutoSize = true;
+            this.label4.ForeColor = System.Drawing.Color.Black;
+            this.label4.Location = new System.Drawing.Point(347, 226);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(44, 16);
+            this.label4.TabIndex = 7;
+            this.label4.Text = "Email:";
             // 
-            // mainpanel
+            // TbEmail
             // 
-            this.mainpanel.Controls.Add(this.BtnBack);
-            this.mainpanel.Controls.Add(this.TbFirstName);
-            this.mainpanel.Controls.Add(this.label2);
-            this.mainpanel.Controls.Add(this.TbLastName);
-            this.mainpanel.Controls.Add(this.label1);
-            this.mainpanel.Controls.Add(this.BtnNewEmplyee);
-            this.mainpanel.Controls.Add(this.label3);
-            this.mainpanel.Controls.Add(this.TbPhone);
-            this.mainpanel.Controls.Add(this.TbEmail);
-            this.mainpanel.Controls.Add(this.label4);
-            this.mainpanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.mainpanel.Location = new System.Drawing.Point(200, 0);
-            this.mainpanel.Name = "mainpanel";
-            this.mainpanel.Size = new System.Drawing.Size(400, 450);
-            this.mainpanel.TabIndex = 12;
+            this.TbEmail.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.TbEmail.Location = new System.Drawing.Point(412, 220);
+            this.TbEmail.Name = "TbEmail";
+            this.TbEmail.Size = new System.Drawing.Size(100, 22);
+            this.TbEmail.TabIndex = 3;
+            // 
+            // TbPhone
+            // 
+            this.TbPhone.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.TbPhone.Location = new System.Drawing.Point(412, 192);
+            this.TbPhone.Name = "TbPhone";
+            this.TbPhone.Size = new System.Drawing.Size(100, 22);
+            this.TbPhone.TabIndex = 2;
             // 
             // AddEmployeeForm
             // 
@@ -200,15 +181,13 @@
             this.BackColor = System.Drawing.Color.White;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.mainpanel);
-            this.Controls.Add(this.rightpanel);
-            this.Controls.Add(this.leftpanel);
+            this.Controls.Add(this.panel1);
             this.ForeColor = System.Drawing.Color.White;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "AddEmployeeForm";
             this.Text = "AddEmployeeForm";
-            this.mainpanel.ResumeLayout(false);
-            this.mainpanel.PerformLayout();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -216,17 +195,15 @@
         #endregion
 
         private System.Windows.Forms.TextBox TbFirstName;
-        private System.Windows.Forms.TextBox TbLastName;
-        private System.Windows.Forms.TextBox TbPhone;
-        private System.Windows.Forms.TextBox TbEmail;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox TbLastName;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Panel panel1;
         private FontAwesome.Sharp.IconButton BtnNewEmplyee;
         private FontAwesome.Sharp.IconButton BtnBack;
-        private System.Windows.Forms.Panel leftpanel;
-        private System.Windows.Forms.Panel rightpanel;
-        private System.Windows.Forms.Panel mainpanel;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.TextBox TbEmail;
+        private System.Windows.Forms.TextBox TbPhone;
     }
 }

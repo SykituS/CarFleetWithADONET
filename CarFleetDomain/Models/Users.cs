@@ -6,6 +6,7 @@ using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using CarFleetDomain.Functions;
 
 namespace CarFleetDomain.Models
 {
@@ -103,6 +104,7 @@ namespace CarFleetDomain.Models
                     // Update the database with the changes made to the DataSet
                     var table = dataSet.Tables[nameof(Persons)];
 
+
                     // Check if there are changes in data set
                     if (!dataSet.HasChanges())
                         return new DataResponse() { Success = false, Message = "In given data is no change" };
@@ -125,8 +127,26 @@ namespace CarFleetDomain.Models
                 }
             }
         }
+        public string GeneratePasswordHash()
+        {
+            // Take first 3 characters of first name
+            var firstNameChars = Person.FirstName.Take(3);
 
-        public static DataResponse DeletePeronsCommand(DataSet dataSet)
+            // Take last 3 characters of last name
+            var lastNameChars = Person.LastName.Substring(Math.Max(0, Person.LastName.Length - 3));
+
+            // Take last 2 digits of phone number
+            var phoneDigits = new string(Person.PhoneNumber.Where(char.IsDigit).ToArray());
+            var lastTwoPhoneDigits = phoneDigits.Substring(phoneDigits.Length - 2);
+
+            // Concatenate first name, last name, and phone digits
+            var concatenated = new string(firstNameChars.Concat(lastNameChars).ToArray()) + lastTwoPhoneDigits;
+
+            // Hash password using SHA-256 algorithm
+            return PasswordHasher.EncodePassword(concatenated);
+        }
+
+        public static DataResponse DeleteUsersCommand(DataSet dataSet)
         {
             throw (new NotImplementedException());
         }

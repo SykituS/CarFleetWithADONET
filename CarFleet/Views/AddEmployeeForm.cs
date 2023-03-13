@@ -16,18 +16,28 @@ namespace CarFleet.Views
     public partial class AddEmployeeForm : Form
     {
         private readonly Persons _persons;
+        private readonly Users _users;
         public AddEmployeeForm()
         {
             InitializeComponent();
             _persons = new Persons();
+            _users= new Users();
         }
         private bool ValidateEmail(string email)
         {
             string pattern = @"^[^@\s]+@[^@\s]+\.[^@\s]+$";
             return Regex.IsMatch(email, pattern);
         }
-        private void BtnNewEmplyee_Click(object sender, EventArgs e)
+    
+
+     
+
+    
+
+
+        private void BtnNewEmplyee_Click_1(object sender, EventArgs e)
         {
+
             try
             {
                 // Check that all input fields are filled in
@@ -41,9 +51,9 @@ namespace CarFleet.Views
                 }
 
                 // Check that first and last name do not contain numbers
-                if (TbFirstName.Text.Any(char.IsDigit) || TbLastName.Text.Any(char.IsDigit)|| TbFirstName.Text.Length>=5||TbLastName.Text.Length>=5)
+                if (TbFirstName.Text.Any(char.IsDigit) || TbLastName.Text.Any(char.IsDigit))
                 {
-                    MessageBox.Show("First and last name cannot contain numbers and must have more than 5 digits");
+                    MessageBox.Show("First and last name cannot contain numbers");
                     return;
                 }
 
@@ -58,6 +68,13 @@ namespace CarFleet.Views
                 if (!ValidateEmail(TbEmail.Text))
                 {
                     MessageBox.Show("Email is not in a valid format");
+                    return;
+                }
+
+                // Check that email is unique
+                if (!_persons.IsEmailUnique(TbEmail.Text))
+                {
+                    MessageBox.Show("Email is already in use");
                     return;
                 }
 
@@ -77,6 +94,28 @@ namespace CarFleet.Views
                 // Check if the update was successful and show a message
                 if (response.Success)
                 {
+                    // Retrieve the ID of the new employee
+                    // Get the new Person ID
+                    //    var newPersonId = (int)row["ID"];
+
+                    //    // Check if the new Person ID exists in the Users table
+                    //    Users.GetUsersQuery(dataSet);
+                    //    var usersTable = dataSet.Tables[nameof(Users)];
+                    //    var userRow = usersTable.Select($"PersonID = {newPersonId}").FirstOrDefault();
+                    //    if (userRow == null)
+                    //    {
+                    //        // Create a new user with the same email as the Person
+                    //        var password = _users.GeneratePasswordHash();
+                    //        var newUserRow = usersTable.NewRow();
+                    //        newUserRow["Email"] = TbEmail.Text;
+                    //        newUserRow["PasswordHash"] = password;
+                    //        newUserRow["PersonID"] = newPersonId;
+                    //        usersTable.Rows.Add(newUserRow);
+                    //        var usersResponse = Users.InsertUsersCommand(dataSet);
+                    //        if (!usersResponse.Success)
+                    //        {
+                    //            MessageBox.Show("Error creating user: " + usersResponse.Message);
+                    //            return;}
                     MessageBox.Show("Employee added successfully");
                     TbFirstName.Clear();
                     TbLastName.Clear();
@@ -95,8 +134,9 @@ namespace CarFleet.Views
 
         }
 
-        private void BtnBack_Click(object sender, EventArgs e)
+        private void BtnBack_Click_1(object sender, EventArgs e)
         {
+
             EmployeeListForm employeeListForm = new EmployeeListForm();  // create instance of AddEmployeeForm
             MainAdministrationForm mainForm = (MainAdministrationForm)this.ParentForm;  // get reference to the parent form
 
