@@ -130,19 +130,19 @@ namespace CarFleetDomain.Models
 
             return query.Count() == 0;
         }
-        public static bool CheckIfUserExists(DataSet data)
-        {
-            using (var connection = new SqlConnection(Context.ConnectionString))
-            {
-                var selectCommand = "SELECT COUNT(*) FROM Users WHERE PersonID = @personId";
-                var adapter = new SqlDataAdapter(selectCommand, connection);
-                adapter.SelectCommand.Parameters.AddWithValue("@personId", "PersonID");
-                var dataSet = new DataSet();
-                adapter.Fill(dataSet);
-                var count = (int)dataSet.Tables[0].Rows[0][0];
-                return count > 0;
-            }
-        }
+        //public static bool CheckIfUserExists(DataSet data)
+        //{
+        //    using (var connection = new SqlConnection(Context.ConnectionString))
+        //    {
+        //        var selectCommand = "SELECT COUNT(*) FROM Users WHERE PersonID = @personId";
+        //        var adapter = new SqlDataAdapter(selectCommand, connection);
+        //        adapter.SelectCommand.Parameters.AddWithValue("@personId", "PersonID");
+        //        var dataSet = new DataSet();
+        //        adapter.Fill(dataSet);
+        //        var count = (int)dataSet.Tables[0].Rows[0][0];
+        //        return count > 0;
+        //    }
+        //}
 
         public static DataResponse DeletePeronsCommand(DataSet dataSet)
         {
