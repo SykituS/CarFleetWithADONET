@@ -26,7 +26,7 @@ namespace CarFleetDomain.Models
         private const string SelectCommand = "SELECT * FROM Users";
         private const string UpdateCommand =
             "UPDATE [dbo].[Users] SET [UserName] = @UserName, [PasswordHash] = @PasswordHash ,[PersonID] = @PersonID ,[RoleID] = @RoleID WHERE ID = @UID";
-        private const string InsertCommand = "INSERT INTO Users (UserName, PasswordHash, PersonID) VALUES (@UserName, @PasswordHash, @PersonID)";
+        private const string InsertCommand = "INSERT INTO Users (UserName, PasswordHash, PersonID,RoleID) VALUES (@UserName, @PasswordHash, @PersonID,@RoleID)";
         private const string DeleteCommand = "DELETE FROM Users WHERE ID = @UID";
 
         public static DataResponse GetUsersQuery(DataSet dataSet)
@@ -100,9 +100,9 @@ namespace CarFleetDomain.Models
                     adapter.InsertCommand.Parameters.Add("@userName", SqlDbType.NVarChar, 50, "UserName");
                     adapter.InsertCommand.Parameters.Add("@passwordHash", SqlDbType.NVarChar, 256, "PasswordHash");
                     adapter.InsertCommand.Parameters.Add("@personID", SqlDbType.Int, 4, "PersonID");
-
+                    adapter.InsertCommand.Parameters.Add("@RoleID", SqlDbType.Int, 2, "RoleID");
                     // Update the database with the changes made to the DataSet
-                    var table = dataSet.Tables[nameof(Persons)];
+                    var table = dataSet.Tables[nameof(Users)];
 
 
                     // Check if there are changes in data set
@@ -118,6 +118,8 @@ namespace CarFleetDomain.Models
 
                     // Update the database with the changes made to the DataSet
                     adapter.Update(table);
+                    adapter.SelectCommand = new SqlCommand(SelectCommand, connection);
+                    adapter.Fill(table);
                     return new DataResponse() { Success = true, Message = "Data was updated successfully" };
                 }
                 catch (Exception ex)
@@ -127,16 +129,16 @@ namespace CarFleetDomain.Models
                 }
             }
         }
-        public string GeneratePasswordHash()
+        public string GeneratePasswordHash(string firstName, string lastName, string phoneNumber)
         {
             // Take first 3 characters of first name
-            var firstNameChars = Person.FirstName.Take(3);
+            var firstNameChars = firstName.Take(3);
 
             // Take last 3 characters of last name
-            var lastNameChars = Person.LastName.Substring(Math.Max(0, Person.LastName.Length - 3));
+            var lastNameChars = lastName.Substring(Math.Max(0, lastName.Length - 3));
 
             // Take last 2 digits of phone number
-            var phoneDigits = new string(Person.PhoneNumber.Where(char.IsDigit).ToArray());
+            var phoneDigits = new string(phoneNumber.Where(char.IsDigit).ToArray());
             var lastTwoPhoneDigits = phoneDigits.Substring(phoneDigits.Length - 2);
 
             // Concatenate first name, last name, and phone digits

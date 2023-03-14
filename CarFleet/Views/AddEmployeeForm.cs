@@ -87,49 +87,53 @@ namespace CarFleet.Views
                 row["LastName"] = TbLastName.Text;
                 row["PhoneNumber"] = TbPhone.Text;
                 row["Email"] = TbEmail.Text;
-
+               
                 // Add the new row to the Persons table and update the database
                 dataSet.Tables[nameof(Persons)].Rows.Add(row);
                 var response = Persons.InsertPersonsCommand(dataSet);
 
                 // Check if the update was successful and show a message
                 if (response.Success)
-                {
+                {   // Get the new Person ID
                     var personID = dataSet.Tables[nameof(Persons)].AsEnumerable().Last().ItemArray[0];
+                    var password = _users.GeneratePasswordHash(TbFirstName.Text,TbLastName.Text,TbPhone.Text);
 
 
-                    // Retrieve the ID of the new employee
-                    // Get the new Person ID
-                    //    var newPersonId = (int)row["ID"];
 
-                    //    // Check if the new Person ID exists in the Users table
-                    //    Users.GetUsersQuery(dataSet);
-                    //    var usersTable = dataSet.Tables[nameof(Users)];
-                    //    var userRow = usersTable.Select($"PersonID = {newPersonId}").FirstOrDefault();
-                    //    if (userRow == null)
-                    //    {
-                    //        // Create a new user with the same email as the Person
-                    //        var password = _users.GeneratePasswordHash();
-                    //        var newUserRow = usersTable.NewRow();
-                    //        newUserRow["Email"] = TbEmail.Text;
-                    //        newUserRow["PasswordHash"] = password;
-                    //        newUserRow["PersonID"] = newPersonId;
-                    //        usersTable.Rows.Add(newUserRow);
-                    //        var usersResponse = Users.InsertUsersCommand(dataSet);
-                    //        if (!usersResponse.Success)
-                    //        {
-                    //            MessageBox.Show("Error creating user: " + usersResponse.Message);
-                    //            return;}
 
-                    MessageBox.Show("Employee added successfully");
-                    TbFirstName.Clear();
-                    TbLastName.Clear();
-                    TbPhone.Clear();
-                    TbEmail.Clear();
-                }
-                else
-                {
-                    MessageBox.Show("Error adding employee: " + response.Message);
+
+                    // Check if the new Person ID exists in the Users table
+                    var dataSetUser = new DataSet();
+                    Users.GetUsersQuery(dataSetUser);
+                    var usersTable = dataSetUser.Tables[nameof(Users)];
+                    var userRow = usersTable.Select($"PersonID = {personID}").FirstOrDefault();
+                    if (userRow == null)
+                    {
+                        // Create a new user with the same email as the Person
+                        
+                        var newUserRow = usersTable.NewRow();
+                        newUserRow["UserName"] = TbEmail.Text;
+                        newUserRow["PasswordHash"] = password;
+                        newUserRow["PersonID"] = personID;
+                        newUserRow["RoleID"] = 1;
+                        usersTable.Rows.Add(newUserRow);
+                        var usersResponse = Users.InsertUsersCommand(dataSetUser);
+                        if (!usersResponse.Success)
+                        {
+                            MessageBox.Show("Error creating user: " + usersResponse.Message);
+                            return;
+                        }
+
+                        MessageBox.Show("Employee added successfully");
+                        TbFirstName.Clear();
+                        TbLastName.Clear();
+                        TbPhone.Clear();
+                        TbEmail.Clear();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Error adding employee: " + response.Message);
+                    }
                 }
             }
             catch (Exception ex)
