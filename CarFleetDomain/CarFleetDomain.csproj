@@ -48,8 +48,15 @@
     <Compile Include="Functions\PasswordHasher.cs" />
     <Compile Include="Functions\Validations.cs" />
     <Compile Include="Models\CommandResponse.cs" />
+    <Compile Include="Models\ModelExtension.cs" />
     <Compile Include="Models\Persons.cs" />
     <Compile Include="Models\Users.cs" />
+    <Compile Include="Models\Vehicle.cs" />
+    <Compile Include="Models\VehicleDescription.cs" />
+    <Compile Include="Models\VehicleInspection.cs" />
+    <Compile Include="Models\VehicleMileage.cs" />
+    <Compile Include="Models\VehiclePersonHistory.cs" />
+    <Compile Include="Models\VehicleStatus.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup />

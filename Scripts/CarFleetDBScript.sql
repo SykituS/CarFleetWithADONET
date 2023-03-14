@@ -101,6 +101,7 @@ CREATE TABLE VehicleDescription(
 	CONSTRAINT FK_VehicleDescription_Person_Created FOREIGN KEY (CreatedByID) REFERENCES Persons(ID),
 	CONSTRAINT FK_VehicleDescription_Person_Updated FOREIGN KEY (UpdatedByID) REFERENCES Persons(ID),
 )
+
 CREATE TABLE VehcileStatus(
 	ID int IDENTITY(1, 1) NOT NULL PRIMARY KEY,
 	VehicleID int,
@@ -112,6 +113,19 @@ CREATE TABLE VehcileStatus(
 	CONSTRAINT FK_VehcileStatus_Person_Created FOREIGN KEY (CreatedByID) REFERENCES Persons(ID),
 )
 
+CREATE TABLE VehicleMileage(
+	ID int IDENTITY(1, 1) NOT NULL PRIMARY KEY,
+	VehicleID int,
+	Mileage int,
+	CreatedOn datetime NOT NULL,
+	CreatedByID int NOT NULL,
+	UpdatedOn datetime NOT NULL,
+	UpdatedByID int NOT NULL,
+
+	CONSTRAINT FK_VehicleMileage_Vehicle FOREIGN KEY (VehicleID) REFERENCES Vehicle(ID),
+	CONSTRAINT FK_VehicleMileage_Person_Created FOREIGN KEY (CreatedByID) REFERENCES Persons(ID),
+	CONSTRAINT FK_VehicleMileage_Person_Updated FOREIGN KEY (UpdatedByID) REFERENCES Persons(ID),
+)
 
 ALTER DATABASE SCOPED CONFIGURATION 
   SET VERBOSE_TRUNCATION_WARNINGS = ON;
