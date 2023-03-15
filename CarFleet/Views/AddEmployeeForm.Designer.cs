@@ -33,6 +33,8 @@
             this.TbLastName = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
             this.BtnNewEmplyee = new FontAwesome.Sharp.IconButton();
             this.BtnBack = new FontAwesome.Sharp.IconButton();
             this.label3 = new System.Windows.Forms.Label();
@@ -68,6 +70,7 @@
             this.TbLastName.Name = "TbLastName";
             this.TbLastName.Size = new System.Drawing.Size(100, 22);
             this.TbLastName.TabIndex = 1;
+            this.TbLastName.Visible = false;
             // 
             // label2
             // 
@@ -82,6 +85,8 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.label6);
+            this.panel1.Controls.Add(this.label5);
             this.panel1.Controls.Add(this.BtnNewEmplyee);
             this.panel1.Controls.Add(this.TbFirstName);
             this.panel1.Controls.Add(this.label1);
@@ -97,6 +102,27 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(800, 450);
             this.panel1.TabIndex = 14;
+            // 
+            // label6
+            // 
+            this.label6.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label6.AutoSize = true;
+            this.label6.BackColor = System.Drawing.Color.White;
+            this.label6.ForeColor = System.Drawing.Color.Red;
+            this.label6.Location = new System.Drawing.Point(266, 316);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(44, 16);
+            this.label6.TabIndex = 13;
+            this.label6.Text = "Email:";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(163, 59);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(82, 16);
+            this.label5.TabIndex = 12;
+            this.label5.Text = "LblMessage";
             // 
             // BtnNewEmplyee
             // 
@@ -205,5 +231,7 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox TbEmail;
         private System.Windows.Forms.TextBox TbPhone;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label6;
     }
 }

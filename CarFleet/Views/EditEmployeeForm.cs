@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CarFleetDomain.Models;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -16,7 +17,13 @@ namespace CarFleet.Views
         {
             InitializeComponent();
         }
-
+        public void SetEmployeeData(Persons employee)
+        {
+            TbFirstName.Text = employee.FirstName;
+            TbLastName.Text = employee.LastName;
+            TbPhone.Text = employee.PhoneNumber;
+            TbEmail.Text = employee.Email;
+        }
         private void BtnNewEmplyee_Click(object sender, EventArgs e)
         {
 

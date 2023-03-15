@@ -46,7 +46,6 @@
     <Compile Include="Functions\EmployeeSystem.cs" />
     <Compile Include="Functions\LoginSystem.cs" />
     <Compile Include="Functions\PasswordHasher.cs" />
-    <Compile Include="Functions\Validations.cs" />
     <Compile Include="Models\CommandResponse.cs" />
     <Compile Include="Models\ModelExtension.cs" />
     <Compile Include="Models\Persons.cs" />

@@ -34,12 +34,12 @@
             this.BtnDeleteEmployee = new FontAwesome.Sharp.IconButton();
             this.label1 = new System.Windows.Forms.Label();
             this.mainpanel = new System.Windows.Forms.Panel();
-            this.panelmain = new System.Windows.Forms.Panel();
             this.menupanel = new System.Windows.Forms.Panel();
+            this.panelmain = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.DataGridViewEmployeeList)).BeginInit();
             this.mainpanel.SuspendLayout();
-            this.panelmain.SuspendLayout();
             this.menupanel.SuspendLayout();
+            this.panelmain.SuspendLayout();
             this.SuspendLayout();
             // 
             // DataGridViewEmployeeList
@@ -52,6 +52,7 @@
             this.DataGridViewEmployeeList.Location = new System.Drawing.Point(26, 48);
             this.DataGridViewEmployeeList.Margin = new System.Windows.Forms.Padding(4);
             this.DataGridViewEmployeeList.Name = "DataGridViewEmployeeList";
+            this.DataGridViewEmployeeList.ReadOnly = true;
             this.DataGridViewEmployeeList.RowHeadersWidth = 51;
             this.DataGridViewEmployeeList.Size = new System.Drawing.Size(743, 554);
             this.DataGridViewEmployeeList.TabIndex = 6;
@@ -135,15 +136,6 @@
             this.mainpanel.Size = new System.Drawing.Size(1067, 554);
             this.mainpanel.TabIndex = 6;
             // 
-            // panelmain
-            // 
-            this.panelmain.Controls.Add(this.DataGridViewEmployeeList);
-            this.panelmain.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelmain.Location = new System.Drawing.Point(0, 0);
-            this.panelmain.Name = "panelmain";
-            this.panelmain.Size = new System.Drawing.Size(1067, 554);
-            this.panelmain.TabIndex = 11;
-            // 
             // menupanel
             // 
             this.menupanel.Controls.Add(this.BtnAddEmployee);
@@ -154,6 +146,15 @@
             this.menupanel.Name = "menupanel";
             this.menupanel.Size = new System.Drawing.Size(252, 554);
             this.menupanel.TabIndex = 12;
+            // 
+            // panelmain
+            // 
+            this.panelmain.Controls.Add(this.DataGridViewEmployeeList);
+            this.panelmain.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelmain.Location = new System.Drawing.Point(0, 0);
+            this.panelmain.Name = "panelmain";
+            this.panelmain.Size = new System.Drawing.Size(1067, 554);
+            this.panelmain.TabIndex = 11;
             // 
             // EmployeeListForm
             // 
@@ -170,8 +171,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.DataGridViewEmployeeList)).EndInit();
             this.mainpanel.ResumeLayout(false);
             this.mainpanel.PerformLayout();
-            this.panelmain.ResumeLayout(false);
             this.menupanel.ResumeLayout(false);
+            this.panelmain.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
