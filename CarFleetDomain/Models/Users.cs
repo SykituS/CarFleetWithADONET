@@ -129,6 +129,12 @@ namespace CarFleetDomain.Models
                 }
             }
         }
+        
+        public static DataResponse DeleteUsersCommand(DataSet dataSet)
+        {
+            throw (new NotImplementedException());
+        }
+        
         public string GeneratePasswordHash(string firstName, string lastName, string phoneNumber)
         {
             // Take first 3 characters of first name
@@ -148,10 +154,6 @@ namespace CarFleetDomain.Models
             return PasswordHasher.EncodePassword(concatenated);
         }
 
-        public static DataResponse DeleteUsersCommand(DataSet dataSet)
-        {
-            throw (new NotImplementedException());
-        }
         #endregion
     }
 
