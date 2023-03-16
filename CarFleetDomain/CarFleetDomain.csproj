@@ -53,6 +53,7 @@
     <Compile Include="Models\Vehicle.cs" />
     <Compile Include="Models\VehicleDescription.cs" />
     <Compile Include="Models\VehicleInspection.cs" />
+    <Compile Include="Models\VehicleInsurer.cs" />
     <Compile Include="Models\VehicleMileage.cs" />
     <Compile Include="Models\VehiclePersonHistory.cs" />
     <Compile Include="Models\VehicleStatus.cs" />

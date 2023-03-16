@@ -25,7 +25,7 @@ namespace CarFleetDomain.Models
         private const string InsertCommand = "INSERT INTO [dbo].[VehicleDescription]([VehicleID], [Description], [CreatedOn], [CreatedByID], [UpdatedOn], [UpdatedByID]) VALUES (@VehicleID, @Description, @CreatedOn, @CreatedByID, @UpdatedOn, @UpdatedByID)";
         private const string DeleteCommand = "DELETE FROM VehicleDescription WHERE ID = @UID";
 
-        public static DataResponse GetVehicleQuery(DataSet dataSet)
+        public static DataResponse GetVehicleDescriptionQuery(DataSet dataSet)
         {
             var context = new Context();
             var cmd = new SqlCommand(SelectCommand);
@@ -40,7 +40,7 @@ namespace CarFleetDomain.Models
 
         }
 
-        public static DataResponse UpdateVehicleCommand(DataSet dataSet)
+        public static DataResponse UpdateVehicleDescriptionCommand(DataSet dataSet)
         {
             using (var connection = new SqlConnection(Context.ConnectionString))
             {
@@ -84,7 +84,7 @@ namespace CarFleetDomain.Models
             }
         }
 
-        public static DataResponse InsertVehicleCommand(DataSet dataSet)
+        public static DataResponse InsertVehicleDescriptionCommand(DataSet dataSet)
         {
             using (var connection = new SqlConnection(Context.ConnectionString))
             {

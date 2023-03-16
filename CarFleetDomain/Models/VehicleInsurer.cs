@@ -9,26 +9,26 @@ using System.Threading.Tasks;
 
 namespace CarFleetDomain.Models
 {
-    public class VehicleMileage : ModelExtension
+    public class VehicleInsurer : ModelExtension
     {
         public int ID { get; set; }
         public int VehicleID { get; set; }
-        public int Mileage { get; set; }
-
-        public Vehicle Vehicle { get; set; }
+        public string Insurer { get; set; }
+        public DateTime StartDateOfInsurence { get; set; }
+        public DateTime EndDateOfInsurence { get; set; }
 
         #region Data Base Methods
 
-        private const string SelectCommand = "SELECT * FROM VehicleMileage";
-        private const string UpdateCommand = "UPDATE [dbo].[VehicleMileage] SET [VehicleID] = @VehicleID, ,[Mileage] = @Mileage, [CreatedOn] = @CreatedOn, [CreatedByID] = @CreatedByID, [UpdatedOn] = @UpdatedOn, [UpdatedByID] = @UpdatedByID WHERE ID = @UID";
-        private const string InsertCommand = "INSERT INTO [dbo].[VehicleMileage] ([VehicleID], [Mileage], [CreatedOn], [CreatedByID], [UpdatedOn], [UpdatedByID]) VALUES (@VehicleID, @Mileage, @CreatedOn, @CreatedByID, @UpdatedOn@UpdatedByID, )";
-        private const string DeleteCommand = "DELETE FROM VehicleMileage WHERE ID = @UID";
+        private const string SelectCommand = "SELECT * FROM VehicleInsurer";
+        private const string UpdateCommand = "UPDATE [dbo].[VehicleInsurer] SET [VehicleID] = @VehicleID, [Insurer] = @Insurer, [StartDateOfInsurence] = @StartDateOfInsurence, [EndDateOfInsurence] = @EndDateOfInsurence, [CreatedOn] = @CreatedOn, [CreatedByID] = @CreatedByID, [UpdatedOn] = @UpdatedOn, [UpdatedByID] = @UpdatedByID WHERE ID = @UID";
+        private const string InsertCommand = "INSERT INTO [dbo].[VehicleInsurer] ([VehicleID], [Insurer], [StartDateOfInsurence], [EndDateOfInsurence], [CreatedOn], [CreatedByID], [UpdatedOn], [UpdatedByID]) VALUES (@VehicleID, @Insurer, @StartDateOfInsurence, @EndDateOfInsurence, @CreatedOn, @CreatedByID, @UpdatedOn, @UpdatedByID)";
+        private const string DeleteCommand = "DELETE FROM VehicleInsurer WHERE ID = @UID";
 
-        public static DataResponse GetVehicleMileageQuery(DataSet dataSet)
+        public static DataResponse GetVehicleInsurerQuery(DataSet dataSet)
         {
             var context = new Context();
             var cmd = new SqlCommand(SelectCommand);
-            var response = context.GetTable<VehicleMileage>(cmd, dataSet);
+            var response = context.GetTable<VehicleInsurer>(cmd, dataSet);
 
             if (response.Success)
             {
@@ -39,7 +39,7 @@ namespace CarFleetDomain.Models
 
         }
 
-        public static DataResponse UpdateVehicleMileageCommand(DataSet dataSet)
+        public static DataResponse UpdateVehicleInsurerCommand(DataSet dataSet)
         {
             using (var connection = new SqlConnection(Context.ConnectionString))
             {
@@ -64,7 +64,7 @@ namespace CarFleetDomain.Models
                     parameter.SourceColumn = "ID";
                     parameter.SourceVersion = DataRowVersion.Original;
 
-                    var table = dataSet.Tables[nameof(VehicleMileage)];
+                    var table = dataSet.Tables[nameof(VehicleInsurer)];
 
                     if (!dataSet.HasChanges())
                         return new DataResponse() { Success = false, Message = "In given data is no change" };
@@ -86,7 +86,7 @@ namespace CarFleetDomain.Models
             }
         }
 
-        public static DataResponse InsertVehicleMileageCommand(DataSet dataSet)
+        public static DataResponse InsertVehicleInsurerCommand(DataSet dataSet)
         {
             using (var connection = new SqlConnection(Context.ConnectionString))
             {
@@ -108,7 +108,7 @@ namespace CarFleetDomain.Models
                     adapter.UpdateCommand.Parameters.Add("@UpdatedByID", SqlDbType.Int).SourceColumn = "UpdatedByID";
 
                     // Update the database with the changes made to the DataSet
-                    var table = dataSet.Tables[nameof(VehicleMileage)];
+                    var table = dataSet.Tables[nameof(VehicleInsurer)];
 
                     // Check if there are changes in data set
                     if (!dataSet.HasChanges())
@@ -138,7 +138,7 @@ namespace CarFleetDomain.Models
             }
         }
 
-        public static DataResponse DeleteVehicleMileageCommand(DataSet dataSet)
+        public static DataResponse DeleteVehicleInsurerCommand(DataSet dataSet)
         {
             throw (new NotImplementedException());
         }
