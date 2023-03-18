@@ -9,13 +9,16 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using CarFleetDomain;
 using CarFleetDomain.Functions;
+using CarFleetDomain.Models;
 
 namespace CarFleet.Views
 {
     public partial class EmployeeListForm : Form
     {
+        private readonly List<Persons> _personsList;
         public EmployeeListForm()
         {
+            _personsList = new List<Persons>();
             InitializeComponent();
         }
 
@@ -31,11 +34,7 @@ namespace CarFleet.Views
             DataGridViewEmployeeList.DataSource = data.ReturnedValue.Tables["Persons"];
         }
 
-        private void DataGridViewEmployeeList_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
 
-        }
-        
        
 
         private void BtnAddEmployee_Click_1(object sender, EventArgs e)
@@ -50,11 +49,28 @@ namespace CarFleet.Views
 
         private void BtnEditEmployee_Click(object sender, EventArgs e)
         {
-            EditEmployeeForm editEmployeeForm = new EditEmployeeForm();  // create instance of AddEmployeeForm
+
+
+            if (DataGridViewEmployeeList.SelectedRows.Count > 0)
+            {
+                // Get the selected employee object
+                int selectedRow = Convert.ToInt32(DataGridViewEmployeeList.SelectedRows[0].Cells["ID"].Value);
+                Persons selectedPerson = _personsList.FirstOrDefault(p => p.ID == selectedRow);
+                // Pass the selected employee object to the EditEmployeeForm
+
+
+                EditEmployeeForm editEmployeeForm = new EditEmployeeForm(selectedPerson);  // create instance of AddEmployeeForm
             MainAdministrationForm mainForm = (MainAdministrationForm)this.ParentForm;  // get reference to the parent form
+           mainForm.loadForm(editEmployeeForm); }
+
 
             // load AddEmployeeForm in the mainpanel of the parent form
-            mainForm.loadForm(editEmployeeForm);
+            
+        }
+
+        private void DataGridViewEmployeeList_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }
