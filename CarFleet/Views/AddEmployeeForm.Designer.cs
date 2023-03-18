@@ -70,7 +70,6 @@
             this.TbLastName.Name = "TbLastName";
             this.TbLastName.Size = new System.Drawing.Size(100, 22);
             this.TbLastName.TabIndex = 1;
-            this.TbLastName.Visible = false;
             // 
             // label2
             // 
@@ -114,6 +113,7 @@
             this.label6.Size = new System.Drawing.Size(44, 16);
             this.label6.TabIndex = 13;
             this.label6.Text = "Email:";
+            this.label6.Visible = false;
             // 
             // label5
             // 

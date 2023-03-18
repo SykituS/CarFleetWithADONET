@@ -56,6 +56,7 @@
             this.DataGridViewEmployeeList.RowHeadersWidth = 51;
             this.DataGridViewEmployeeList.Size = new System.Drawing.Size(743, 554);
             this.DataGridViewEmployeeList.TabIndex = 6;
+            this.DataGridViewEmployeeList.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DataGridViewEmployeeList_CellContentClick_1);
             // 
             // BtnAddEmployee
             // 

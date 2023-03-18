@@ -12,13 +12,13 @@ namespace CarFleetDomain.Functions
 {
     public class EmployeeSystem
     {
-        private readonly List<Persons> _personslist;
+
         private readonly Context _context;
         private readonly Users _users;
         private readonly Persons _persons;
         public EmployeeSystem()
         {
-            _personslist= new List<Persons>();
+
             _context = Context.Create();
             _persons= new Persons();
             _users= new Users();
@@ -144,33 +144,10 @@ namespace CarFleetDomain.Functions
 
 
         }
-        public CommandResponse<Persons> GetEmployeeById(int id)
-        {
-            var response = new CommandResponse<Persons>(null);
+       
 
-            // Retrieve the selected employee from the employees list by ID
-            var employee = _personslist.FirstOrDefault(e => e.ID == id);
-            if (employee == null)
-            {
-                response.Message = "Employee not found";
-                return response;
-            }
 
-            // Create a new Persons object with the selected employee data
-            var persons = new Persons()
-            {
-                ID = employee.ID,
-                FirstName = employee.FirstName,
-                LastName = employee.LastName,
-                PhoneNumber = employee.PhoneNumber,
-                Email = employee.Email
-            };
 
-            // Return the employee data in the response
-            response.Success = true;
-            response.ReturnedValue = persons;
-            return response;
-        }
 
     }
 }
