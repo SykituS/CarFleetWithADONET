@@ -37,15 +37,16 @@
             this.DataGridViewVehicles.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DataGridViewVehicles.Location = new System.Drawing.Point(12, 12);
             this.DataGridViewVehicles.Name = "DataGridViewVehicles";
-            this.DataGridViewVehicles.Size = new System.Drawing.Size(688, 342);
+            this.DataGridViewVehicles.Size = new System.Drawing.Size(1243, 342);
             this.DataGridViewVehicles.TabIndex = 0;
+            this.DataGridViewVehicles.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.DataGridViewVehicles_CellFormatting);
             // 
             // CarListForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(712, 366);
+            this.ClientSize = new System.Drawing.Size(1267, 366);
             this.Controls.Add(this.DataGridViewVehicles);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(2);
