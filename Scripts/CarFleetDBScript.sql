@@ -102,7 +102,7 @@ CREATE TABLE VehicleDescription(
 	CONSTRAINT FK_VehicleDescription_Person_Updated FOREIGN KEY (UpdatedByID) REFERENCES Persons(ID),
 )
 
-CREATE TABLE VehcileStatus(
+CREATE TABLE VehicleStatus(
 	ID int IDENTITY(1, 1) NOT NULL PRIMARY KEY,
 	VehicleID int,
 	Status int,
