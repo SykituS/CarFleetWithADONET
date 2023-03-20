@@ -1,4 +1,5 @@
-﻿using CarFleetDomain.Models;
+﻿using CarFleetDomain.Functions;
+using CarFleetDomain.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -8,18 +9,22 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+using CarFleetDomain;
 namespace CarFleet.Views
 {
     public partial class EditEmployeeForm : Form
     {
-        
-        public EditEmployeeForm(Persons _persons)
+        private readonly int _personID;
+        private readonly Persons _persons;
+        private readonly Context _context;
+
+        public EditEmployeeForm(int _personsID)
             
         {
             InitializeComponent();
-            int selectedPersonId = _persons.ID;
-           
+            _personID = _personsID;
+
+            DisplayPerson(_personID);
 
         }
         //public void DisplayPersonInfo(int personId)
@@ -35,6 +40,24 @@ namespace CarFleet.Views
         //                          "Phone Number: " + person.PhoneNumber + Environment.NewLine +
         //                          "Email: " + person.Email;
         //}
+        private void DisplayPerson(int id)
+        {
+            var response = EmployeeSystem.GetPersonWithRole(id, Context.ConnectionString);
+
+            if (response.Success)
+            {
+                var person = response.ReturnedValue;
+                TbFirstName.Text = person.FirstName;
+                TbLastName.Text = person.LastName;
+                TbPhone.Text = person.PhoneNumber;
+                TbEmail.Text = person.Email;
+               
+            }
+            else
+            {
+                MessageBox.Show(response.Message);
+            }
+        }
 
         private void BtnNewEmplyee_Click(object sender, EventArgs e)
         {

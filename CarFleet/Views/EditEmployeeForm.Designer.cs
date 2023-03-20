@@ -38,6 +38,8 @@
             this.TbPhone = new System.Windows.Forms.TextBox();
             this.TbEmail = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
+            this.TbRole = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // BtnBack
@@ -50,7 +52,7 @@
             this.BtnBack.IconColor = System.Drawing.Color.White;
             this.BtnBack.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.BtnBack.IconSize = 32;
-            this.BtnBack.Location = new System.Drawing.Point(405, 267);
+            this.BtnBack.Location = new System.Drawing.Point(404, 313);
             this.BtnBack.Name = "BtnBack";
             this.BtnBack.Size = new System.Drawing.Size(145, 45);
             this.BtnBack.TabIndex = 19;
@@ -108,7 +110,7 @@
             this.BtnEditEmplyee.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.BtnEditEmplyee.IconSize = 32;
             this.BtnEditEmplyee.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BtnEditEmplyee.Location = new System.Drawing.Point(205, 267);
+            this.BtnEditEmplyee.Location = new System.Drawing.Point(204, 313);
             this.BtnEditEmplyee.Name = "BtnEditEmplyee";
             this.BtnEditEmplyee.Size = new System.Drawing.Size(194, 45);
             this.BtnEditEmplyee.TabIndex = 18;
@@ -155,12 +157,33 @@
             this.label4.TabIndex = 17;
             this.label4.Text = "Email:";
             // 
+            // TbRole
+            // 
+            this.TbRole.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.TbRole.Location = new System.Drawing.Point(396, 251);
+            this.TbRole.Name = "TbRole";
+            this.TbRole.Size = new System.Drawing.Size(100, 22);
+            this.TbRole.TabIndex = 20;
+            // 
+            // label5
+            // 
+            this.label5.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label5.AutoSize = true;
+            this.label5.ForeColor = System.Drawing.Color.Black;
+            this.label5.Location = new System.Drawing.Point(315, 254);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(39, 16);
+            this.label5.TabIndex = 21;
+            this.label5.Text = "Role:";
+            // 
             // EditEmployeeForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.TbRole);
             this.Controls.Add(this.BtnBack);
             this.Controls.Add(this.TbFirstName);
             this.Controls.Add(this.label2);
@@ -191,5 +214,7 @@
         private System.Windows.Forms.TextBox TbPhone;
         private System.Windows.Forms.TextBox TbEmail;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.TextBox TbRole;
+        private System.Windows.Forms.Label label5;
     }
 }

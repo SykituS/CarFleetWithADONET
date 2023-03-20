@@ -46,6 +46,42 @@ namespace CarFleetDomain.Functions
             return reply;
         }
 
+ public static CommandResponse<Persons> GetPersonWithRole(int personID, string connectionString)
+{
+    Persons person = null;
+    string query = "SELECT p.ID, p.FirstName, p.LastName, p.PhoneNumber, p.Email " +
+                   "FROM Persons p  " +
+                   "WHERE p.ID = @PersonID";
+
+    using (var connection = new SqlConnection(Context.ConnectionString))
+    {
+        var adapter = new SqlDataAdapter(query, connection);
+        adapter.SelectCommand.Parameters.AddWithValue("@PersonID", personID);
+        DataSet dataset = new DataSet();
+        //Persons.GetPersonsQuery(dataset);
+        adapter.Fill(dataset);
+
+        if (dataset.Tables[0].Rows.Count > 0)
+        {
+            DataRow row = dataset.Tables[0].Rows[0];
+            person = new Persons
+            {
+                ID = Convert.ToInt32(row["ID"]),
+                FirstName = row["FirstName"].ToString(),
+                LastName = row["LastName"].ToString(),
+                PhoneNumber = row["PhoneNumber"].ToString(),
+                Email = row["Email"].ToString(),
+             
+            };
+            return new CommandResponse<Persons>(person) { Success = true };
+        }
+        else
+        {
+            return new CommandResponse<Persons>(null) { Success = false, Message = "Person not found" };
+        }
+    }
+
+}
         public CommandResponse<Persons> InsertNewEmployee(string firstName, string lastName, string phone, string email)
         {
             var response = new CommandResponse<Persons>(new Persons());

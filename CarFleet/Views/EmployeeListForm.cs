@@ -30,8 +30,19 @@ namespace CarFleet.Views
             {
                 label1.Text = data.Message;
             }
-
             DataGridViewEmployeeList.DataSource = data.ReturnedValue.Tables["Persons"];
+            DataGridViewButtonColumn editButtonColumn = new DataGridViewButtonColumn();
+            editButtonColumn.Name = "Edit";
+            editButtonColumn.HeaderText = "Edit";
+            editButtonColumn.UseColumnTextForButtonValue = true;
+            DataGridViewEmployeeList.Columns.Add(editButtonColumn);
+
+            // Add a new DataGridViewButtonColumn for the "Delete" button
+            DataGridViewButtonColumn deleteButtonColumn = new DataGridViewButtonColumn();
+            deleteButtonColumn.Name = "Delete";
+            deleteButtonColumn.HeaderText = "Delete";
+            deleteButtonColumn.UseColumnTextForButtonValue = true;
+            DataGridViewEmployeeList.Columns.Add(deleteButtonColumn);
         }
 
 
@@ -51,26 +62,22 @@ namespace CarFleet.Views
         {
 
 
-            if (DataGridViewEmployeeList.SelectedRows.Count > 0)
-            {
-                // Get the selected employee object
-                int selectedRow = Convert.ToInt32(DataGridViewEmployeeList.SelectedRows[0].Cells["ID"].Value);
-                Persons selectedPerson = _personsList.FirstOrDefault(p => p.ID == selectedRow);
-                // Pass the selected employee object to the EditEmployeeForm
-
-
-                EditEmployeeForm editEmployeeForm = new EditEmployeeForm(selectedPerson);  // create instance of AddEmployeeForm
-            MainAdministrationForm mainForm = (MainAdministrationForm)this.ParentForm;  // get reference to the parent form
-           mainForm.loadForm(editEmployeeForm); }
-
-
-            // load AddEmployeeForm in the mainpanel of the parent form
             
         }
 
         private void DataGridViewEmployeeList_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
         {
+            if (DataGridViewEmployeeList.Columns[e.ColumnIndex].Name == "Edit")
+            {
+                // Get the ID value from the corresponding row
+                int id = (int)DataGridViewEmployeeList.Rows[e.RowIndex].Cells["ID"].Value;
 
+                // Open a new instance of the EmployeeEditForm with that ID
+                EditEmployeeForm editEmployeeForm = new EditEmployeeForm(id);  // create instance of AddEmployeeForm
+                MainAdministrationForm mainForm = (MainAdministrationForm)this.ParentForm;  // get reference to the parent form
+                mainForm.loadForm(editEmployeeForm);
+            }
+        }
         }
     }
-}
+
