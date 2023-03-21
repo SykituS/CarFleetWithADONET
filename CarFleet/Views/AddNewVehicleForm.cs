@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using CarFleetDomain.Models;
 
 namespace CarFleet.Views
 {
@@ -26,7 +27,7 @@ namespace CarFleet.Views
         {
             try
             {
-
+                var vehicle = new Vehicle();
 
             }
             catch (Exception exception)
