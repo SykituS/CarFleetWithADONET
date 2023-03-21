@@ -24,8 +24,16 @@ namespace CarFleet.Views
 
         private void BtnCreate_Click(object sender, EventArgs e)
         {
-            LabelWarning.Visible = true;
-            LabelWarning.Text = "Something went wrong!";
+            try
+            {
+
+
+            }
+            catch (Exception exception)
+            {
+                LabelWarning.Visible = true;
+                LabelWarning.Text = "Something went wrong!";
+            }
         }
     }
 }

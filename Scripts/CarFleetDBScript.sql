@@ -16,6 +16,7 @@ CREATE TABLE Persons (
 	LastName varchar(255) NOT NULL,
 	PhoneNumber varchar(15) NOT NULL,
 	Email nvarchar(255) NOT NULL,
+	Disabled bit NOT NULL,
 )
 
 CREATE TABLE Users(
