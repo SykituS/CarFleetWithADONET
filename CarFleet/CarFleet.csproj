@@ -59,6 +59,12 @@
     <Compile Include="Views\AddEmployeeForm.Designer.cs">
       <DependentUpon>AddEmployeeForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\AddNewVehicleForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\AddNewVehicleForm.Designer.cs">
+      <DependentUpon>AddNewVehicleForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\CarHistoryForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -111,6 +117,9 @@
     </Compile>
     <EmbeddedResource Include="Views\AddEmployeeForm.resx">
       <DependentUpon>AddEmployeeForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\AddNewVehicleForm.resx">
+      <DependentUpon>AddNewVehicleForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\CarHistoryForm.resx">
       <DependentUpon>CarHistoryForm.cs</DependentUpon>
