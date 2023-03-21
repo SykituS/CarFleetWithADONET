@@ -390,7 +390,8 @@
         }
 
         #endregion
-        private System.Windows.Forms.TextBox TBManufacturer;
+
+        public System.Windows.Forms.TextBox TBManufacturer;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
@@ -404,20 +405,20 @@
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.TextBox TBLicensePlate;
-        private System.Windows.Forms.TextBox TBModel;
-        private System.Windows.Forms.TextBox TBVinNumber;
+        public System.Windows.Forms.TextBox TBLicensePlate;
+        public System.Windows.Forms.TextBox TBModel;
+        public System.Windows.Forms.TextBox TBVinNumber;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.TextBox TBInsurer;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Panel panel4;
-        private System.Windows.Forms.RichTextBox RichTextBoxDescription;
+        public System.Windows.Forms.RichTextBox RichTextBoxDescription;
         private System.Windows.Forms.Button BtnCancel;
         private System.Windows.Forms.Button BtnCreate;
-        private System.Windows.Forms.NumericUpDown NumericUDMileage;
-        private System.Windows.Forms.DateTimePicker DateTimePickerProductionYear;
-        private System.Windows.Forms.DateTimePicker DateTimePickerInsurenceEnd;
-        private System.Windows.Forms.DateTimePicker DateTimePickerInsurenceStart;
+        public System.Windows.Forms.NumericUpDown NumericUDMileage;
+        public System.Windows.Forms.DateTimePicker DateTimePickerProductionYear;
+        public System.Windows.Forms.DateTimePicker DateTimePickerInsurenceEnd;
+        public System.Windows.Forms.DateTimePicker DateTimePickerInsurenceStart;
         private System.Windows.Forms.DateTimePicker DateTimePickerNextInspection;
         private System.Windows.Forms.DateTimePicker DateTimePickerInspection;
         private System.Windows.Forms.Label LabelWarning;
