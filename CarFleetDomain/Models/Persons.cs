@@ -16,7 +16,7 @@ namespace CarFleetDomain.Models
         public string LastName { get; set; }
         public string PhoneNumber { get; set; }
         public string Email { get; set; }
-        public Users Users { get; set; }
+
         #region Data Base Methods
 
         private const string SelectCommand = "SELECT * FROM Persons";

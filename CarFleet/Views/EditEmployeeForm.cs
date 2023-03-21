@@ -23,44 +23,76 @@ namespace CarFleet.Views
         {
             InitializeComponent();
             _personID = _personsID;
-
+            FillCbBoxWithRoles();
             DisplayPerson(_personID);
 
         }
-        //public void DisplayPersonInfo(int personId)
-        //{
-        //    // Query the database to get the person's information based on the ID
-        //    // Assume that you have a method in the Persons class to get a single person by ID
-        //    Persons person = Persons.GetPersonById(personId);
-
-        //    // Display the person's information in the TextBox
-        //    txtPersonInfo.Text = "ID: " + person.ID + Environment.NewLine +
-        //                          "First Name: " + person.FirstName + Environment.NewLine +
-        //                          "Last Name: " + person.LastName + Environment.NewLine +
-        //                          "Phone Number: " + person.PhoneNumber + Environment.NewLine +
-        //                          "Email: " + person.Email;
-        //}
+       
         private void DisplayPerson(int id)
         {
-            var response = EmployeeSystem.GetPersonWithRole(id, Context.ConnectionString);
-
-            if (response.Success)
+            var personresponse = EmployeeSystem.GetPersonWithRole(id, Context.ConnectionString);
+            var userresponse=EmployeeSystem.GetUserRole(id, Context.ConnectionString);
+            if (personresponse.Success && userresponse.Success)
             {
-                var person = response.ReturnedValue;
+                var person = personresponse.ReturnedValue;
+                var user = userresponse.ReturnedValue;
                 TbFirstName.Text = person.FirstName;
                 TbLastName.Text = person.LastName;
                 TbPhone.Text = person.PhoneNumber;
                 TbEmail.Text = person.Email;
-               
+                CbBox.SelectedItem = Enum.GetName(typeof(RoleEnum), user.RoleID);
+
+            }
+            else if (personresponse.Success)
+            {
+                var person = personresponse.ReturnedValue;
+                var user = userresponse.ReturnedValue;
+                TbFirstName.Text = person.FirstName;
+                TbLastName.Text = person.LastName;
+                TbPhone.Text = person.PhoneNumber;
+                TbEmail.Text = person.Email;
             }
             else
             {
-                MessageBox.Show(response.Message);
+                MessageBox.Show(personresponse.Message+" "+userresponse.Message);
             }
         }
-
+      
+        private void FillCbBoxWithRoles()
+        {
+            RoleEnum[] roles = (RoleEnum[])Enum.GetValues(typeof(RoleEnum));
+            foreach (RoleEnum role in roles)
+            {
+                CbBox.Items.Add(Enum.GetName(typeof(RoleEnum), role));
+            }
+        }
         private void BtnNewEmplyee_Click(object sender, EventArgs e)
         {
+            EmployeeSystem employeeSystem = new EmployeeSystem();
+            int id = _personID;
+            string firstName=TbFirstName.Text;
+            string lastName=TbLastName.Text;
+            string phone=TbPhone.Text;
+            string email=TbEmail.Text;
+            var response = employeeSystem.UpdateEmployee(id, firstName, lastName, phone, email);
+                if (response.Success)
+            {
+                EmployeeListForm employeeListForm = new EmployeeListForm();  // create instance of AddEmployeeForm
+                MainAdministrationForm mainForm = (MainAdministrationForm)this.ParentForm;  // get reference to the parent form
+
+                // load AddEmployeeForm in the mainpanel of the parent form
+                mainForm.loadForm(employeeListForm);
+
+
+            }
+            else
+            {
+                label6.Visible = true;
+                // Display the error message on the label
+                label6.Text = response.Message;
+
+
+            }
 
         }
 
@@ -71,6 +103,13 @@ namespace CarFleet.Views
 
             // load AddEmployeeForm in the mainpanel of the parent form
             mainForm.loadForm(employeeListForm);
+        }
+
+  
+
+        private void CbBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

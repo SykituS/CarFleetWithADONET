@@ -38,8 +38,9 @@
             this.TbPhone = new System.Windows.Forms.TextBox();
             this.TbEmail = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.TbRole = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
+            this.CbBox = new System.Windows.Forms.ComboBox();
+            this.label6 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // BtnBack
@@ -157,14 +158,6 @@
             this.label4.TabIndex = 17;
             this.label4.Text = "Email:";
             // 
-            // TbRole
-            // 
-            this.TbRole.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.TbRole.Location = new System.Drawing.Point(396, 251);
-            this.TbRole.Name = "TbRole";
-            this.TbRole.Size = new System.Drawing.Size(100, 22);
-            this.TbRole.TabIndex = 20;
-            // 
             // label5
             // 
             this.label5.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -176,14 +169,36 @@
             this.label5.TabIndex = 21;
             this.label5.Text = "Role:";
             // 
+            // CbBox
+            // 
+            this.CbBox.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.CbBox.FormattingEnabled = true;
+            this.CbBox.Location = new System.Drawing.Point(396, 254);
+            this.CbBox.Name = "CbBox";
+            this.CbBox.Size = new System.Drawing.Size(100, 24);
+            this.CbBox.TabIndex = 22;
+            this.CbBox.SelectedIndexChanged += new System.EventHandler(this.CbBox_SelectedIndexChanged);
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.ForeColor = System.Drawing.Color.Red;
+            this.label6.Location = new System.Drawing.Point(291, 383);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(44, 16);
+            this.label6.TabIndex = 23;
+            this.label6.Text = "label6";
+            this.label6.Visible = false;
+            // 
             // EditEmployeeForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.CbBox);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.TbRole);
             this.Controls.Add(this.BtnBack);
             this.Controls.Add(this.TbFirstName);
             this.Controls.Add(this.label2);
@@ -214,7 +229,8 @@
         private System.Windows.Forms.TextBox TbPhone;
         private System.Windows.Forms.TextBox TbEmail;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox TbRole;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.ComboBox CbBox;
+        private System.Windows.Forms.Label label6;
     }
 }

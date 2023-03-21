@@ -29,6 +29,7 @@ namespace CarFleetDomain.Models
         private const string InsertCommand = "INSERT INTO Users (UserName, PasswordHash, PersonID,RoleID) VALUES (@UserName, @PasswordHash, @PersonID,@RoleID)";
         private const string DeleteCommand = "DELETE FROM Users WHERE ID = @UID";
 
+
         public static DataResponse GetUsersQuery(DataSet dataSet)
         {
             var context = new Context();
