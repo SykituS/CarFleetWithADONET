@@ -9,7 +9,7 @@ INSERT INTO [dbo].[Users]
            ,[PersonID]
            ,[RoleID])
      VALUES
-           ('mlytton0@globo.com'
+           ('admin'
            ,'dSPGKr23Yoxana2Pl9jYxcBA7eNlNeUxqKN0i2yufgA='
            ,1
            ,1)

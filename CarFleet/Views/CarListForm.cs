@@ -17,8 +17,11 @@ namespace CarFleet.Views
 {
     public partial class CarListForm : Form
     {
-        public CarListForm()
+        private Users loggedUser;
+
+        public CarListForm(Users loggedUser)
         {
+            this.loggedUser = loggedUser;
             InitializeComponent();
         }
 
@@ -42,6 +45,11 @@ namespace CarFleet.Views
         {
             try
             {
+                if (e.Value == null)
+                {
+                    return;
+                }
+
                 if (DataGridViewVehicles.Columns[e.ColumnIndex].Name == "Status")
                 {
                     var enumValue = (VehicleStatusEnum)e.Value;
@@ -98,7 +106,8 @@ namespace CarFleet.Views
 
         private void BtnAddNewVehicle_Click(object sender, EventArgs e)
         {
-
+            var form = new AddNewVehicleForm(loggedUser);
+            form.Show();
         }
     }
 }

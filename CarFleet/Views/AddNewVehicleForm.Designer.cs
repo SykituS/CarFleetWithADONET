@@ -42,28 +42,28 @@
             this.label11 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.NumericUDMileage = new System.Windows.Forms.NumericUpDown();
+            this.DateTimePickerProductionYear = new System.Windows.Forms.DateTimePicker();
+            this.TBLicensePlate = new System.Windows.Forms.TextBox();
             this.TBModel = new System.Windows.Forms.TextBox();
-            this.TBRegistrationNumber = new System.Windows.Forms.TextBox();
             this.TBVinNumber = new System.Windows.Forms.TextBox();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.panel3 = new System.Windows.Forms.Panel();
+            this.DateTimePickerInsurenceEnd = new System.Windows.Forms.DateTimePicker();
+            this.DateTimePickerInsurenceStart = new System.Windows.Forms.DateTimePicker();
             this.TBInsurer = new System.Windows.Forms.TextBox();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.DateTimePickerNextInspection = new System.Windows.Forms.DateTimePicker();
+            this.DateTimePickerInspection = new System.Windows.Forms.DateTimePicker();
             this.panel4 = new System.Windows.Forms.Panel();
             this.RichTextBoxDescription = new System.Windows.Forms.RichTextBox();
             this.BtnCancel = new System.Windows.Forms.Button();
             this.BtnCreate = new System.Windows.Forms.Button();
-            this.DateTimePickerProductionYear = new System.Windows.Forms.DateTimePicker();
-            this.NumericUDMileage = new System.Windows.Forms.NumericUpDown();
-            this.DateTimePickerInsurenceStart = new System.Windows.Forms.DateTimePicker();
-            this.DateTimePickerInsurenceEnd = new System.Windows.Forms.DateTimePicker();
-            this.DateTimePickerInspection = new System.Windows.Forms.DateTimePicker();
-            this.DateTimePickerNextInspection = new System.Windows.Forms.DateTimePicker();
             this.LabelWarning = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.NumericUDMileage)).BeginInit();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.NumericUDMileage)).BeginInit();
             this.SuspendLayout();
             // 
             // TBManufacturer
@@ -97,9 +97,9 @@
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(3, 61);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(101, 13);
+            this.label3.Size = new System.Drawing.Size(70, 13);
             this.label3.TabIndex = 5;
-            this.label3.Text = "Registration number";
+            this.label3.Text = "License plate";
             // 
             // label4
             // 
@@ -186,7 +186,7 @@
             // 
             this.panel1.Controls.Add(this.NumericUDMileage);
             this.panel1.Controls.Add(this.DateTimePickerProductionYear);
-            this.panel1.Controls.Add(this.TBRegistrationNumber);
+            this.panel1.Controls.Add(this.TBLicensePlate);
             this.panel1.Controls.Add(this.TBModel);
             this.panel1.Controls.Add(this.label11);
             this.panel1.Controls.Add(this.label3);
@@ -201,6 +201,37 @@
             this.panel1.Size = new System.Drawing.Size(291, 174);
             this.panel1.TabIndex = 16;
             // 
+            // NumericUDMileage
+            // 
+            this.NumericUDMileage.Location = new System.Drawing.Point(157, 142);
+            this.NumericUDMileage.Maximum = new decimal(new int[] {
+            1410065407,
+            2,
+            0,
+            0});
+            this.NumericUDMileage.Name = "NumericUDMileage";
+            this.NumericUDMileage.Size = new System.Drawing.Size(131, 20);
+            this.NumericUDMileage.TabIndex = 23;
+            // 
+            // DateTimePickerProductionYear
+            // 
+            this.DateTimePickerProductionYear.CustomFormat = "yyyy";
+            this.DateTimePickerProductionYear.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.DateTimePickerProductionYear.Location = new System.Drawing.Point(157, 110);
+            this.DateTimePickerProductionYear.Name = "DateTimePickerProductionYear";
+            this.DateTimePickerProductionYear.ShowUpDown = true;
+            this.DateTimePickerProductionYear.Size = new System.Drawing.Size(131, 20);
+            this.DateTimePickerProductionYear.TabIndex = 22;
+            // 
+            // TBLicensePlate
+            // 
+            this.TBLicensePlate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.TBLicensePlate.Location = new System.Drawing.Point(157, 58);
+            this.TBLicensePlate.MaxLength = 7;
+            this.TBLicensePlate.Name = "TBLicensePlate";
+            this.TBLicensePlate.Size = new System.Drawing.Size(131, 20);
+            this.TBLicensePlate.TabIndex = 7;
+            // 
             // TBModel
             // 
             this.TBModel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -209,18 +240,11 @@
             this.TBModel.Size = new System.Drawing.Size(131, 20);
             this.TBModel.TabIndex = 6;
             // 
-            // TBRegistrationNumber
-            // 
-            this.TBRegistrationNumber.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.TBRegistrationNumber.Location = new System.Drawing.Point(157, 58);
-            this.TBRegistrationNumber.Name = "TBRegistrationNumber";
-            this.TBRegistrationNumber.Size = new System.Drawing.Size(131, 20);
-            this.TBRegistrationNumber.TabIndex = 7;
-            // 
             // TBVinNumber
             // 
             this.TBVinNumber.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.TBVinNumber.Location = new System.Drawing.Point(157, 84);
+            this.TBVinNumber.MaxLength = 17;
             this.TBVinNumber.Name = "TBVinNumber";
             this.TBVinNumber.Size = new System.Drawing.Size(131, 20);
             this.TBVinNumber.TabIndex = 8;
@@ -238,6 +262,30 @@
             this.panel2.Size = new System.Drawing.Size(291, 100);
             this.panel2.TabIndex = 17;
             // 
+            // DateTimePickerInsurenceEnd
+            // 
+            this.DateTimePickerInsurenceEnd.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.DateTimePickerInsurenceEnd.Location = new System.Drawing.Point(157, 58);
+            this.DateTimePickerInsurenceEnd.Name = "DateTimePickerInsurenceEnd";
+            this.DateTimePickerInsurenceEnd.Size = new System.Drawing.Size(131, 20);
+            this.DateTimePickerInsurenceEnd.TabIndex = 21;
+            // 
+            // DateTimePickerInsurenceStart
+            // 
+            this.DateTimePickerInsurenceStart.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.DateTimePickerInsurenceStart.Location = new System.Drawing.Point(157, 32);
+            this.DateTimePickerInsurenceStart.Name = "DateTimePickerInsurenceStart";
+            this.DateTimePickerInsurenceStart.Size = new System.Drawing.Size(131, 20);
+            this.DateTimePickerInsurenceStart.TabIndex = 20;
+            // 
+            // TBInsurer
+            // 
+            this.TBInsurer.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.TBInsurer.Location = new System.Drawing.Point(157, 3);
+            this.TBInsurer.Name = "TBInsurer";
+            this.TBInsurer.Size = new System.Drawing.Size(131, 20);
+            this.TBInsurer.TabIndex = 19;
+            // 
             // panel3
             // 
             this.panel3.Controls.Add(this.DateTimePickerNextInspection);
@@ -249,13 +297,21 @@
             this.panel3.Size = new System.Drawing.Size(291, 62);
             this.panel3.TabIndex = 18;
             // 
-            // TBInsurer
+            // DateTimePickerNextInspection
             // 
-            this.TBInsurer.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.TBInsurer.Location = new System.Drawing.Point(157, 3);
-            this.TBInsurer.Name = "TBInsurer";
-            this.TBInsurer.Size = new System.Drawing.Size(131, 20);
-            this.TBInsurer.TabIndex = 19;
+            this.DateTimePickerNextInspection.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.DateTimePickerNextInspection.Location = new System.Drawing.Point(157, 29);
+            this.DateTimePickerNextInspection.Name = "DateTimePickerNextInspection";
+            this.DateTimePickerNextInspection.Size = new System.Drawing.Size(131, 20);
+            this.DateTimePickerNextInspection.TabIndex = 23;
+            // 
+            // DateTimePickerInspection
+            // 
+            this.DateTimePickerInspection.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.DateTimePickerInspection.Location = new System.Drawing.Point(157, 3);
+            this.DateTimePickerInspection.Name = "DateTimePickerInspection";
+            this.DateTimePickerInspection.Size = new System.Drawing.Size(131, 20);
+            this.DateTimePickerInspection.TabIndex = 22;
             // 
             // panel4
             // 
@@ -295,60 +351,6 @@
             this.BtnCreate.UseVisualStyleBackColor = true;
             this.BtnCreate.Click += new System.EventHandler(this.BtnCreate_Click);
             // 
-            // DateTimePickerProductionYear
-            // 
-            this.DateTimePickerProductionYear.CustomFormat = "yyyy";
-            this.DateTimePickerProductionYear.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.DateTimePickerProductionYear.Location = new System.Drawing.Point(157, 110);
-            this.DateTimePickerProductionYear.Name = "DateTimePickerProductionYear";
-            this.DateTimePickerProductionYear.ShowUpDown = true;
-            this.DateTimePickerProductionYear.Size = new System.Drawing.Size(131, 20);
-            this.DateTimePickerProductionYear.TabIndex = 22;
-            // 
-            // NumericUDMileage
-            // 
-            this.NumericUDMileage.Location = new System.Drawing.Point(157, 142);
-            this.NumericUDMileage.Maximum = new decimal(new int[] {
-            1410065407,
-            2,
-            0,
-            0});
-            this.NumericUDMileage.Name = "NumericUDMileage";
-            this.NumericUDMileage.Size = new System.Drawing.Size(131, 20);
-            this.NumericUDMileage.TabIndex = 23;
-            // 
-            // DateTimePickerInsurenceStart
-            // 
-            this.DateTimePickerInsurenceStart.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.DateTimePickerInsurenceStart.Location = new System.Drawing.Point(157, 32);
-            this.DateTimePickerInsurenceStart.Name = "DateTimePickerInsurenceStart";
-            this.DateTimePickerInsurenceStart.Size = new System.Drawing.Size(131, 20);
-            this.DateTimePickerInsurenceStart.TabIndex = 20;
-            // 
-            // DateTimePickerInsurenceEnd
-            // 
-            this.DateTimePickerInsurenceEnd.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.DateTimePickerInsurenceEnd.Location = new System.Drawing.Point(157, 58);
-            this.DateTimePickerInsurenceEnd.Name = "DateTimePickerInsurenceEnd";
-            this.DateTimePickerInsurenceEnd.Size = new System.Drawing.Size(131, 20);
-            this.DateTimePickerInsurenceEnd.TabIndex = 21;
-            // 
-            // DateTimePickerInspection
-            // 
-            this.DateTimePickerInspection.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.DateTimePickerInspection.Location = new System.Drawing.Point(157, 3);
-            this.DateTimePickerInspection.Name = "DateTimePickerInspection";
-            this.DateTimePickerInspection.Size = new System.Drawing.Size(131, 20);
-            this.DateTimePickerInspection.TabIndex = 22;
-            // 
-            // DateTimePickerNextInspection
-            // 
-            this.DateTimePickerNextInspection.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.DateTimePickerNextInspection.Location = new System.Drawing.Point(157, 29);
-            this.DateTimePickerNextInspection.Name = "DateTimePickerNextInspection";
-            this.DateTimePickerNextInspection.Size = new System.Drawing.Size(131, 20);
-            this.DateTimePickerNextInspection.TabIndex = 23;
-            // 
             // LabelWarning
             // 
             this.LabelWarning.ForeColor = System.Drawing.Color.Red;
@@ -376,13 +378,13 @@
             this.Text = "AddNewVehicleForm";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.NumericUDMileage)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.NumericUDMileage)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -402,7 +404,7 @@
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.TextBox TBRegistrationNumber;
+        private System.Windows.Forms.TextBox TBLicensePlate;
         private System.Windows.Forms.TextBox TBModel;
         private System.Windows.Forms.TextBox TBVinNumber;
         private System.Windows.Forms.Panel panel2;
