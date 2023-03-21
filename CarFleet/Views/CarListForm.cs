@@ -17,23 +17,39 @@ namespace CarFleet.Views
 {
     public partial class CarListForm : Form
     {
-        public CarListForm()
+        private Users loggedUser;
+
+        public CarListForm(Users loggedUser)
         {
+            this.loggedUser = loggedUser;
             InitializeComponent();
         }
 
         private void CarListForm_Load(object sender, EventArgs e)
         {
             var dataSet = new DataSet();
-            var cmd = "SELECT veh.id, veh.Manufacturer, veh.Model, (Select top(1) vehStatus.Status FROM [VehicleStatus] as vehStatus where vehStatus.VehicleID = veh.ID order by CreatedOn desc) as Status, veh.ProductionYear, veh.LicensePlate, veh.VinNumber, (Select top(1) vehInspection.DateOfnextInspection from VehicleInspection as vehInspection where vehInspection.VehicleID = veh.ID Order by vehInspection.CreatedOn desc) as NextInspection, (Select top(1) vehInsurer.EndDateOfInsurence from VehicleInsurer as vehInsurer where vehInsurer.VehicleID = veh.ID Order by vehInsurer.CreatedOn desc) as Insurence FROM Vehicle as veh";
+            var cmd = "SELECT veh.id, veh.Manufacturer, veh.Model, (Select top(1) vehStatus.Status FROM [VehicleStatus] as vehStatus where vehStatus.VehicleID = veh.ID order by CreatedOn desc) as Status, " + 
+                      "veh.ProductionYear, veh.LicensePlate, veh.VinNumber, (Select top(1) vehInspection.DateOfnextInspection from VehicleInspection as vehInspection where vehInspection.VehicleID = veh.ID Order by vehInspection.CreatedOn desc) as NextInspection, " +
+                      "(Select top(1) vehInsurer.EndDateOfInsurence from VehicleInsurer as vehInsurer where vehInsurer.VehicleID = veh.ID Order by vehInsurer.CreatedOn desc) as Insurence FROM Vehicle as veh";
             Vehicle.GetVehicleQuery(dataSet, new SqlCommand(cmd));
             DataGridViewVehicles.DataSource = dataSet.Tables[nameof(Vehicle)];
+
+            var btnDetails = new DataGridViewButtonColumn();
+            btnDetails.Text = "Details";
+            btnDetails.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            btnDetails.UseColumnTextForButtonValue = true;
+            DataGridViewVehicles.Columns.Add(btnDetails);
         }
 
         private void DataGridViewVehicles_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
         {
             try
             {
+                if (e.Value == null)
+                {
+                    return;
+                }
+
                 if (DataGridViewVehicles.Columns[e.ColumnIndex].Name == "Status")
                 {
                     var enumValue = (VehicleStatusEnum)e.Value;
@@ -69,8 +85,7 @@ namespace CarFleet.Views
                     var inspectionDate = (DateTime)e.Value;
                     if (inspectionDate <= DateTime.Now.AddDays(14))
                     {
-                        e.CellStyle.BackColor = Color.IndianRed;
-                        DataGridViewVehicles.Rows[e.RowIndex].DefaultCellStyle = e.CellStyle;
+                        DataGridViewVehicles.Rows[e.RowIndex].DefaultCellStyle.BackColor = Color.IndianRed;
                     }
                 }
 
@@ -79,8 +94,7 @@ namespace CarFleet.Views
                     var insurenceDate = (DateTime)e.Value;
                     if (insurenceDate <= DateTime.Now.AddDays(14))
                     {
-                        e.CellStyle.BackColor = Color.IndianRed;
-                        DataGridViewVehicles.Rows[e.RowIndex].DefaultCellStyle = e.CellStyle;
+                        DataGridViewVehicles.Rows[e.RowIndex].DefaultCellStyle.BackColor = Color.IndianRed;
                     }
                 }
             }
@@ -88,6 +102,12 @@ namespace CarFleet.Views
             {
                 e.Value = "No data";
             }
+        }
+
+        private void BtnAddNewVehicle_Click(object sender, EventArgs e)
+        {
+            var form = new AddNewVehicleForm(loggedUser);
+            form.Show();
         }
     }
 }

@@ -95,12 +95,12 @@ namespace CarFleetDomain.Models
 
                     adapter.InsertCommand = new SqlCommand(InsertCommand, connection);
 
-                    adapter.UpdateCommand.Parameters.Add("@VehicleID", SqlDbType.Int).SourceColumn = "VehicleID";
-                    adapter.UpdateCommand.Parameters.Add("@Description", SqlDbType.VarChar).SourceColumn = "Description";
-                    adapter.UpdateCommand.Parameters.Add("@CreatedOn", SqlDbType.DateTime).SourceColumn = "CreatedOn";
-                    adapter.UpdateCommand.Parameters.Add("@CreatedByID", SqlDbType.Int).SourceColumn = "CreatedByID";
-                    adapter.UpdateCommand.Parameters.Add("@UpdatedOn", SqlDbType.DateTime).SourceColumn = "UpdatedOn";
-                    adapter.UpdateCommand.Parameters.Add("@UpdatedByID", SqlDbType.Int).SourceColumn = "UpdatedByID";
+                    adapter.InsertCommand.Parameters.Add("@VehicleID", SqlDbType.Int).SourceColumn = "VehicleID";
+                    adapter.InsertCommand.Parameters.Add("@Description", SqlDbType.VarChar).SourceColumn = "Description";
+                    adapter.InsertCommand.Parameters.Add("@CreatedOn", SqlDbType.DateTime).SourceColumn = "CreatedOn";
+                    adapter.InsertCommand.Parameters.Add("@CreatedByID", SqlDbType.Int).SourceColumn = "CreatedByID";
+                    adapter.InsertCommand.Parameters.Add("@UpdatedOn", SqlDbType.DateTime).SourceColumn = "UpdatedOn";
+                    adapter.InsertCommand.Parameters.Add("@UpdatedByID", SqlDbType.Int).SourceColumn = "UpdatedByID";
 
                     // Update the database with the changes made to the DataSet
                     var table = dataSet.Tables[nameof(VehicleDescription)];

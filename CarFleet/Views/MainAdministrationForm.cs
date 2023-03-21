@@ -100,7 +100,7 @@ namespace CarFleet.Views
         private void btnCarList_Click(object sender, EventArgs e)
         {
             ActiveButton(sender, RGBColors.color2);
-            loadForm(new CarListForm());
+            loadForm(new CarListForm(loggedUser));
         }
 
         private void btnClose_Click(object sender, EventArgs e)

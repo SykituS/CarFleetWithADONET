@@ -21,7 +21,7 @@ namespace CarFleetDomain.Models
 
         private const string SelectCommand = "SELECT * FROM VehicleMileage";
         private const string UpdateCommand = "UPDATE [dbo].[VehicleMileage] SET [VehicleID] = @VehicleID, ,[Mileage] = @Mileage, [CreatedOn] = @CreatedOn, [CreatedByID] = @CreatedByID, [UpdatedOn] = @UpdatedOn, [UpdatedByID] = @UpdatedByID WHERE ID = @UID";
-        private const string InsertCommand = "INSERT INTO [dbo].[VehicleMileage] ([VehicleID], [Mileage], [CreatedOn], [CreatedByID], [UpdatedOn], [UpdatedByID]) VALUES (@VehicleID, @Mileage, @CreatedOn, @CreatedByID, @UpdatedOn@UpdatedByID, )";
+        private const string InsertCommand = "INSERT INTO [dbo].[VehicleMileage] ([VehicleID], [Mileage], [CreatedOn], [CreatedByID], [UpdatedOn], [UpdatedByID]) VALUES (@VehicleID, @Mileage, @CreatedOn, @CreatedByID, @UpdatedOn, @UpdatedByID)";
         private const string DeleteCommand = "DELETE FROM VehicleMileage WHERE ID = @UID";
 
         public static DataResponse GetVehicleMileageQuery(DataSet dataSet)
@@ -48,12 +48,9 @@ namespace CarFleetDomain.Models
                     var adapter = new SqlDataAdapter();
 
                     adapter.UpdateCommand = new SqlCommand(UpdateCommand, connection);
-
-                    adapter.UpdateCommand.Parameters.Add("@Manufacturer", SqlDbType.VarChar).SourceColumn = "Manufacturer";
-                    adapter.UpdateCommand.Parameters.Add("@Model", SqlDbType.VarChar).SourceColumn = "Model";
-                    adapter.UpdateCommand.Parameters.Add("@ProductionYear", SqlDbType.Int).SourceColumn = "ProductionYear";
-                    adapter.UpdateCommand.Parameters.Add("@LicensePlate", SqlDbType.VarChar).SourceColumn = "LicensePlate";
-                    adapter.UpdateCommand.Parameters.Add("@VinNumber", SqlDbType.VarChar).SourceColumn = "VinNumber";
+                    
+                    adapter.UpdateCommand.Parameters.Add("@Mileage", SqlDbType.Int).SourceColumn = "Mileage";
+                    adapter.UpdateCommand.Parameters.Add("@VehicleID", SqlDbType.Int).SourceColumn = "VehicleID";
                     adapter.UpdateCommand.Parameters.Add("@CreatedOn", SqlDbType.DateTime).SourceColumn = "CreatedOn";
                     adapter.UpdateCommand.Parameters.Add("@CreatedByID", SqlDbType.Int).SourceColumn = "CreatedByID";
                     adapter.UpdateCommand.Parameters.Add("@UpdatedOn", SqlDbType.DateTime).SourceColumn = "UpdatedOn";
@@ -96,16 +93,13 @@ namespace CarFleetDomain.Models
                     var adapter = new SqlDataAdapter();
 
                     adapter.InsertCommand = new SqlCommand(InsertCommand, connection);
-
-                    adapter.UpdateCommand.Parameters.Add("@Manufacturer", SqlDbType.VarChar).SourceColumn = "Manufacturer";
-                    adapter.UpdateCommand.Parameters.Add("@Model", SqlDbType.VarChar).SourceColumn = "Model";
-                    adapter.UpdateCommand.Parameters.Add("@ProductionYear", SqlDbType.Int).SourceColumn = "ProductionYear";
-                    adapter.UpdateCommand.Parameters.Add("@LicensePlate", SqlDbType.VarChar).SourceColumn = "LicensePlate";
-                    adapter.UpdateCommand.Parameters.Add("@VinNumber", SqlDbType.VarChar).SourceColumn = "VinNumber";
-                    adapter.UpdateCommand.Parameters.Add("@CreatedOn", SqlDbType.DateTime).SourceColumn = "CreatedOn";
-                    adapter.UpdateCommand.Parameters.Add("@CreatedByID", SqlDbType.Int).SourceColumn = "CreatedByID";
-                    adapter.UpdateCommand.Parameters.Add("@UpdatedOn", SqlDbType.DateTime).SourceColumn = "UpdatedOn";
-                    adapter.UpdateCommand.Parameters.Add("@UpdatedByID", SqlDbType.Int).SourceColumn = "UpdatedByID";
+                    
+                    adapter.InsertCommand.Parameters.Add("@Mileage", SqlDbType.Int).SourceColumn = "Mileage";
+                    adapter.InsertCommand.Parameters.Add("@VehicleID", SqlDbType.Int).SourceColumn = "VehicleID";
+                    adapter.InsertCommand.Parameters.Add("@CreatedOn", SqlDbType.DateTime).SourceColumn = "CreatedOn";
+                    adapter.InsertCommand.Parameters.Add("@CreatedByID", SqlDbType.Int).SourceColumn = "CreatedByID";
+                    adapter.InsertCommand.Parameters.Add("@UpdatedOn", SqlDbType.DateTime).SourceColumn = "UpdatedOn";
+                    adapter.InsertCommand.Parameters.Add("@UpdatedByID", SqlDbType.Int).SourceColumn = "UpdatedByID";
 
                     // Update the database with the changes made to the DataSet
                     var table = dataSet.Tables[nameof(VehicleMileage)];

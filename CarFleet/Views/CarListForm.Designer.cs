@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.DataGridViewVehicles = new System.Windows.Forms.DataGridView();
+            this.BtnAddNewVehicle = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.DataGridViewVehicles)).BeginInit();
             this.SuspendLayout();
             // 
@@ -41,12 +42,23 @@
             this.DataGridViewVehicles.TabIndex = 0;
             this.DataGridViewVehicles.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.DataGridViewVehicles_CellFormatting);
             // 
+            // BtnAddNewVehicle
+            // 
+            this.BtnAddNewVehicle.Location = new System.Drawing.Point(51, 363);
+            this.BtnAddNewVehicle.Name = "BtnAddNewVehicle";
+            this.BtnAddNewVehicle.Size = new System.Drawing.Size(180, 23);
+            this.BtnAddNewVehicle.TabIndex = 1;
+            this.BtnAddNewVehicle.Text = "Add new vehicle";
+            this.BtnAddNewVehicle.UseVisualStyleBackColor = true;
+            this.BtnAddNewVehicle.Click += new System.EventHandler(this.BtnAddNewVehicle_Click);
+            // 
             // CarListForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1267, 366);
+            this.ClientSize = new System.Drawing.Size(1267, 396);
+            this.Controls.Add(this.BtnAddNewVehicle);
             this.Controls.Add(this.DataGridViewVehicles);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(2);
@@ -61,5 +73,6 @@
         #endregion
 
         private System.Windows.Forms.DataGridView DataGridViewVehicles;
+        private System.Windows.Forms.Button BtnAddNewVehicle;
     }
 }

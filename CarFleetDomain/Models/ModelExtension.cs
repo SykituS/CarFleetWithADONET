@@ -9,7 +9,7 @@ namespace CarFleetDomain.Models
     public class ModelExtension
     {
         public DateTime CreatedOn { get; set; }
-        public int CreateByID { get; set; }
+        public int CreatedByID { get; set; }
         public DateTime UpdatedOn { get; set; }
         public int UpdatedByID { get; set; }
 

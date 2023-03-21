@@ -16,12 +16,13 @@ namespace CarFleetDomain.Models
         public string LastName { get; set; }
         public string PhoneNumber { get; set; }
         public string Email { get; set; }
+        public bool Disabled { get; set; }
 
         #region Data Base Methods
 
         private const string SelectCommand = "SELECT * FROM Persons";
-        private const string UpdateCommand = "UPDATE Persons SET FirstName = @fname, Lastname = @lname, PhoneNumber = @pnumber, Email = @email WHERE ID = @UID";
-        private const string InsertCommand = "INSERT INTO Persons (FirstName, LastName, PhoneNumber, Email) VALUES (@firstName, @lastName, @phoneNumber, @email)";
+        private const string UpdateCommand = "UPDATE Persons SET FirstName = @fname, Lastname = @lname, PhoneNumber = @pnumber, Email = @email, Disabled = @disabled WHERE ID = @UID";
+        private const string InsertCommand = "INSERT INTO Persons (FirstName, LastName, PhoneNumber, Email, Disabled) VALUES (@firstName, @lastName, @phoneNumber, @email, @disabled)";
         private const string DeleteCommand = "DELETE FROM Persons WHERE ID = @UID";
 
         public static DataResponse GetPersonsQuery(DataSet dataSet)
@@ -53,6 +54,7 @@ namespace CarFleetDomain.Models
                     adapter.UpdateCommand.Parameters.Add("@lname", SqlDbType.NVarChar, 255, "Lastname");
                     adapter.UpdateCommand.Parameters.Add("@pnumber", SqlDbType.VarChar, 15, "PhoneNumber");
                     adapter.UpdateCommand.Parameters.Add("@email", SqlDbType.NVarChar, 255, "Email");
+                    adapter.UpdateCommand.Parameters.Add("@disabled", SqlDbType.Bit, 2, "Disabled");
 
                     // Read ID from Original source (data base) in case they have changed in the process
                     var parameter = adapter.UpdateCommand.Parameters.Add("@UID", SqlDbType.Int);
@@ -95,6 +97,7 @@ namespace CarFleetDomain.Models
                     adapter.InsertCommand.Parameters.Add("@lastName", SqlDbType.NVarChar, 50, "LastName");
                     adapter.InsertCommand.Parameters.Add("@phoneNumber", SqlDbType.NVarChar, 20, "PhoneNumber");
                     adapter.InsertCommand.Parameters.Add("@email", SqlDbType.NVarChar, 50, "Email");
+                    adapter.InsertCommand.Parameters.Add("@disabled", SqlDbType.Bit, 2, "Disabled");
 
                     var table = dataSet.Tables[nameof(Persons)];
 
@@ -132,7 +135,7 @@ namespace CarFleetDomain.Models
                         where row.Field<string>("Email") == email
                         select row;
 
-            return query.Count() == 0;
+            return query.Any();
         }
         //public static bool CheckIfUserExists(DataSet data)
         //{
@@ -147,8 +150,8 @@ namespace CarFleetDomain.Models
         //        return count > 0;
         //    }
         //}
-  
-        public static DataResponse DeletePeronsCommand(DataSet dataSet)
+
+        public static DataResponse DeletePersonsCommand(DataSet dataSet)
         {
             throw (new NotImplementedException());
         }
