@@ -178,9 +178,9 @@
             this.label12.AutoSize = true;
             this.label12.Location = new System.Drawing.Point(3, 0);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(110, 13);
+            this.label12.Size = new System.Drawing.Size(212, 13);
             this.label12.TabIndex = 14;
-            this.label12.Text = "Additional information:";
+            this.label12.Text = "Additional information: (max 500 characters)";
             // 
             // panel1
             // 
@@ -209,9 +209,19 @@
             2,
             0,
             0});
+            this.NumericUDMileage.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             this.NumericUDMileage.Name = "NumericUDMileage";
             this.NumericUDMileage.Size = new System.Drawing.Size(131, 20);
             this.NumericUDMileage.TabIndex = 23;
+            this.NumericUDMileage.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             // 
             // DateTimePickerProductionYear
             // 
@@ -356,7 +366,7 @@
             this.LabelWarning.ForeColor = System.Drawing.Color.Red;
             this.LabelWarning.Location = new System.Drawing.Point(224, 502);
             this.LabelWarning.Name = "LabelWarning";
-            this.LabelWarning.Size = new System.Drawing.Size(290, 43);
+            this.LabelWarning.Size = new System.Drawing.Size(290, 144);
             this.LabelWarning.TabIndex = 22;
             this.LabelWarning.Text = "LabelWarnings";
             this.LabelWarning.Visible = false;
@@ -365,7 +375,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(763, 545);
+            this.ClientSize = new System.Drawing.Size(763, 655);
             this.ControlBox = false;
             this.Controls.Add(this.LabelWarning);
             this.Controls.Add(this.BtnCreate);
@@ -376,6 +386,7 @@
             this.Controls.Add(this.panel1);
             this.Name = "AddNewVehicleForm";
             this.Text = "AddNewVehicleForm";
+            this.Load += new System.EventHandler(this.AddNewVehicleForm_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.NumericUDMileage)).EndInit();

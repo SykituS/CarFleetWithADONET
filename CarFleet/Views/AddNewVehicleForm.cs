@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Data;
+using System.Drawing;
 using System.Linq;
+using System.Text;
 using System.Windows.Forms;
 using CarFleetDomain.Models;
 
@@ -18,49 +20,145 @@ namespace CarFleet.Views
 
         private void BtnCancel_Click(object sender, EventArgs e)
         {
+            this.Close();
         }
 
         private void BtnCreate_Click(object sender, EventArgs e)
         {
+            LabelWarning.Visible = true;
             try
             {
-                InsertNewVehicleToDatabase();
+                var returnedCheck = CheckGivenData();
+                if (!returnedCheck.Success)
+                {
+                    LabelWarning.Text = returnedCheck.Message;
+                    return;
+                }
+
+                var response = InsertNewVehicleToDatabase();
+
+                if (response.Success)
+                {
+                    LabelWarning.Text = "Vehicle successfully added!";
+                    LabelWarning.ForeColor = Color.GreenYellow;
+                }
+                else
+                {
+                    LabelWarning.Text = response.Message;
+                }
             }
             catch (Exception exception)
             {
-                LabelWarning.Visible = true;
                 LabelWarning.Text = "Something went wrong!";
             }
         }
 
-        private void InsertNewVehicleToDatabase()
+        private DataResponse CheckGivenData()
+        {
+            var sb = new StringBuilder();
+            var response = new DataResponse
+            {
+                Success = true,
+            };
+
+            if (TBLicensePlate.Text.Length < 4)
+            {
+                sb.AppendLine("Proper license plate needs to be provided");
+                response.Success = false;
+            }
+
+            if (string.IsNullOrWhiteSpace(TBInsurer.Text))
+            {
+                sb.AppendLine("Insurer field need to be provided");
+                response.Success = false;
+            }
+
+            if (string.IsNullOrWhiteSpace(TBManufacturer.Text))
+            {
+                sb.AppendLine("Manufacturer field need to be provided");
+                response.Success = false;
+            }
+
+            if (string.IsNullOrWhiteSpace(TBModel.Text))
+            {
+                sb.AppendLine("Model field need to be provided");
+                response.Success = false;
+            }
+
+            if (TBVinNumber.Text.Length != 17)
+            {
+                sb.AppendLine("Vin number must be 17 characters long");
+                response.Success = false;
+            }
+
+            if (!string.IsNullOrWhiteSpace(RichTextBoxDescription.Text))
+            {
+                if (RichTextBoxDescription.Text.Length > 500)
+                {
+                    sb.AppendLine("Given description is too long!");
+                    response.Success = false;
+                }
+            }
+
+            if (NumericUDMileage.Value < 1)
+            {
+                sb.AppendLine("Mileage can not be under 0");
+                response.Success = false;
+            }
+
+            if (NumericUDMileage.DecimalPlaces != 0)
+            {
+                sb.AppendLine("Mileage can't contain any decimal places");
+                response.Success = false;
+            }
+
+            response.Message = sb.ToString();
+            return response;
+        }
+
+        private DataResponse InsertNewVehicleToDatabase()
         {
             var dataSet = new DataSet();
             DataRow row;
-            InsertNewVehicle(dataSet);
+            var response = InsertNewVehicle(dataSet);
+
+            if (!response.Success)
+                return response;
+
             var vehicleID = (int)dataSet.Tables[nameof(Vehicle)].AsEnumerable().Last().ItemArray[0];
             dataSet.Tables.Clear();
 
-            InsertNewVehicleMileage(dataSet, vehicleID);
+            response = InsertNewVehicleMileage(dataSet, vehicleID);
             dataSet.Tables.Clear();
 
-            InsertNewVehicleInspection(dataSet, vehicleID);
+            if (!response.Success)
+                return response;
+
+            response = InsertNewVehicleInspection(dataSet, vehicleID);
             dataSet.Tables.Clear();
 
-            InsertNewVehicleInsurer(dataSet, vehicleID);
+            if (!response.Success)
+                return response;
+
+            response = InsertNewVehicleInsurer(dataSet, vehicleID);
             dataSet.Tables.Clear();
 
-            InsertNewVehicleStatus(dataSet, vehicleID);
+            if (!response.Success)
+                return response;
+
+            response = InsertNewVehicleStatus(dataSet, vehicleID);
             dataSet.Tables.Clear();
 
             if (RichTextBoxDescription.TextLength > 0)
             {
-                InsertNewVehicleDescription(dataSet, vehicleID);
+                response = InsertNewVehicleDescription(dataSet, vehicleID);
                 dataSet.Tables.Clear();
             }
+
+            return response;
         }
 
-        private void InsertNewVehicleDescription(DataSet dataSet, int vehicleID)
+        private DataResponse InsertNewVehicleDescription(DataSet dataSet, int vehicleID)
         {
             DataRow row;
             VehicleDescription.GetVehicleDescriptionQuery(dataSet);
@@ -74,10 +172,10 @@ namespace CarFleet.Views
             row[nameof(VehicleDescription.UpdatedOn)] = DateTime.Now;
 
             dataSet.Tables[nameof(VehicleDescription)].Rows.Add(row);
-            VehicleDescription.InsertVehicleDescriptionCommand(dataSet);
+            return VehicleDescription.InsertVehicleDescriptionCommand(dataSet);
         }
 
-        private void InsertNewVehicleStatus(DataSet dataSet, int vehicleID)
+        private DataResponse InsertNewVehicleStatus(DataSet dataSet, int vehicleID)
         {
             DataRow row;
             VehicleStatus.GetVehicleStatusQuery(dataSet);
@@ -89,16 +187,16 @@ namespace CarFleet.Views
             row[nameof(VehicleStatus.CreatedOn)] = DateTime.Now;
 
             dataSet.Tables[nameof(VehicleStatus)].Rows.Add(row);
-            VehicleStatus.InsertVehicleStatusCommand(dataSet);
+            return VehicleStatus.InsertVehicleStatusCommand(dataSet);
         }
 
-        private void InsertNewVehicleInsurer(DataSet dataSet, int vehicleID)
+        private DataResponse InsertNewVehicleInsurer(DataSet dataSet, int vehicleID)
         {
             DataRow row;
             VehicleInsurer.GetVehicleInsurerQuery(dataSet);
             row = dataSet.Tables[nameof(VehicleInsurer)].NewRow();
 
-            row[nameof(VehicleInsurer.Insurer)] = TBInsurer.Text;
+            row[nameof(VehicleInsurer.Insurer)] = TBInsurer.Text.ToUpper();
             row[nameof(VehicleInsurer.StartDateOfInsurence)] = DateTimePickerInsurenceStart.Value;
             row[nameof(VehicleInsurer.EndDateOfInsurence)] = DateTimePickerInsurenceEnd.Value;
             row[nameof(VehicleInsurer.VehicleID)] = vehicleID;
@@ -108,10 +206,10 @@ namespace CarFleet.Views
             row[nameof(VehicleInsurer.UpdatedOn)] = DateTime.Now;
 
             dataSet.Tables[nameof(VehicleInsurer)].Rows.Add(row);
-            VehicleInsurer.InsertVehicleInsurerCommand(dataSet);
+            return VehicleInsurer.InsertVehicleInsurerCommand(dataSet);
         }
 
-        private void InsertNewVehicleInspection(DataSet dataSet, int vehicleID)
+        private DataResponse InsertNewVehicleInspection(DataSet dataSet, int vehicleID)
         {
             DataRow row;
             VehicleInspection.GetVehicleInspectionQuery(dataSet);
@@ -126,10 +224,10 @@ namespace CarFleet.Views
             row[nameof(VehicleInspection.UpdatedOn)] = DateTime.Now;
 
             dataSet.Tables[nameof(VehicleInspection)].Rows.Add(row);
-            VehicleInspection.InsertVehicleInspectionCommand(dataSet);
+            return VehicleInspection.InsertVehicleInspectionCommand(dataSet);
         }
 
-        private void InsertNewVehicleMileage(DataSet dataSet, int vehicleID)
+        private DataResponse InsertNewVehicleMileage(DataSet dataSet, int vehicleID)
         {
             DataRow row;
             VehicleMileage.GetVehicleMileageQuery(dataSet);
@@ -143,18 +241,18 @@ namespace CarFleet.Views
             row[nameof(VehicleMileage.UpdatedOn)] = DateTime.Now;
 
             dataSet.Tables[nameof(VehicleMileage)].Rows.Add(row);
-            VehicleMileage.InsertVehicleMileageCommand(dataSet);
+            return VehicleMileage.InsertVehicleMileageCommand(dataSet);
         }
 
-        private void InsertNewVehicle(DataSet dataSet)
+        private DataResponse InsertNewVehicle(DataSet dataSet)
         {
             Vehicle.GetVehicleQuery(dataSet);
             var row = dataSet.Tables[nameof(Vehicle)].NewRow();
 
-            row[nameof(Vehicle.LicensePlate)] = TBLicensePlate.Text;
-            row[nameof(Vehicle.Manufacturer)] = TBManufacturer.Text;
-            row[nameof(Vehicle.Model)] = TBModel.Text;
-            row[nameof(Vehicle.VinNumber)] = TBVinNumber.Text;
+            row[nameof(Vehicle.LicensePlate)] = TBLicensePlate.Text.ToUpper();
+            row[nameof(Vehicle.Manufacturer)] = TBManufacturer.Text.ToUpper();
+            row[nameof(Vehicle.Model)] = TBModel.Text.ToUpper();
+            row[nameof(Vehicle.VinNumber)] = TBVinNumber.Text.ToUpper();
             row[nameof(Vehicle.ProductionYear)] = DateTimePickerProductionYear.Value.Year;
             row[nameof(Vehicle.CreatedByID)] = loggedUser.ID;
             row[nameof(Vehicle.CreatedOn)] = DateTime.Now;
@@ -162,7 +260,12 @@ namespace CarFleet.Views
             row[nameof(Vehicle.UpdatedOn)] = DateTime.Now;
 
             dataSet.Tables[nameof(Vehicle)].Rows.Add(row);
-            Vehicle.InsertVehicleCommand(dataSet);
+            return Vehicle.InsertVehicleCommand(dataSet);
+        }
+
+        private void AddNewVehicleForm_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
