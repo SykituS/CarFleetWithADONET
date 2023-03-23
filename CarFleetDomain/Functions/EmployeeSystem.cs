@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Text.RegularExpressions;
+using System.Security.Policy;
 
 namespace CarFleetDomain.Functions
 {
@@ -49,7 +50,7 @@ namespace CarFleetDomain.Functions
         public static CommandResponse<Persons> GetPersonWithRole(int personID, string connectionString)
         {
             Persons person = null;
-            string query = "SELECT p.ID, p.FirstName, p.LastName, p.PhoneNumber, p.Email " +
+            string query = "SELECT p.ID, p.FirstName, p.LastName, p.PhoneNumber, p.Email, p.Disabled " +
                            "FROM Persons p  " +
                            "WHERE p.ID = @PersonID";
 
@@ -71,6 +72,7 @@ namespace CarFleetDomain.Functions
                         LastName = row["LastName"].ToString(),
                         PhoneNumber = row["PhoneNumber"].ToString(),
                         Email = row["Email"].ToString(),
+                        Disabled = (bool)row["Disabled"],
 
                     };
                     return new CommandResponse<Persons>(person) { Success = true };
@@ -114,7 +116,70 @@ namespace CarFleetDomain.Functions
                 }
             }
         }
-        public CommandResponse<Persons> UpdateEmployee(int id, string firstName, string lastName, string phone, string email)
+        
+        public CommandResponse<Persons> DisablePerson(int id, bool disabled)
+        {
+            var response = new CommandResponse<Persons>(new Persons());
+            // Create a row with the input data
+            var dataSet = new DataSet();
+            Persons.GetPersonsQuery(dataSet);
+            var row = dataSet.Tables[nameof(Persons)]?.AsEnumerable()
+                .FirstOrDefault(e => e.Field<int>(nameof(Persons.ID)) == id);
+            if (disabled.Equals(true))
+            { row["Disabled"] = 0; }
+            else
+            { row["Disabled"] = 1; }
+            var dbResponse = Persons.DisablePerson(dataSet);
+            // Check if the update was successful and show a message
+            if (dbResponse.Success)
+            {
+
+                response.Success = true;
+                response.Message = "Data was updated successfully!";
+                return response;
+            }
+
+            // Check if the update was successful
+
+            else
+            {
+                response.Success = false;
+                response.Message = "Error while disabling employee: " + dbResponse.Message;
+                return response;
+            }
+        }
+        public CommandResponse<Users> UpdateUser(string userName, string passwordHash, int personID, int roleID)
+        {
+            var response = new CommandResponse<Users>(new Users());
+            //var validationResponse = RoleValidation(roleID);
+            //if (!validationResponse.Success)
+            //{
+            //    response.Message = validationResponse.Message;
+            //    return response;
+            //}
+            var dataSet = new DataSet();
+            Users.GetUsersQuery(dataSet);
+            var row = dataSet.Tables[nameof(Users)]?.AsEnumerable().FirstOrDefault(e => e.Field<int>(nameof(Users.PersonID)) == personID);
+            row["UserName"] = userName;
+            row["PasswordHash"] = passwordHash;
+            row["PersonID"] = personID;
+            row["RoleID"] = roleID;
+            var dbResponse = Users.UpdateUsersCommand(dataSet);
+            if (dbResponse.Success)
+            {
+                response.Success = true;
+                response.Message = "Data was updated succefully";
+                return response;
+            }
+            else
+            {
+                response.Success = false;
+                response.Message = "Error while updating user: " + dbResponse.Message;
+                return response;
+            }
+
+        }
+        public CommandResponse<Persons> UpdateEmployee(int id, string firstName, string lastName, string phone, string email,bool disabled)
         {
             var response = new CommandResponse<Persons>(new Persons());
             var validationResponse = ValidateEmployee(firstName, lastName, phone, email);
@@ -126,50 +191,72 @@ namespace CarFleetDomain.Functions
 
 
 
-            // Create a new row with the input data
+            // Create a row with the input data
             var dataSet = new DataSet();
             Persons.GetPersonsQuery(dataSet);
-            var row = dataSet.Tables[nameof(Persons)].NewRow();
-            row["ID"] = id;
+            var row = dataSet.Tables[nameof(Persons)]?.AsEnumerable()
+                .FirstOrDefault(e => e.Field<int>(nameof(Persons.ID)) == id);
             row["FirstName"] = firstName;
             row["LastName"] = lastName;
             row["PhoneNumber"] = phone;
             row["Email"] = email;
-
-
-            dataSet.Tables[nameof(Persons)].Rows.Add(row);
+            row["Disabled"] = disabled;
+            //row["Disabled"] = 1;
             var dbResponse = Persons.UpdatedPersonsCommand(dataSet);
 
             // Check if the update was successful and show a message
             if (dbResponse.Success)
             {
 
-            } // Check if the update was successful
-            if (response.Success)
-            {
+                response.Success = true;
                 response.Message = "Data was updated successfully!";
                 return response;
             }
+
+             // Check if the update was successful
+
             else
             {
+                response.Success = false;
                 response.Message = "Error while updating employee: " + dbResponse.Message;
                 return response;
             }
 
       
 
-        } 
+        }
+        public CommandResponse<Persons> UniqueEmail(string email)
+        {
+            var response = new CommandResponse<Persons>(new Persons());
             
-        public CommandResponse<Persons> InsertNewEmployee(string firstName, string lastName, string phone, string email)
+            if (_persons.IsEmailUnique(email))
+            {
+                response.Message = "Email is already in use";
+                response.Success = false;
+                return response;
+            }
+            response.Success = true;
+            return response;
+        }
+        public CommandResponse<Persons> InsertNewEmployee(string firstName, string lastName, string phone, string email,int roleID,bool disabled)
         {
             var response = new CommandResponse<Persons>(new Persons());
             // Validate the employee data
             var validationResponse = ValidateEmployee(firstName, lastName, phone, email);
+            var validationEmail=UniqueEmail(email);
             if (!validationResponse.Success)
             {
                 response.Message = validationResponse.Message;
                 return response;
             }
+            if (!validationEmail.Success)
+            { 
+                 response.Message= validationEmail.Message;
+                return response;
+            
+            }
+
+
 
             // Create a new row with the input data
             var dataSet = new DataSet();
@@ -180,6 +267,7 @@ namespace CarFleetDomain.Functions
             row["LastName"] = lastName;
             row["PhoneNumber"] = phone;
             row["Email"] = email;
+            row["Disabled"] = disabled;
 
             // Add the new row to the Persons table and update the database
             dataSet.Tables[nameof(Persons)].Rows.Add(row);
@@ -204,14 +292,17 @@ namespace CarFleetDomain.Functions
                     newUserRow["UserName"] = email;
                     newUserRow["PasswordHash"] = password;
                     newUserRow["PersonID"] = personID;
-                    newUserRow["RoleID"] = 1;
+                    newUserRow["RoleID"] = roleID;
                     usersTable.Rows.Add(newUserRow);
                     var usersResponse = Users.InsertUsersCommand(dataSetUser);
                     if (!usersResponse.Success)
                     {
+
                         response.Message = "Error creating user: " + usersResponse.Message;
                         return response;
                     }
+                    response.Success = true;
+                    return response;
                 }
                 else
                 {
@@ -219,12 +310,26 @@ namespace CarFleetDomain.Functions
                     return response;
                 }
             }
+            response.Success= true;
             return response;
         }
-        
+        public CommandResponse<Users> RoleValidation(int idRole)
+        {
+            var response = new CommandResponse<Users>(new Users());
+            if (idRole == null)
+            {
+                response.Message = "Please selectusers role";
+                response.Success = false;
+                return response;
+            }
+            response.Success = true;
+            return response;
+        }
         public CommandResponse<Persons> ValidateEmployee(string firstName, string lastName, string phone, string email)
         {
             var response = new CommandResponse<Persons>(new Persons());
+
+          
 
             // Check that all input fields are filled in
             if (string.IsNullOrWhiteSpace(firstName) ||
@@ -233,6 +338,16 @@ namespace CarFleetDomain.Functions
                 string.IsNullOrWhiteSpace(email))
             {
                 response.Message = "Please fill in all fields";
+                response.Success = false;
+                return response;
+            }
+            //Check if firstName, lastName,and email are not to short and long
+            if (firstName.Length <= 4 || firstName.Length > 255 ||
+                lastName.Length <= 4 || lastName.Length > 255 ||
+                email.Length <= 4 || email.Length > 255
+               )
+            {
+                response.Message = "First name, last name, email must contain between 5 to 255digits";
                 response.Success = false;
                 return response;
             }
@@ -261,13 +376,8 @@ namespace CarFleetDomain.Functions
                 return response;
             }
 
-            // Check that email is unique
-            if (!_persons.IsEmailUnique(email))
-            {
-                response.Message = "Email is already in use";
-                response.Success = false;
-                return response;
-            }
+       
+           
             response.Success = true;
             response.Message = "Employee added succefully";
             return response;

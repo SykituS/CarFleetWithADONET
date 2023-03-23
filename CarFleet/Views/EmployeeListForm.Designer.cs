@@ -30,12 +30,13 @@
         {
             this.DataGridViewEmployeeList = new System.Windows.Forms.DataGridView();
             this.BtnAddEmployee = new FontAwesome.Sharp.IconButton();
-            this.BtnEditEmployee = new FontAwesome.Sharp.IconButton();
-            this.BtnDeleteEmployee = new FontAwesome.Sharp.IconButton();
             this.label1 = new System.Windows.Forms.Label();
             this.mainpanel = new System.Windows.Forms.Panel();
             this.menupanel = new System.Windows.Forms.Panel();
+            this.TbSearch = new System.Windows.Forms.TextBox();
+            this.BtnSearch = new FontAwesome.Sharp.IconButton();
             this.panelmain = new System.Windows.Forms.Panel();
+            this.label2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.DataGridViewEmployeeList)).BeginInit();
             this.mainpanel.SuspendLayout();
             this.menupanel.SuspendLayout();
@@ -54,7 +55,7 @@
             this.DataGridViewEmployeeList.Name = "DataGridViewEmployeeList";
             this.DataGridViewEmployeeList.ReadOnly = true;
             this.DataGridViewEmployeeList.RowHeadersWidth = 51;
-            this.DataGridViewEmployeeList.Size = new System.Drawing.Size(743, 554);
+            this.DataGridViewEmployeeList.Size = new System.Drawing.Size(743, 493);
             this.DataGridViewEmployeeList.TabIndex = 6;
             this.DataGridViewEmployeeList.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DataGridViewEmployeeList_CellContentClick_1);
             // 
@@ -78,45 +79,6 @@
             this.BtnAddEmployee.UseVisualStyleBackColor = false;
             this.BtnAddEmployee.Click += new System.EventHandler(this.BtnAddEmployee_Click_1);
             // 
-            // BtnEditEmployee
-            // 
-            this.BtnEditEmployee.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.BtnEditEmployee.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(30)))), ((int)(((byte)(68)))));
-            this.BtnEditEmployee.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnEditEmployee.ForeColor = System.Drawing.Color.White;
-            this.BtnEditEmployee.IconChar = FontAwesome.Sharp.IconChar.PeopleGroup;
-            this.BtnEditEmployee.IconColor = System.Drawing.Color.Black;
-            this.BtnEditEmployee.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.BtnEditEmployee.IconSize = 32;
-            this.BtnEditEmployee.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BtnEditEmployee.Location = new System.Drawing.Point(5, 163);
-            this.BtnEditEmployee.Name = "BtnEditEmployee";
-            this.BtnEditEmployee.Size = new System.Drawing.Size(244, 53);
-            this.BtnEditEmployee.TabIndex = 8;
-            this.BtnEditEmployee.Text = "UPDATE EMPLOYEE";
-            this.BtnEditEmployee.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.BtnEditEmployee.UseVisualStyleBackColor = false;
-            this.BtnEditEmployee.Click += new System.EventHandler(this.BtnEditEmployee_Click);
-            // 
-            // BtnDeleteEmployee
-            // 
-            this.BtnDeleteEmployee.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.BtnDeleteEmployee.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(30)))), ((int)(((byte)(68)))));
-            this.BtnDeleteEmployee.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnDeleteEmployee.ForeColor = System.Drawing.Color.White;
-            this.BtnDeleteEmployee.IconChar = FontAwesome.Sharp.IconChar.PeopleGroup;
-            this.BtnDeleteEmployee.IconColor = System.Drawing.Color.Black;
-            this.BtnDeleteEmployee.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.BtnDeleteEmployee.IconSize = 32;
-            this.BtnDeleteEmployee.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BtnDeleteEmployee.Location = new System.Drawing.Point(5, 222);
-            this.BtnDeleteEmployee.Name = "BtnDeleteEmployee";
-            this.BtnDeleteEmployee.Size = new System.Drawing.Size(244, 53);
-            this.BtnDeleteEmployee.TabIndex = 9;
-            this.BtnDeleteEmployee.Text = "DELETE EMPLOYEE";
-            this.BtnDeleteEmployee.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.BtnDeleteEmployee.UseVisualStyleBackColor = false;
-            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -139,14 +101,43 @@
             // 
             // menupanel
             // 
+            this.menupanel.Controls.Add(this.label2);
+            this.menupanel.Controls.Add(this.TbSearch);
+            this.menupanel.Controls.Add(this.BtnSearch);
             this.menupanel.Controls.Add(this.BtnAddEmployee);
-            this.menupanel.Controls.Add(this.BtnEditEmployee);
-            this.menupanel.Controls.Add(this.BtnDeleteEmployee);
             this.menupanel.Dock = System.Windows.Forms.DockStyle.Right;
             this.menupanel.Location = new System.Drawing.Point(815, 0);
             this.menupanel.Name = "menupanel";
             this.menupanel.Size = new System.Drawing.Size(252, 554);
             this.menupanel.TabIndex = 12;
+            // 
+            // TbSearch
+            // 
+            this.TbSearch.Location = new System.Drawing.Point(5, 174);
+            this.TbSearch.Name = "TbSearch";
+            this.TbSearch.Size = new System.Drawing.Size(244, 22);
+            this.TbSearch.TabIndex = 9;
+            this.TbSearch.TextChanged += new System.EventHandler(this.TbSearch_TextChanged);
+            // 
+            // BtnSearch
+            // 
+            this.BtnSearch.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.BtnSearch.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(30)))), ((int)(((byte)(68)))));
+            this.BtnSearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnSearch.ForeColor = System.Drawing.Color.White;
+            this.BtnSearch.IconChar = FontAwesome.Sharp.IconChar.PeopleGroup;
+            this.BtnSearch.IconColor = System.Drawing.Color.Black;
+            this.BtnSearch.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.BtnSearch.IconSize = 32;
+            this.BtnSearch.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.BtnSearch.Location = new System.Drawing.Point(5, 230);
+            this.BtnSearch.Name = "BtnSearch";
+            this.BtnSearch.Size = new System.Drawing.Size(244, 53);
+            this.BtnSearch.TabIndex = 8;
+            this.BtnSearch.Text = "Search";
+            this.BtnSearch.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.BtnSearch.UseVisualStyleBackColor = false;
+            this.BtnSearch.Click += new System.EventHandler(this.BtnSearch_Click);
             // 
             // panelmain
             // 
@@ -156,6 +147,18 @@
             this.panelmain.Name = "panelmain";
             this.panelmain.Size = new System.Drawing.Size(1067, 554);
             this.panelmain.TabIndex = 11;
+            // 
+            // label2
+            // 
+            this.label2.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label2.AutoSize = true;
+            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.label2.Location = new System.Drawing.Point(5, 339);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(44, 16);
+            this.label2.TabIndex = 10;
+            this.label2.Text = "label2";
+            this.label2.Visible = false;
             // 
             // EmployeeListForm
             // 
@@ -173,6 +176,7 @@
             this.mainpanel.ResumeLayout(false);
             this.mainpanel.PerformLayout();
             this.menupanel.ResumeLayout(false);
+            this.menupanel.PerformLayout();
             this.panelmain.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -182,11 +186,12 @@
 
         private System.Windows.Forms.DataGridView DataGridViewEmployeeList;
         private FontAwesome.Sharp.IconButton BtnAddEmployee;
-        private FontAwesome.Sharp.IconButton BtnEditEmployee;
-        private FontAwesome.Sharp.IconButton BtnDeleteEmployee;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel mainpanel;
         private System.Windows.Forms.Panel menupanel;
         private System.Windows.Forms.Panel panelmain;
+        private System.Windows.Forms.TextBox TbSearch;
+        private FontAwesome.Sharp.IconButton BtnSearch;
+        private System.Windows.Forms.Label label2;
     }
 }

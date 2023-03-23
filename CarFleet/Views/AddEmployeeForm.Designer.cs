@@ -33,6 +33,8 @@
             this.TbLastName = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.label7 = new System.Windows.Forms.Label();
+            this.chBoxActive = new System.Windows.Forms.CheckBox();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.BtnNewEmplyee = new FontAwesome.Sharp.IconButton();
@@ -41,6 +43,8 @@
             this.label4 = new System.Windows.Forms.Label();
             this.TbEmail = new System.Windows.Forms.TextBox();
             this.TbPhone = new System.Windows.Forms.TextBox();
+            this.CbBox = new System.Windows.Forms.ComboBox();
+            this.label8 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -84,6 +88,11 @@
             // 
             // panel1
             // 
+            this.panel1.BackColor = System.Drawing.Color.White;
+            this.panel1.Controls.Add(this.CbBox);
+            this.panel1.Controls.Add(this.label8);
+            this.panel1.Controls.Add(this.label7);
+            this.panel1.Controls.Add(this.chBoxActive);
             this.panel1.Controls.Add(this.label6);
             this.panel1.Controls.Add(this.label5);
             this.panel1.Controls.Add(this.BtnNewEmplyee);
@@ -102,13 +111,37 @@
             this.panel1.Size = new System.Drawing.Size(800, 450);
             this.panel1.TabIndex = 14;
             // 
+            // label7
+            // 
+            this.label7.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label7.AutoSize = true;
+            this.label7.BackColor = System.Drawing.Color.White;
+            this.label7.ForeColor = System.Drawing.Color.Black;
+            this.label7.Location = new System.Drawing.Point(312, 280);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(78, 16);
+            this.label7.TabIndex = 15;
+            this.label7.Text = "Is Disabled:";
+            // 
+            // chBoxActive
+            // 
+            this.chBoxActive.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.chBoxActive.AutoSize = true;
+            this.chBoxActive.CheckAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.chBoxActive.Location = new System.Drawing.Point(381, 276);
+            this.chBoxActive.Name = "chBoxActive";
+            this.chBoxActive.Size = new System.Drawing.Size(77, 20);
+            this.chBoxActive.TabIndex = 14;
+            this.chBoxActive.Text = "checkBox1";
+            this.chBoxActive.UseVisualStyleBackColor = true;
+            // 
             // label6
             // 
             this.label6.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label6.AutoSize = true;
             this.label6.BackColor = System.Drawing.Color.White;
             this.label6.ForeColor = System.Drawing.Color.Red;
-            this.label6.Location = new System.Drawing.Point(266, 316);
+            this.label6.Location = new System.Drawing.Point(258, 43);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(44, 16);
             this.label6.TabIndex = 13;
@@ -134,7 +167,7 @@
             this.BtnNewEmplyee.IconColor = System.Drawing.Color.White;
             this.BtnNewEmplyee.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.BtnNewEmplyee.IconSize = 32;
-            this.BtnNewEmplyee.Location = new System.Drawing.Point(412, 248);
+            this.BtnNewEmplyee.Location = new System.Drawing.Point(412, 315);
             this.BtnNewEmplyee.Name = "BtnNewEmplyee";
             this.BtnNewEmplyee.Size = new System.Drawing.Size(202, 45);
             this.BtnNewEmplyee.TabIndex = 11;
@@ -153,7 +186,7 @@
             this.BtnBack.IconColor = System.Drawing.Color.White;
             this.BtnBack.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.BtnBack.IconSize = 32;
-            this.BtnBack.Location = new System.Drawing.Point(261, 248);
+            this.BtnBack.Location = new System.Drawing.Point(261, 315);
             this.BtnBack.Name = "BtnBack";
             this.BtnBack.Size = new System.Drawing.Size(145, 45);
             this.BtnBack.TabIndex = 9;
@@ -200,6 +233,26 @@
             this.TbPhone.Size = new System.Drawing.Size(100, 22);
             this.TbPhone.TabIndex = 2;
             // 
+            // CbBox
+            // 
+            this.CbBox.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.CbBox.FormattingEnabled = true;
+            this.CbBox.Location = new System.Drawing.Point(412, 246);
+            this.CbBox.Name = "CbBox";
+            this.CbBox.Size = new System.Drawing.Size(100, 24);
+            this.CbBox.TabIndex = 24;
+            // 
+            // label8
+            // 
+            this.label8.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label8.AutoSize = true;
+            this.label8.ForeColor = System.Drawing.Color.Black;
+            this.label8.Location = new System.Drawing.Point(347, 254);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(39, 16);
+            this.label8.TabIndex = 23;
+            this.label8.Text = "Role:";
+            // 
             // AddEmployeeForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -233,5 +286,9 @@
         private System.Windows.Forms.TextBox TbPhone;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.CheckBox chBoxActive;
+        private System.Windows.Forms.ComboBox CbBox;
+        private System.Windows.Forms.Label label8;
     }
 }

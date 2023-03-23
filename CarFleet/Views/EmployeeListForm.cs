@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Controls;
 using System.Windows.Forms;
 using CarFleetDomain;
 using CarFleetDomain.Functions;
@@ -15,10 +16,11 @@ namespace CarFleet.Views
 {
     public partial class EmployeeListForm : Form
     {
-        private readonly List<Persons> _personsList;
+        
+       
         public EmployeeListForm()
         {
-            _personsList = new List<Persons>();
+          
             InitializeComponent();
         }
 
@@ -46,7 +48,7 @@ namespace CarFleet.Views
         }
 
 
-       
+     
 
         private void BtnAddEmployee_Click_1(object sender, EventArgs e)
         {
@@ -77,7 +79,37 @@ namespace CarFleet.Views
                 MainAdministrationForm mainForm = (MainAdministrationForm)this.ParentForm;  // get reference to the parent form
                 mainForm.loadForm(editEmployeeForm);
             }
+            if (DataGridViewEmployeeList.Columns[e.ColumnIndex].Name == "Delete")
+            {
+                EmployeeSystem employeeSystem = new EmployeeSystem();
+                int id = (int)DataGridViewEmployeeList.Rows[e.RowIndex].Cells["ID"].Value;
+                bool disabled = (bool)DataGridViewEmployeeList.Rows[e.RowIndex].Cells["Disabled"].Value;
+                var response = employeeSystem.DisablePerson(id,disabled);
+                if (response.Success)
+                {
+                    label2.Visible= false;
+                    DataGridViewEmployeeList.Refresh();
+
+                }
+                else
+                {
+                    label2.Visible = true;
+                    label2.Text = response.Message;
+                
+                }
+                
+            }
         }
+
+        private void BtnSearch_Click(object sender, EventArgs e)
+        {
+
         }
+
+        private void TbSearch_TextChanged(object sender, EventArgs e)
+        {
+       
+        }
+    }
     }
 

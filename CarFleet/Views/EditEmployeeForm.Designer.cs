@@ -41,6 +41,8 @@
             this.label5 = new System.Windows.Forms.Label();
             this.CbBox = new System.Windows.Forms.ComboBox();
             this.label6 = new System.Windows.Forms.Label();
+            this.ChBoxActive = new System.Windows.Forms.CheckBox();
+            this.label7 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // BtnBack
@@ -183,12 +185,34 @@
             // 
             this.label6.AutoSize = true;
             this.label6.ForeColor = System.Drawing.Color.Red;
-            this.label6.Location = new System.Drawing.Point(291, 383);
+            this.label6.Location = new System.Drawing.Point(201, 35);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(44, 16);
             this.label6.TabIndex = 23;
             this.label6.Text = "label6";
             this.label6.Visible = false;
+            // 
+            // ChBoxActive
+            // 
+            this.ChBoxActive.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.ChBoxActive.AutoSize = true;
+            this.ChBoxActive.ForeColor = System.Drawing.Color.White;
+            this.ChBoxActive.Location = new System.Drawing.Point(396, 285);
+            this.ChBoxActive.Name = "ChBoxActive";
+            this.ChBoxActive.Size = new System.Drawing.Size(79, 20);
+            this.ChBoxActive.TabIndex = 24;
+            this.ChBoxActive.Text = "Is Active";
+            this.ChBoxActive.UseVisualStyleBackColor = true;
+            // 
+            // label7
+            // 
+            this.label7.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(276, 288);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(78, 16);
+            this.label7.TabIndex = 25;
+            this.label7.Text = "Is Disabled:";
             // 
             // EditEmployeeForm
             // 
@@ -196,6 +220,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.ChBoxActive);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.CbBox);
             this.Controls.Add(this.label5);
@@ -232,5 +258,7 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.ComboBox CbBox;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.CheckBox ChBoxActive;
+        private System.Windows.Forms.Label label7;
     }
 }
