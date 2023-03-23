@@ -87,8 +87,8 @@ namespace CarFleet.Views
                 string passwordHash = _users.GeneratePasswordHash(firstName, lastName, phone);
                 int personID = _personID;
                 int roleID = CbBox.SelectedIndex;
-                var userresponse = employeeSystem.UpdateUser(userName, passwordHash, personID, roleID);
-                { 
+                var userresponse = employeeSystem.InesertorUpdateUser(personID, userName, passwordHash , roleID);
+                 
                 if(userresponse.Success)
                     {
                 EmployeeListForm employeeListForm = new EmployeeListForm();  // create instance of AddEmployeeForm
@@ -102,7 +102,7 @@ namespace CarFleet.Views
                     // Display the error message on the label
                     label6.Text = response.Message;
 
-                }
+                
 
 
 
