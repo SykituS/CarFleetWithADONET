@@ -148,7 +148,50 @@ namespace CarFleetDomain.Functions
                 return response;
             }
         }
-        public CommandResponse<Users> UpdateUser(string userName, string passwordHash, int personID, int roleID)
+        public CommandResponse<Users> InesertorUpdateUser(int personID, string userName, string passwordHash, int roleID)
+        {
+            var response = new CommandResponse<Users>(new Users());
+            var dataSet = new DataSet();
+            Users.GetUsersQuery(dataSet);
+            var usersTable = dataSet.Tables[nameof(Users)];
+            var userRow = usersTable.Select($"PersonID = {personID}").FirstOrDefault();
+            if (userRow == null)
+            {
+                // Create a new user with the same email as the Person
+                var newUserRow = usersTable.NewRow();
+                newUserRow["UserName"] = userName;
+                newUserRow["PasswordHash"] = passwordHash;
+                newUserRow["PersonID"] = personID;
+                newUserRow["RoleID"] = roleID;
+                usersTable.Rows.Add(newUserRow);
+                var usersResponse = Users.InsertUsersCommand(dataSet);
+                if (!usersResponse.Success)
+                {
+
+                    response.Message = "Error creating user: " + usersResponse.Message;
+                    response.Success = false;
+                    return response;
+                }
+                response.Success = true;
+                return response;
+            }
+            else
+            {
+                var userresponse = UpdateUser(userName, passwordHash, personID, roleID);
+                if (userresponse.Success)
+                {
+                    userresponse.Success = true;
+                    return userresponse;
+
+                }
+                userresponse.Success = false;
+                userresponse.Message = "Error while updating User ";
+                return userresponse;
+
+            }
+        }
+
+            public CommandResponse<Users> UpdateUser(string userName, string passwordHash, int personID, int roleID)
         {
             var response = new CommandResponse<Users>(new Users());
             //var validationResponse = RoleValidation(roleID);
