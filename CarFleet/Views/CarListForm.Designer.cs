@@ -40,6 +40,7 @@
             this.DataGridViewVehicles.Name = "DataGridViewVehicles";
             this.DataGridViewVehicles.Size = new System.Drawing.Size(1243, 342);
             this.DataGridViewVehicles.TabIndex = 0;
+            this.DataGridViewVehicles.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DataGridViewVehicles_CellContentClick);
             this.DataGridViewVehicles.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.DataGridViewVehicles_CellFormatting);
             // 
             // BtnAddNewVehicle

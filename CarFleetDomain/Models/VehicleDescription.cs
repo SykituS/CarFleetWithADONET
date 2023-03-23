@@ -25,10 +25,10 @@ namespace CarFleetDomain.Models
         private const string InsertCommand = "INSERT INTO [dbo].[VehicleDescription]([VehicleID], [Description], [CreatedOn], [CreatedByID], [UpdatedOn], [UpdatedByID]) VALUES (@VehicleID, @Description, @CreatedOn, @CreatedByID, @UpdatedOn, @UpdatedByID)";
         private const string DeleteCommand = "DELETE FROM VehicleDescription WHERE ID = @UID";
 
-        public static DataResponse GetVehicleDescriptionQuery(DataSet dataSet)
+        public static DataResponse GetVehicleDescriptionQuery(DataSet dataSet, SqlCommand selectCmd = null)
         {
             var context = new Context();
-            var cmd = new SqlCommand(SelectCommand);
+            var cmd = selectCmd ?? new SqlCommand(SelectCommand);
             var response = context.GetTable<VehicleDescription>(cmd, dataSet);
 
             if (response.Success)

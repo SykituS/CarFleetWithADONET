@@ -28,7 +28,7 @@ namespace CarFleet.Views
         private void CarListForm_Load(object sender, EventArgs e)
         {
             var dataSet = new DataSet();
-            var cmd = "SELECT veh.id, veh.Manufacturer, veh.Model, (Select top(1) vehStatus.Status FROM [VehicleStatus] as vehStatus where vehStatus.VehicleID = veh.ID order by CreatedOn desc) as Status, " + 
+            var cmd = "SELECT veh.id, veh.Manufacturer, veh.Model, (Select top(1) vehStatus.Status FROM [VehicleStatus] as vehStatus where vehStatus.VehicleID = veh.ID order by CreatedOn desc) as Status, " +
                       "veh.ProductionYear, veh.LicensePlate, veh.VinNumber, (Select top(1) vehInspection.DateOfnextInspection from VehicleInspection as vehInspection where vehInspection.VehicleID = veh.ID Order by vehInspection.CreatedOn desc) as NextInspection, " +
                       "(Select top(1) vehInsurer.EndDateOfInsurence from VehicleInsurer as vehInsurer where vehInsurer.VehicleID = veh.ID Order by vehInsurer.CreatedOn desc) as Insurence FROM Vehicle as veh";
             Vehicle.GetVehicleQuery(dataSet, new SqlCommand(cmd));
@@ -38,9 +38,41 @@ namespace CarFleet.Views
             btnDetails.Text = "Details";
             btnDetails.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
             btnDetails.UseColumnTextForButtonValue = true;
+            btnDetails.Tag = (Action<int>)BtnViewVehicleDetailsHandler;
             DataGridViewVehicles.Columns.Add(btnDetails);
+            DataGridViewVehicles.Columns[0].Visible = false;
         }
 
+
+        private void BtnAddNewVehicle_Click(object sender, EventArgs e)
+        {
+            var form = new AddNewVehicleForm(loggedUser);
+            form.Show();
+        }
+
+        private void BtnViewVehicleDetailsHandler(int id)
+        {
+            var form = new CarDetailsForm(id);
+            form.Show();
+        }
+
+        private void DataGridViewVehicles_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            var grid = (DataGridView)sender;
+
+            if (e.RowIndex < 0) 
+            {
+                return; //Run if header column was clicked
+            }
+
+            if (grid[e.ColumnIndex, e.RowIndex] is DataGridViewButtonCell)
+            {
+                var clickHandler = (Action<int>)grid.Columns[e.ColumnIndex].Tag;
+                var vehicleID = (int)grid[1, e.RowIndex].Value;
+
+                clickHandler(vehicleID);
+            }
+        }
         private void DataGridViewVehicles_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
         {
             try
@@ -71,7 +103,7 @@ namespace CarFleet.Views
                         case VehicleStatusEnum.InService:
                             enumstring = "InService";
                             e.CellStyle.BackColor = Color.CadetBlue;
-                            break; 
+                            break;
                         case VehicleStatusEnum.EoL:
                             enumstring = "EoL";
                             e.CellStyle.BackColor = Color.DimGray;
@@ -102,12 +134,6 @@ namespace CarFleet.Views
             {
                 e.Value = "No data";
             }
-        }
-
-        private void BtnAddNewVehicle_Click(object sender, EventArgs e)
-        {
-            var form = new AddNewVehicleForm(loggedUser);
-            form.Show();
         }
     }
 }
