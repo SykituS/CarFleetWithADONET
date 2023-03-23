@@ -22,17 +22,28 @@ namespace CarFleet.Views
             InitializeComponent();
             _persons = new Persons();
             _users= new Users();
+            FillCbBoxWithRoles();
         }
-   
 
+        private void FillCbBoxWithRoles()
+        {
+            RoleEnum[] roles = (RoleEnum[])Enum.GetValues(typeof(RoleEnum));
+            foreach (RoleEnum role in roles)
+            {
+                CbBox.Items.Add(Enum.GetName(typeof(RoleEnum), role));
+            }
+        }
         private void BtnNewEmplyee_Click_1(object sender, EventArgs e)
         { EmployeeSystem employeeSystem = new EmployeeSystem();
             string firstName = TbFirstName.Text;
             string lastName = TbLastName.Text;
             string phone = TbPhone.Text;
             string email = TbEmail.Text;
+            int roleID=CbBox.SelectedIndex;
 
-            var response = employeeSystem.InsertNewEmployee(firstName, lastName, phone, email);
+            bool disabled =chBoxActive.Checked;
+
+            var response = employeeSystem.InsertNewEmployee(firstName, lastName, phone, email,roleID,disabled);
 
             // Check the response to see if the insertion was successful or not
             if (response.Success)
@@ -44,6 +55,7 @@ namespace CarFleet.Views
                 TbLastName.Clear();
                 TbPhone.Clear();
                 TbEmail.Clear();
+                
             }
             else
             {

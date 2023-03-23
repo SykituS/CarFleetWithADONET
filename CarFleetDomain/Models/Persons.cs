@@ -24,7 +24,7 @@ namespace CarFleetDomain.Models
         private const string UpdateCommand = "UPDATE Persons SET FirstName = @fname, Lastname = @lname, PhoneNumber = @pnumber, Email = @email, Disabled = @disabled WHERE ID = @UID";
         private const string InsertCommand = "INSERT INTO Persons (FirstName, LastName, PhoneNumber, Email, Disabled) VALUES (@firstName, @lastName, @phoneNumber, @email, @disabled)";
         private const string DeleteCommand = "DELETE FROM Persons WHERE ID = @UID";
-
+        private const string DisablePersonCommand = "UPDATE Persons SET Disabled=@disabled WHERE ID=@id";
         public static DataResponse GetPersonsQuery(DataSet dataSet)
         {
             var context = new Context();
@@ -38,7 +38,37 @@ namespace CarFleetDomain.Models
 
             return new DataResponse() { Success = false, Message = "There was a problem while reading a data! " + response.Message };
         }
+        public static DataResponse DisablePerson(DataSet dataSet)
+        {
+            using (var connection = new SqlConnection(Context.ConnectionString))
+                try
+                {
+                    var adapter = new SqlDataAdapter();
+                    adapter.UpdateCommand= new SqlCommand(DisablePersonCommand,connection);
+                    adapter.UpdateCommand.Parameters.Add("@disabled", SqlDbType.Bit, 2, "Disabled");
+                    var parameter = adapter.UpdateCommand.Parameters.Add("@id", SqlDbType.Int);
+                    parameter.SourceColumn = "ID";
+                    parameter.SourceVersion = DataRowVersion.Original;
 
+                    var table = dataSet.Tables[nameof(Persons)];
+                    if (!dataSet.HasChanges())
+                        return new DataResponse() { Success = false, Message = "In given data is no change" };
+
+                    if (dataSet.HasErrors)
+                    {
+                        dataSet.RejectChanges();
+                        return new DataResponse() { Success = false, Message = "Given data has errors!" };
+                    }
+
+                    adapter.Update(table);
+                    return new DataResponse() { Success = true, Message = "Data was updated successfully" };
+                }
+                catch (Exception ex)
+                {
+                    Debug.WriteLine(ex);
+                    return new DataResponse() { Success = false, Message = "There was error while updating data: " + ex };
+                }
+        }
         public static DataResponse UpdatedPersonsCommand(DataSet dataSet)
         {
             using (var connection = new SqlConnection(Context.ConnectionString))

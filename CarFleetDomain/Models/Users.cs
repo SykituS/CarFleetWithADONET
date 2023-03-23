@@ -25,7 +25,7 @@ namespace CarFleetDomain.Models
 
         private const string SelectCommand = "SELECT * FROM Users";
         private const string UpdateCommand =
-            "UPDATE [dbo].[Users] SET [UserName] = @UserName, [PasswordHash] = @PasswordHash ,[PersonID] = @PersonID ,[RoleID] = @RoleID WHERE ID = @UID";
+            "UPDATE [dbo].[Users] SET [UserName] = @UserName, [PasswordHash] = @PasswordHash ,[PersonID] = @PersonID ,[RoleID] = @RoleID WHERE PersonID = @UID";
         private const string InsertCommand = "INSERT INTO Users (UserName, PasswordHash, PersonID,RoleID) VALUES (@UserName, @PasswordHash, @PersonID,@RoleID)";
         private const string DeleteCommand = "DELETE FROM Users WHERE ID = @UID";
 
@@ -63,7 +63,7 @@ namespace CarFleetDomain.Models
 
                     // Read ID from Original source (data base) in case they have changed in the process
                     var parameter = adapter.UpdateCommand.Parameters.Add("@UID", SqlDbType.Int);
-                    parameter.SourceColumn = "ID";
+                    parameter.SourceColumn = "PersonID";
                     parameter.SourceVersion = DataRowVersion.Original;
 
                     var table = dataSet.Tables[nameof(Users)];
