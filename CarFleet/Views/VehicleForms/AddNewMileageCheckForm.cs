@@ -8,11 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace CarFleet.Views
+namespace CarFleet.Views.VehicleForms
 {
-    public partial class CarHistoryForm : Form
+    public partial class AddNewMileageCheckForm : Form
     {
-        public CarHistoryForm()
+        public AddNewMileageCheckForm()
         {
             InitializeComponent();
         }

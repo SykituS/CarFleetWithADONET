@@ -53,11 +53,29 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Views\AddEmployeeForm.cs">
+    <Compile Include="Views\EmployeeForms\AddEmployeeForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Views\AddEmployeeForm.Designer.cs">
+    <Compile Include="Views\EmployeeForms\AddEmployeeForm.Designer.cs">
       <DependentUpon>AddEmployeeForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\VehicleForms\AddNewInspectionForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\VehicleForms\AddNewInspectionForm.Designer.cs">
+      <DependentUpon>AddNewInspectionForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\VehicleForms\AddNewMileageCheckForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\VehicleForms\AddNewMileageCheckForm.Designer.cs">
+      <DependentUpon>AddNewMileageCheckForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\VehicleForms\AddNewPersonToVehicleForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\VehicleForms\AddNewPersonToVehicleForm.Designer.cs">
+      <DependentUpon>AddNewPersonToVehicleForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\AddNewVehicleForm.cs">
       <SubType>Form</SubType>
@@ -65,28 +83,34 @@
     <Compile Include="Views\AddNewVehicleForm.Designer.cs">
       <DependentUpon>AddNewVehicleForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\CarDetailsForm.cs">
+    <Compile Include="Views\VehicleForms\AddOrEditDescriptionForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Views\CarDetailsForm.Designer.cs">
+    <Compile Include="Views\VehicleForms\AddOrEditDescriptionForm.Designer.cs">
+      <DependentUpon>AddOrEditDescriptionForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\VehicleForms\AddOrEditInsurenceForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\VehicleForms\AddOrEditInsurenceForm.Designer.cs">
+      <DependentUpon>AddOrEditInsurenceForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\VehicleForms\CarDetailsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\VehicleForms\CarDetailsForm.Designer.cs">
       <DependentUpon>CarDetailsForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\CarHistoryForm.cs">
+    <Compile Include="Views\EmployeeForms\EditEmployeeForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Views\CarHistoryForm.Designer.cs">
-      <DependentUpon>CarHistoryForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Views\EditEmployeeForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Views\EditEmployeeForm.Designer.cs">
+    <Compile Include="Views\EmployeeForms\EditEmployeeForm.Designer.cs">
       <DependentUpon>EditEmployeeForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\MainAdministrationForm.cs">
+    <Compile Include="Views\MainForms\MainAdministrationForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Views\MainAdministrationForm.Designer.cs">
+    <Compile Include="Views\MainForms\MainAdministrationForm.Designer.cs">
       <DependentUpon>MainAdministrationForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\ApplicationForm.cs">
@@ -95,60 +119,63 @@
     <Compile Include="Views\ApplicationForm.Designer.cs">
       <DependentUpon>ApplicationForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\CarListForm.cs">
+    <Compile Include="Views\VehicleForms\CarListForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Views\CarListForm.Designer.cs">
+    <Compile Include="Views\VehicleForms\CarListForm.Designer.cs">
       <DependentUpon>CarListForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\EmployeeListForm.cs">
+    <Compile Include="Views\EmployeeForms\EmployeeListForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Views\EmployeeListForm.Designer.cs">
+    <Compile Include="Views\EmployeeForms\EmployeeListForm.Designer.cs">
       <DependentUpon>EmployeeListForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\LoginForm.cs">
+    <Compile Include="Views\MainForms\LoginForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Views\LoginForm.Designer.cs">
+    <Compile Include="Views\MainForms\LoginForm.Designer.cs">
       <DependentUpon>LoginForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Views\MainEmployeeForms.cs">
+    <Compile Include="Views\MainForms\MainEmployeeForms.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Views\MainEmployeeForms.Designer.cs">
+    <Compile Include="Views\MainForms\MainEmployeeForms.Designer.cs">
       <DependentUpon>MainEmployeeForms.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Views\AddEmployeeForm.resx">
+    <Compile Include="Views\VehicleForms\ChangeVehicleStatusForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\VehicleForms\ChangeVehicleStatusForm.Designer.cs">
+      <DependentUpon>ChangeVehicleStatusForm.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Views\EmployeeForms\AddEmployeeForm.resx">
       <DependentUpon>AddEmployeeForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\AddNewVehicleForm.resx">
       <DependentUpon>AddNewVehicleForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Views\CarDetailsForm.resx">
+    <EmbeddedResource Include="Views\VehicleForms\CarDetailsForm.resx">
       <DependentUpon>CarDetailsForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Views\CarHistoryForm.resx">
-      <DependentUpon>CarHistoryForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Views\EditEmployeeForm.resx">
+    <EmbeddedResource Include="Views\EmployeeForms\EditEmployeeForm.resx">
       <DependentUpon>EditEmployeeForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Views\MainAdministrationForm.resx">
+    <EmbeddedResource Include="Views\MainForms\MainAdministrationForm.resx">
       <DependentUpon>MainAdministrationForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\ApplicationForm.resx">
       <DependentUpon>ApplicationForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Views\CarListForm.resx">
+    <EmbeddedResource Include="Views\VehicleForms\CarListForm.resx">
       <DependentUpon>CarListForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Views\EmployeeListForm.resx">
+    <EmbeddedResource Include="Views\EmployeeForms\EmployeeListForm.resx">
       <DependentUpon>EmployeeListForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Views\LoginForm.resx">
+    <EmbeddedResource Include="Views\MainForms\LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -160,7 +187,7 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Views\MainEmployeeForms.resx">
+    <EmbeddedResource Include="Views\MainForms\MainEmployeeForms.resx">
       <DependentUpon>MainEmployeeForms.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
@@ -183,5 +210,6 @@
       <Name>CarFleetDomain</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
