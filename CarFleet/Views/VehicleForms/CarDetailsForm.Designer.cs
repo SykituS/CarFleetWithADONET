@@ -46,7 +46,7 @@
             this.panel4 = new System.Windows.Forms.Panel();
             this.panel5 = new System.Windows.Forms.Panel();
             this.panel6 = new System.Windows.Forms.Panel();
-            this.LaberWarning = new System.Windows.Forms.Label();
+            this.LabelWarning = new System.Windows.Forms.Label();
             this.panel7 = new System.Windows.Forms.Panel();
             this.label7 = new System.Windows.Forms.Label();
             this.BtnOpenStatusForm = new System.Windows.Forms.Button();
@@ -78,7 +78,7 @@
             this.DataGridViewStatusHistory.MultiSelect = false;
             this.DataGridViewStatusHistory.Name = "DataGridViewStatusHistory";
             this.DataGridViewStatusHistory.ReadOnly = true;
-            this.DataGridViewStatusHistory.Size = new System.Drawing.Size(243, 238);
+            this.DataGridViewStatusHistory.Size = new System.Drawing.Size(304, 238);
             this.DataGridViewStatusHistory.TabIndex = 2;
             this.DataGridViewStatusHistory.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.DataGridViewStatusHistory_CellFormatting);
             // 
@@ -144,7 +144,7 @@
             this.panel1.Controls.Add(this.DataGridViewStatusHistory);
             this.panel1.Location = new System.Drawing.Point(1364, 29);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(243, 256);
+            this.panel1.Size = new System.Drawing.Size(304, 256);
             this.panel1.TabIndex = 8;
             // 
             // label1
@@ -252,15 +252,15 @@
             this.panel6.Size = new System.Drawing.Size(814, 169);
             this.panel6.TabIndex = 18;
             // 
-            // LaberWarning
+            // LabelWarning
             // 
-            this.LaberWarning.AutoSize = true;
-            this.LaberWarning.ForeColor = System.Drawing.Color.Red;
-            this.LaberWarning.Location = new System.Drawing.Point(12, 9);
-            this.LaberWarning.Name = "LaberWarning";
-            this.LaberWarning.Size = new System.Drawing.Size(74, 13);
-            this.LaberWarning.TabIndex = 19;
-            this.LaberWarning.Text = "labelWarnings";
+            this.LabelWarning.AutoSize = true;
+            this.LabelWarning.ForeColor = System.Drawing.Color.Red;
+            this.LabelWarning.Location = new System.Drawing.Point(12, 9);
+            this.LabelWarning.Name = "LabelWarning";
+            this.LabelWarning.Size = new System.Drawing.Size(74, 13);
+            this.LabelWarning.TabIndex = 19;
+            this.LabelWarning.Text = "labelWarnings";
             // 
             // panel7
             // 
@@ -281,7 +281,7 @@
             // 
             // BtnOpenStatusForm
             // 
-            this.BtnOpenStatusForm.Location = new System.Drawing.Point(414, 123);
+            this.BtnOpenStatusForm.Location = new System.Drawing.Point(414, 90);
             this.BtnOpenStatusForm.Name = "BtnOpenStatusForm";
             this.BtnOpenStatusForm.Size = new System.Drawing.Size(206, 23);
             this.BtnOpenStatusForm.TabIndex = 21;
@@ -291,7 +291,7 @@
             // 
             // BtnOpenMileageCheckForm
             // 
-            this.BtnOpenMileageCheckForm.Location = new System.Drawing.Point(414, 155);
+            this.BtnOpenMileageCheckForm.Location = new System.Drawing.Point(414, 122);
             this.BtnOpenMileageCheckForm.Name = "BtnOpenMileageCheckForm";
             this.BtnOpenMileageCheckForm.Size = new System.Drawing.Size(206, 23);
             this.BtnOpenMileageCheckForm.TabIndex = 22;
@@ -301,7 +301,7 @@
             // 
             // BtnOpenInspectionForm
             // 
-            this.BtnOpenInspectionForm.Location = new System.Drawing.Point(414, 187);
+            this.BtnOpenInspectionForm.Location = new System.Drawing.Point(414, 154);
             this.BtnOpenInspectionForm.Name = "BtnOpenInspectionForm";
             this.BtnOpenInspectionForm.Size = new System.Drawing.Size(206, 23);
             this.BtnOpenInspectionForm.TabIndex = 23;
@@ -311,7 +311,7 @@
             // 
             // BtnOpenInsurenceForm
             // 
-            this.BtnOpenInsurenceForm.Location = new System.Drawing.Point(414, 221);
+            this.BtnOpenInsurenceForm.Location = new System.Drawing.Point(414, 188);
             this.BtnOpenInsurenceForm.Name = "BtnOpenInsurenceForm";
             this.BtnOpenInsurenceForm.Size = new System.Drawing.Size(206, 23);
             this.BtnOpenInsurenceForm.TabIndex = 24;
@@ -321,7 +321,7 @@
             // 
             // BtnOpenDescriptionForm
             // 
-            this.BtnOpenDescriptionForm.Location = new System.Drawing.Point(414, 256);
+            this.BtnOpenDescriptionForm.Location = new System.Drawing.Point(414, 223);
             this.BtnOpenDescriptionForm.Name = "BtnOpenDescriptionForm";
             this.BtnOpenDescriptionForm.Size = new System.Drawing.Size(206, 23);
             this.BtnOpenDescriptionForm.TabIndex = 25;
@@ -331,7 +331,7 @@
             // 
             // BtnOpenEmployeeToVehicleForm
             // 
-            this.BtnOpenEmployeeToVehicleForm.Location = new System.Drawing.Point(414, 97);
+            this.BtnOpenEmployeeToVehicleForm.Location = new System.Drawing.Point(414, 64);
             this.BtnOpenEmployeeToVehicleForm.Name = "BtnOpenEmployeeToVehicleForm";
             this.BtnOpenEmployeeToVehicleForm.Size = new System.Drawing.Size(206, 23);
             this.BtnOpenEmployeeToVehicleForm.TabIndex = 26;
@@ -351,7 +351,7 @@
             this.Controls.Add(this.BtnOpenMileageCheckForm);
             this.Controls.Add(this.BtnOpenStatusForm);
             this.Controls.Add(this.panel7);
-            this.Controls.Add(this.LaberWarning);
+            this.Controls.Add(this.LabelWarning);
             this.Controls.Add(this.panel5);
             this.Controls.Add(this.panel6);
             this.Controls.Add(this.panel3);
@@ -405,7 +405,7 @@
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.Panel panel6;
-        private System.Windows.Forms.Label LaberWarning;
+        private System.Windows.Forms.Label LabelWarning;
         private System.Windows.Forms.Panel panel7;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Button BtnOpenStatusForm;

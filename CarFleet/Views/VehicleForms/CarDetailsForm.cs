@@ -24,7 +24,7 @@ namespace CarFleet.Views
 
         private void CarDetailsForm_Load(object sender, EventArgs e)
         {
-            LaberWarning.Text = "";
+            LabelWarning.Text = "";
 
             var cmd = new SqlCommand();
             var dataSet = new DataSet();
@@ -65,11 +65,11 @@ namespace CarFleet.Views
                     label7.Text = sb.ToString();
                 }
                 else
-                    LaberWarning.Text += response.Message;
+                    LabelWarning.Text += response.Message;
             }
             catch (Exception e)
             {
-                LaberWarning.Text += "Something went wrong while loading vehicle data! Please try again";
+                LabelWarning.Text += "Something went wrong while loading vehicle data! Please try again";
             }
         }
 
@@ -92,11 +92,11 @@ namespace CarFleet.Views
                     DataGridViewPersonHistory.Columns[0].Visible = false;
                 }
                 else
-                    LaberWarning.Text += response.Message;
+                    LabelWarning.Text += response.Message;
             }
             catch (Exception e)
             {
-                LaberWarning.Text += "Something went wrong while loading persons history! Please try again";
+                LabelWarning.Text += "Something went wrong while loading persons history! Please try again";
             }
         }
 
@@ -110,11 +110,11 @@ namespace CarFleet.Views
                 if (response.Success)
                     DataGridViewMileageHistory.DataSource = dataSet.Tables[nameof(VehicleMileage)];
                 else
-                    LaberWarning.Text += response.Message;
+                    LabelWarning.Text += response.Message;
             }
             catch (Exception e)
             {
-                LaberWarning.Text += "Something went wrong while loading mileage! Please try again";
+                LabelWarning.Text += "Something went wrong while loading mileage! Please try again";
             }
         }
 
@@ -128,11 +128,11 @@ namespace CarFleet.Views
                 if (response.Success)
                     DataGridViewInsurerHistory.DataSource = dataSet.Tables[nameof(VehicleInsurer)];
                 else
-                    LaberWarning.Text += response.Message;
+                    LabelWarning.Text += response.Message;
             }
             catch (Exception e)
             {
-                LaberWarning.Text += "Something went wrong while loading insurence! Please try again";
+                LabelWarning.Text += "Something went wrong while loading insurence! Please try again";
             }
         }
 
@@ -146,11 +146,11 @@ namespace CarFleet.Views
                 if (response.Success)
                     DataGridViewInspectionHistory.DataSource = dataSet.Tables[nameof(VehicleInspection)];
                 else
-                    LaberWarning.Text += response.Message;
+                    LabelWarning.Text += response.Message;
             }
             catch (Exception e)
             {
-                LaberWarning.Text += "Something went wrong while loading inspection! Please try again";
+                LabelWarning.Text += "Something went wrong while loading inspection! Please try again";
             }
         }
 
@@ -181,11 +181,11 @@ namespace CarFleet.Views
                     DataGridViewDescriptionHistory.Columns["Description"].DefaultCellStyle.WrapMode = DataGridViewTriState.True;
                 }
                 else
-                    LaberWarning.Text += response.Message;
+                    LabelWarning.Text += response.Message;
             }
             catch (Exception e)
             {
-                LaberWarning.Text += "Something went wrong while loading description! Please try again";
+                LabelWarning.Text += "Something went wrong while loading description! Please try again";
             }
         }
 
@@ -199,11 +199,11 @@ namespace CarFleet.Views
                 if (response.Success)
                     DataGridViewStatusHistory.DataSource = dataSet.Tables[nameof(VehicleStatus)];
                 else
-                    LaberWarning.Text += response.Message;
+                    LabelWarning.Text += response.Message;
             }
             catch (Exception e)
             {
-                LaberWarning.Text += "Something went wrong while loading status! Please try again";
+                LabelWarning.Text += "Something went wrong while loading status! Please try again";
             }
         }
 

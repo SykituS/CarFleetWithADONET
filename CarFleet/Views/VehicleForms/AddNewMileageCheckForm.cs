@@ -9,25 +9,52 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using CarFleetDomain.Functions;
+using System.Data.SqlClient;
 
 namespace CarFleet.Views.VehicleForms
 {
     public partial class AddNewMileageCheckForm : Form
     {
-        private readonly int vehicleID;
-        private readonly Users loggedUser;
-
+        private readonly int _vehicleID;
+        private readonly Users _loggedUser;
+        private int _lastMileage;
 
         public AddNewMileageCheckForm(int vehicleID, Users loggedUser)
         {
-            this.vehicleID = vehicleID;
-            this.loggedUser = loggedUser;
+            _vehicleID = vehicleID;
+            _loggedUser = loggedUser;
             InitializeComponent();
         }
 
         private void AddNewMileageCheckForm_Load(object sender, EventArgs e)
         {
+            LabelWarning.Text = "";
 
+            var cmd = new SqlCommand();
+            var dataSet = new DataSet();
+            cmd.Parameters.AddWithValue("@vid", _vehicleID);
+            SetUpVehicleMileageData(cmd, dataSet);
+        }
+
+        private void SetUpVehicleMileageData(SqlCommand cmd, DataSet dataSet)
+        {
+            try
+            {
+                cmd.CommandText = "SELECT Top(1) Mileage FROM VehicleMileage as veh where VehicleID = @vid order by CreatedOn desc";
+                var response = VehicleMileage.GetVehicleMileageQuery(dataSet, cmd);
+
+                if (response.Success)
+                {
+                    _lastMileage = (int)dataSet.Tables[nameof(VehicleMileage)].Rows[0].ItemArray[0];
+                    NumericUDMileage.Value = _lastMileage;
+                }
+                else
+                    LabelWarning.Text += response.Message;
+            }
+            catch (Exception e)
+            {
+                LabelWarning.Text += "Something went wrong while loading mileage! Please try again";
+            }
         }
 
         private void BtnAddInspection_Click(object sender, EventArgs e)
@@ -41,7 +68,7 @@ namespace CarFleet.Views.VehicleForms
             }
             var dataSet = new DataSet();
             var response =
-                VehicleSystem.InsertNewVehicleMileage(dataSet, vehicleID, loggedUser, (int)NumericUDMileage.Value);
+                VehicleSystem.InsertNewVehicleMileage(dataSet, _vehicleID, _loggedUser, (int)NumericUDMileage.Value);
 
             if (response.Success)
             {
@@ -75,8 +102,19 @@ namespace CarFleet.Views.VehicleForms
                 response.Success = false;
             }
 
+            if (_lastMileage > (int)NumericUDMileage.Value)
+            {
+                sb.AppendLine("Mileage can't be lower than latest mileage");
+                response.Success = false;
+            }
+
             response.Message = sb.ToString();
             return response;
+        }
+
+        private void BtnResetTextBox_Click(object sender, EventArgs e)
+        {
+            NumericUDMileage.Value = _lastMileage;
         }
     }
 }

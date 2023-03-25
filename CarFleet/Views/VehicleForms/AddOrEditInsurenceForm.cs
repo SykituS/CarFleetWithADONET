@@ -23,5 +23,10 @@ namespace CarFleet.Views.VehicleForms
         {
 
         }
+
+        private void BtnAddInsurence_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -36,7 +36,7 @@
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.BtnCancel = new System.Windows.Forms.Button();
-            this.BtnAddInspection = new System.Windows.Forms.Button();
+            this.BtnAddInsurence = new System.Windows.Forms.Button();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -113,14 +113,15 @@
             this.BtnCancel.Text = "Cancel";
             this.BtnCancel.UseVisualStyleBackColor = true;
             // 
-            // BtnAddInspection
+            // BtnAddInsurence
             // 
-            this.BtnAddInspection.Location = new System.Drawing.Point(173, 171);
-            this.BtnAddInspection.Name = "BtnAddInspection";
-            this.BtnAddInspection.Size = new System.Drawing.Size(75, 23);
-            this.BtnAddInspection.TabIndex = 19;
-            this.BtnAddInspection.Text = "Create";
-            this.BtnAddInspection.UseVisualStyleBackColor = true;
+            this.BtnAddInsurence.Location = new System.Drawing.Point(173, 171);
+            this.BtnAddInsurence.Name = "BtnAddInsurence";
+            this.BtnAddInsurence.Size = new System.Drawing.Size(75, 23);
+            this.BtnAddInsurence.TabIndex = 19;
+            this.BtnAddInsurence.Text = "Create";
+            this.BtnAddInsurence.UseVisualStyleBackColor = true;
+            this.BtnAddInsurence.Click += new System.EventHandler(this.BtnAddInsurence_Click);
             // 
             // AddOrEditInsurenceForm
             // 
@@ -128,7 +129,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(342, 214);
             this.Controls.Add(this.BtnCancel);
-            this.Controls.Add(this.BtnAddInspection);
+            this.Controls.Add(this.BtnAddInsurence);
             this.Controls.Add(this.panel2);
             this.Name = "AddOrEditInsurenceForm";
             this.Text = "AddOrEditInsurenceForm";
@@ -149,6 +150,6 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Button BtnCancel;
-        private System.Windows.Forms.Button BtnAddInspection;
+        private System.Windows.Forms.Button BtnAddInsurence;
     }
 }
