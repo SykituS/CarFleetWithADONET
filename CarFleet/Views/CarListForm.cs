@@ -46,8 +46,13 @@ namespace CarFleet.Views
 
         private void BtnAddNewVehicle_Click(object sender, EventArgs e)
         {
-            var form = new AddNewVehicleForm(loggedUser);
-            form.Show();
+            AddNewVehicleForm addNewVehicleForm = new AddNewVehicleForm(loggedUser);   // create instance of AddEmployeeForm
+            MainAdministrationForm mainForm = (MainAdministrationForm)this.ParentForm;  // get reference to the parent form
+
+            // load AddEmployeeForm in the mainpanel of the parent form
+            mainForm.loadForm(addNewVehicleForm);
+            //var form = new AddNewVehicleForm(loggedUser);
+            //form.Show();
         }
 
         private void BtnViewVehicleDetailsHandler(int id)

@@ -33,10 +33,10 @@
             this.label1 = new System.Windows.Forms.Label();
             this.mainpanel = new System.Windows.Forms.Panel();
             this.menupanel = new System.Windows.Forms.Panel();
+            this.label2 = new System.Windows.Forms.Label();
             this.TbSearch = new System.Windows.Forms.TextBox();
             this.BtnSearch = new FontAwesome.Sharp.IconButton();
             this.panelmain = new System.Windows.Forms.Panel();
-            this.label2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.DataGridViewEmployeeList)).BeginInit();
             this.mainpanel.SuspendLayout();
             this.menupanel.SuspendLayout();
@@ -111,6 +111,18 @@
             this.menupanel.Size = new System.Drawing.Size(252, 554);
             this.menupanel.TabIndex = 12;
             // 
+            // label2
+            // 
+            this.label2.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label2.AutoSize = true;
+            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.label2.Location = new System.Drawing.Point(5, 339);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(44, 16);
+            this.label2.TabIndex = 10;
+            this.label2.Text = "label2";
+            this.label2.Visible = false;
+            // 
             // TbSearch
             // 
             this.TbSearch.Location = new System.Drawing.Point(5, 174);
@@ -147,18 +159,6 @@
             this.panelmain.Name = "panelmain";
             this.panelmain.Size = new System.Drawing.Size(1067, 554);
             this.panelmain.TabIndex = 11;
-            // 
-            // label2
-            // 
-            this.label2.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label2.AutoSize = true;
-            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.label2.Location = new System.Drawing.Point(5, 339);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(44, 16);
-            this.label2.TabIndex = 10;
-            this.label2.Text = "label2";
-            this.label2.Visible = false;
             // 
             // EmployeeListForm
             // 
