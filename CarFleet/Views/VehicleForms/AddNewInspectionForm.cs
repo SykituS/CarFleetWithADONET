@@ -16,5 +16,19 @@ namespace CarFleet.Views.VehicleForms
         {
             InitializeComponent();
         }
+        private void AddNewInspectionForm_Load(object sender, EventArgs e)
+        {
+            DateTimePickerNextInspection.Value = DateTime.Now.AddYears(1);
+        }
+
+        private void DateTimePickerInspection_ValueChanged(object sender, EventArgs e)
+        {
+            DateTimePickerNextInspection.Value = DateTimePickerInspection.Value.AddYears(1);
+        }
+
+        private void BtnAddInspection_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

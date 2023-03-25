@@ -16,5 +16,10 @@ namespace CarFleet.Views.VehicleForms
         {
             InitializeComponent();
         }
+
+        private void AddNewMileageCheckForm_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

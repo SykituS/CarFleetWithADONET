@@ -12,9 +12,16 @@ namespace CarFleet.Views.VehicleForms
 {
     public partial class AddOrEditDescriptionForm : Form
     {
-        public AddOrEditDescriptionForm()
+        private readonly int _descriptionID;
+        public AddOrEditDescriptionForm(int descriptionID)
         {
+            _descriptionID = descriptionID;
             InitializeComponent();
+        }
+
+        private void AddOrEditDescriptionForm_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

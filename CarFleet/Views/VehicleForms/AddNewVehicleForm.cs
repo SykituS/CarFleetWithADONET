@@ -276,5 +276,15 @@ namespace CarFleet.Views
                 LabelWarning.Text = "Something went wrong!";
             }
         }
+
+        private void DateTimePickerInspection_ValueChanged(object sender, EventArgs e)
+        {
+            DateTimePickerNextInspection.Value = DateTimePickerInspection.Value.AddYears(1);
+        }
+
+        private void DateTimePickerInsurenceStart_ValueChanged(object sender, EventArgs e)
+        {
+            DateTimePickerInsurenceEnd.Value = DateTimePickerInsurenceStart.Value.AddYears(1);
+        }
     }
 }

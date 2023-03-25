@@ -12,9 +12,16 @@ namespace CarFleet.Views.VehicleForms
 {
     public partial class AddOrEditInsurenceForm : Form
     {
-        public AddOrEditInsurenceForm()
+        private readonly int _insurenceID;
+        public AddOrEditInsurenceForm(int insurenceID)
         {
+            _insurenceID = insurenceID;
             InitializeComponent();
+        }
+
+        private void AddOrEditInsurenceForm_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

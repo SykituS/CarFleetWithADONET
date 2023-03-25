@@ -5,6 +5,7 @@ using System.Data.SqlClient;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
+using CarFleet.Views.VehicleForms;
 using CarFleetDomain.Functions;
 
 namespace CarFleet.Views
@@ -250,32 +251,38 @@ namespace CarFleet.Views
 
         private void BtnOpenEmployeeToVehicleForm_Click(object sender, EventArgs e)
         {
-
+            var form = new AddNewPersonToVehicleForm();
+            form.Show();
         }
 
         private void BtnOpenStatusForm_Click(object sender, EventArgs e)
         {
-
+            var form = new ChangeVehicleStatusForm();
+            form.Show();
         }
 
         private void BtnOpenMileageCheckForm_Click(object sender, EventArgs e)
         {
-
+            var form = new AddNewMileageCheckForm();
+            form.Show();
         }
 
         private void BtnOpenInspectionForm_Click(object sender, EventArgs e)
         {
-
+            var form = new AddNewInspectionForm();
+            form.Show();
         }
 
         private void BtnOpenInsurenceForm_Click(object sender, EventArgs e)
         {
-
+            var form = new AddOrEditInsurenceForm(0);
+            form.Show();
         }
 
         private void BtnOpenDescriptionForm_Click(object sender, EventArgs e)
         {
-
+            var form = new AddOrEditDescriptionForm(0);
+            form.Show();
         }
     }
 }

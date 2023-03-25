@@ -154,8 +154,23 @@
     <EmbeddedResource Include="Views\EmployeeForms\AddEmployeeForm.resx">
       <DependentUpon>AddEmployeeForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Views\VehicleForms\AddNewInspectionForm.resx">
+      <DependentUpon>AddNewInspectionForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\VehicleForms\AddNewMileageCheckForm.resx">
+      <DependentUpon>AddNewMileageCheckForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\VehicleForms\AddNewPersonToVehicleForm.resx">
+      <DependentUpon>AddNewPersonToVehicleForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\VehicleForms\AddNewVehicleForm.resx">
       <DependentUpon>AddNewVehicleForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\VehicleForms\AddOrEditDescriptionForm.resx">
+      <DependentUpon>AddOrEditDescriptionForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\VehicleForms\AddOrEditInsurenceForm.resx">
+      <DependentUpon>AddOrEditInsurenceForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\VehicleForms\CarDetailsForm.resx">
       <DependentUpon>CarDetailsForm.cs</DependentUpon>
@@ -189,6 +204,9 @@
     </Compile>
     <EmbeddedResource Include="Views\MainForms\MainEmployeeForms.resx">
       <DependentUpon>MainEmployeeForms.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\VehicleForms\ChangeVehicleStatusForm.resx">
+      <DependentUpon>ChangeVehicleStatusForm.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
