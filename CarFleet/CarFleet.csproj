@@ -77,10 +77,10 @@
     <Compile Include="Views\VehicleForms\AddNewPersonToVehicleForm.Designer.cs">
       <DependentUpon>AddNewPersonToVehicleForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\AddNewVehicleForm.cs">
+    <Compile Include="Views\VehicleForms\AddNewVehicleForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Views\AddNewVehicleForm.Designer.cs">
+    <Compile Include="Views\VehicleForms\AddNewVehicleForm.Designer.cs">
       <DependentUpon>AddNewVehicleForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\VehicleForms\AddOrEditDescriptionForm.cs">
@@ -154,7 +154,7 @@
     <EmbeddedResource Include="Views\EmployeeForms\AddEmployeeForm.resx">
       <DependentUpon>AddEmployeeForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Views\AddNewVehicleForm.resx">
+    <EmbeddedResource Include="Views\VehicleForms\AddNewVehicleForm.resx">
       <DependentUpon>AddNewVehicleForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\VehicleForms\CarDetailsForm.resx">
