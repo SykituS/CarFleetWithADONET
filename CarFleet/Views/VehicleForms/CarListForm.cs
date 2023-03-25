@@ -57,7 +57,7 @@ namespace CarFleet.Views
 
         private void BtnViewVehicleDetailsHandler(int id)
         {
-            var form = new CarDetailsForm(id);
+            var form = new CarDetailsForm(id, loggedUser);
             form.Show();
         }
 

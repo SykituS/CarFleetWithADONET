@@ -28,19 +28,25 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
+            this.NumericUDMileage = new System.Windows.Forms.NumericUpDown();
             this.label1 = new System.Windows.Forms.Label();
             this.BtnCancel = new System.Windows.Forms.Button();
             this.BtnAddInspection = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
+            this.LabelWarning = new System.Windows.Forms.Label();
+            ((System.ComponentModel.ISupportInitialize)(this.NumericUDMileage)).BeginInit();
             this.SuspendLayout();
             // 
-            // numericUpDown1
+            // NumericUDMileage
             // 
-            this.numericUpDown1.Location = new System.Drawing.Point(99, 27);
-            this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(120, 20);
-            this.numericUpDown1.TabIndex = 0;
+            this.NumericUDMileage.Location = new System.Drawing.Point(99, 27);
+            this.NumericUDMileage.Maximum = new decimal(new int[] {
+            999999,
+            0,
+            0,
+            0});
+            this.NumericUDMileage.Name = "NumericUDMileage";
+            this.NumericUDMileage.Size = new System.Drawing.Size(120, 20);
+            this.NumericUDMileage.TabIndex = 0;
             // 
             // label1
             // 
@@ -53,7 +59,7 @@
             // 
             // BtnCancel
             // 
-            this.BtnCancel.Location = new System.Drawing.Point(20, 89);
+            this.BtnCancel.Location = new System.Drawing.Point(33, 107);
             this.BtnCancel.Name = "BtnCancel";
             this.BtnCancel.Size = new System.Drawing.Size(75, 23);
             this.BtnCancel.TabIndex = 3;
@@ -62,26 +68,38 @@
             // 
             // BtnAddInspection
             // 
-            this.BtnAddInspection.Location = new System.Drawing.Point(144, 89);
+            this.BtnAddInspection.Location = new System.Drawing.Point(157, 107);
             this.BtnAddInspection.Name = "BtnAddInspection";
             this.BtnAddInspection.Size = new System.Drawing.Size(75, 23);
             this.BtnAddInspection.TabIndex = 2;
             this.BtnAddInspection.Text = "Create";
             this.BtnAddInspection.UseVisualStyleBackColor = true;
+            this.BtnAddInspection.Click += new System.EventHandler(this.BtnAddInspection_Click);
+            // 
+            // LabelWarning
+            // 
+            this.LabelWarning.AutoSize = true;
+            this.LabelWarning.ForeColor = System.Drawing.Color.Red;
+            this.LabelWarning.Location = new System.Drawing.Point(42, 67);
+            this.LabelWarning.Name = "LabelWarning";
+            this.LabelWarning.Size = new System.Drawing.Size(73, 13);
+            this.LabelWarning.TabIndex = 4;
+            this.LabelWarning.Text = "LabelWarning";
             // 
             // AddNewMileageCheckForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(234, 136);
+            this.ClientSize = new System.Drawing.Size(272, 160);
+            this.Controls.Add(this.LabelWarning);
             this.Controls.Add(this.BtnCancel);
             this.Controls.Add(this.BtnAddInspection);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.numericUpDown1);
+            this.Controls.Add(this.NumericUDMileage);
             this.Name = "AddNewMileageCheckForm";
             this.Text = "AddNewMileageCheckForm";
             this.Load += new System.EventHandler(this.AddNewMileageCheckForm_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.NumericUDMileage)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -89,9 +107,10 @@
 
         #endregion
 
-        private System.Windows.Forms.NumericUpDown numericUpDown1;
+        private System.Windows.Forms.NumericUpDown NumericUDMileage;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button BtnCancel;
         private System.Windows.Forms.Button BtnAddInspection;
+        private System.Windows.Forms.Label LabelWarning;
     }
 }

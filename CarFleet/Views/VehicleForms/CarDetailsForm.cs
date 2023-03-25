@@ -13,9 +13,12 @@ namespace CarFleet.Views
     public partial class CarDetailsForm : Form
     {
         private readonly int _vehicleID;
-        public CarDetailsForm(int vehicleID)
+        private readonly Users loggedUser;
+
+        public CarDetailsForm(int vehicleID, Users loggedUser)
         {
             _vehicleID = vehicleID;
+            this.loggedUser = loggedUser;
             InitializeComponent();
         }
 
@@ -74,7 +77,7 @@ namespace CarFleet.Views
         {
             try
             {
-                cmd.CommandText = "SELECT veh.ID, Person.FirstName + ' ' + Person.LastName as 'Person', CreatedOn, CreatedBy.FirstName + ' ' + CreatedBy.LastName as 'Created By', UpdatedOn, UpdatedBy.FirstName + ' ' + UpdatedBy.LastName as 'Updated By' FROM VehiclePersonHistory as veh join Persons as Person on veh.PersonID = Person.ID join Persons as CreatedBy on veh.CreatedByID = CreatedBy.ID join Persons as UpdatedBy on veh.UpdatedByID = UpdatedBy.ID where VehicleID = @vid order by CreatedOn desc";
+                cmd.CommandText = "SELECT veh.ID, Person.FirstName + ' ' + Person.LastName as 'Person', CreatedOn as 'Created On', CreatedBy.FirstName + ' ' + CreatedBy.LastName as 'Created By', UpdatedOn as 'Updated On', UpdatedBy.FirstName + ' ' + UpdatedBy.LastName as 'Updated By' FROM VehiclePersonHistory as veh join Persons as Person on veh.PersonID = Person.ID join Persons as CreatedBy on veh.CreatedByID = CreatedBy.ID join Persons as UpdatedBy on veh.UpdatedByID = UpdatedBy.ID where VehicleID = @vid order by CreatedOn desc";
                 var response = VehiclePersonHistory.GetVehiclePersonHistoryQuery(dataSet, cmd);
 
                 if (response.Success)
@@ -101,7 +104,7 @@ namespace CarFleet.Views
         {
             try
             {
-                cmd.CommandText = "SELECT Mileage, CreatedOn, CreatedBy.FirstName + ' ' + CreatedBy.LastName as 'Created By', UpdatedOn, UpdatedBy.FirstName + ' ' + UpdatedBy.LastName as 'Updated By' FROM VehicleMileage as veh join Persons as CreatedBy on veh.CreatedByID = CreatedBy.ID join Persons as UpdatedBy on veh.UpdatedByID = UpdatedBy.ID where VehicleID = @vid order by CreatedOn desc";
+                cmd.CommandText = "SELECT Mileage, CreatedOn as 'Created On', CreatedBy.FirstName + ' ' + CreatedBy.LastName as 'Created By', UpdatedOn as 'Updated On', UpdatedBy.FirstName + ' ' + UpdatedBy.LastName as 'Updated By' FROM VehicleMileage as veh join Persons as CreatedBy on veh.CreatedByID = CreatedBy.ID join Persons as UpdatedBy on veh.UpdatedByID = UpdatedBy.ID where VehicleID = @vid order by CreatedOn desc";
                 var response = VehicleMileage.GetVehicleMileageQuery(dataSet, cmd);
 
                 if (response.Success)
@@ -119,7 +122,7 @@ namespace CarFleet.Views
         {
             try
             {
-                cmd.CommandText = "SELECT Insurer, StartDateOfInsurence, EndDateOfInsurence, CreatedOn, CreatedBy.FirstName + ' ' + CreatedBy.LastName as 'Created By', UpdatedOn, UpdatedBy.FirstName + ' ' + UpdatedBy.LastName as 'Updated By' FROM VehicleInsurer as veh join Persons as CreatedBy on veh.CreatedByID = CreatedBy.ID join Persons as UpdatedBy on veh.UpdatedByID = UpdatedBy.ID where VehicleID = @vid order by CreatedOn desc";
+                cmd.CommandText = "SELECT Insurer, StartDateOfInsurence as 'Start date', EndDateOfInsurence as 'End date', CreatedOn as 'Created On', CreatedBy.FirstName + ' ' + CreatedBy.LastName as 'Created By', UpdatedOn as 'Updated On', UpdatedBy.FirstName + ' ' + UpdatedBy.LastName as 'Updated By' FROM VehicleInsurer as veh join Persons as CreatedBy on veh.CreatedByID = CreatedBy.ID join Persons as UpdatedBy on veh.UpdatedByID = UpdatedBy.ID where VehicleID = @vid order by CreatedOn desc";
                 var response = VehicleInsurer.GetVehicleInsurerQuery(dataSet, cmd);
 
                 if (response.Success)
@@ -137,7 +140,7 @@ namespace CarFleet.Views
         {
             try
             {
-                cmd.CommandText = "SELECT DateOfInspection, DateOfNextInspection, CreatedOn, CreatedBy.FirstName + ' ' + CreatedBy.LastName as 'Created By', UpdatedOn, UpdatedBy.FirstName + ' ' + UpdatedBy.LastName as 'Updated By' FROM VehicleInspection as veh join Persons as CreatedBy on veh.CreatedByID = CreatedBy.ID join Persons as UpdatedBy on veh.UpdatedByID = UpdatedBy.ID where VehicleID = @vid order by CreatedOn desc";
+                cmd.CommandText = "SELECT DateOfInspection as 'Inspection date', DateOfNextInspection as 'Next inspection date', CreatedOn as 'Created On', CreatedBy.FirstName + ' ' + CreatedBy.LastName as 'Created By', UpdatedOn as 'Updated On', UpdatedBy.FirstName + ' ' + UpdatedBy.LastName as 'Updated By' FROM VehicleInspection as veh join Persons as CreatedBy on veh.CreatedByID = CreatedBy.ID join Persons as UpdatedBy on veh.UpdatedByID = UpdatedBy.ID where VehicleID = @vid order by CreatedOn desc";
                 var response = VehicleInspection.GetVehicleInspectionQuery(dataSet, cmd);
 
                 if (response.Success)
@@ -155,7 +158,7 @@ namespace CarFleet.Views
         {
             try
             {
-                cmd.CommandText = "SELECT veh.ID, veh.Description, veh.CreatedOn, CreatedBy.FirstName + ' ' + CreatedBy.LastName as 'Created By', veh.UpdatedOn, UpdatedBy.FirstName + ' ' + UpdatedBy.LastName as 'Updated By' FROM VehicleDescription as veh join Persons as CreatedBy on veh.CreatedByID = CreatedBy.ID join Persons as UpdatedBy on veh.UpdatedByID = UpdatedBy.ID where VehicleID = @vid order by CreatedOn desc";
+                cmd.CommandText = "SELECT veh.ID, veh.Description, veh.CreatedOn as 'Created On', CreatedBy.FirstName + ' ' + CreatedBy.LastName as 'Created By', veh.UpdatedOn as 'Updated On', UpdatedBy.FirstName + ' ' + UpdatedBy.LastName as 'Updated By' FROM VehicleDescription as veh join Persons as CreatedBy on veh.CreatedByID = CreatedBy.ID join Persons as UpdatedBy on veh.UpdatedByID = UpdatedBy.ID where VehicleID = @vid order by CreatedOn desc";
                 var response = VehicleDescription.GetVehicleDescriptionQuery(dataSet, cmd);
 
                 if (response.Success)
@@ -190,7 +193,7 @@ namespace CarFleet.Views
         {
             try
             {
-                cmd.CommandText = "Select veh.Status, CreatedOn, CreatedBy.FirstName + ' ' + CreatedBy.LastName as 'Created By' from VehicleStatus as veh join Persons as CreatedBy on veh.CreatedByID = CreatedBy.ID where VehicleID = @vid order by CreatedOn desc";
+                cmd.CommandText = "Select veh.Status, CreatedOn as 'Created On', CreatedBy.FirstName + ' ' + CreatedBy.LastName as 'Created By' from VehicleStatus as veh join Persons as CreatedBy on veh.CreatedByID = CreatedBy.ID where VehicleID = @vid order by CreatedOn desc";
                 var response = VehicleStatus.GetVehicleStatusQuery(dataSet, cmd);
 
                 if (response.Success)
@@ -263,7 +266,7 @@ namespace CarFleet.Views
 
         private void BtnOpenMileageCheckForm_Click(object sender, EventArgs e)
         {
-            var form = new AddNewMileageCheckForm();
+            var form = new AddNewMileageCheckForm(_vehicleID, loggedUser);
             form.Show();
         }
 
@@ -281,7 +284,7 @@ namespace CarFleet.Views
 
         private void BtnOpenDescriptionForm_Click(object sender, EventArgs e)
         {
-            var form = new AddOrEditDescriptionForm(0);
+            var form = new AddOrEditDescriptionForm(0, _vehicleID, loggedUser);
             form.Show();
         }
     }

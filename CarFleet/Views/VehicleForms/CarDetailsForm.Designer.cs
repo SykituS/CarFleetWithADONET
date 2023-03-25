@@ -75,7 +75,9 @@
             this.DataGridViewStatusHistory.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DataGridViewStatusHistory.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.DataGridViewStatusHistory.Location = new System.Drawing.Point(0, 18);
+            this.DataGridViewStatusHistory.MultiSelect = false;
             this.DataGridViewStatusHistory.Name = "DataGridViewStatusHistory";
+            this.DataGridViewStatusHistory.ReadOnly = true;
             this.DataGridViewStatusHistory.Size = new System.Drawing.Size(243, 238);
             this.DataGridViewStatusHistory.TabIndex = 2;
             this.DataGridViewStatusHistory.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.DataGridViewStatusHistory_CellFormatting);
@@ -85,7 +87,9 @@
             this.DataGridViewInspectionHistory.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DataGridViewInspectionHistory.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.DataGridViewInspectionHistory.Location = new System.Drawing.Point(0, 19);
+            this.DataGridViewInspectionHistory.MultiSelect = false;
             this.DataGridViewInspectionHistory.Name = "DataGridViewInspectionHistory";
+            this.DataGridViewInspectionHistory.ReadOnly = true;
             this.DataGridViewInspectionHistory.Size = new System.Drawing.Size(821, 150);
             this.DataGridViewInspectionHistory.TabIndex = 3;
             // 
@@ -94,7 +98,9 @@
             this.DataGridViewPersonHistory.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DataGridViewPersonHistory.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.DataGridViewPersonHistory.Location = new System.Drawing.Point(0, 19);
+            this.DataGridViewPersonHistory.MultiSelect = false;
             this.DataGridViewPersonHistory.Name = "DataGridViewPersonHistory";
+            this.DataGridViewPersonHistory.ReadOnly = true;
             this.DataGridViewPersonHistory.Size = new System.Drawing.Size(821, 150);
             this.DataGridViewPersonHistory.TabIndex = 4;
             // 
@@ -103,7 +109,9 @@
             this.DataGridViewDescriptionHistory.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DataGridViewDescriptionHistory.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.DataGridViewDescriptionHistory.Location = new System.Drawing.Point(0, 19);
+            this.DataGridViewDescriptionHistory.MultiSelect = false;
             this.DataGridViewDescriptionHistory.Name = "DataGridViewDescriptionHistory";
+            this.DataGridViewDescriptionHistory.ReadOnly = true;
             this.DataGridViewDescriptionHistory.Size = new System.Drawing.Size(1657, 150);
             this.DataGridViewDescriptionHistory.TabIndex = 5;
             // 
@@ -112,7 +120,9 @@
             this.DataGridViewMileageHistory.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DataGridViewMileageHistory.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.DataGridViewMileageHistory.Location = new System.Drawing.Point(0, 19);
+            this.DataGridViewMileageHistory.MultiSelect = false;
             this.DataGridViewMileageHistory.Name = "DataGridViewMileageHistory";
+            this.DataGridViewMileageHistory.ReadOnly = true;
             this.DataGridViewMileageHistory.Size = new System.Drawing.Size(814, 150);
             this.DataGridViewMileageHistory.TabIndex = 6;
             // 
@@ -121,7 +131,9 @@
             this.DataGridViewInsurerHistory.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DataGridViewInsurerHistory.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.DataGridViewInsurerHistory.Location = new System.Drawing.Point(0, 19);
+            this.DataGridViewInsurerHistory.MultiSelect = false;
             this.DataGridViewInsurerHistory.Name = "DataGridViewInsurerHistory";
+            this.DataGridViewInsurerHistory.ReadOnly = true;
             this.DataGridViewInsurerHistory.Size = new System.Drawing.Size(814, 150);
             this.DataGridViewInsurerHistory.TabIndex = 7;
             // 

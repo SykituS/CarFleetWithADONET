@@ -1,4 +1,6 @@
-﻿using System;
+﻿using CarFleetDomain.Functions;
+using CarFleetDomain.Models;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -13,9 +15,13 @@ namespace CarFleet.Views.VehicleForms
     public partial class AddOrEditDescriptionForm : Form
     {
         private readonly int _descriptionID;
-        public AddOrEditDescriptionForm(int descriptionID)
+        private readonly int vehicleID;
+        private readonly Users loggedUser;
+        public AddOrEditDescriptionForm(int descriptionID, int vehicleID, Users loggedUser)
         {
             _descriptionID = descriptionID;
+            this.vehicleID = vehicleID;
+            this.loggedUser = loggedUser;
             InitializeComponent();
         }
 
@@ -23,5 +29,56 @@ namespace CarFleet.Views.VehicleForms
         {
 
         }
+
+        private void BtnAddOrEditDescription_Click(object sender, EventArgs e)
+        {
+            var returnedCheck = CheckGivenData();
+            if (!returnedCheck.Success)
+            {
+                LabelWarning.Text = returnedCheck.Message;
+                LabelWarning.ForeColor = Color.Red;
+                return;
+            }
+            var dataSet = new DataSet();
+            var response =
+                VehicleSystem.InsertNewVehicleDescription(dataSet, vehicleID, loggedUser, RichTextBoxDescription.Text);
+
+            if (response.Success)
+            {
+                LabelWarning.Text = "Mileage successfully added!";
+                LabelWarning.ForeColor = Color.GreenYellow;
+            }
+            else
+            {
+                LabelWarning.Text = response.Message;
+                LabelWarning.ForeColor = Color.Red;
+            }
+        }
+
+        private DataResponse CheckGivenData()
+        {
+            var sb = new StringBuilder();
+            var response = new DataResponse
+            {
+                Success = true,
+            };
+
+            if (string.IsNullOrWhiteSpace(RichTextBoxDescription.Text))
+            {
+                sb.AppendLine("You need to provide a description");
+                response.Success = false;
+            }
+
+            if (RichTextBoxDescription.Text.Length > 500)
+            {
+                sb.AppendLine("Given description is too long!");
+                response.Success = false;
+            }
+
+            response.Message = sb.ToString();
+            return response;
+        }
+
+        
     }
 }

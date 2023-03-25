@@ -32,7 +32,8 @@
             this.RichTextBoxDescription = new System.Windows.Forms.RichTextBox();
             this.label12 = new System.Windows.Forms.Label();
             this.BtnCancel = new System.Windows.Forms.Button();
-            this.BtnAddInspection = new System.Windows.Forms.Button();
+            this.BtnAddOrEditDescritpion = new System.Windows.Forms.Button();
+            this.LabelWarning = new System.Windows.Forms.Label();
             this.panel4.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -65,29 +66,41 @@
             // 
             // BtnCancel
             // 
-            this.BtnCancel.Location = new System.Drawing.Point(56, 161);
+            this.BtnCancel.Location = new System.Drawing.Point(50, 177);
             this.BtnCancel.Name = "BtnCancel";
             this.BtnCancel.Size = new System.Drawing.Size(75, 23);
             this.BtnCancel.TabIndex = 22;
             this.BtnCancel.Text = "Cancel";
             this.BtnCancel.UseVisualStyleBackColor = true;
             // 
-            // BtnAddInspection
+            // BtnAddOrEditDescritpion
             // 
-            this.BtnAddInspection.Location = new System.Drawing.Point(180, 161);
-            this.BtnAddInspection.Name = "BtnAddInspection";
-            this.BtnAddInspection.Size = new System.Drawing.Size(75, 23);
-            this.BtnAddInspection.TabIndex = 21;
-            this.BtnAddInspection.Text = "Create";
-            this.BtnAddInspection.UseVisualStyleBackColor = true;
+            this.BtnAddOrEditDescritpion.Location = new System.Drawing.Point(174, 177);
+            this.BtnAddOrEditDescritpion.Name = "BtnAddOrEditDescritpion";
+            this.BtnAddOrEditDescritpion.Size = new System.Drawing.Size(75, 23);
+            this.BtnAddOrEditDescritpion.TabIndex = 21;
+            this.BtnAddOrEditDescritpion.Text = "Create";
+            this.BtnAddOrEditDescritpion.UseVisualStyleBackColor = true;
+            this.BtnAddOrEditDescritpion.Click += new System.EventHandler(this.BtnAddOrEditDescription_Click);
+            // 
+            // LabelWarning
+            // 
+            this.LabelWarning.AutoSize = true;
+            this.LabelWarning.ForeColor = System.Drawing.Color.Red;
+            this.LabelWarning.Location = new System.Drawing.Point(36, 158);
+            this.LabelWarning.Name = "LabelWarning";
+            this.LabelWarning.Size = new System.Drawing.Size(73, 13);
+            this.LabelWarning.TabIndex = 23;
+            this.LabelWarning.Text = "LabelWarning";
             // 
             // AddOrEditDescriptionForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(318, 203);
+            this.Controls.Add(this.LabelWarning);
             this.Controls.Add(this.BtnCancel);
-            this.Controls.Add(this.BtnAddInspection);
+            this.Controls.Add(this.BtnAddOrEditDescritpion);
             this.Controls.Add(this.panel4);
             this.Name = "AddOrEditDescriptionForm";
             this.Text = "AddOrEditDescriptionForm";
@@ -95,6 +108,7 @@
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -104,6 +118,7 @@
         public System.Windows.Forms.RichTextBox RichTextBoxDescription;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Button BtnCancel;
-        private System.Windows.Forms.Button BtnAddInspection;
+        private System.Windows.Forms.Button BtnAddOrEditDescritpion;
+        private System.Windows.Forms.Label LabelWarning;
     }
 }

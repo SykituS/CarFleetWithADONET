@@ -19,14 +19,60 @@ namespace CarFleet.Views
             InitializeComponent();
         }
 
-        private void BtnCancel_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
         private void AddNewVehicleForm_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void BtnBack_Click(object sender, EventArgs e)
+        {
+            CarListForm carListForm = new CarListForm(loggedUser);  // create instance of AddEmployeeForm
+            MainAdministrationForm mainForm = (MainAdministrationForm)this.ParentForm;  // get reference to the parent form
+
+            // load AddEmployeeForm in the mainpanel of the parent form
+            mainForm.loadForm(carListForm);
+        }
+
+        private void BtnAddCar_Click(object sender, EventArgs e)
+        {
+            LabelWarning.Visible = true;
+            try
+            {
+                var returnedCheck = CheckGivenData();
+                if (!returnedCheck.Success)
+                {
+                    LabelWarning.Text = returnedCheck.Message;
+                    return;
+                }
+
+                var response = InsertNewVehicleToDatabase();
+
+                if (response.Success)
+                {
+                    LabelWarning.Text = "Vehicle successfully added!";
+                    LabelWarning.ForeColor = Color.GreenYellow;
+                }
+                else
+                {
+                    LabelWarning.Text = response.Message;
+                    LabelWarning.ForeColor = Color.Red;
+                }
+            }
+            catch (Exception exception)
+            {
+                LabelWarning.Text = "Something went wrong!";
+                LabelWarning.ForeColor = Color.Red;
+            }
+        }
+
+        private void DateTimePickerInspection_ValueChanged(object sender, EventArgs e)
+        {
+            DateTimePickerNextInspection.Value = DateTimePickerInspection.Value.AddYears(1);
+        }
+
+        private void DateTimePickerInsurenceStart_ValueChanged(object sender, EventArgs e)
+        {
+            DateTimePickerInsurenceEnd.Value = DateTimePickerInsurenceStart.Value.AddYears(1);
         }
 
         private DataResponse CheckGivenData()
@@ -132,58 +178,6 @@ namespace CarFleet.Views
             }
 
             return response;
-        }
-
-        private void BtnBack_Click(object sender, EventArgs e)
-        {
-            CarListForm carListForm = new CarListForm(loggedUser);  // create instance of AddEmployeeForm
-            MainAdministrationForm mainForm = (MainAdministrationForm)this.ParentForm;  // get reference to the parent form
-
-            // load AddEmployeeForm in the mainpanel of the parent form
-            mainForm.loadForm(carListForm);
-        }
-
-        private void BtnAddCar_Click(object sender, EventArgs e)
-        {
-            LabelWarning.Visible = true;
-            try
-            {
-                var returnedCheck = CheckGivenData();
-                if (!returnedCheck.Success)
-                {
-                    LabelWarning.Text = returnedCheck.Message;
-                    return;
-                }
-
-                var response = InsertNewVehicleToDatabase();
-
-                if (response.Success)
-                {
-                    LabelWarning.Text = "Vehicle successfully added!";
-                    LabelWarning.ForeColor = Color.GreenYellow;
-                }
-                else
-                {
-                    LabelWarning.Text = response.Message;
-                    LabelWarning.ForeColor = Color.Red;
-                }
-            }
-            catch (Exception exception)
-            {
-                LabelWarning.Text = "Something went wrong!";
-                LabelWarning.ForeColor = Color.Red;
-
-            }
-        }
-
-        private void DateTimePickerInspection_ValueChanged(object sender, EventArgs e)
-        {
-            DateTimePickerNextInspection.Value = DateTimePickerInspection.Value.AddYears(1);
-        }
-
-        private void DateTimePickerInsurenceStart_ValueChanged(object sender, EventArgs e)
-        {
-            DateTimePickerInsurenceEnd.Value = DateTimePickerInsurenceStart.Value.AddYears(1);
         }
     }
 }
