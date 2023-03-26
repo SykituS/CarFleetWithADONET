@@ -1,4 +1,6 @@
-﻿using System;
+﻿using CarFleetDomain.Functions;
+using CarFleetDomain.Models;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,8 +14,13 @@ namespace CarFleet.Views.VehicleForms
 {
     public partial class AddNewInspectionForm : Form
     {
-        public AddNewInspectionForm()
+        private readonly int _vehicleID;
+        private readonly Users _loggedUser;
+
+        public AddNewInspectionForm(int vehicleID, Users loggedUser)
         {
+            _vehicleID = vehicleID;
+            _loggedUser = loggedUser;
             InitializeComponent();
         }
         private void AddNewInspectionForm_Load(object sender, EventArgs e)
@@ -28,7 +35,48 @@ namespace CarFleet.Views.VehicleForms
 
         private void BtnAddInspection_Click(object sender, EventArgs e)
         {
+            var returnedCheck = CheckGivenData();
+            if (!returnedCheck.Success)
+            {
+                LabelWarning.Text = returnedCheck.Message;
+                LabelWarning.ForeColor = Color.Red;
+                return;
+            }
+            var dataSet = new DataSet();
+            var response = VehicleSystem.InsertNewVehicleInspection(dataSet,
+                                                                    _vehicleID,
+                                                                    _loggedUser,
+                                                                    DateTimePickerInspection.Value,
+                                                                    DateTimePickerNextInspection.Value);
 
+            if (response.Success)
+            {
+                LabelWarning.Text = "Mileage successfully added!";
+                LabelWarning.ForeColor = Color.GreenYellow;
+            }
+            else
+            {
+                LabelWarning.Text = response.Message;
+                LabelWarning.ForeColor = Color.Red;
+            }
+        }
+
+        private DataResponse CheckGivenData()
+        {
+            var sb = new StringBuilder();
+            var response = new DataResponse
+            {
+                Success = true,
+            };
+
+            if (DateTimePickerInspection.Value > DateTimePickerNextInspection.Value)
+            {
+                sb.AppendLine("Given inspection date are wrong! Next date of inspection can't be lower then date of inspection!");
+                response.Success = false;
+            }
+
+            response.Message = sb.ToString();
+            return response;
         }
     }
 }

@@ -21,6 +21,8 @@ namespace CarFleet.Views
 
         private void AddNewVehicleForm_Load(object sender, EventArgs e)
         {
+            DateTimePickerNextInspection.Value = DateTimePickerInspection.Value.AddYears(1);
+            DateTimePickerInsurenceEnd.Value = DateTimePickerInsurenceStart.Value.AddYears(1);
 
         }
 
@@ -92,6 +94,18 @@ namespace CarFleet.Views
             if (string.IsNullOrWhiteSpace(TBInsurer.Text))
             {
                 sb.AppendLine("Insurer field need to be provided");
+                response.Success = false;
+            }
+
+            if (DateTimePickerInsurenceStart.Value > DateTimePickerInsurenceEnd.Value)
+            {
+                sb.AppendLine("Given insurence date are wrong! End date of insurence can't be lower then start date!");
+                response.Success = false;
+            }
+
+            if (DateTimePickerInspection.Value > DateTimePickerNextInspection.Value)
+            {
+                sb.AppendLine("Given inspection date are wrong! Next date of inspection can't be lower then date of inspection!");
                 response.Success = false;
             }
 
