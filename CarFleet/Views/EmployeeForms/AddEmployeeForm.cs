@@ -33,8 +33,92 @@ namespace CarFleet.Views
                 CbBox.Items.Add(Enum.GetName(typeof(RoleEnum), role));
             }
         }
+        private bool ValidateEmail(string email)
+        {
+            string pattern = @"^[^@\s]+@[^@\s]+\.[^@\s]+$";
+            return Regex.IsMatch(email, pattern);
+        }
+        public bool SpecialCharrsValidation(string firstName, string lastName)
+        {
+            string pattern = @"^[a-zA-Z]+$";
+       
+            Regex regex = new Regex(pattern);
+
+            if (regex.IsMatch(firstName) && regex.IsMatch(lastName))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+        public DataResponse CheckData()
+        {
+            EmployeeSystem employee = new EmployeeSystem();
+            var sb = new StringBuilder();
+            var response = new DataResponse
+            {
+                Success = true,
+            };
+            if (string.IsNullOrWhiteSpace(TbFirstName.Text) ||
+               string.IsNullOrWhiteSpace(TbLastName.Text) ||
+               string.IsNullOrWhiteSpace(TbPhone.Text) ||
+               string.IsNullOrWhiteSpace(TbEmail.Text))
+            {
+                sb.AppendLine("Please fill in all fields");
+                response.Success = false;
+            }
+            if (TbFirstName.Text.Length <= 4 || TbFirstName.Text.Length > 255 ||
+                TbLastName.Text.Length <= 4 || TbLastName.Text.Length > 255 ||
+                TbEmail.Text.Length <= 4 || TbEmail.Text.Length > 255)
+            {
+
+                sb.AppendLine("First name, last name, email must contain between 5 to 255digits");
+                response.Success = false;
+            }
+            if (TbFirstName.Text.Any(char.IsDigit) || TbLastName.Text.Any(char.IsDigit))
+            {
+
+                sb.AppendLine("First and last name cannot contain numbers");
+                response.Success = false;
+            }
+            if (TbPhone.Text.Length != 9 || !TbPhone.Text.All(char.IsDigit))
+            {
+
+                sb.AppendLine("Phone number must have 9 digits and contain only numbers");
+                response.Success = false;
+            }
+            if (!ValidateEmail(TbEmail.Text))
+            {
+
+                sb.AppendLine("Email is not in a valid format");
+                response.Success = false;
+            }
+            if (CbBox.SelectedItem == null)
+            {
+
+                sb.AppendLine("Please selectusers role");
+                response.Success = false;
+            }
+
+            if (!SpecialCharrsValidation(TbFirstName.Text, TbLastName.Text))
+            {
+                sb.AppendLine("First name and last name can not contain any special characters!");
+                response.Success = false;
+            }
+
+
+           
+
+            response.Message = sb.ToString();
+            return response;
+
+        }
         private void BtnNewEmplyee_Click_1(object sender, EventArgs e)
-        { EmployeeSystem employeeSystem = new EmployeeSystem();
+        {
+            label6.Visible = true;
+            EmployeeSystem employeeSystem = new EmployeeSystem();
             string firstName = TbFirstName.Text;
             string lastName = TbLastName.Text;
             string phone = TbPhone.Text;
@@ -42,6 +126,13 @@ namespace CarFleet.Views
             int roleID=CbBox.SelectedIndex;
 
             bool disabled =chBoxActive.Checked;
+            var datachecked = CheckData();
+            if (!datachecked.Success)
+            {
+                label6.Text = datachecked.Message;
+                return;
+
+            }
 
             var response = employeeSystem.InsertNewEmployee(firstName, lastName, phone, email,roleID,disabled);
 

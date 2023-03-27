@@ -24,11 +24,7 @@ namespace CarFleetDomain.Functions
             _persons = new Persons();
             _users = new Users();
         }
-        private bool ValidateEmail(string email)
-        {
-            string pattern = @"^[^@\s]+@[^@\s]+\.[^@\s]+$";
-            return Regex.IsMatch(email, pattern);
-        }
+       
         public CommandResponse<DataSet> GetEmployees()
         {
             var dataSet = new DataSet("Data");
@@ -225,12 +221,7 @@ namespace CarFleetDomain.Functions
         public CommandResponse<Persons> UpdateEmployee(int id, string firstName, string lastName, string phone, string email,bool disabled)
         {
             var response = new CommandResponse<Persons>(new Persons());
-            var validationResponse = ValidateEmployee(firstName, lastName, phone, email);
-            if (!validationResponse.Success)
-            {
-                response.Message = validationResponse.Message;
-                return response;
-            }
+         
 
 
 
@@ -285,13 +276,7 @@ namespace CarFleetDomain.Functions
         {
             var response = new CommandResponse<Persons>(new Persons());
             // Validate the employee data
-            var validationResponse = ValidateEmployee(firstName, lastName, phone, email);
-            var validationEmail=UniqueEmail(email);
-            if (!validationResponse.Success)
-            {
-                response.Message = validationResponse.Message;
-                return response;
-            }
+            var validationEmail=UniqueEmail(email);        
             if (!validationEmail.Success)
             { 
                  response.Message= validationEmail.Message;
@@ -368,63 +353,63 @@ namespace CarFleetDomain.Functions
             response.Success = true;
             return response;
         }
-        public CommandResponse<Persons> ValidateEmployee(string firstName, string lastName, string phone, string email)
-        {
-            var response = new CommandResponse<Persons>(new Persons());
+    //    public CommandResponse<Persons> ValidateEmployee(string firstName, string lastName, string phone, string email)
+    //    {
+    //        var response = new CommandResponse<Persons>(new Persons());
 
           
 
-            // Check that all input fields are filled in
-            if (string.IsNullOrWhiteSpace(firstName) ||
-                string.IsNullOrWhiteSpace(lastName) ||
-                string.IsNullOrWhiteSpace(phone) ||
-                string.IsNullOrWhiteSpace(email))
-            {
-                response.Message = "Please fill in all fields";
-                response.Success = false;
-                return response;
-            }
-            //Check if firstName, lastName,and email are not to short and long
-            if (firstName.Length <= 4 || firstName.Length > 255 ||
-                lastName.Length <= 4 || lastName.Length > 255 ||
-                email.Length <= 4 || email.Length > 255
-               )
-            {
-                response.Message = "First name, last name, email must contain between 5 to 255digits";
-                response.Success = false;
-                return response;
-            }
+    //        // Check that all input fields are filled in
+    //        if (string.IsNullOrWhiteSpace(firstName) ||
+    //            string.IsNullOrWhiteSpace(lastName) ||
+    //            string.IsNullOrWhiteSpace(phone) ||
+    //            string.IsNullOrWhiteSpace(email))
+    //        {
+    //            response.Message = "Please fill in all fields";
+    //            response.Success = false;
+    //            return response;
+    //        }
+    //        //Check if firstName, lastName,and email are not to short and long
+    //        if (firstName.Length <= 4 || firstName.Length > 255 ||
+    //            lastName.Length <= 4 || lastName.Length > 255 ||
+    //            email.Length <= 4 || email.Length > 255
+    //           )
+    //        {
+    //            response.Message = "First name, last name, email must contain between 5 to 255digits";
+    //            response.Success = false;
+    //            return response;
+    //        }
 
-            // Check that first and last name do not contain numbers
-            if (firstName.Any(char.IsDigit) || lastName.Any(char.IsDigit))
-            {
-                response.Message = "First and last name cannot contain numbers";
-                response.Success = false;
-                return response;
-            }
+    //        // Check that first and last name do not contain numbers
+    //        if (firstName.Any(char.IsDigit) || lastName.Any(char.IsDigit))
+    //        {
+    //            response.Message = "First and last name cannot contain numbers";
+    //            response.Success = false;
+    //            return response;
+    //        }
 
-            // Check that phone number has 9 digits and all of them are numbers
-            if (phone.Length != 9 || !phone.All(char.IsDigit))
-            {
-                response.Message = "Phone number must have 9 digits and contain only numbers";
-                response.Success = false;
-                return response;
-            }
+    //        // Check that phone number has 9 digits and all of them are numbers
+    //        if (phone.Length != 9 || !phone.All(char.IsDigit))
+    //        {
+    //            response.Message = "Phone number must have 9 digits and contain only numbers";
+    //            response.Success = false;
+    //            return response;
+    //        }
 
-            // Check that email is in a valid format
-            if (!ValidateEmail(email))
-            {
-                response.Message = "Email is not in a valid format";
-                response.Success = false;
-                return response;
-            }
+    //        // Check that email is in a valid format
+    //        if (!ValidateEmail(email))
+    //        {
+    //            response.Message = "Email is not in a valid format";
+    //            response.Success = false;
+    //            return response;
+    //        }
 
        
            
-            response.Success = true;
-            response.Message = "Employee added succefully";
-            return response;
-        }
+    //        response.Success = true;
+    //        response.Message = "Employee added succefully";
+    //        return response;
+    //    }
     }
 
 }

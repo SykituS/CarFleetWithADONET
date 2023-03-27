@@ -8,9 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Controls;
 using System.Windows.Forms;
+using System.Xml.Linq;
 using CarFleetDomain;
 using CarFleetDomain.Functions;
 using CarFleetDomain.Models;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace CarFleet.Views
 {
@@ -26,6 +28,12 @@ namespace CarFleet.Views
 
         private void EmployeeListForm_Load(object sender, EventArgs e)
         {
+            DispalyData();
+            DisplayButtonColumn();
+        }
+
+        private void DispalyData() {
+
             var data = new EmployeeSystem().GetEmployees();
 
             if (data.Message != null)
@@ -33,6 +41,10 @@ namespace CarFleet.Views
                 label1.Text = data.Message;
             }
             DataGridViewEmployeeList.DataSource = data.ReturnedValue.Tables["Persons"];
+          
+        }
+        private void DisplayButtonColumn()
+        {
             DataGridViewButtonColumn editButtonColumn = new DataGridViewButtonColumn();
             editButtonColumn.Name = "Edit";
             editButtonColumn.HeaderText = "Edit";
@@ -45,10 +57,8 @@ namespace CarFleet.Views
             deleteButtonColumn.HeaderText = "Delete";
             deleteButtonColumn.UseColumnTextForButtonValue = true;
             DataGridViewEmployeeList.Columns.Add(deleteButtonColumn);
+
         }
-
-
-     
 
         private void BtnAddEmployee_Click_1(object sender, EventArgs e)
         {
@@ -88,7 +98,7 @@ namespace CarFleet.Views
                 if (response.Success)
                 {
                     label2.Visible= false;
-                    DataGridViewEmployeeList.Refresh();
+                    DispalyData();
 
                 }
                 else
@@ -100,15 +110,54 @@ namespace CarFleet.Views
                 
             }
         }
+        private void SearchDataGridView(string searchText)
+        {
+            // If the search text is empty or null, clear any selected rows and exit the method
+            if (string.IsNullOrWhiteSpace(searchText))
+            {
+                DataGridViewEmployeeList.ClearSelection();
+                return;
+            }
+            // Loop through each row in the DataGridView
+            foreach (DataGridViewRow row in DataGridViewEmployeeList.Rows)
+            {
+                // Get the values of the columns for the current row
+             
+                string fName = row.Cells["FirstName"].Value?.ToString();
+                string lName = row.Cells["LastName"].Value?.ToString();
+                string email = row.Cells["Email"].Value?.ToString();
+                string phone = row.Cells["PhoneNumber"].Value?.ToString();
+               
+                // Concatenate name and surname and check if it contains the search text
+                string fullName = string.IsNullOrWhiteSpace(fName) || string.IsNullOrWhiteSpace(lName)
+                    ? null
+                    : $"{fName} {lName}";
+                // Check if the Id column contains the search text
+                if (
+                   email?.IndexOf(searchText, StringComparison.OrdinalIgnoreCase) >= 0    
+                || fullName?.IndexOf(searchText, StringComparison.OrdinalIgnoreCase) >= 0
+                || phone?.IndexOf(searchText, StringComparison.OrdinalIgnoreCase) >= 0
+               
+           )
+                {
+                    // If a match is found, select the row and scroll to it
+                    row.Selected = true;
+                    DataGridViewEmployeeList.FirstDisplayedScrollingRowIndex = DataGridViewEmployeeList.SelectedRows[0].Index;
+                    return; // exit the method after the first match is found
+                }
+            }
+            // If no match was found, clear any selected rows
+            DataGridViewEmployeeList.ClearSelection();
+        }
 
         private void BtnSearch_Click(object sender, EventArgs e)
         {
-
+            
         }
 
         private void TbSearch_TextChanged(object sender, EventArgs e)
         {
-       
+       SearchDataGridView(TbSearch.Text);
         }
     }
     }
