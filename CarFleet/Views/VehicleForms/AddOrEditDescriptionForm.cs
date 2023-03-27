@@ -40,8 +40,10 @@ namespace CarFleet.Views.VehicleForms
                 return;
             }
             var dataSet = new DataSet();
-            var response =
-                VehicleSystem.InsertNewVehicleDescription(dataSet, vehicleID, loggedUser, RichTextBoxDescription.Text);
+            var response = VehicleSystem.InsertNewVehicleDescription(dataSet,
+                                                                    vehicleID,
+                                                                    loggedUser,
+                                                                    RichTextBoxDescription.Text);
 
             if (response.Success)
             {

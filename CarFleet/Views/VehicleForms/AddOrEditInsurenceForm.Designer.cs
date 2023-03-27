@@ -37,6 +37,7 @@
             this.label7 = new System.Windows.Forms.Label();
             this.BtnCancel = new System.Windows.Forms.Button();
             this.BtnAddInsurence = new System.Windows.Forms.Button();
+            this.LabelWarning = new System.Windows.Forms.Label();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -68,6 +69,7 @@
             this.DateTimePickerInsurenceStart.Name = "DateTimePickerInsurenceStart";
             this.DateTimePickerInsurenceStart.Size = new System.Drawing.Size(131, 20);
             this.DateTimePickerInsurenceStart.TabIndex = 20;
+            this.DateTimePickerInsurenceStart.ValueChanged += new System.EventHandler(this.DateTimePickerInsurenceStart_ValueChanged);
             // 
             // TBInsurer
             // 
@@ -106,7 +108,7 @@
             // 
             // BtnCancel
             // 
-            this.BtnCancel.Location = new System.Drawing.Point(49, 171);
+            this.BtnCancel.Location = new System.Drawing.Point(56, 151);
             this.BtnCancel.Name = "BtnCancel";
             this.BtnCancel.Size = new System.Drawing.Size(75, 23);
             this.BtnCancel.TabIndex = 20;
@@ -115,7 +117,7 @@
             // 
             // BtnAddInsurence
             // 
-            this.BtnAddInsurence.Location = new System.Drawing.Point(173, 171);
+            this.BtnAddInsurence.Location = new System.Drawing.Point(180, 151);
             this.BtnAddInsurence.Name = "BtnAddInsurence";
             this.BtnAddInsurence.Size = new System.Drawing.Size(75, 23);
             this.BtnAddInsurence.TabIndex = 19;
@@ -123,11 +125,22 @@
             this.BtnAddInsurence.UseVisualStyleBackColor = true;
             this.BtnAddInsurence.Click += new System.EventHandler(this.BtnAddInsurence_Click);
             // 
+            // LabelWarning
+            // 
+            this.LabelWarning.AutoSize = true;
+            this.LabelWarning.ForeColor = System.Drawing.Color.Red;
+            this.LabelWarning.Location = new System.Drawing.Point(26, 126);
+            this.LabelWarning.Name = "LabelWarning";
+            this.LabelWarning.Size = new System.Drawing.Size(73, 13);
+            this.LabelWarning.TabIndex = 24;
+            this.LabelWarning.Text = "LabelWarning";
+            // 
             // AddOrEditInsurenceForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(342, 214);
+            this.ClientSize = new System.Drawing.Size(335, 192);
+            this.Controls.Add(this.LabelWarning);
             this.Controls.Add(this.BtnCancel);
             this.Controls.Add(this.BtnAddInsurence);
             this.Controls.Add(this.panel2);
@@ -137,6 +150,7 @@
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -151,5 +165,6 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Button BtnCancel;
         private System.Windows.Forms.Button BtnAddInsurence;
+        private System.Windows.Forms.Label LabelWarning;
     }
 }

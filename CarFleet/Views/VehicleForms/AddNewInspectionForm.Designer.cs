@@ -34,6 +34,7 @@
             this.DateTimePickerInspection = new System.Windows.Forms.DateTimePicker();
             this.DateTimePickerNextInspection = new System.Windows.Forms.DateTimePicker();
             this.label2 = new System.Windows.Forms.Label();
+            this.LabelWarning = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // BtnAddInspection
@@ -88,11 +89,22 @@
             this.label2.TabIndex = 6;
             this.label2.Text = "Date of next inspection";
             // 
+            // LabelWarning
+            // 
+            this.LabelWarning.AutoSize = true;
+            this.LabelWarning.ForeColor = System.Drawing.Color.Red;
+            this.LabelWarning.Location = new System.Drawing.Point(12, 86);
+            this.LabelWarning.Name = "LabelWarning";
+            this.LabelWarning.Size = new System.Drawing.Size(73, 13);
+            this.LabelWarning.TabIndex = 24;
+            this.LabelWarning.Text = "LabelWarning";
+            // 
             // AddNewInspectionForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(358, 165);
+            this.Controls.Add(this.LabelWarning);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.DateTimePickerNextInspection);
             this.Controls.Add(this.DateTimePickerInspection);
@@ -115,5 +127,6 @@
         private System.Windows.Forms.DateTimePicker DateTimePickerInspection;
         private System.Windows.Forms.DateTimePicker DateTimePickerNextInspection;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label LabelWarning;
     }
 }

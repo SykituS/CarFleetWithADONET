@@ -272,13 +272,13 @@ namespace CarFleet.Views
 
         private void BtnOpenInspectionForm_Click(object sender, EventArgs e)
         {
-            var form = new AddNewInspectionForm();
+            var form = new AddNewInspectionForm(_vehicleID, loggedUser);
             form.Show();
         }
 
         private void BtnOpenInsurenceForm_Click(object sender, EventArgs e)
         {
-            var form = new AddOrEditInsurenceForm(0);
+            var form = new AddOrEditInsurenceForm(0, _vehicleID, loggedUser);
             form.Show();
         }
 
