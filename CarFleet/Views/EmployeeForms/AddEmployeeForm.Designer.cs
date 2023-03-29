@@ -1,4 +1,4 @@
-﻿namespace CarFleet.Views
+﻿namespace CarFleet.Views.EmployeeForms
 {
     partial class AddEmployeeForm
     {

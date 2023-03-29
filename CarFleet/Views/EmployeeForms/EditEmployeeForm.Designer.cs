@@ -1,4 +1,4 @@
-﻿namespace CarFleet.Views
+﻿namespace CarFleet.Views.EmployeeForms
 {
     partial class EditEmployeeForm
     {
@@ -124,7 +124,7 @@
             this.BtnEditEmplyee.Text = "New Employee";
             this.BtnEditEmplyee.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.BtnEditEmplyee.UseVisualStyleBackColor = false;
-            this.BtnEditEmplyee.Click += new System.EventHandler(this.BtnNewEmplyee_Click);
+            this.BtnEditEmplyee.Click += new System.EventHandler(this.BtnNewEmployee_Click);
             // 
             // label3
             // 

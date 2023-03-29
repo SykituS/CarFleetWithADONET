@@ -1,4 +1,4 @@
-﻿namespace CarFleet.Views
+﻿namespace CarFleet.Views.VehicleForms
 {
     partial class CarListForm
     {

@@ -1,14 +1,14 @@
-﻿using CarFleetDomain.Models;
-using System;
+﻿using System;
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
-using CarFleet.Views.VehicleForms;
+using CarFleet.Views.MainForms;
 using CarFleetDomain.Functions;
+using CarFleetDomain.Models;
 
-namespace CarFleet.Views
+namespace CarFleet.Views.VehicleForms
 {
     public partial class CarDetailsForm : Form
     {

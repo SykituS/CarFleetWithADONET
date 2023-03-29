@@ -1,10 +1,8 @@
-﻿using System;
-using System.Windows.Forms;
-using CarFleetDomain;
+﻿using System.Windows.Forms;
 using CarFleetDomain.Functions;
 using CarFleetDomain.Models;
 
-namespace CarFleet.Views
+namespace CarFleet.Views.MainForms
 {
     public partial class LoginForm : Form
     {
