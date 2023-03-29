@@ -59,7 +59,7 @@
             this.BtnBack.IconColor = System.Drawing.Color.White;
             this.BtnBack.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.BtnBack.IconSize = 32;
-            this.BtnBack.Location = new System.Drawing.Point(404, 441);
+            this.BtnBack.Location = new System.Drawing.Point(214, 437);
             this.BtnBack.Name = "BtnBack";
             this.BtnBack.Size = new System.Drawing.Size(145, 45);
             this.BtnBack.TabIndex = 19;
@@ -117,7 +117,7 @@
             this.BtnEditEmplyee.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.BtnEditEmplyee.IconSize = 32;
             this.BtnEditEmplyee.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BtnEditEmplyee.Location = new System.Drawing.Point(204, 441);
+            this.BtnEditEmplyee.Location = new System.Drawing.Point(384, 437);
             this.BtnEditEmplyee.Name = "BtnEditEmplyee";
             this.BtnEditEmplyee.Size = new System.Drawing.Size(194, 45);
             this.BtnEditEmplyee.TabIndex = 18;

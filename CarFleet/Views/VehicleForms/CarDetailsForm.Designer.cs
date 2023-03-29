@@ -43,7 +43,6 @@
             this.panel4 = new System.Windows.Forms.Panel();
             this.panel5 = new System.Windows.Forms.Panel();
             this.panel6 = new System.Windows.Forms.Panel();
-            this.LabelWarning = new System.Windows.Forms.Label();
             this.panel7 = new System.Windows.Forms.Panel();
             this.label7 = new System.Windows.Forms.Label();
             this.BtnOpenEmployeeToVehicleForm = new FontAwesome.Sharp.IconButton();
@@ -243,17 +242,6 @@
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(781, 133);
             this.panel6.TabIndex = 18;
-            // 
-            // LabelWarning
-            // 
-            this.LabelWarning.AutoSize = true;
-            this.LabelWarning.ForeColor = System.Drawing.Color.Red;
-            this.LabelWarning.Location = new System.Drawing.Point(493, 913);
-            this.LabelWarning.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.LabelWarning.Name = "LabelWarning";
-            this.LabelWarning.Size = new System.Drawing.Size(94, 16);
-            this.LabelWarning.TabIndex = 19;
-            this.LabelWarning.Text = "labelWarnings";
             // 
             // panel7
             // 
@@ -458,13 +446,12 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1599, 877);
+            this.ClientSize = new System.Drawing.Size(1599, 666);
             this.Controls.Add(this.LbWarning);
             this.Controls.Add(this.panel8);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel7);
-            this.Controls.Add(this.LabelWarning);
             this.Controls.Add(this.panel5);
             this.Controls.Add(this.panel6);
             this.Controls.Add(this.panel4);
@@ -516,7 +503,6 @@
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.Panel panel6;
-        private System.Windows.Forms.Label LabelWarning;
         private System.Windows.Forms.Panel panel7;
         private System.Windows.Forms.Label label7;
         private FontAwesome.Sharp.IconButton BtnOpenEmployeeToVehicleForm;

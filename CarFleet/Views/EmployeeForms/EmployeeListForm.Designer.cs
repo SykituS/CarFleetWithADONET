@@ -35,7 +35,6 @@
             this.menupanel = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
             this.TbSearch = new System.Windows.Forms.TextBox();
-            this.BtnSearch = new FontAwesome.Sharp.IconButton();
             this.panelmain = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.DataGridViewEmployeeList)).BeginInit();
             this.mainpanel.SuspendLayout();
@@ -103,7 +102,6 @@
             // 
             this.menupanel.Controls.Add(this.label2);
             this.menupanel.Controls.Add(this.TbSearch);
-            this.menupanel.Controls.Add(this.BtnSearch);
             this.menupanel.Controls.Add(this.BtnAddEmployee);
             this.menupanel.Dock = System.Windows.Forms.DockStyle.Right;
             this.menupanel.Location = new System.Drawing.Point(815, 0);
@@ -130,26 +128,6 @@
             this.TbSearch.Size = new System.Drawing.Size(244, 22);
             this.TbSearch.TabIndex = 9;
             this.TbSearch.TextChanged += new System.EventHandler(this.TbSearch_TextChanged);
-            // 
-            // BtnSearch
-            // 
-            this.BtnSearch.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.BtnSearch.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(30)))), ((int)(((byte)(68)))));
-            this.BtnSearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnSearch.ForeColor = System.Drawing.Color.White;
-            this.BtnSearch.IconChar = FontAwesome.Sharp.IconChar.PeopleGroup;
-            this.BtnSearch.IconColor = System.Drawing.Color.Black;
-            this.BtnSearch.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.BtnSearch.IconSize = 32;
-            this.BtnSearch.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BtnSearch.Location = new System.Drawing.Point(5, 230);
-            this.BtnSearch.Name = "BtnSearch";
-            this.BtnSearch.Size = new System.Drawing.Size(244, 53);
-            this.BtnSearch.TabIndex = 8;
-            this.BtnSearch.Text = "Search";
-            this.BtnSearch.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.BtnSearch.UseVisualStyleBackColor = false;
-            this.BtnSearch.Click += new System.EventHandler(this.BtnSearch_Click);
             // 
             // panelmain
             // 
@@ -191,7 +169,6 @@
         private System.Windows.Forms.Panel menupanel;
         private System.Windows.Forms.Panel panelmain;
         private System.Windows.Forms.TextBox TbSearch;
-        private FontAwesome.Sharp.IconButton BtnSearch;
         private System.Windows.Forms.Label label2;
     }
 }
