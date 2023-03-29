@@ -28,14 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.DataGridViewStatusHistory = new System.Windows.Forms.DataGridView();
             this.DataGridViewInspectionHistory = new System.Windows.Forms.DataGridView();
             this.DataGridViewPersonHistory = new System.Windows.Forms.DataGridView();
             this.DataGridViewDescriptionHistory = new System.Windows.Forms.DataGridView();
             this.DataGridViewMileageHistory = new System.Windows.Forms.DataGridView();
             this.DataGridViewInsurerHistory = new System.Windows.Forms.DataGridView();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -55,37 +52,26 @@
             this.BtnOpenInspectionForm = new FontAwesome.Sharp.IconButton();
             this.BtnOpenInsurenceForm = new FontAwesome.Sharp.IconButton();
             this.BtnOpenDescriptionForm = new FontAwesome.Sharp.IconButton();
-            ((System.ComponentModel.ISupportInitialize)(this.DataGridViewStatusHistory)).BeginInit();
+            this.panel8 = new System.Windows.Forms.Panel();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.DataGridViewStatusHistory = new System.Windows.Forms.DataGridView();
+            this.label1 = new System.Windows.Forms.Label();
+            this.LbWarning = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.DataGridViewInspectionHistory)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DataGridViewPersonHistory)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DataGridViewDescriptionHistory)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DataGridViewMileageHistory)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DataGridViewInsurerHistory)).BeginInit();
-            this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel4.SuspendLayout();
             this.panel5.SuspendLayout();
             this.panel6.SuspendLayout();
             this.panel7.SuspendLayout();
+            this.panel8.SuspendLayout();
+            this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.DataGridViewStatusHistory)).BeginInit();
             this.SuspendLayout();
-            // 
-            // DataGridViewStatusHistory
-            // 
-            this.DataGridViewStatusHistory.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.DataGridViewStatusHistory.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.DataGridViewStatusHistory.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.DataGridViewStatusHistory.Location = new System.Drawing.Point(-4, 22);
-            this.DataGridViewStatusHistory.Margin = new System.Windows.Forms.Padding(4);
-            this.DataGridViewStatusHistory.MultiSelect = false;
-            this.DataGridViewStatusHistory.Name = "DataGridViewStatusHistory";
-            this.DataGridViewStatusHistory.ReadOnly = true;
-            this.DataGridViewStatusHistory.RowHeadersWidth = 51;
-            this.DataGridViewStatusHistory.Size = new System.Drawing.Size(401, 264);
-            this.DataGridViewStatusHistory.TabIndex = 2;
-            this.DataGridViewStatusHistory.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.DataGridViewStatusHistory_CellFormatting);
             // 
             // DataGridViewInspectionHistory
             // 
@@ -98,7 +84,7 @@
             this.DataGridViewInspectionHistory.Name = "DataGridViewInspectionHistory";
             this.DataGridViewInspectionHistory.ReadOnly = true;
             this.DataGridViewInspectionHistory.RowHeadersWidth = 51;
-            this.DataGridViewInspectionHistory.Size = new System.Drawing.Size(586, 117);
+            this.DataGridViewInspectionHistory.Size = new System.Drawing.Size(749, 117);
             this.DataGridViewInspectionHistory.TabIndex = 3;
             // 
             // DataGridViewPersonHistory
@@ -112,7 +98,7 @@
             this.DataGridViewPersonHistory.Name = "DataGridViewPersonHistory";
             this.DataGridViewPersonHistory.ReadOnly = true;
             this.DataGridViewPersonHistory.RowHeadersWidth = 51;
-            this.DataGridViewPersonHistory.Size = new System.Drawing.Size(586, 106);
+            this.DataGridViewPersonHistory.Size = new System.Drawing.Size(752, 106);
             this.DataGridViewPersonHistory.TabIndex = 4;
             // 
             // DataGridViewDescriptionHistory
@@ -126,7 +112,7 @@
             this.DataGridViewDescriptionHistory.Name = "DataGridViewDescriptionHistory";
             this.DataGridViewDescriptionHistory.ReadOnly = true;
             this.DataGridViewDescriptionHistory.RowHeadersWidth = 51;
-            this.DataGridViewDescriptionHistory.Size = new System.Drawing.Size(1205, 134);
+            this.DataGridViewDescriptionHistory.Size = new System.Drawing.Size(1566, 134);
             this.DataGridViewDescriptionHistory.TabIndex = 5;
             // 
             // DataGridViewMileageHistory
@@ -134,13 +120,13 @@
             this.DataGridViewMileageHistory.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.DataGridViewMileageHistory.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.DataGridViewMileageHistory.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.DataGridViewMileageHistory.Location = new System.Drawing.Point(-5, 20);
+            this.DataGridViewMileageHistory.Location = new System.Drawing.Point(0, 20);
             this.DataGridViewMileageHistory.Margin = new System.Windows.Forms.Padding(4);
             this.DataGridViewMileageHistory.MultiSelect = false;
             this.DataGridViewMileageHistory.Name = "DataGridViewMileageHistory";
             this.DataGridViewMileageHistory.ReadOnly = true;
             this.DataGridViewMileageHistory.RowHeadersWidth = 51;
-            this.DataGridViewMileageHistory.Size = new System.Drawing.Size(591, 109);
+            this.DataGridViewMileageHistory.Size = new System.Drawing.Size(781, 109);
             this.DataGridViewMileageHistory.TabIndex = 6;
             // 
             // DataGridViewInsurerHistory
@@ -154,29 +140,8 @@
             this.DataGridViewInsurerHistory.Name = "DataGridViewInsurerHistory";
             this.DataGridViewInsurerHistory.ReadOnly = true;
             this.DataGridViewInsurerHistory.RowHeadersWidth = 51;
-            this.DataGridViewInsurerHistory.Size = new System.Drawing.Size(586, 121);
+            this.DataGridViewInsurerHistory.Size = new System.Drawing.Size(781, 121);
             this.DataGridViewInsurerHistory.TabIndex = 7;
-            // 
-            // panel1
-            // 
-            this.panel1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.panel1.Controls.Add(this.label1);
-            this.panel1.Controls.Add(this.DataGridViewStatusHistory);
-            this.panel1.Location = new System.Drawing.Point(780, 110);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(401, 300);
-            this.panel1.TabIndex = 8;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(4, 2);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(89, 16);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Status History";
             // 
             // label2
             // 
@@ -230,58 +195,53 @@
             // 
             // panel2
             // 
-            this.panel2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.panel2.Controls.Add(this.label6);
             this.panel2.Controls.Add(this.DataGridViewInsurerHistory);
-            this.panel2.Location = new System.Drawing.Point(785, 555);
+            this.panel2.Location = new System.Drawing.Point(785, 344);
             this.panel2.Margin = new System.Windows.Forms.Padding(4);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(586, 141);
+            this.panel2.Size = new System.Drawing.Size(781, 141);
             this.panel2.TabIndex = 14;
             // 
             // panel3
             // 
-            this.panel3.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.panel3.AutoSize = true;
             this.panel3.Controls.Add(this.label2);
             this.panel3.Controls.Add(this.DataGridViewInspectionHistory);
-            this.panel3.Location = new System.Drawing.Point(166, 551);
+            this.panel3.Location = new System.Drawing.Point(7, 344);
             this.panel3.Margin = new System.Windows.Forms.Padding(4);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(586, 145);
+            this.panel3.Size = new System.Drawing.Size(752, 145);
             this.panel3.TabIndex = 15;
             // 
             // panel4
             // 
-            this.panel4.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.panel4.Controls.Add(this.label4);
             this.panel4.Controls.Add(this.DataGridViewDescriptionHistory);
-            this.panel4.Location = new System.Drawing.Point(166, 710);
+            this.panel4.Location = new System.Drawing.Point(7, 493);
             this.panel4.Margin = new System.Windows.Forms.Padding(4);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(1205, 154);
+            this.panel4.Size = new System.Drawing.Size(1566, 154);
             this.panel4.TabIndex = 16;
             // 
             // panel5
             // 
-            this.panel5.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.panel5.Controls.Add(this.DataGridViewPersonHistory);
             this.panel5.Controls.Add(this.label3);
-            this.panel5.Location = new System.Drawing.Point(166, 410);
+            this.panel5.Location = new System.Drawing.Point(7, 207);
             this.panel5.Margin = new System.Windows.Forms.Padding(4);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(586, 133);
+            this.panel5.Size = new System.Drawing.Size(752, 133);
             this.panel5.TabIndex = 17;
             // 
             // panel6
             // 
-            this.panel6.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.panel6.Controls.Add(this.label5);
             this.panel6.Controls.Add(this.DataGridViewMileageHistory);
-            this.panel6.Location = new System.Drawing.Point(785, 414);
+            this.panel6.Location = new System.Drawing.Point(785, 207);
             this.panel6.Margin = new System.Windows.Forms.Padding(4);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(586, 133);
+            this.panel6.Size = new System.Drawing.Size(781, 133);
             this.panel6.TabIndex = 18;
             // 
             // LabelWarning
@@ -297,12 +257,11 @@
             // 
             // panel7
             // 
-            this.panel7.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.panel7.Controls.Add(this.label7);
-            this.panel7.Location = new System.Drawing.Point(166, 106);
+            this.panel7.Location = new System.Drawing.Point(7, 7);
             this.panel7.Margin = new System.Windows.Forms.Padding(4);
             this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(331, 300);
+            this.panel7.Size = new System.Drawing.Size(351, 148);
             this.panel7.TabIndex = 20;
             // 
             // label7
@@ -326,9 +285,9 @@
             this.BtnOpenEmployeeToVehicleForm.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.BtnOpenEmployeeToVehicleForm.IconSize = 32;
             this.BtnOpenEmployeeToVehicleForm.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BtnOpenEmployeeToVehicleForm.Location = new System.Drawing.Point(504, 106);
+            this.BtnOpenEmployeeToVehicleForm.Location = new System.Drawing.Point(14, 3);
             this.BtnOpenEmployeeToVehicleForm.Name = "BtnOpenEmployeeToVehicleForm";
-            this.BtnOpenEmployeeToVehicleForm.Size = new System.Drawing.Size(248, 45);
+            this.BtnOpenEmployeeToVehicleForm.Size = new System.Drawing.Size(245, 45);
             this.BtnOpenEmployeeToVehicleForm.TabIndex = 27;
             this.BtnOpenEmployeeToVehicleForm.Text = "Add employee to vehicle";
             this.BtnOpenEmployeeToVehicleForm.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -346,9 +305,9 @@
             this.BtnOpenStatusForm.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.BtnOpenStatusForm.IconSize = 32;
             this.BtnOpenStatusForm.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BtnOpenStatusForm.Location = new System.Drawing.Point(504, 157);
+            this.BtnOpenStatusForm.Location = new System.Drawing.Point(14, 54);
             this.BtnOpenStatusForm.Name = "BtnOpenStatusForm";
-            this.BtnOpenStatusForm.Size = new System.Drawing.Size(248, 45);
+            this.BtnOpenStatusForm.Size = new System.Drawing.Size(245, 45);
             this.BtnOpenStatusForm.TabIndex = 28;
             this.BtnOpenStatusForm.Text = "Change Status";
             this.BtnOpenStatusForm.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -366,9 +325,9 @@
             this.BtnOpenMileageCheckForm.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.BtnOpenMileageCheckForm.IconSize = 32;
             this.BtnOpenMileageCheckForm.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BtnOpenMileageCheckForm.Location = new System.Drawing.Point(504, 208);
+            this.BtnOpenMileageCheckForm.Location = new System.Drawing.Point(14, 102);
             this.BtnOpenMileageCheckForm.Name = "BtnOpenMileageCheckForm";
-            this.BtnOpenMileageCheckForm.Size = new System.Drawing.Size(248, 45);
+            this.BtnOpenMileageCheckForm.Size = new System.Drawing.Size(245, 45);
             this.BtnOpenMileageCheckForm.TabIndex = 29;
             this.BtnOpenMileageCheckForm.Text = "New mileage check";
             this.BtnOpenMileageCheckForm.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -386,9 +345,9 @@
             this.BtnOpenInspectionForm.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.BtnOpenInspectionForm.IconSize = 32;
             this.BtnOpenInspectionForm.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BtnOpenInspectionForm.Location = new System.Drawing.Point(504, 259);
+            this.BtnOpenInspectionForm.Location = new System.Drawing.Point(316, 105);
             this.BtnOpenInspectionForm.Name = "BtnOpenInspectionForm";
-            this.BtnOpenInspectionForm.Size = new System.Drawing.Size(248, 45);
+            this.BtnOpenInspectionForm.Size = new System.Drawing.Size(242, 45);
             this.BtnOpenInspectionForm.TabIndex = 30;
             this.BtnOpenInspectionForm.Text = "New inspection";
             this.BtnOpenInspectionForm.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -406,9 +365,9 @@
             this.BtnOpenInsurenceForm.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.BtnOpenInsurenceForm.IconSize = 32;
             this.BtnOpenInsurenceForm.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BtnOpenInsurenceForm.Location = new System.Drawing.Point(504, 310);
+            this.BtnOpenInsurenceForm.Location = new System.Drawing.Point(316, 54);
             this.BtnOpenInsurenceForm.Name = "BtnOpenInsurenceForm";
-            this.BtnOpenInsurenceForm.Size = new System.Drawing.Size(248, 45);
+            this.BtnOpenInsurenceForm.Size = new System.Drawing.Size(242, 45);
             this.BtnOpenInsurenceForm.TabIndex = 31;
             this.BtnOpenInsurenceForm.Text = "New Insurence";
             this.BtnOpenInsurenceForm.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -426,28 +385,84 @@
             this.BtnOpenDescriptionForm.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.BtnOpenDescriptionForm.IconSize = 32;
             this.BtnOpenDescriptionForm.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BtnOpenDescriptionForm.Location = new System.Drawing.Point(504, 361);
+            this.BtnOpenDescriptionForm.Location = new System.Drawing.Point(316, 2);
             this.BtnOpenDescriptionForm.Name = "BtnOpenDescriptionForm";
-            this.BtnOpenDescriptionForm.Size = new System.Drawing.Size(248, 45);
+            this.BtnOpenDescriptionForm.Size = new System.Drawing.Size(242, 45);
             this.BtnOpenDescriptionForm.TabIndex = 32;
             this.BtnOpenDescriptionForm.Text = "New description";
             this.BtnOpenDescriptionForm.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.BtnOpenDescriptionForm.UseVisualStyleBackColor = false;
             this.BtnOpenDescriptionForm.Click += new System.EventHandler(this.BtnOpenDescriptionForm_Click_1);
             // 
+            // panel8
+            // 
+            this.panel8.Controls.Add(this.BtnOpenDescriptionForm);
+            this.panel8.Controls.Add(this.BtnOpenInsurenceForm);
+            this.panel8.Controls.Add(this.BtnOpenMileageCheckForm);
+            this.panel8.Controls.Add(this.BtnOpenInspectionForm);
+            this.panel8.Controls.Add(this.BtnOpenEmployeeToVehicleForm);
+            this.panel8.Controls.Add(this.BtnOpenStatusForm);
+            this.panel8.Location = new System.Drawing.Point(365, 5);
+            this.panel8.Name = "panel8";
+            this.panel8.Size = new System.Drawing.Size(578, 150);
+            this.panel8.TabIndex = 33;
+            // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.label1);
+            this.panel1.Controls.Add(this.DataGridViewStatusHistory);
+            this.panel1.Location = new System.Drawing.Point(950, 3);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(616, 196);
+            this.panel1.TabIndex = 8;
+            // 
+            // DataGridViewStatusHistory
+            // 
+            this.DataGridViewStatusHistory.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.DataGridViewStatusHistory.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.DataGridViewStatusHistory.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DataGridViewStatusHistory.Location = new System.Drawing.Point(0, 22);
+            this.DataGridViewStatusHistory.Margin = new System.Windows.Forms.Padding(4);
+            this.DataGridViewStatusHistory.MultiSelect = false;
+            this.DataGridViewStatusHistory.Name = "DataGridViewStatusHistory";
+            this.DataGridViewStatusHistory.ReadOnly = true;
+            this.DataGridViewStatusHistory.RowHeadersWidth = 51;
+            this.DataGridViewStatusHistory.Size = new System.Drawing.Size(612, 174);
+            this.DataGridViewStatusHistory.TabIndex = 2;
+            this.DataGridViewStatusHistory.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.DataGridViewStatusHistory_CellFormatting);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(4, 2);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(89, 16);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Status History";
+            // 
+            // LbWarning
+            // 
+            this.LbWarning.AutoSize = true;
+            this.LbWarning.ForeColor = System.Drawing.Color.Red;
+            this.LbWarning.Location = new System.Drawing.Point(11, 159);
+            this.LbWarning.Name = "LbWarning";
+            this.LbWarning.Size = new System.Drawing.Size(90, 16);
+            this.LbWarning.TabIndex = 34;
+            this.LbWarning.Text = "Label warning";
+            // 
             // CarDetailsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1599, 877);
-            this.Controls.Add(this.BtnOpenDescriptionForm);
-            this.Controls.Add(this.BtnOpenInsurenceForm);
+            this.Controls.Add(this.LbWarning);
+            this.Controls.Add(this.panel8);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panel3);
-            this.Controls.Add(this.BtnOpenInspectionForm);
-            this.Controls.Add(this.BtnOpenMileageCheckForm);
-            this.Controls.Add(this.BtnOpenStatusForm);
-            this.Controls.Add(this.BtnOpenEmployeeToVehicleForm);
             this.Controls.Add(this.panel7);
             this.Controls.Add(this.LabelWarning);
             this.Controls.Add(this.panel5);
@@ -459,14 +474,11 @@
             this.Name = "CarDetailsForm";
             this.Text = "CarDetailsForm";
             this.Load += new System.EventHandler(this.CarDetailsForm_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.DataGridViewStatusHistory)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.DataGridViewInspectionHistory)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.DataGridViewPersonHistory)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.DataGridViewDescriptionHistory)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.DataGridViewMileageHistory)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.DataGridViewInsurerHistory)).EndInit();
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.panel3.ResumeLayout(false);
@@ -479,20 +491,21 @@
             this.panel6.PerformLayout();
             this.panel7.ResumeLayout(false);
             this.panel7.PerformLayout();
+            this.panel8.ResumeLayout(false);
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.DataGridViewStatusHistory)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-        private System.Windows.Forms.DataGridView DataGridViewStatusHistory;
         private System.Windows.Forms.DataGridView DataGridViewInspectionHistory;
         private System.Windows.Forms.DataGridView DataGridViewPersonHistory;
         private System.Windows.Forms.DataGridView DataGridViewDescriptionHistory;
         private System.Windows.Forms.DataGridView DataGridViewMileageHistory;
         private System.Windows.Forms.DataGridView DataGridViewInsurerHistory;
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
@@ -512,5 +525,10 @@
         private FontAwesome.Sharp.IconButton BtnOpenInspectionForm;
         private FontAwesome.Sharp.IconButton BtnOpenInsurenceForm;
         private FontAwesome.Sharp.IconButton BtnOpenDescriptionForm;
+        private System.Windows.Forms.Panel panel8;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.DataGridView DataGridViewStatusHistory;
+        private System.Windows.Forms.Label LbWarning;
     }
 }

@@ -49,7 +49,6 @@
             // 
             // BtnAddNewVehicle
             // 
-            this.BtnAddNewVehicle.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.BtnAddNewVehicle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(30)))), ((int)(((byte)(68)))));
             this.BtnAddNewVehicle.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnAddNewVehicle.ForeColor = System.Drawing.Color.White;
