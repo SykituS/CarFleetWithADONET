@@ -49,12 +49,12 @@
             this.LabelWarning = new System.Windows.Forms.Label();
             this.panel7 = new System.Windows.Forms.Panel();
             this.label7 = new System.Windows.Forms.Label();
-            this.BtnOpenStatusForm = new System.Windows.Forms.Button();
-            this.BtnOpenMileageCheckForm = new System.Windows.Forms.Button();
-            this.BtnOpenInspectionForm = new System.Windows.Forms.Button();
-            this.BtnOpenInsurenceForm = new System.Windows.Forms.Button();
-            this.BtnOpenDescriptionForm = new System.Windows.Forms.Button();
-            this.BtnOpenEmployeeToVehicleForm = new System.Windows.Forms.Button();
+            this.BtnOpenEmployeeToVehicleForm = new FontAwesome.Sharp.IconButton();
+            this.BtnOpenStatusForm = new FontAwesome.Sharp.IconButton();
+            this.BtnOpenMileageCheckForm = new FontAwesome.Sharp.IconButton();
+            this.BtnOpenInspectionForm = new FontAwesome.Sharp.IconButton();
+            this.BtnOpenInsurenceForm = new FontAwesome.Sharp.IconButton();
+            this.BtnOpenDescriptionForm = new FontAwesome.Sharp.IconButton();
             ((System.ComponentModel.ISupportInitialize)(this.DataGridViewStatusHistory)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DataGridViewInspectionHistory)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DataGridViewPersonHistory)).BeginInit();
@@ -72,292 +72,390 @@
             // 
             // DataGridViewStatusHistory
             // 
+            this.DataGridViewStatusHistory.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.DataGridViewStatusHistory.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.DataGridViewStatusHistory.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.DataGridViewStatusHistory.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.DataGridViewStatusHistory.Location = new System.Drawing.Point(0, 18);
+            this.DataGridViewStatusHistory.Location = new System.Drawing.Point(-4, 22);
+            this.DataGridViewStatusHistory.Margin = new System.Windows.Forms.Padding(4);
             this.DataGridViewStatusHistory.MultiSelect = false;
             this.DataGridViewStatusHistory.Name = "DataGridViewStatusHistory";
             this.DataGridViewStatusHistory.ReadOnly = true;
-            this.DataGridViewStatusHistory.Size = new System.Drawing.Size(304, 238);
+            this.DataGridViewStatusHistory.RowHeadersWidth = 51;
+            this.DataGridViewStatusHistory.Size = new System.Drawing.Size(401, 264);
             this.DataGridViewStatusHistory.TabIndex = 2;
             this.DataGridViewStatusHistory.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.DataGridViewStatusHistory_CellFormatting);
             // 
             // DataGridViewInspectionHistory
             // 
+            this.DataGridViewInspectionHistory.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.DataGridViewInspectionHistory.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.DataGridViewInspectionHistory.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.DataGridViewInspectionHistory.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.DataGridViewInspectionHistory.Location = new System.Drawing.Point(0, 19);
+            this.DataGridViewInspectionHistory.Location = new System.Drawing.Point(0, 24);
+            this.DataGridViewInspectionHistory.Margin = new System.Windows.Forms.Padding(4);
             this.DataGridViewInspectionHistory.MultiSelect = false;
             this.DataGridViewInspectionHistory.Name = "DataGridViewInspectionHistory";
             this.DataGridViewInspectionHistory.ReadOnly = true;
-            this.DataGridViewInspectionHistory.Size = new System.Drawing.Size(821, 150);
+            this.DataGridViewInspectionHistory.RowHeadersWidth = 51;
+            this.DataGridViewInspectionHistory.Size = new System.Drawing.Size(586, 117);
             this.DataGridViewInspectionHistory.TabIndex = 3;
             // 
             // DataGridViewPersonHistory
             // 
+            this.DataGridViewPersonHistory.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.DataGridViewPersonHistory.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.DataGridViewPersonHistory.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.DataGridViewPersonHistory.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.DataGridViewPersonHistory.Location = new System.Drawing.Point(0, 19);
+            this.DataGridViewPersonHistory.Location = new System.Drawing.Point(0, 27);
+            this.DataGridViewPersonHistory.Margin = new System.Windows.Forms.Padding(4);
             this.DataGridViewPersonHistory.MultiSelect = false;
             this.DataGridViewPersonHistory.Name = "DataGridViewPersonHistory";
             this.DataGridViewPersonHistory.ReadOnly = true;
-            this.DataGridViewPersonHistory.Size = new System.Drawing.Size(821, 150);
+            this.DataGridViewPersonHistory.RowHeadersWidth = 51;
+            this.DataGridViewPersonHistory.Size = new System.Drawing.Size(586, 106);
             this.DataGridViewPersonHistory.TabIndex = 4;
             // 
             // DataGridViewDescriptionHistory
             // 
+            this.DataGridViewDescriptionHistory.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.DataGridViewDescriptionHistory.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.DataGridViewDescriptionHistory.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.DataGridViewDescriptionHistory.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.DataGridViewDescriptionHistory.Location = new System.Drawing.Point(0, 19);
+            this.DataGridViewDescriptionHistory.Location = new System.Drawing.Point(0, 20);
+            this.DataGridViewDescriptionHistory.Margin = new System.Windows.Forms.Padding(4);
             this.DataGridViewDescriptionHistory.MultiSelect = false;
             this.DataGridViewDescriptionHistory.Name = "DataGridViewDescriptionHistory";
             this.DataGridViewDescriptionHistory.ReadOnly = true;
-            this.DataGridViewDescriptionHistory.Size = new System.Drawing.Size(1657, 150);
+            this.DataGridViewDescriptionHistory.RowHeadersWidth = 51;
+            this.DataGridViewDescriptionHistory.Size = new System.Drawing.Size(1205, 134);
             this.DataGridViewDescriptionHistory.TabIndex = 5;
             // 
             // DataGridViewMileageHistory
             // 
+            this.DataGridViewMileageHistory.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.DataGridViewMileageHistory.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.DataGridViewMileageHistory.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.DataGridViewMileageHistory.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.DataGridViewMileageHistory.Location = new System.Drawing.Point(0, 19);
+            this.DataGridViewMileageHistory.Location = new System.Drawing.Point(-5, 20);
+            this.DataGridViewMileageHistory.Margin = new System.Windows.Forms.Padding(4);
             this.DataGridViewMileageHistory.MultiSelect = false;
             this.DataGridViewMileageHistory.Name = "DataGridViewMileageHistory";
             this.DataGridViewMileageHistory.ReadOnly = true;
-            this.DataGridViewMileageHistory.Size = new System.Drawing.Size(814, 150);
+            this.DataGridViewMileageHistory.RowHeadersWidth = 51;
+            this.DataGridViewMileageHistory.Size = new System.Drawing.Size(591, 109);
             this.DataGridViewMileageHistory.TabIndex = 6;
             // 
             // DataGridViewInsurerHistory
             // 
+            this.DataGridViewInsurerHistory.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.DataGridViewInsurerHistory.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DataGridViewInsurerHistory.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.DataGridViewInsurerHistory.Location = new System.Drawing.Point(0, 19);
+            this.DataGridViewInsurerHistory.Location = new System.Drawing.Point(0, 20);
+            this.DataGridViewInsurerHistory.Margin = new System.Windows.Forms.Padding(4);
             this.DataGridViewInsurerHistory.MultiSelect = false;
             this.DataGridViewInsurerHistory.Name = "DataGridViewInsurerHistory";
             this.DataGridViewInsurerHistory.ReadOnly = true;
-            this.DataGridViewInsurerHistory.Size = new System.Drawing.Size(814, 150);
+            this.DataGridViewInsurerHistory.RowHeadersWidth = 51;
+            this.DataGridViewInsurerHistory.Size = new System.Drawing.Size(586, 121);
             this.DataGridViewInsurerHistory.TabIndex = 7;
             // 
             // panel1
             // 
-            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.panel1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.DataGridViewStatusHistory);
-            this.panel1.Location = new System.Drawing.Point(1364, 29);
+            this.panel1.Location = new System.Drawing.Point(780, 110);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(304, 256);
+            this.panel1.Size = new System.Drawing.Size(401, 300);
             this.panel1.TabIndex = 8;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(3, 2);
+            this.label1.Location = new System.Drawing.Point(4, 2);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(72, 13);
+            this.label1.Size = new System.Drawing.Size(89, 16);
             this.label1.TabIndex = 0;
             this.label1.Text = "Status History";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(3, 0);
+            this.label2.Location = new System.Drawing.Point(5, 4);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(89, 13);
+            this.label2.Size = new System.Drawing.Size(110, 16);
             this.label2.TabIndex = 9;
             this.label2.Text = "Inspection history";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(3, 3);
+            this.label3.Location = new System.Drawing.Point(4, 4);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(73, 13);
+            this.label3.Size = new System.Drawing.Size(92, 16);
             this.label3.TabIndex = 10;
             this.label3.Text = "Person history";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(3, 0);
+            this.label4.Location = new System.Drawing.Point(4, 0);
+            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(93, 13);
+            this.label4.Size = new System.Drawing.Size(117, 16);
             this.label4.TabIndex = 11;
             this.label4.Text = "Description history";
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(3, 0);
+            this.label5.Location = new System.Drawing.Point(4, 0);
+            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(77, 13);
+            this.label5.Size = new System.Drawing.Size(98, 16);
             this.label5.TabIndex = 12;
             this.label5.Text = "Mileage history";
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(3, 0);
+            this.label6.Location = new System.Drawing.Point(4, 0);
+            this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(87, 13);
+            this.label6.Size = new System.Drawing.Size(107, 16);
             this.label6.TabIndex = 13;
             this.label6.Text = "Insurence history";
             // 
             // panel2
             // 
-            this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.panel2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.panel2.Controls.Add(this.label6);
             this.panel2.Controls.Add(this.DataGridViewInsurerHistory);
-            this.panel2.Location = new System.Drawing.Point(854, 518);
+            this.panel2.Location = new System.Drawing.Point(785, 555);
+            this.panel2.Margin = new System.Windows.Forms.Padding(4);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(814, 169);
+            this.panel2.Size = new System.Drawing.Size(586, 141);
             this.panel2.TabIndex = 14;
             // 
             // panel3
             // 
-            this.panel3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.panel3.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.panel3.AutoSize = true;
             this.panel3.Controls.Add(this.label2);
             this.panel3.Controls.Add(this.DataGridViewInspectionHistory);
-            this.panel3.Location = new System.Drawing.Point(11, 518);
+            this.panel3.Location = new System.Drawing.Point(166, 551);
+            this.panel3.Margin = new System.Windows.Forms.Padding(4);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(821, 169);
+            this.panel3.Size = new System.Drawing.Size(586, 145);
             this.panel3.TabIndex = 15;
             // 
             // panel4
             // 
-            this.panel4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.panel4.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.panel4.Controls.Add(this.label4);
             this.panel4.Controls.Add(this.DataGridViewDescriptionHistory);
-            this.panel4.Location = new System.Drawing.Point(11, 705);
+            this.panel4.Location = new System.Drawing.Point(166, 710);
+            this.panel4.Margin = new System.Windows.Forms.Padding(4);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(1657, 169);
+            this.panel4.Size = new System.Drawing.Size(1205, 154);
             this.panel4.TabIndex = 16;
             // 
             // panel5
             // 
-            this.panel5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.panel5.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.panel5.Controls.Add(this.DataGridViewPersonHistory);
             this.panel5.Controls.Add(this.label3);
-            this.panel5.Location = new System.Drawing.Point(11, 328);
+            this.panel5.Location = new System.Drawing.Point(166, 410);
+            this.panel5.Margin = new System.Windows.Forms.Padding(4);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(821, 169);
+            this.panel5.Size = new System.Drawing.Size(586, 133);
             this.panel5.TabIndex = 17;
             // 
             // panel6
             // 
-            this.panel6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.panel6.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.panel6.Controls.Add(this.label5);
             this.panel6.Controls.Add(this.DataGridViewMileageHistory);
-            this.panel6.Location = new System.Drawing.Point(854, 331);
+            this.panel6.Location = new System.Drawing.Point(785, 414);
+            this.panel6.Margin = new System.Windows.Forms.Padding(4);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(814, 169);
+            this.panel6.Size = new System.Drawing.Size(586, 133);
             this.panel6.TabIndex = 18;
             // 
             // LabelWarning
             // 
             this.LabelWarning.AutoSize = true;
             this.LabelWarning.ForeColor = System.Drawing.Color.Red;
-            this.LabelWarning.Location = new System.Drawing.Point(12, 9);
+            this.LabelWarning.Location = new System.Drawing.Point(493, 913);
+            this.LabelWarning.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.LabelWarning.Name = "LabelWarning";
-            this.LabelWarning.Size = new System.Drawing.Size(74, 13);
+            this.LabelWarning.Size = new System.Drawing.Size(94, 16);
             this.LabelWarning.TabIndex = 19;
             this.LabelWarning.Text = "labelWarnings";
             // 
             // panel7
             // 
+            this.panel7.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.panel7.Controls.Add(this.label7);
-            this.panel7.Location = new System.Drawing.Point(38, 64);
+            this.panel7.Location = new System.Drawing.Point(166, 106);
+            this.panel7.Margin = new System.Windows.Forms.Padding(4);
             this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(297, 221);
+            this.panel7.Size = new System.Drawing.Size(331, 300);
             this.panel7.TabIndex = 20;
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(13, 10);
+            this.label7.Location = new System.Drawing.Point(17, 12);
+            this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(82, 13);
+            this.label7.Size = new System.Drawing.Size(103, 16);
             this.label7.TabIndex = 0;
             this.label7.Text = "labelVehicleInfo";
             // 
+            // BtnOpenEmployeeToVehicleForm
+            // 
+            this.BtnOpenEmployeeToVehicleForm.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.BtnOpenEmployeeToVehicleForm.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(30)))), ((int)(((byte)(68)))));
+            this.BtnOpenEmployeeToVehicleForm.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnOpenEmployeeToVehicleForm.ForeColor = System.Drawing.Color.White;
+            this.BtnOpenEmployeeToVehicleForm.IconChar = FontAwesome.Sharp.IconChar.PenToSquare;
+            this.BtnOpenEmployeeToVehicleForm.IconColor = System.Drawing.Color.White;
+            this.BtnOpenEmployeeToVehicleForm.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.BtnOpenEmployeeToVehicleForm.IconSize = 32;
+            this.BtnOpenEmployeeToVehicleForm.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.BtnOpenEmployeeToVehicleForm.Location = new System.Drawing.Point(504, 106);
+            this.BtnOpenEmployeeToVehicleForm.Name = "BtnOpenEmployeeToVehicleForm";
+            this.BtnOpenEmployeeToVehicleForm.Size = new System.Drawing.Size(248, 45);
+            this.BtnOpenEmployeeToVehicleForm.TabIndex = 27;
+            this.BtnOpenEmployeeToVehicleForm.Text = "Add employee to vehicle";
+            this.BtnOpenEmployeeToVehicleForm.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.BtnOpenEmployeeToVehicleForm.UseVisualStyleBackColor = false;
+            this.BtnOpenEmployeeToVehicleForm.Click += new System.EventHandler(this.BtnOpenEmployeeToVehicleForm_Click_1);
+            // 
             // BtnOpenStatusForm
             // 
-            this.BtnOpenStatusForm.Location = new System.Drawing.Point(414, 90);
+            this.BtnOpenStatusForm.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.BtnOpenStatusForm.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(30)))), ((int)(((byte)(68)))));
+            this.BtnOpenStatusForm.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnOpenStatusForm.ForeColor = System.Drawing.Color.White;
+            this.BtnOpenStatusForm.IconChar = FontAwesome.Sharp.IconChar.PenToSquare;
+            this.BtnOpenStatusForm.IconColor = System.Drawing.Color.White;
+            this.BtnOpenStatusForm.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.BtnOpenStatusForm.IconSize = 32;
+            this.BtnOpenStatusForm.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.BtnOpenStatusForm.Location = new System.Drawing.Point(504, 157);
             this.BtnOpenStatusForm.Name = "BtnOpenStatusForm";
-            this.BtnOpenStatusForm.Size = new System.Drawing.Size(206, 23);
-            this.BtnOpenStatusForm.TabIndex = 21;
+            this.BtnOpenStatusForm.Size = new System.Drawing.Size(248, 45);
+            this.BtnOpenStatusForm.TabIndex = 28;
             this.BtnOpenStatusForm.Text = "Change Status";
-            this.BtnOpenStatusForm.UseVisualStyleBackColor = true;
-            this.BtnOpenStatusForm.Click += new System.EventHandler(this.BtnOpenStatusForm_Click);
+            this.BtnOpenStatusForm.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.BtnOpenStatusForm.UseVisualStyleBackColor = false;
+            this.BtnOpenStatusForm.Click += new System.EventHandler(this.BtnOpenStatusForm_Click_1);
             // 
             // BtnOpenMileageCheckForm
             // 
-            this.BtnOpenMileageCheckForm.Location = new System.Drawing.Point(414, 122);
+            this.BtnOpenMileageCheckForm.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.BtnOpenMileageCheckForm.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(30)))), ((int)(((byte)(68)))));
+            this.BtnOpenMileageCheckForm.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnOpenMileageCheckForm.ForeColor = System.Drawing.Color.White;
+            this.BtnOpenMileageCheckForm.IconChar = FontAwesome.Sharp.IconChar.PenToSquare;
+            this.BtnOpenMileageCheckForm.IconColor = System.Drawing.Color.White;
+            this.BtnOpenMileageCheckForm.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.BtnOpenMileageCheckForm.IconSize = 32;
+            this.BtnOpenMileageCheckForm.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.BtnOpenMileageCheckForm.Location = new System.Drawing.Point(504, 208);
             this.BtnOpenMileageCheckForm.Name = "BtnOpenMileageCheckForm";
-            this.BtnOpenMileageCheckForm.Size = new System.Drawing.Size(206, 23);
-            this.BtnOpenMileageCheckForm.TabIndex = 22;
+            this.BtnOpenMileageCheckForm.Size = new System.Drawing.Size(248, 45);
+            this.BtnOpenMileageCheckForm.TabIndex = 29;
             this.BtnOpenMileageCheckForm.Text = "New mileage check";
-            this.BtnOpenMileageCheckForm.UseVisualStyleBackColor = true;
-            this.BtnOpenMileageCheckForm.Click += new System.EventHandler(this.BtnOpenMileageCheckForm_Click);
+            this.BtnOpenMileageCheckForm.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.BtnOpenMileageCheckForm.UseVisualStyleBackColor = false;
+            this.BtnOpenMileageCheckForm.Click += new System.EventHandler(this.BtnOpenMileageCheckForm_Click_1);
             // 
             // BtnOpenInspectionForm
             // 
-            this.BtnOpenInspectionForm.Location = new System.Drawing.Point(414, 154);
+            this.BtnOpenInspectionForm.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.BtnOpenInspectionForm.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(30)))), ((int)(((byte)(68)))));
+            this.BtnOpenInspectionForm.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnOpenInspectionForm.ForeColor = System.Drawing.Color.White;
+            this.BtnOpenInspectionForm.IconChar = FontAwesome.Sharp.IconChar.PenToSquare;
+            this.BtnOpenInspectionForm.IconColor = System.Drawing.Color.White;
+            this.BtnOpenInspectionForm.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.BtnOpenInspectionForm.IconSize = 32;
+            this.BtnOpenInspectionForm.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.BtnOpenInspectionForm.Location = new System.Drawing.Point(504, 259);
             this.BtnOpenInspectionForm.Name = "BtnOpenInspectionForm";
-            this.BtnOpenInspectionForm.Size = new System.Drawing.Size(206, 23);
-            this.BtnOpenInspectionForm.TabIndex = 23;
+            this.BtnOpenInspectionForm.Size = new System.Drawing.Size(248, 45);
+            this.BtnOpenInspectionForm.TabIndex = 30;
             this.BtnOpenInspectionForm.Text = "New inspection";
-            this.BtnOpenInspectionForm.UseVisualStyleBackColor = true;
-            this.BtnOpenInspectionForm.Click += new System.EventHandler(this.BtnOpenInspectionForm_Click);
+            this.BtnOpenInspectionForm.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.BtnOpenInspectionForm.UseVisualStyleBackColor = false;
+            this.BtnOpenInspectionForm.Click += new System.EventHandler(this.BtnOpenInspectionForm_Click_1);
             // 
             // BtnOpenInsurenceForm
             // 
-            this.BtnOpenInsurenceForm.Location = new System.Drawing.Point(414, 188);
+            this.BtnOpenInsurenceForm.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.BtnOpenInsurenceForm.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(30)))), ((int)(((byte)(68)))));
+            this.BtnOpenInsurenceForm.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnOpenInsurenceForm.ForeColor = System.Drawing.Color.White;
+            this.BtnOpenInsurenceForm.IconChar = FontAwesome.Sharp.IconChar.PenToSquare;
+            this.BtnOpenInsurenceForm.IconColor = System.Drawing.Color.White;
+            this.BtnOpenInsurenceForm.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.BtnOpenInsurenceForm.IconSize = 32;
+            this.BtnOpenInsurenceForm.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.BtnOpenInsurenceForm.Location = new System.Drawing.Point(504, 310);
             this.BtnOpenInsurenceForm.Name = "BtnOpenInsurenceForm";
-            this.BtnOpenInsurenceForm.Size = new System.Drawing.Size(206, 23);
-            this.BtnOpenInsurenceForm.TabIndex = 24;
+            this.BtnOpenInsurenceForm.Size = new System.Drawing.Size(248, 45);
+            this.BtnOpenInsurenceForm.TabIndex = 31;
             this.BtnOpenInsurenceForm.Text = "New Insurence";
-            this.BtnOpenInsurenceForm.UseVisualStyleBackColor = true;
-            this.BtnOpenInsurenceForm.Click += new System.EventHandler(this.BtnOpenInsurenceForm_Click);
+            this.BtnOpenInsurenceForm.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.BtnOpenInsurenceForm.UseVisualStyleBackColor = false;
+            this.BtnOpenInsurenceForm.Click += new System.EventHandler(this.BtnOpenInsurenceForm_Click_1);
             // 
             // BtnOpenDescriptionForm
             // 
-            this.BtnOpenDescriptionForm.Location = new System.Drawing.Point(414, 223);
+            this.BtnOpenDescriptionForm.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.BtnOpenDescriptionForm.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(30)))), ((int)(((byte)(68)))));
+            this.BtnOpenDescriptionForm.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnOpenDescriptionForm.ForeColor = System.Drawing.Color.White;
+            this.BtnOpenDescriptionForm.IconChar = FontAwesome.Sharp.IconChar.PenToSquare;
+            this.BtnOpenDescriptionForm.IconColor = System.Drawing.Color.White;
+            this.BtnOpenDescriptionForm.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.BtnOpenDescriptionForm.IconSize = 32;
+            this.BtnOpenDescriptionForm.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.BtnOpenDescriptionForm.Location = new System.Drawing.Point(504, 361);
             this.BtnOpenDescriptionForm.Name = "BtnOpenDescriptionForm";
-            this.BtnOpenDescriptionForm.Size = new System.Drawing.Size(206, 23);
-            this.BtnOpenDescriptionForm.TabIndex = 25;
+            this.BtnOpenDescriptionForm.Size = new System.Drawing.Size(248, 45);
+            this.BtnOpenDescriptionForm.TabIndex = 32;
             this.BtnOpenDescriptionForm.Text = "New description";
-            this.BtnOpenDescriptionForm.UseVisualStyleBackColor = true;
-            this.BtnOpenDescriptionForm.Click += new System.EventHandler(this.BtnOpenDescriptionForm_Click);
-            // 
-            // BtnOpenEmployeeToVehicleForm
-            // 
-            this.BtnOpenEmployeeToVehicleForm.Location = new System.Drawing.Point(414, 64);
-            this.BtnOpenEmployeeToVehicleForm.Name = "BtnOpenEmployeeToVehicleForm";
-            this.BtnOpenEmployeeToVehicleForm.Size = new System.Drawing.Size(206, 23);
-            this.BtnOpenEmployeeToVehicleForm.TabIndex = 26;
-            this.BtnOpenEmployeeToVehicleForm.Text = "Add employee to vehicle";
-            this.BtnOpenEmployeeToVehicleForm.UseVisualStyleBackColor = true;
-            this.BtnOpenEmployeeToVehicleForm.Click += new System.EventHandler(this.BtnOpenEmployeeToVehicleForm_Click);
+            this.BtnOpenDescriptionForm.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.BtnOpenDescriptionForm.UseVisualStyleBackColor = false;
+            this.BtnOpenDescriptionForm.Click += new System.EventHandler(this.BtnOpenDescriptionForm_Click_1);
             // 
             // CarDetailsForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1680, 880);
-            this.Controls.Add(this.BtnOpenEmployeeToVehicleForm);
+            this.ClientSize = new System.Drawing.Size(1599, 877);
             this.Controls.Add(this.BtnOpenDescriptionForm);
             this.Controls.Add(this.BtnOpenInsurenceForm);
+            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.panel3);
             this.Controls.Add(this.BtnOpenInspectionForm);
             this.Controls.Add(this.BtnOpenMileageCheckForm);
             this.Controls.Add(this.BtnOpenStatusForm);
+            this.Controls.Add(this.BtnOpenEmployeeToVehicleForm);
             this.Controls.Add(this.panel7);
             this.Controls.Add(this.LabelWarning);
             this.Controls.Add(this.panel5);
             this.Controls.Add(this.panel6);
-            this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel4);
             this.Controls.Add(this.panel2);
-            this.Controls.Add(this.panel1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "CarDetailsForm";
             this.Text = "CarDetailsForm";
             this.Load += new System.EventHandler(this.CarDetailsForm_Load);
@@ -408,11 +506,11 @@
         private System.Windows.Forms.Label LabelWarning;
         private System.Windows.Forms.Panel panel7;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Button BtnOpenStatusForm;
-        private System.Windows.Forms.Button BtnOpenMileageCheckForm;
-        private System.Windows.Forms.Button BtnOpenInspectionForm;
-        private System.Windows.Forms.Button BtnOpenInsurenceForm;
-        private System.Windows.Forms.Button BtnOpenDescriptionForm;
-        private System.Windows.Forms.Button BtnOpenEmployeeToVehicleForm;
+        private FontAwesome.Sharp.IconButton BtnOpenEmployeeToVehicleForm;
+        private FontAwesome.Sharp.IconButton BtnOpenStatusForm;
+        private FontAwesome.Sharp.IconButton BtnOpenMileageCheckForm;
+        private FontAwesome.Sharp.IconButton BtnOpenInspectionForm;
+        private FontAwesome.Sharp.IconButton BtnOpenInsurenceForm;
+        private FontAwesome.Sharp.IconButton BtnOpenDescriptionForm;
     }
 }

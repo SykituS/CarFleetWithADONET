@@ -29,15 +29,17 @@
         private void InitializeComponent()
         {
             this.DataGridViewVehicles = new System.Windows.Forms.DataGridView();
-            this.BtnAddNewVehicle = new System.Windows.Forms.Button();
+            this.BtnAddNewVehicle = new FontAwesome.Sharp.IconButton();
             ((System.ComponentModel.ISupportInitialize)(this.DataGridViewVehicles)).BeginInit();
             this.SuspendLayout();
             // 
             // DataGridViewVehicles
             // 
+            this.DataGridViewVehicles.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.DataGridViewVehicles.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DataGridViewVehicles.Location = new System.Drawing.Point(16, 15);
-            this.DataGridViewVehicles.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.DataGridViewVehicles.Margin = new System.Windows.Forms.Padding(4);
             this.DataGridViewVehicles.Name = "DataGridViewVehicles";
             this.DataGridViewVehicles.RowHeadersWidth = 51;
             this.DataGridViewVehicles.Size = new System.Drawing.Size(1657, 421);
@@ -47,21 +49,30 @@
             // 
             // BtnAddNewVehicle
             // 
-            this.BtnAddNewVehicle.Location = new System.Drawing.Point(68, 447);
-            this.BtnAddNewVehicle.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.BtnAddNewVehicle.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.BtnAddNewVehicle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(30)))), ((int)(((byte)(68)))));
+            this.BtnAddNewVehicle.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnAddNewVehicle.ForeColor = System.Drawing.Color.White;
+            this.BtnAddNewVehicle.IconChar = FontAwesome.Sharp.IconChar.PenToSquare;
+            this.BtnAddNewVehicle.IconColor = System.Drawing.Color.White;
+            this.BtnAddNewVehicle.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.BtnAddNewVehicle.IconSize = 32;
+            this.BtnAddNewVehicle.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.BtnAddNewVehicle.Location = new System.Drawing.Point(32, 449);
             this.BtnAddNewVehicle.Name = "BtnAddNewVehicle";
-            this.BtnAddNewVehicle.Size = new System.Drawing.Size(240, 28);
-            this.BtnAddNewVehicle.TabIndex = 1;
+            this.BtnAddNewVehicle.Size = new System.Drawing.Size(224, 45);
+            this.BtnAddNewVehicle.TabIndex = 32;
             this.BtnAddNewVehicle.Text = "Add new vehicle";
-            this.BtnAddNewVehicle.UseVisualStyleBackColor = true;
-            this.BtnAddNewVehicle.Click += new System.EventHandler(this.BtnAddNewVehicle_Click);
+            this.BtnAddNewVehicle.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.BtnAddNewVehicle.UseVisualStyleBackColor = false;
+            this.BtnAddNewVehicle.Click += new System.EventHandler(this.BtnAddNewVehicle_Click_1);
             // 
             // CarListForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1689, 487);
+            this.ClientSize = new System.Drawing.Size(1689, 506);
             this.Controls.Add(this.BtnAddNewVehicle);
             this.Controls.Add(this.DataGridViewVehicles);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -77,6 +88,6 @@
         #endregion
 
         private System.Windows.Forms.DataGridView DataGridViewVehicles;
-        private System.Windows.Forms.Button BtnAddNewVehicle;
+        private FontAwesome.Sharp.IconButton BtnAddNewVehicle;
     }
 }

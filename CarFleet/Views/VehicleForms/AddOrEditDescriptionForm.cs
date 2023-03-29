@@ -30,7 +30,33 @@ namespace CarFleet.Views.VehicleForms
 
         }
 
-        private void BtnAddOrEditDescription_Click(object sender, EventArgs e)
+     
+
+        private DataResponse CheckGivenData()
+        {
+            var sb = new StringBuilder();
+            var response = new DataResponse
+            {
+                Success = true,
+            };
+
+            if (string.IsNullOrWhiteSpace(RichTextBoxDescription.Text))
+            {
+                sb.AppendLine("You need to provide a description");
+                response.Success = false;
+            }
+
+            if (RichTextBoxDescription.Text.Length > 500)
+            {
+                sb.AppendLine("Given description is too long!");
+                response.Success = false;
+            }
+
+            response.Message = sb.ToString();
+            return response;
+        }
+
+        private void BtnAddOrEditDescritpion_Click(object sender, EventArgs e)
         {
             var returnedCheck = CheckGivenData();
             if (!returnedCheck.Success)
@@ -57,30 +83,13 @@ namespace CarFleet.Views.VehicleForms
             }
         }
 
-        private DataResponse CheckGivenData()
+        private void BtnBack_Click(object sender, EventArgs e)
         {
-            var sb = new StringBuilder();
-            var response = new DataResponse
-            {
-                Success = true,
-            };
+            CarDetailsForm carDetails = new CarDetailsForm(vehicleID, loggedUser);  // create instance of AddEmployeeForm
+            MainAdministrationForm mainForm = (MainAdministrationForm)this.ParentForm;  // get reference to the parent form
 
-            if (string.IsNullOrWhiteSpace(RichTextBoxDescription.Text))
-            {
-                sb.AppendLine("You need to provide a description");
-                response.Success = false;
-            }
-
-            if (RichTextBoxDescription.Text.Length > 500)
-            {
-                sb.AppendLine("Given description is too long!");
-                response.Success = false;
-            }
-
-            response.Message = sb.ToString();
-            return response;
+            // load AddEmployeeForm in the mainpanel of the parent form
+            mainForm.loadForm(carDetails);
         }
-
-        
     }
 }

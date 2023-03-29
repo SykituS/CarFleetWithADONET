@@ -57,8 +57,11 @@ namespace CarFleet.Views
 
         private void BtnViewVehicleDetailsHandler(int id)
         {
-            var form = new CarDetailsForm(id, loggedUser);
-            form.Show();
+            CarDetailsForm carDetails = new CarDetailsForm(id, loggedUser);
+            MainAdministrationForm mainForm = (MainAdministrationForm)this.ParentForm;
+            mainForm.loadForm(carDetails);
+            //var form = new CarDetailsForm(id, loggedUser);
+            //form.Show();
         }
 
         private void DataGridViewVehicles_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -139,6 +142,17 @@ namespace CarFleet.Views
             {
                 e.Value = "No data";
             }
+        }
+
+        private void BtnAddNewVehicle_Click_1(object sender, EventArgs e)
+        {
+            AddNewVehicleForm addNewVehicleForm = new AddNewVehicleForm(loggedUser);   // create instance of AddEmployeeForm
+            MainAdministrationForm mainForm = (MainAdministrationForm)this.ParentForm;  // get reference to the parent form
+
+            // load AddEmployeeForm in the mainpanel of the parent form
+            mainForm.loadForm(addNewVehicleForm);
+            //var form = new AddNewVehicleForm(loggedUser);
+            //form.Show();
         }
     }
 }

@@ -78,5 +78,44 @@ namespace CarFleet.Views.VehicleForms
             response.Message = sb.ToString();
             return response;
         }
+
+        private void BtnAddInspection_Click_1(object sender, EventArgs e)
+        {
+
+            var returnedCheck = CheckGivenData();
+            if (!returnedCheck.Success)
+            {
+                LabelWarning.Text = returnedCheck.Message;
+                LabelWarning.ForeColor = Color.Red;
+                return;
+            }
+            var dataSet = new DataSet();
+            var response = VehicleSystem.InsertNewVehicleInspection(dataSet,
+                                                                    _vehicleID,
+                                                                    _loggedUser,
+                                                                    DateTimePickerInspection.Value,
+                                                                    DateTimePickerNextInspection.Value);
+
+            if (response.Success)
+            {
+                LabelWarning.Text = "Mileage successfully added!";
+                LabelWarning.ForeColor = Color.GreenYellow;
+            }
+            else
+            {
+                LabelWarning.Text = response.Message;
+                LabelWarning.ForeColor = Color.Red;
+            }
+        }
+
+        private void BtnBack_Click(object sender, EventArgs e)
+        {
+
+            CarDetailsForm carDetails = new CarDetailsForm(_vehicleID, _loggedUser);  // create instance of AddEmployeeForm
+            MainAdministrationForm mainForm = (MainAdministrationForm)this.ParentForm;  // get reference to the parent form
+
+            // load AddEmployeeForm in the mainpanel of the parent form
+            mainForm.loadForm(carDetails);
+        }
     }
 }

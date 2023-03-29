@@ -254,38 +254,134 @@ namespace CarFleet.Views
 
         private void BtnOpenEmployeeToVehicleForm_Click(object sender, EventArgs e)
         {
-            var form = new AddNewPersonToVehicleForm();
-            form.Show();
+            //var form = new AddNewPersonToVehicleForm();
+            //form.Show();
+            AddNewPersonToVehicleForm newPersonToVehicleForm = new AddNewPersonToVehicleForm();
+            MainAdministrationForm mainForm = (MainAdministrationForm)this.ParentForm;  // get reference to the parent form
+
+            // load AddEmployeeForm in the mainpanel of the parent form
+            mainForm.loadForm(newPersonToVehicleForm);
         }
 
         private void BtnOpenStatusForm_Click(object sender, EventArgs e)
         {
-            var form = new ChangeVehicleStatusForm();
-            form.Show();
+            //var form = new ChangeVehicleStatusForm();
+            //form.Show();
+            ChangeVehicleStatusForm changeVehicleStatus = new ChangeVehicleStatusForm();
+            MainAdministrationForm mainForm = (MainAdministrationForm)this.ParentForm;  // get reference to the parent form
+
+            // load AddEmployeeForm in the mainpanel of the parent form
+            mainForm.loadForm(changeVehicleStatus);
         }
 
         private void BtnOpenMileageCheckForm_Click(object sender, EventArgs e)
         {
-            var form = new AddNewMileageCheckForm(_vehicleID, loggedUser);
-            form.Show();
+            //var form = new AddNewMileageCheckForm(_vehicleID, loggedUser);
+            //form.Show();
+            AddNewMileageCheckForm addNewMileageCheck = new AddNewMileageCheckForm(_vehicleID, loggedUser);
+            MainAdministrationForm mainForm = (MainAdministrationForm)this.ParentForm;  // get reference to the parent form
+
+            // load AddEmployeeForm in the mainpanel of the parent form
+            mainForm.loadForm(addNewMileageCheck);
         }
 
         private void BtnOpenInspectionForm_Click(object sender, EventArgs e)
         {
-            var form = new AddNewInspectionForm(_vehicleID, loggedUser);
-            form.Show();
+            AddNewInspectionForm addNewInspection = new AddNewInspectionForm(_vehicleID, loggedUser);  // create instance of AddEmployeeForm
+            MainAdministrationForm mainForm = (MainAdministrationForm)this.ParentForm;  // get reference to the parent form
+
+            // load AddEmployeeForm in the mainpanel of the parent form
+            mainForm.loadForm(addNewInspection);
+            //var form = new AddNewInspectionForm(_vehicleID, loggedUser);
+            //form.Show();
         }
 
         private void BtnOpenInsurenceForm_Click(object sender, EventArgs e)
         {
-            var form = new AddOrEditInsurenceForm(0, _vehicleID, loggedUser);
-            form.Show();
+            AddOrEditInsurenceForm addOrEditInsurence = new AddOrEditInsurenceForm(0, _vehicleID, loggedUser);
+            MainAdministrationForm mainForm = (MainAdministrationForm)this.ParentForm;  // get reference to the parent form
+
+            // load AddEmployeeForm in the mainpanel of the parent form
+            mainForm.loadForm(addOrEditInsurence);
+            //var form = new AddOrEditInsurenceForm(0, _vehicleID, loggedUser);
+            //form.Show();
         }
 
         private void BtnOpenDescriptionForm_Click(object sender, EventArgs e)
         {
-            var form = new AddOrEditDescriptionForm(0, _vehicleID, loggedUser);
-            form.Show();
+            AddOrEditDescriptionForm addOrEditDescription = new AddOrEditDescriptionForm(0, _vehicleID, loggedUser);
+            MainAdministrationForm mainForm = (MainAdministrationForm)this.ParentForm;  // get reference to the parent form
+
+            // load AddEmployeeForm in the mainpanel of the parent form
+            mainForm.loadForm(addOrEditDescription);
+            //var form = new AddOrEditDescriptionForm(0, _vehicleID, loggedUser);
+            //form.Show();
+        }
+
+        private void BtnOpenEmployeeToVehicleForm_Click_1(object sender, EventArgs e)
+        {
+            //var form = new AddNewPersonToVehicleForm();
+            //form.Show();
+            AddNewPersonToVehicleForm newPersonToVehicleForm = new AddNewPersonToVehicleForm();
+            MainAdministrationForm mainForm = (MainAdministrationForm)this.ParentForm;  // get reference to the parent form
+
+            // load AddEmployeeForm in the mainpanel of the parent form
+            mainForm.loadForm(newPersonToVehicleForm);
+        }
+
+        private void BtnOpenStatusForm_Click_1(object sender, EventArgs e)
+        {
+            //var form = new ChangeVehicleStatusForm();
+            //form.Show();
+            ChangeVehicleStatusForm changeVehicleStatus = new ChangeVehicleStatusForm();
+            MainAdministrationForm mainForm = (MainAdministrationForm)this.ParentForm;  // get reference to the parent form
+
+            // load AddEmployeeForm in the mainpanel of the parent form
+            mainForm.loadForm(changeVehicleStatus);
+        }
+
+        private void BtnOpenMileageCheckForm_Click_1(object sender, EventArgs e)
+        {
+            //var form = new AddNewMileageCheckForm(_vehicleID, loggedUser);
+            //form.Show();
+            AddNewMileageCheckForm addNewMileageCheck = new AddNewMileageCheckForm(_vehicleID, loggedUser);
+            MainAdministrationForm mainForm = (MainAdministrationForm)this.ParentForm;  // get reference to the parent form
+
+            // load AddEmployeeForm in the mainpanel of the parent form
+            mainForm.loadForm(addNewMileageCheck);
+        }
+
+        private void BtnOpenInspectionForm_Click_1(object sender, EventArgs e)
+        {
+            AddNewInspectionForm addNewInspection = new AddNewInspectionForm(_vehicleID, loggedUser);  // create instance of AddEmployeeForm
+            MainAdministrationForm mainForm = (MainAdministrationForm)this.ParentForm;  // get reference to the parent form
+
+            // load AddEmployeeForm in the mainpanel of the parent form
+            mainForm.loadForm(addNewInspection);
+            //var form = new AddNewInspectionForm(_vehicleID, loggedUser);
+            //form.Show();
+        }
+
+        private void BtnOpenInsurenceForm_Click_1(object sender, EventArgs e)
+        {
+            AddOrEditInsurenceForm addOrEditInsurence = new AddOrEditInsurenceForm(0, _vehicleID, loggedUser);
+            MainAdministrationForm mainForm = (MainAdministrationForm)this.ParentForm;  // get reference to the parent form
+
+            // load AddEmployeeForm in the mainpanel of the parent form
+            mainForm.loadForm(addOrEditInsurence);
+            //var form = new AddOrEditInsurenceForm(0, _vehicleID, loggedUser);
+            //form.Show();
+        }
+
+        private void BtnOpenDescriptionForm_Click_1(object sender, EventArgs e)
+        {
+            AddOrEditDescriptionForm addOrEditDescription = new AddOrEditDescriptionForm(0, _vehicleID, loggedUser);
+            MainAdministrationForm mainForm = (MainAdministrationForm)this.ParentForm;  // get reference to the parent form
+
+            // load AddEmployeeForm in the mainpanel of the parent form
+            mainForm.loadForm(addOrEditDescription);
+            //var form = new AddOrEditDescriptionForm(0, _vehicleID, loggedUser);
+            //form.Show();
         }
     }
 }

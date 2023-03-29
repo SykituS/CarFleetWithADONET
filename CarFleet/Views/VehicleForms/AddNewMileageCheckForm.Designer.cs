@@ -30,93 +30,122 @@
         {
             this.NumericUDMileage = new System.Windows.Forms.NumericUpDown();
             this.label1 = new System.Windows.Forms.Label();
-            this.BtnCancel = new System.Windows.Forms.Button();
-            this.BtnAddInspection = new System.Windows.Forms.Button();
             this.LabelWarning = new System.Windows.Forms.Label();
             this.BtnResetTextBox = new FontAwesome.Sharp.IconButton();
+            this.BtnAddInspection = new FontAwesome.Sharp.IconButton();
+            this.BtnBack = new FontAwesome.Sharp.IconButton();
             ((System.ComponentModel.ISupportInitialize)(this.NumericUDMileage)).BeginInit();
             this.SuspendLayout();
             // 
             // NumericUDMileage
             // 
-            this.NumericUDMileage.Location = new System.Drawing.Point(79, 16);
+            this.NumericUDMileage.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.NumericUDMileage.Location = new System.Drawing.Point(105, 20);
+            this.NumericUDMileage.Margin = new System.Windows.Forms.Padding(4);
             this.NumericUDMileage.Maximum = new decimal(new int[] {
             999999,
             0,
             0,
             0});
             this.NumericUDMileage.Name = "NumericUDMileage";
-            this.NumericUDMileage.Size = new System.Drawing.Size(120, 20);
+            this.NumericUDMileage.Size = new System.Drawing.Size(160, 22);
             this.NumericUDMileage.TabIndex = 0;
             // 
             // label1
             // 
+            this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(19, 18);
+            this.label1.Location = new System.Drawing.Point(25, 22);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(44, 13);
+            this.label1.Size = new System.Drawing.Size(56, 16);
             this.label1.TabIndex = 1;
             this.label1.Text = "Mileage";
             // 
-            // BtnCancel
-            // 
-            this.BtnCancel.Location = new System.Drawing.Point(43, 93);
-            this.BtnCancel.Name = "BtnCancel";
-            this.BtnCancel.Size = new System.Drawing.Size(75, 23);
-            this.BtnCancel.TabIndex = 3;
-            this.BtnCancel.Text = "Cancel";
-            this.BtnCancel.UseVisualStyleBackColor = true;
-            // 
-            // BtnAddInspection
-            // 
-            this.BtnAddInspection.Location = new System.Drawing.Point(167, 93);
-            this.BtnAddInspection.Name = "BtnAddInspection";
-            this.BtnAddInspection.Size = new System.Drawing.Size(75, 23);
-            this.BtnAddInspection.TabIndex = 2;
-            this.BtnAddInspection.Text = "Create";
-            this.BtnAddInspection.UseVisualStyleBackColor = true;
-            this.BtnAddInspection.Click += new System.EventHandler(this.BtnAddInspection_Click);
-            // 
             // LabelWarning
             // 
+            this.LabelWarning.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.LabelWarning.AutoSize = true;
             this.LabelWarning.ForeColor = System.Drawing.Color.Red;
-            this.LabelWarning.Location = new System.Drawing.Point(22, 56);
+            this.LabelWarning.Location = new System.Drawing.Point(29, 69);
+            this.LabelWarning.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.LabelWarning.Name = "LabelWarning";
-            this.LabelWarning.Size = new System.Drawing.Size(73, 13);
+            this.LabelWarning.Size = new System.Drawing.Size(91, 16);
             this.LabelWarning.TabIndex = 4;
             this.LabelWarning.Text = "LabelWarning";
             // 
             // BtnResetTextBox
             // 
-            this.BtnResetTextBox.BackColor = System.Drawing.Color.White;
+            this.BtnResetTextBox.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.BtnResetTextBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(30)))), ((int)(((byte)(68)))));
             this.BtnResetTextBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnResetTextBox.ForeColor = System.Drawing.Color.Black;
+            this.BtnResetTextBox.ForeColor = System.Drawing.Color.White;
             this.BtnResetTextBox.IconChar = FontAwesome.Sharp.IconChar.Rotate;
-            this.BtnResetTextBox.IconColor = System.Drawing.Color.Black;
+            this.BtnResetTextBox.IconColor = System.Drawing.Color.White;
             this.BtnResetTextBox.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.BtnResetTextBox.IconSize = 20;
-            this.BtnResetTextBox.Location = new System.Drawing.Point(204, 11);
-            this.BtnResetTextBox.Margin = new System.Windows.Forms.Padding(2);
+            this.BtnResetTextBox.Location = new System.Drawing.Point(272, 14);
+            this.BtnResetTextBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.BtnResetTextBox.Name = "BtnResetTextBox";
-            this.BtnResetTextBox.Size = new System.Drawing.Size(66, 29);
+            this.BtnResetTextBox.Size = new System.Drawing.Size(88, 36);
             this.BtnResetTextBox.TabIndex = 5;
             this.BtnResetTextBox.Text = "Reset";
             this.BtnResetTextBox.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.BtnResetTextBox.UseVisualStyleBackColor = false;
             this.BtnResetTextBox.Click += new System.EventHandler(this.BtnResetTextBox_Click);
             // 
+            // BtnAddInspection
+            // 
+            this.BtnAddInspection.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.BtnAddInspection.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(30)))), ((int)(((byte)(68)))));
+            this.BtnAddInspection.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnAddInspection.ForeColor = System.Drawing.Color.White;
+            this.BtnAddInspection.IconChar = FontAwesome.Sharp.IconChar.PenToSquare;
+            this.BtnAddInspection.IconColor = System.Drawing.Color.White;
+            this.BtnAddInspection.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.BtnAddInspection.IconSize = 32;
+            this.BtnAddInspection.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.BtnAddInspection.Location = new System.Drawing.Point(204, 124);
+            this.BtnAddInspection.Name = "BtnAddInspection";
+            this.BtnAddInspection.Size = new System.Drawing.Size(163, 45);
+            this.BtnAddInspection.TabIndex = 27;
+            this.BtnAddInspection.Text = "Create";
+            this.BtnAddInspection.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.BtnAddInspection.UseVisualStyleBackColor = false;
+            this.BtnAddInspection.Click += new System.EventHandler(this.BtnAddInspection_Click_1);
+            // 
+            // BtnBack
+            // 
+            this.BtnBack.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.BtnBack.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(30)))), ((int)(((byte)(68)))));
+            this.BtnBack.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnBack.ForeColor = System.Drawing.Color.White;
+            this.BtnBack.IconChar = FontAwesome.Sharp.IconChar.Backward;
+            this.BtnBack.IconColor = System.Drawing.Color.White;
+            this.BtnBack.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.BtnBack.IconSize = 32;
+            this.BtnBack.Location = new System.Drawing.Point(32, 124);
+            this.BtnBack.Name = "BtnBack";
+            this.BtnBack.Size = new System.Drawing.Size(145, 45);
+            this.BtnBack.TabIndex = 28;
+            this.BtnBack.Text = "Back";
+            this.BtnBack.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.BtnBack.UseVisualStyleBackColor = false;
+            this.BtnBack.Click += new System.EventHandler(this.BtnBack_Click);
+            // 
             // AddNewMileageCheckForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(284, 147);
+            this.ClientSize = new System.Drawing.Size(379, 181);
+            this.Controls.Add(this.BtnBack);
+            this.Controls.Add(this.BtnAddInspection);
             this.Controls.Add(this.BtnResetTextBox);
             this.Controls.Add(this.LabelWarning);
-            this.Controls.Add(this.BtnCancel);
-            this.Controls.Add(this.BtnAddInspection);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.NumericUDMileage);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "AddNewMileageCheckForm";
             this.Text = "AddNewMileageCheckForm";
             this.Load += new System.EventHandler(this.AddNewMileageCheckForm_Load);
@@ -130,9 +159,9 @@
 
         private System.Windows.Forms.NumericUpDown NumericUDMileage;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button BtnCancel;
-        private System.Windows.Forms.Button BtnAddInspection;
         private System.Windows.Forms.Label LabelWarning;
         private FontAwesome.Sharp.IconButton BtnResetTextBox;
+        private FontAwesome.Sharp.IconButton BtnAddInspection;
+        private FontAwesome.Sharp.IconButton BtnBack;
     }
 }
