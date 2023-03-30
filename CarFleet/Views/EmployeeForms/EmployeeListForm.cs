@@ -1,70 +1,58 @@
 ﻿using System;
 using System.Windows.Forms;
-using CarFleetDomain.Functions;
-
 using CarFleet.Views.MainForms;
+using CarFleetDomain.Functions;
 
 namespace CarFleet.Views.EmployeeForms
 {
     public partial class EmployeeListForm : Form
     {
-        
-       
         public EmployeeListForm()
         {
-          
             InitializeComponent();
         }
 
         private void EmployeeListForm_Load(object sender, EventArgs e)
         {
-            DispalyData();
+            DisplayData();
             DisplayButtonColumn();
         }
 
-        private void DispalyData() {
-
+        private void DisplayData()
+        {
             var data = new EmployeeSystem().GetEmployees();
 
-            if (data.Message != null)
-            {
-                label1.Text = data.Message;
-            }
+            if (data.Message != null) label1.Text = data.Message;
             DataGridViewEmployeeList.DataSource = data.ReturnedValue.Tables["Persons"];
-          
         }
+
         private void DisplayButtonColumn()
         {
-            DataGridViewButtonColumn editButtonColumn = new DataGridViewButtonColumn();
+            var editButtonColumn = new DataGridViewButtonColumn();
             editButtonColumn.Name = "Edit";
             editButtonColumn.HeaderText = "Edit";
             editButtonColumn.UseColumnTextForButtonValue = true;
             DataGridViewEmployeeList.Columns.Add(editButtonColumn);
 
             // Add a new DataGridViewButtonColumn for the "Delete" button
-            DataGridViewButtonColumn deleteButtonColumn = new DataGridViewButtonColumn();
+            var deleteButtonColumn = new DataGridViewButtonColumn();
             deleteButtonColumn.Name = "Delete";
             deleteButtonColumn.HeaderText = "Delete";
             deleteButtonColumn.UseColumnTextForButtonValue = true;
             DataGridViewEmployeeList.Columns.Add(deleteButtonColumn);
-
         }
 
         private void BtnAddEmployee_Click_1(object sender, EventArgs e)
         {
-            AddEmployeeForm addEmployeeForm = new AddEmployeeForm();  // create instance of AddEmployeeForm
-            MainAdministrationForm mainForm = (MainAdministrationForm)this.ParentForm;  // get reference to the parent form
+            var addEmployeeForm = new AddEmployeeForm(); // create instance of AddEmployeeForm
+            var mainForm = (MainAdministrationForm)ParentForm; // get reference to the parent form
 
-            // load AddEmployeeForm in the mainpanel of the parent form
-            mainForm.loadForm(addEmployeeForm);
-
+            // load AddEmployeeForm in the main panel of the parent form
+            mainForm?.loadForm(addEmployeeForm);
         }
 
         private void BtnEditEmployee_Click(object sender, EventArgs e)
         {
-
-
-            
         }
 
         private void DataGridViewEmployeeList_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
@@ -72,73 +60,33 @@ namespace CarFleet.Views.EmployeeForms
             if (DataGridViewEmployeeList.Columns[e.ColumnIndex].Name == "Edit")
             {
                 // Get the ID value from the corresponding row
-                int id = (int)DataGridViewEmployeeList.Rows[e.RowIndex].Cells["ID"].Value;
+                var id = (int)DataGridViewEmployeeList.Rows[e.RowIndex].Cells["ID"].Value;
 
                 // Open a new instance of the EmployeeEditForm with that ID
-                EditEmployeeForm editEmployeeForm = new EditEmployeeForm(id);  // create instance of AddEmployeeForm
-                MainAdministrationForm mainForm = (MainAdministrationForm)this.ParentForm;  // get reference to the parent form
-                mainForm.loadForm(editEmployeeForm);
+                var editEmployeeForm = new EditEmployeeForm(id); // create instance of AddEmployeeForm
+                var mainForm = (MainAdministrationForm)ParentForm; // get reference to the parent form
+                mainForm?.loadForm(editEmployeeForm);
             }
+
             if (DataGridViewEmployeeList.Columns[e.ColumnIndex].Name == "Delete")
             {
-                EmployeeSystem employeeSystem = new EmployeeSystem();
-                int id = (int)DataGridViewEmployeeList.Rows[e.RowIndex].Cells["ID"].Value;
-                bool disabled = (bool)DataGridViewEmployeeList.Rows[e.RowIndex].Cells["Disabled"].Value;
-                var response = employeeSystem.DisablePerson(id,disabled);
+                var employeeSystem = new EmployeeSystem();
+                var id = (int)DataGridViewEmployeeList.Rows[e.RowIndex].Cells["ID"].Value;
+                var disabled = (bool)DataGridViewEmployeeList.Rows[e.RowIndex].Cells["Disabled"].Value;
+                var response = employeeSystem.DisablePerson(id, disabled);
                 if (response.Success)
                 {
-                    label2.Visible= false;
-                    DispalyData();
-
+                    label2.Visible = false;
+                    DisplayData();
                 }
                 else
                 {
                     label2.Visible = true;
                     label2.Text = response.Message;
-                
                 }
-                
             }
         }
-        //private void SearchDataGridView(string searchText)
-        //{
-        //    // If the search text is empty or null, clear any selected rows and exit the method
-        //    if (string.IsNullOrWhiteSpace(searchText))
-        //    {
-        //        DataGridViewEmployeeList.ClearSelection();
-        //        return;
-        //    }
-        //    // Loop through each row in the DataGridView
-        //    foreach (DataGridViewRow row in DataGridViewEmployeeList.Rows)
-        //    {
-        //        // Get the values of the columns for the current row
 
-        //        string fName = row.Cells["FirstName"].Value?.ToString();
-        //        string lName = row.Cells["LastName"].Value?.ToString();
-        //        string email = row.Cells["Email"].Value?.ToString();
-        //        string phone = row.Cells["PhoneNumber"].Value?.ToString();
-
-        //        // Concatenate name and surname and check if it contains the search text
-        //        string fullName = string.IsNullOrWhiteSpace(fName) || string.IsNullOrWhiteSpace(lName)
-        //            ? null
-        //            : $"{fName} {lName}";
-        //        // Check if the Id column contains the search text
-        //        if (
-        //           email?.IndexOf(searchText, StringComparison.OrdinalIgnoreCase) >= 0
-        //        || fullName?.IndexOf(searchText, StringComparison.OrdinalIgnoreCase) >= 0
-        //        || phone?.IndexOf(searchText, StringComparison.OrdinalIgnoreCase) >= 0
-
-        //   )
-        //        {
-        //            // If a match is found, select the row and scroll to it
-        //            row.Selected = true;
-        //            DataGridViewEmployeeList.FirstDisplayedScrollingRowIndex = DataGridViewEmployeeList.SelectedRows[0].Index;
-        //            return; // exit the method after the first match is found
-        //        }
-        //    }
-        //    // If no match was found, clear any selected rows
-        //    DataGridViewEmployeeList.ClearSelection();
-        //}
         private void SearchDataGridView(string searchText)
         {
             // End any current editing to ensure that any new rows are properly created
@@ -151,50 +99,41 @@ namespace CarFleet.Views.EmployeeForms
 
                 // Make all rows visible if there is no search text
                 foreach (DataGridViewRow row in DataGridViewEmployeeList.Rows)
-                {
                     if (!row.IsNewRow && !row.Frozen)
-                    {
                         row.Visible = true;
-                    }
-                }
                 return;
             }
 
             // Split the search text on whitespace to search for each substring
-            string[] searchTerms = searchText.Split((char[])null, StringSplitOptions.RemoveEmptyEntries);
+            var searchTerms = searchText.Split((char[])null, StringSplitOptions.RemoveEmptyEntries);
 
             // Loop through each row in the DataGridView
             foreach (DataGridViewRow row in DataGridViewEmployeeList.Rows)
-            {
                 // Skip new rows that haven't been associated with an index yet
                 if (!row.IsNewRow && !row.Frozen)
                 {
-                    bool matchFound = true; // initialize to true outside of the inner loop
+                    var matchFound = true; // initialize to true outside of the inner loop
 
                     // Loop through each cell in the row and check if it contains any of the search terms
-                    foreach (string term in searchTerms)
+                    foreach (var term in searchTerms)
                     {
-                        bool termMatchFound = false;
+                        var termMatchFound = false;
                         // Loop through each column in the row and check if it contains the search term
                         foreach (DataGridViewCell cell in row.Cells)
-                        {
-                            if (cell.Value != null && cell.Value.ToString().IndexOf(term, StringComparison.OrdinalIgnoreCase) >= 0)
+                            if (cell.Value != null &&
+                                cell.Value.ToString().IndexOf(term, StringComparison.OrdinalIgnoreCase) >= 0)
                             {
                                 // If a match is found, mark the row as visible and break the inner loop
                                 row.Visible = true;
                                 termMatchFound = true;
                                 break;
                             }
-                        }
 
                         if (!termMatchFound)
                         {
                             // Check if the row is associated with the CurrencyManager position
-                            CurrencyManager cm = (CurrencyManager)BindingContext[DataGridViewEmployeeList.DataSource];
-                            if (cm.Position == row.Index)
-                            {
-                                continue;
-                            }
+                            var cm = (CurrencyManager)BindingContext[DataGridViewEmployeeList.DataSource];
+                            if (cm.Position == row.Index) continue;
                             row.Visible = false;
                             matchFound = false;
                             break;
@@ -205,38 +144,30 @@ namespace CarFleet.Views.EmployeeForms
                     if (!matchFound)
                     {
                         // Check if the row is associated with the CurrencyManager position
-                        CurrencyManager cm = (CurrencyManager)BindingContext[DataGridViewEmployeeList.DataSource];
-                        if (cm.Position == row.Index)
-                        {
-                            continue;
-                        }
+                        var cm = (CurrencyManager)BindingContext[DataGridViewEmployeeList.DataSource];
+                        if (cm.Position == row.Index) continue;
                         row.Visible = false;
                     }
                 }
-            }
 
             // Clear any selected rows if they are no longer visible
             if (DataGridViewEmployeeList.SelectedRows.Count > 0)
             {
-                bool selectionCleared = false;
+                var selectionCleared = false;
                 foreach (DataGridViewRow row in DataGridViewEmployeeList.SelectedRows)
-                {
                     if (!row.Visible)
                     {
-                        row.Selected = false;  // set Selected property to false
+                        row.Selected = false; // set Selected property to false
                         selectionCleared = true;
                     }
-                }
+
                 if (!selectionCleared && !DataGridViewEmployeeList.SelectedRows[0].Displayed)
-                {
                     DataGridViewEmployeeList.ClearSelection();
-                }
             }
         }
 
         private void BtnSearch_Click(object sender, EventArgs e)
         {
-            
         }
 
         private void TbSearch_TextChanged(object sender, EventArgs e)
@@ -244,5 +175,4 @@ namespace CarFleet.Views.EmployeeForms
             SearchDataGridView(TbSearch.Text.ToLower());
         }
     }
-    }
-
+}

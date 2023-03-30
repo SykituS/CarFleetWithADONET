@@ -174,7 +174,7 @@
             this.BtnNewEmplyee.Text = "New Employee";
             this.BtnNewEmplyee.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.BtnNewEmplyee.UseVisualStyleBackColor = false;
-            this.BtnNewEmplyee.Click += new System.EventHandler(this.BtnNewEmplyee_Click_1);
+            this.BtnNewEmplyee.Click += new System.EventHandler(this.BtnNewEmployee_Click_1);
             // 
             // BtnBack
             // 

@@ -36,7 +36,6 @@ namespace CarFleet.Views.EmployeeForms
                 TbEmail.Text = person.Email;
                 ChBoxActive.Checked = person.Disabled;
                 CbBox.SelectedItem = Enum.GetName(typeof(RoleEnum), user.RoleID);
-
             }
             else if (personResponse.Success)
             {
@@ -60,19 +59,16 @@ namespace CarFleet.Views.EmployeeForms
             var regex = new Regex(pattern);
 
             if (regex.IsMatch(firstName) && regex.IsMatch(lastName))
-            {
                 return true;
-            }
-            else
-            {
-                return false;
-            }
+            return false;
         }
+
         private bool ValidateEmail(string email)
         {
             var pattern = @"^[^@\s]+@[^@\s]+\.[^@\s]+$";
             return Regex.IsMatch(email, pattern);
         }
+
         private bool ValidatePassword(string password)
         {
             var pattern = "^(?=.*[A-Z])(?=.*\\d{2,})(?!.*\\s).{8,15}$";
@@ -84,13 +80,13 @@ namespace CarFleet.Views.EmployeeForms
             var sb = new StringBuilder();
             var response = new DataResponse
             {
-                Success = true,
+                Success = true
             };
 
             if (string.IsNullOrWhiteSpace(TbFirstName.Text) ||
-               string.IsNullOrWhiteSpace(TbLastName.Text) ||
-               string.IsNullOrWhiteSpace(TbPhone.Text) ||
-               string.IsNullOrWhiteSpace(TbEmail.Text))
+                string.IsNullOrWhiteSpace(TbLastName.Text) ||
+                string.IsNullOrWhiteSpace(TbPhone.Text) ||
+                string.IsNullOrWhiteSpace(TbEmail.Text))
             {
                 sb.AppendLine("Please fill in all fields");
                 response.Success = false;
@@ -100,35 +96,30 @@ namespace CarFleet.Views.EmployeeForms
                 TbLastName.Text.Length <= 4 || TbLastName.Text.Length > 255 ||
                 TbEmail.Text.Length <= 4 || TbEmail.Text.Length > 255)
             {
-
                 sb.AppendLine("First name, last name, email must contain between 5 to 255digits");
                 response.Success = false;
             }
 
             if (TbFirstName.Text.Any(char.IsDigit) || TbLastName.Text.Any(char.IsDigit))
             {
-
                 sb.AppendLine("First and last name cannot contain numbers");
                 response.Success = false;
             }
 
             if (TbPhone.Text.Length != 9 || !TbPhone.Text.All(char.IsDigit))
             {
-
                 sb.AppendLine("Phone number must have 9 digits and contain only numbers");
                 response.Success = false;
             }
 
             if (!ValidateEmail(TbEmail.Text))
             {
-
                 sb.AppendLine("Email is not in a valid format");
                 response.Success = false;
             }
 
             if (CbBox.SelectedItem == null)
             {
-
                 sb.AppendLine("Please select users role");
                 response.Success = false;
             }
@@ -144,6 +135,7 @@ namespace CarFleet.Views.EmployeeForms
                 sb.AppendLine("Password and confirm password must be equal");
                 response.Success = false;
             }
+
             if (!ValidatePassword(TbPass.Text))
             {
                 sb.AppendLine("Password must have between 8 to 15 digits, two numbers, and one uppercase letter");
@@ -152,7 +144,6 @@ namespace CarFleet.Views.EmployeeForms
 
             response.Message = sb.ToString();
             return response;
-
         }
 
         private void FillCbBoxWithRoles()
@@ -181,20 +172,14 @@ namespace CarFleet.Views.EmployeeForms
             if (response.Success)
             {
                 if (string.IsNullOrWhiteSpace(TbPass.Text) && string.IsNullOrWhiteSpace(TbConfirmPass.Text))
-                {
                     GoBackToParentForm();
-                }
 
                 var userName = TbEmail.Text;
                 var passwordHash = PasswordHasher.EncodePassword(TbPass.Text);
                 var roleID = CbBox.SelectedIndex;
                 var userResponse = employeeSystem.InesertorUpdateUser(_personID, userName, passwordHash, roleID);
 
-                if (userResponse.Success)
-                {
-                    GoBackToParentForm();
-
-                }
+                if (userResponse.Success) GoBackToParentForm();
 
                 label6.Visible = true;
                 // Display the error message on the label
@@ -216,7 +201,7 @@ namespace CarFleet.Views.EmployeeForms
         private void GoBackToParentForm()
         {
             var employeeListForm = new EmployeeListForm(); // create instance of AddEmployeeForm
-            var mainForm = (MainAdministrationForm)this.ParentForm; // get reference to the parent form
+            var mainForm = (MainAdministrationForm)ParentForm; // get reference to the parent form
 
             // load AddEmployeeForm in the main panel of the parent form
             mainForm?.loadForm(employeeListForm);
@@ -224,7 +209,6 @@ namespace CarFleet.Views.EmployeeForms
 
         private void CbBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-
         }
     }
 }
