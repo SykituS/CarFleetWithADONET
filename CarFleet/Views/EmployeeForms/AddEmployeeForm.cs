@@ -1,17 +1,13 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
+using System.Text.RegularExpressions;
+using System.Windows.Forms;
+using CarFleet.Views.MainForms;
 using CarFleetDomain.Functions;
 using CarFleetDomain.Models;
-using System.Windows.Forms;
-using System.Text.RegularExpressions;
 
-namespace CarFleet.Views
+namespace CarFleet.Views.EmployeeForms
 {
     public partial class AddEmployeeForm : Form
     {
