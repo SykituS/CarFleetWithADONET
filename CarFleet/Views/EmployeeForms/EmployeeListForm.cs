@@ -2,6 +2,8 @@
 using System.Windows.Forms;
 using CarFleetDomain.Functions;
 
+using CarFleet.Views.MainForms;
+
 namespace CarFleet.Views.EmployeeForms
 {
     public partial class EmployeeListForm : Form
@@ -141,7 +143,7 @@ namespace CarFleet.Views.EmployeeForms
         {
             // End any current editing to ensure that any new rows are properly created
             DataGridViewEmployeeList.EndEdit();
-
+            DataGridViewEmployeeList.ClearSelection();
             // If the search text is empty or null, clear any selected rows and exit the method
             if (string.IsNullOrWhiteSpace(searchText))
             {
@@ -221,9 +223,8 @@ namespace CarFleet.Views.EmployeeForms
                 {
                     if (!row.Visible)
                     {
-                        DataGridViewEmployeeList.ClearSelection();
+                        row.Selected = false;  // set Selected property to false
                         selectionCleared = true;
-                        break;
                     }
                 }
                 if (!selectionCleared && !DataGridViewEmployeeList.SelectedRows[0].Displayed)
