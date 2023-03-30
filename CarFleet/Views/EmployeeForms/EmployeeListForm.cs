@@ -30,6 +30,7 @@ namespace CarFleet.Views.EmployeeForms
         {
             var editButtonColumn = new DataGridViewButtonColumn();
             editButtonColumn.Name = "Edit";
+            editButtonColumn.Text = "Edit";
             editButtonColumn.HeaderText = "Edit";
             editButtonColumn.UseColumnTextForButtonValue = true;
             DataGridViewEmployeeList.Columns.Add(editButtonColumn);
@@ -37,6 +38,7 @@ namespace CarFleet.Views.EmployeeForms
             // Add a new DataGridViewButtonColumn for the "Delete" button
             var deleteButtonColumn = new DataGridViewButtonColumn();
             deleteButtonColumn.Name = "Delete";
+            deleteButtonColumn.Text = "Delete";
             deleteButtonColumn.HeaderText = "Delete";
             deleteButtonColumn.UseColumnTextForButtonValue = true;
             DataGridViewEmployeeList.Columns.Add(deleteButtonColumn);
@@ -57,6 +59,7 @@ namespace CarFleet.Views.EmployeeForms
 
         private void DataGridViewEmployeeList_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
         {
+            if (e.RowIndex < 0) return;
             if (DataGridViewEmployeeList.Columns[e.ColumnIndex].Name == "Edit")
             {
                 // Get the ID value from the corresponding row
