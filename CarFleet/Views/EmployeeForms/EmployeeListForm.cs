@@ -110,44 +110,139 @@ namespace CarFleet.Views
                 
             }
         }
+        //private void SearchDataGridView(string searchText)
+        //{
+        //    // If the search text is empty or null, clear any selected rows and exit the method
+        //    if (string.IsNullOrWhiteSpace(searchText))
+        //    {
+        //        DataGridViewEmployeeList.ClearSelection();
+        //        return;
+        //    }
+        //    // Loop through each row in the DataGridView
+        //    foreach (DataGridViewRow row in DataGridViewEmployeeList.Rows)
+        //    {
+        //        // Get the values of the columns for the current row
+
+        //        string fName = row.Cells["FirstName"].Value?.ToString();
+        //        string lName = row.Cells["LastName"].Value?.ToString();
+        //        string email = row.Cells["Email"].Value?.ToString();
+        //        string phone = row.Cells["PhoneNumber"].Value?.ToString();
+
+        //        // Concatenate name and surname and check if it contains the search text
+        //        string fullName = string.IsNullOrWhiteSpace(fName) || string.IsNullOrWhiteSpace(lName)
+        //            ? null
+        //            : $"{fName} {lName}";
+        //        // Check if the Id column contains the search text
+        //        if (
+        //           email?.IndexOf(searchText, StringComparison.OrdinalIgnoreCase) >= 0
+        //        || fullName?.IndexOf(searchText, StringComparison.OrdinalIgnoreCase) >= 0
+        //        || phone?.IndexOf(searchText, StringComparison.OrdinalIgnoreCase) >= 0
+
+        //   )
+        //        {
+        //            // If a match is found, select the row and scroll to it
+        //            row.Selected = true;
+        //            DataGridViewEmployeeList.FirstDisplayedScrollingRowIndex = DataGridViewEmployeeList.SelectedRows[0].Index;
+        //            return; // exit the method after the first match is found
+        //        }
+        //    }
+        //    // If no match was found, clear any selected rows
+        //    DataGridViewEmployeeList.ClearSelection();
+        //}
         private void SearchDataGridView(string searchText)
         {
+            // End any current editing to ensure that any new rows are properly created
+            DataGridViewEmployeeList.EndEdit();
+
             // If the search text is empty or null, clear any selected rows and exit the method
             if (string.IsNullOrWhiteSpace(searchText))
             {
                 DataGridViewEmployeeList.ClearSelection();
+
+                // Make all rows visible if there is no search text
+                foreach (DataGridViewRow row in DataGridViewEmployeeList.Rows)
+                {
+                    if (!row.IsNewRow && !row.Frozen)
+                    {
+                        row.Visible = true;
+                    }
+                }
                 return;
             }
+
+            // Split the search text on whitespace to search for each substring
+            string[] searchTerms = searchText.Split((char[])null, StringSplitOptions.RemoveEmptyEntries);
+
             // Loop through each row in the DataGridView
             foreach (DataGridViewRow row in DataGridViewEmployeeList.Rows)
             {
-                // Get the values of the columns for the current row
-             
-                string fName = row.Cells["FirstName"].Value?.ToString();
-                string lName = row.Cells["LastName"].Value?.ToString();
-                string email = row.Cells["Email"].Value?.ToString();
-                string phone = row.Cells["PhoneNumber"].Value?.ToString();
-               
-                // Concatenate name and surname and check if it contains the search text
-                string fullName = string.IsNullOrWhiteSpace(fName) || string.IsNullOrWhiteSpace(lName)
-                    ? null
-                    : $"{fName} {lName}";
-                // Check if the Id column contains the search text
-                if (
-                   email?.IndexOf(searchText, StringComparison.OrdinalIgnoreCase) >= 0    
-                || fullName?.IndexOf(searchText, StringComparison.OrdinalIgnoreCase) >= 0
-                || phone?.IndexOf(searchText, StringComparison.OrdinalIgnoreCase) >= 0
-               
-           )
+                // Skip new rows that haven't been associated with an index yet
+                if (!row.IsNewRow && !row.Frozen)
                 {
-                    // If a match is found, select the row and scroll to it
-                    row.Selected = true;
-                    DataGridViewEmployeeList.FirstDisplayedScrollingRowIndex = DataGridViewEmployeeList.SelectedRows[0].Index;
-                    return; // exit the method after the first match is found
+                    bool matchFound = true; // initialize to true outside of the inner loop
+
+                    // Loop through each cell in the row and check if it contains any of the search terms
+                    foreach (string term in searchTerms)
+                    {
+                        bool termMatchFound = false;
+                        // Loop through each column in the row and check if it contains the search term
+                        foreach (DataGridViewCell cell in row.Cells)
+                        {
+                            if (cell.Value != null && cell.Value.ToString().IndexOf(term, StringComparison.OrdinalIgnoreCase) >= 0)
+                            {
+                                // If a match is found, mark the row as visible and break the inner loop
+                                row.Visible = true;
+                                termMatchFound = true;
+                                break;
+                            }
+                        }
+
+                        if (!termMatchFound)
+                        {
+                            // Check if the row is associated with the CurrencyManager position
+                            CurrencyManager cm = (CurrencyManager)BindingContext[DataGridViewEmployeeList.DataSource];
+                            if (cm.Position == row.Index)
+                            {
+                                continue;
+                            }
+                            row.Visible = false;
+                            matchFound = false;
+                            break;
+                        }
+                    }
+
+                    // If no match was found in the current row, mark it as not visible
+                    if (!matchFound)
+                    {
+                        // Check if the row is associated with the CurrencyManager position
+                        CurrencyManager cm = (CurrencyManager)BindingContext[DataGridViewEmployeeList.DataSource];
+                        if (cm.Position == row.Index)
+                        {
+                            continue;
+                        }
+                        row.Visible = false;
+                    }
                 }
             }
-            // If no match was found, clear any selected rows
-            DataGridViewEmployeeList.ClearSelection();
+
+            // Clear any selected rows if they are no longer visible
+            if (DataGridViewEmployeeList.SelectedRows.Count > 0)
+            {
+                bool selectionCleared = false;
+                foreach (DataGridViewRow row in DataGridViewEmployeeList.SelectedRows)
+                {
+                    if (!row.Visible)
+                    {
+                        DataGridViewEmployeeList.ClearSelection();
+                        selectionCleared = true;
+                        break;
+                    }
+                }
+                if (!selectionCleared && !DataGridViewEmployeeList.SelectedRows[0].Displayed)
+                {
+                    DataGridViewEmployeeList.ClearSelection();
+                }
+            }
         }
 
         private void BtnSearch_Click(object sender, EventArgs e)
@@ -157,7 +252,7 @@ namespace CarFleet.Views
 
         private void TbSearch_TextChanged(object sender, EventArgs e)
         {
-       SearchDataGridView(TbSearch.Text);
+            SearchDataGridView(TbSearch.Text.ToLower());
         }
     }
     }
