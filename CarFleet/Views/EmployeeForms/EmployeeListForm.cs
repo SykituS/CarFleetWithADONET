@@ -100,50 +100,12 @@ namespace CarFleet.Views.EmployeeForms
                 
             }
         }
-        //private void SearchDataGridView(string searchText)
-        //{
-        //    // If the search text is empty or null, clear any selected rows and exit the method
-        //    if (string.IsNullOrWhiteSpace(searchText))
-        //    {
-        //        DataGridViewEmployeeList.ClearSelection();
-        //        return;
-        //    }
-        //    // Loop through each row in the DataGridView
-        //    foreach (DataGridViewRow row in DataGridViewEmployeeList.Rows)
-        //    {
-        //        // Get the values of the columns for the current row
-
-        //        string fName = row.Cells["FirstName"].Value?.ToString();
-        //        string lName = row.Cells["LastName"].Value?.ToString();
-        //        string email = row.Cells["Email"].Value?.ToString();
-        //        string phone = row.Cells["PhoneNumber"].Value?.ToString();
-
-        //        // Concatenate name and surname and check if it contains the search text
-        //        string fullName = string.IsNullOrWhiteSpace(fName) || string.IsNullOrWhiteSpace(lName)
-        //            ? null
-        //            : $"{fName} {lName}";
-        //        // Check if the Id column contains the search text
-        //        if (
-        //           email?.IndexOf(searchText, StringComparison.OrdinalIgnoreCase) >= 0
-        //        || fullName?.IndexOf(searchText, StringComparison.OrdinalIgnoreCase) >= 0
-        //        || phone?.IndexOf(searchText, StringComparison.OrdinalIgnoreCase) >= 0
-
-        //   )
-        //        {
-        //            // If a match is found, select the row and scroll to it
-        //            row.Selected = true;
-        //            DataGridViewEmployeeList.FirstDisplayedScrollingRowIndex = DataGridViewEmployeeList.SelectedRows[0].Index;
-        //            return; // exit the method after the first match is found
-        //        }
-        //    }
-        //    // If no match was found, clear any selected rows
-        //    DataGridViewEmployeeList.ClearSelection();
-        //}
+    
         private void SearchDataGridView(string searchText)
         {
             // End any current editing to ensure that any new rows are properly created
             DataGridViewEmployeeList.EndEdit();
-            DataGridViewEmployeeList.ClearSelection();
+
             // If the search text is empty or null, clear any selected rows and exit the method
             if (string.IsNullOrWhiteSpace(searchText))
             {
@@ -180,8 +142,10 @@ namespace CarFleet.Views.EmployeeForms
                         {
                             if (cell.Value != null && cell.Value.ToString().IndexOf(term, StringComparison.OrdinalIgnoreCase) >= 0)
                             {
-                                // If a match is found, mark the row as visible and break the inner loop
-                                row.Visible = true;
+                                // If a match is found, select the row and break both loops
+                                DataGridViewEmployeeList.ClearSelection();
+                                row.Selected = true;
+                                matchFound = true;
                                 termMatchFound = true;
                                 break;
                             }
@@ -223,8 +187,9 @@ namespace CarFleet.Views.EmployeeForms
                 {
                     if (!row.Visible)
                     {
-                        row.Selected = false;  // set Selected property to false
+                        DataGridViewEmployeeList.ClearSelection();
                         selectionCleared = true;
+                        break;
                     }
                 }
                 if (!selectionCleared && !DataGridViewEmployeeList.SelectedRows[0].Displayed)
