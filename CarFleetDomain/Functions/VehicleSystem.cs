@@ -114,5 +114,25 @@ namespace CarFleetDomain.Functions
             dataSet.Tables[nameof(Vehicle)].Rows.Add(row);
             return Vehicle.InsertVehicleCommand(dataSet);
         }
+
+        public static DataResponse InsertNewVehiclePerson(DataSet dataSet, int vehicleID, Users loggedUser,
+            int personID)
+        {
+            VehiclePersonHistory.GetVehiclePersonHistoryQuery(dataSet);
+            var row = dataSet.Tables[nameof(VehiclePersonHistory)].NewRow();
+
+            row[nameof(VehiclePersonHistory.VehicleID)] = vehicleID;
+            row[nameof(VehiclePersonHistory.PersonID)] = personID;
+            row[nameof(VehiclePersonHistory.CreatedByID)] = loggedUser.ID;
+            row[nameof(VehiclePersonHistory.CreatedOn)] = DateTime.Now;
+            row[nameof(VehiclePersonHistory.UpdatedByID)] = loggedUser.ID;
+            row[nameof(VehiclePersonHistory.UpdatedOn)] = DateTime.Now;
+
+            dataSet.Tables[nameof(VehiclePersonHistory)].Rows.Add(row);
+
+            //TODO: Change status to In Use
+
+            return VehiclePersonHistory.InsertVehiclePersonHistoryCommand(dataSet);
+        }
     }
 }

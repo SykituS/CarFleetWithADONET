@@ -10,7 +10,7 @@ namespace CarFleet.Views.VehicleForms
 {
     public partial class CarListForm : Form
     {
-        private Users loggedUser;
+        private readonly Users loggedUser;
 
         public CarListForm(Users loggedUser)
         {
@@ -21,9 +21,13 @@ namespace CarFleet.Views.VehicleForms
         private void CarListForm_Load(object sender, EventArgs e)
         {
             var dataSet = new DataSet();
-            var cmd = "SELECT veh.id, veh.Manufacturer, veh.Model, (Select top(1) vehStatus.Status FROM [VehicleStatus] as vehStatus where vehStatus.VehicleID = veh.ID order by CreatedOn desc) as Status, " +
-                      "veh.ProductionYear, veh.LicensePlate, veh.VinNumber, (Select top(1) vehInspection.DateOfnextInspection from VehicleInspection as vehInspection where vehInspection.VehicleID = veh.ID Order by vehInspection.CreatedOn desc) as NextInspection, " +
-                      "(Select top(1) vehInsurer.EndDateOfInsurence from VehicleInsurer as vehInsurer where vehInsurer.VehicleID = veh.ID Order by vehInsurer.CreatedOn desc) as Insurence FROM Vehicle as veh";
+            var cmd =
+                "SELECT veh.id, veh.Manufacturer, veh.Model, (Select top(1) vehStatus.Status FROM [VehicleStatus] as vehStatus where vehStatus.VehicleID = veh.ID order by CreatedOn desc) as Status, " +
+                "veh.ProductionYear, veh.LicensePlate, veh.VinNumber, (Select top(1) vehInspection.DateOfnextInspection from VehicleInspection as vehInspection where vehInspection.VehicleID = veh.ID Order by vehInspection.CreatedOn desc) as NextInspection, " +
+                "(Select top(1) vehInsurer.EndDateOfInsurence from VehicleInsurer as vehInsurer where vehInsurer.VehicleID = veh.ID Order by vehInsurer.CreatedOn desc) as Insurence FROM Vehicle as veh";
+
+            //TODO: Show vehicle person in dataGridView
+
             Vehicle.GetVehicleQuery(dataSet, new SqlCommand(cmd));
             DataGridViewVehicles.DataSource = dataSet.Tables[nameof(Vehicle)];
 
@@ -39,8 +43,8 @@ namespace CarFleet.Views.VehicleForms
 
         private void BtnAddNewVehicle_Click(object sender, EventArgs e)
         {
-            AddNewVehicleForm addNewVehicleForm = new AddNewVehicleForm(loggedUser);   // create instance of AddEmployeeForm
-            MainAdministrationForm mainForm = (MainAdministrationForm)this.ParentForm;  // get reference to the parent form
+            var addNewVehicleForm = new AddNewVehicleForm(loggedUser); // create instance of AddEmployeeForm
+            var mainForm = (MainAdministrationForm)ParentForm; // get reference to the parent form
 
             // load AddEmployeeForm in the mainpanel of the parent form
             mainForm.loadForm(addNewVehicleForm);
@@ -50,8 +54,8 @@ namespace CarFleet.Views.VehicleForms
 
         private void BtnViewVehicleDetailsHandler(int id)
         {
-            CarDetailsForm carDetails = new CarDetailsForm(id, loggedUser);
-            MainAdministrationForm mainForm = (MainAdministrationForm)this.ParentForm;
+            var carDetails = new CarDetailsForm(id, loggedUser);
+            var mainForm = (MainAdministrationForm)ParentForm;
             mainForm.loadForm(carDetails);
             //var form = new CarDetailsForm(id, loggedUser);
             //form.Show();
@@ -61,10 +65,7 @@ namespace CarFleet.Views.VehicleForms
         {
             var grid = (DataGridView)sender;
 
-            if (e.RowIndex < 0) 
-            {
-                return; //Run if header column was clicked
-            }
+            if (e.RowIndex < 0) return; //Run if header column was clicked
 
             if (grid[e.ColumnIndex, e.RowIndex] is DataGridViewButtonCell)
             {
@@ -74,14 +75,12 @@ namespace CarFleet.Views.VehicleForms
                 clickHandler(vehicleID);
             }
         }
+
         private void DataGridViewVehicles_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
         {
             try
             {
-                if (e.Value == null)
-                {
-                    return;
-                }
+                if (e.Value == null) return;
 
                 if (DataGridViewVehicles.Columns[e.ColumnIndex].Name == "Status")
                 {
@@ -110,6 +109,7 @@ namespace CarFleet.Views.VehicleForms
                             e.CellStyle.BackColor = Color.DimGray;
                             break;
                     }
+
                     e.Value = enumstring;
                 }
 
@@ -117,18 +117,14 @@ namespace CarFleet.Views.VehicleForms
                 {
                     var inspectionDate = (DateTime)e.Value;
                     if (inspectionDate <= DateTime.Now.AddDays(14))
-                    {
                         DataGridViewVehicles.Rows[e.RowIndex].DefaultCellStyle.BackColor = Color.IndianRed;
-                    }
                 }
 
                 if (DataGridViewVehicles.Columns[e.ColumnIndex].Name == "Insurence")
                 {
                     var insurenceDate = (DateTime)e.Value;
                     if (insurenceDate <= DateTime.Now.AddDays(14))
-                    {
                         DataGridViewVehicles.Rows[e.RowIndex].DefaultCellStyle.BackColor = Color.IndianRed;
-                    }
                 }
             }
             catch (Exception ex)
@@ -139,8 +135,8 @@ namespace CarFleet.Views.VehicleForms
 
         private void BtnAddNewVehicle_Click_1(object sender, EventArgs e)
         {
-            AddNewVehicleForm addNewVehicleForm = new AddNewVehicleForm(loggedUser);   // create instance of AddEmployeeForm
-            MainAdministrationForm mainForm = (MainAdministrationForm)this.ParentForm;  // get reference to the parent form
+            var addNewVehicleForm = new AddNewVehicleForm(loggedUser); // create instance of AddEmployeeForm
+            var mainForm = (MainAdministrationForm)ParentForm; // get reference to the parent form
 
             // load AddEmployeeForm in the mainpanel of the parent form
             mainForm.loadForm(addNewVehicleForm);
