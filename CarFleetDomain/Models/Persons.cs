@@ -25,10 +25,10 @@ namespace CarFleetDomain.Models
         private const string InsertCommand = "INSERT INTO Persons (FirstName, LastName, PhoneNumber, Email, Disabled) VALUES (@firstName, @lastName, @phoneNumber, @email, @disabled)";
         private const string DeleteCommand = "DELETE FROM Persons WHERE ID = @UID";
         private const string DisablePersonCommand = "UPDATE Persons SET Disabled=@disabled WHERE ID=@id";
-        public static DataResponse GetPersonsQuery(DataSet dataSet)
+        public static DataResponse GetPersonsQuery(DataSet dataSet, SqlCommand selectCmd = null)
         {
             var context = new Context();
-            var cmd = new SqlCommand(SelectCommand);
+            var cmd = selectCmd ?? new SqlCommand(SelectCommand);
             var response = context.GetTable<Persons>(cmd, dataSet);
 
             if (response.Success)

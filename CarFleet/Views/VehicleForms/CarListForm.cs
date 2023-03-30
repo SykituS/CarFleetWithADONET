@@ -24,6 +24,9 @@ namespace CarFleet.Views.VehicleForms
             var cmd = "SELECT veh.id, veh.Manufacturer, veh.Model, (Select top(1) vehStatus.Status FROM [VehicleStatus] as vehStatus where vehStatus.VehicleID = veh.ID order by CreatedOn desc) as Status, " +
                       "veh.ProductionYear, veh.LicensePlate, veh.VinNumber, (Select top(1) vehInspection.DateOfnextInspection from VehicleInspection as vehInspection where vehInspection.VehicleID = veh.ID Order by vehInspection.CreatedOn desc) as NextInspection, " +
                       "(Select top(1) vehInsurer.EndDateOfInsurence from VehicleInsurer as vehInsurer where vehInsurer.VehicleID = veh.ID Order by vehInsurer.CreatedOn desc) as Insurence FROM Vehicle as veh";
+            
+            //TODO: Show vehicle person in dataGridView
+
             Vehicle.GetVehicleQuery(dataSet, new SqlCommand(cmd));
             DataGridViewVehicles.DataSource = dataSet.Tables[nameof(Vehicle)];
 
