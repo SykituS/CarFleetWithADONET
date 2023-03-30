@@ -35,17 +35,25 @@ namespace CarFleet.Views.EmployeeForms
         }
         private void DisplayButtonColumn()
         {
+          
+
             DataGridViewButtonColumn editButtonColumn = new DataGridViewButtonColumn();
+            editButtonColumn.Text = "Edit";
             editButtonColumn.Name = "Edit";
             editButtonColumn.HeaderText = "Edit";
+           // editButtonColumn.Tag = (Action<int>)BtnEditEmployee;
             editButtonColumn.UseColumnTextForButtonValue = true;
+         
             DataGridViewEmployeeList.Columns.Add(editButtonColumn);
 
-            // Add a new DataGridViewButtonColumn for the "Delete" button
+   
             DataGridViewButtonColumn deleteButtonColumn = new DataGridViewButtonColumn();
+            deleteButtonColumn.Text= "Delete";
             deleteButtonColumn.Name = "Delete";
             deleteButtonColumn.HeaderText = "Delete";
+       
             deleteButtonColumn.UseColumnTextForButtonValue = true;
+           
             DataGridViewEmployeeList.Columns.Add(deleteButtonColumn);
 
         }
@@ -67,8 +75,13 @@ namespace CarFleet.Views.EmployeeForms
             
         }
 
+
         private void DataGridViewEmployeeList_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
         {
+            if (e.RowIndex < 0)
+            {
+                return; //Run if header column was clicked
+            }
             if (DataGridViewEmployeeList.Columns[e.ColumnIndex].Name == "Edit")
             {
                 // Get the ID value from the corresponding row
@@ -84,10 +97,10 @@ namespace CarFleet.Views.EmployeeForms
                 EmployeeSystem employeeSystem = new EmployeeSystem();
                 int id = (int)DataGridViewEmployeeList.Rows[e.RowIndex].Cells["ID"].Value;
                 bool disabled = (bool)DataGridViewEmployeeList.Rows[e.RowIndex].Cells["Disabled"].Value;
-                var response = employeeSystem.DisablePerson(id,disabled);
+                var response = employeeSystem.DisablePerson(id, disabled);
                 if (response.Success)
                 {
-                    label2.Visible= false;
+                    label2.Visible = false;
                     DispalyData();
 
                 }
@@ -95,10 +108,12 @@ namespace CarFleet.Views.EmployeeForms
                 {
                     label2.Visible = true;
                     label2.Text = response.Message;
-                
+
                 }
-                
+
             }
+
+
         }
     
         private void SearchDataGridView(string searchText)
