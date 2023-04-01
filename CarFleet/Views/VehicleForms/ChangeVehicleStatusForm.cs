@@ -9,44 +9,63 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using CarFleet.Views.MainForms;
+using CarFleetDomain.Functions;
 
 namespace CarFleet.Views.VehicleForms
 {
     public partial class ChangeVehicleStatusForm : Form
     {
-        private readonly int vehicleID;
-        private readonly Users loggedUser;
+        private readonly int _vehicleID;
+        private readonly Users _loggedUser;
 
-        public ChangeVehicleStatusForm()
+        public ChangeVehicleStatusForm(int vehicleID, Users loggedUser)
         {
+            _vehicleID = vehicleID;
+            _loggedUser = loggedUser;
             InitializeComponent();
         }
 
         private void ChangeVehicleStatusForm_Load(object sender, EventArgs e)
         {
             CBoxVehicleStatus.DataSource = Enum.GetValues(typeof(VehicleStatusEnum));
+            LabelWarning.Text = "";
         }
-
-        //private void BtnAddInspection_Click(object sender, EventArgs e)
-        //{
-        //    VehicleStatusEnum status;
-        //    Enum.TryParse<VehicleStatusEnum>(CBoxVehicleStatus.SelectedValue.ToString(), out status);
-        //}
 
         private void BtnAddInspection_Click_1(object sender, EventArgs e)
         {
-            VehicleStatusEnum status;
-            Enum.TryParse<VehicleStatusEnum>(CBoxVehicleStatus.SelectedValue.ToString(), out status);
+            var parseTry = Enum.TryParse<VehicleStatusEnum>(CBoxVehicleStatus.SelectedValue.ToString(), out var status);
 
+            if (!parseTry)
+            {
+                LabelWarning.Text = "Error while selecting a status";
+                return;
+            }
+
+            var dataSet = new DataSet();
+            var response = VehicleSystem.InsertNewVehicleStatus(dataSet, _vehicleID, _loggedUser, status);
+
+            if (response.Success)
+            {
+                GoBackToDetailsPage();
+            }
+            else
+            {
+                LabelWarning.Text = response.Message;
+            }
         }
 
         private void BtnBack_Click(object sender, EventArgs e)
         {
-            CarDetailsForm carDetails = new CarDetailsForm(vehicleID, loggedUser);  // create instance of AddEmployeeForm
-            MainAdministrationForm mainForm = (MainAdministrationForm)this.ParentForm;  // get reference to the parent form
+            GoBackToDetailsPage();
+        }
 
-            // load AddEmployeeForm in the mainpanel of the parent form
-            mainForm.loadForm(carDetails);
+        private void GoBackToDetailsPage()
+        {
+            var carDetails = new CarDetailsForm(_vehicleID, _loggedUser); // create instance of AddEmployeeForm
+            var mainForm = (MainAdministrationForm)this.ParentForm; // get reference to the parent form
+
+            // load AddEmployeeForm in the main panel of the parent form
+            mainForm?.loadForm(carDetails);
         }
     }
 }

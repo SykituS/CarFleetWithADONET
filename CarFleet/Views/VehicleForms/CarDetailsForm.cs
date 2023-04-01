@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Data;
 using System.Data.SqlClient;
+using System.Diagnostics;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
@@ -46,6 +47,8 @@ namespace CarFleet.Views.VehicleForms
             SetUpVehicleData(cmd, dataSet);
         }
 
+        #region LoadingDataGridViews
+
         private void SetUpVehicleData(SqlCommand cmd, DataSet dataSet)
         {
             try
@@ -86,12 +89,6 @@ namespace CarFleet.Views.VehicleForms
                 if (response.Success)
                 {
                     DataGridViewPersonHistory.DataSource = dataSet.Tables[nameof(VehiclePersonHistory)];
-                    var btnRemove = new DataGridViewButtonColumn();
-                    btnRemove.Text = "Edit";
-                    btnRemove.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
-                    btnRemove.UseColumnTextForButtonValue = true;
-                    //btnDetails.Tag = (Action<int>)BtnViewVehicleDetailsHandler;
-                    DataGridViewPersonHistory.Columns.Add(btnRemove);
                     DataGridViewPersonHistory.Columns[0].Visible = false;
                 }
                 else
@@ -177,14 +174,14 @@ namespace CarFleet.Views.VehicleForms
                     btnEdit.Text = "Edit";
                     btnEdit.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
                     btnEdit.UseColumnTextForButtonValue = true;
-                    //btnDetails.Tag = (Action<int>)BtnViewVehicleDetailsHandler;
+                    btnEdit.Tag = (Action<int>)BtnEditDescriptionHandler;
                     DataGridViewDescriptionHistory.Columns.Add(btnEdit);
 
                     var btnDelete = new DataGridViewButtonColumn();
                     btnDelete.Text = "Remove";
                     btnDelete.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
                     btnDelete.UseColumnTextForButtonValue = true;
-                    //btnDetails.Tag = (Action<int>)BtnViewVehicleDetailsHandler;
+                    btnDelete.Tag = (Action<int>)BtnDeleteDescriptionHandler;
                     DataGridViewDescriptionHistory.Columns.Add(btnDelete);
                     DataGridViewDescriptionHistory.Columns[0].Visible = false;
                     DataGridViewDescriptionHistory.Columns["Description"].DefaultCellStyle.WrapMode =
@@ -262,6 +259,47 @@ namespace CarFleet.Views.VehicleForms
                 e.Value = "No data";
             }
         }
+        #endregion
+
+        #region DataGridViewButtonHandlers
+
+        private void DataGridViewDescriptionHistory_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            try
+            {
+                var grid = (DataGridView)sender;
+
+                if (e.RowIndex < 0) return; //Run if header column was clicked
+
+                if (grid[e.ColumnIndex, e.RowIndex] is DataGridViewButtonCell)
+                {
+                    var clickHandler = (Action<int>)grid.Columns[e.ColumnIndex].Tag;
+                    var descriptionID = (int)grid["ID", e.RowIndex].Value;
+
+                    clickHandler(descriptionID);
+                }
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex);
+                MessageBox.Show("Something went wrong! Please try again or contact with IT support team!", "Error",
+                    MessageBoxButtons.OK);
+            }
+        }
+
+        private void BtnEditDescriptionHandler(int descriptionID)
+        {
+            MessageBox.Show("Edit Function Started", "", MessageBoxButtons.OK);
+        }
+
+        private void BtnDeleteDescriptionHandler(int descriptionID)
+        {
+            var result = MessageBox.Show("Delete Function Started", "", MessageBoxButtons.OKCancel);
+        }
+
+        #endregion
+
+        #region Navigation
 
         private void BtnOpenEmployeeToVehicleForm_Click(object sender, EventArgs e)
         {
@@ -278,7 +316,7 @@ namespace CarFleet.Views.VehicleForms
         {
             //var form = new ChangeVehicleStatusForm();
             //form.Show();
-            var changeVehicleStatus = new ChangeVehicleStatusForm();
+            var changeVehicleStatus = new ChangeVehicleStatusForm(_vehicleID, _loggedUser);
             var mainForm = (MainAdministrationForm)ParentForm; // get reference to the parent form
 
             // load AddEmployeeForm in the main panel of the parent form
@@ -310,7 +348,7 @@ namespace CarFleet.Views.VehicleForms
 
         private void BtnOpenInsurenceForm_Click(object sender, EventArgs e)
         {
-            var addOrEditInsurence = new AddOrEditInsurenceForm(0, _vehicleID, _loggedUser);
+            var addOrEditInsurence = new AddNewInsurenceForm(0, _vehicleID, _loggedUser);
             var mainForm = (MainAdministrationForm)ParentForm; // get reference to the parent form
 
             // load AddEmployeeForm in the main panel of the parent form
@@ -345,7 +383,7 @@ namespace CarFleet.Views.VehicleForms
         {
             //var form = new ChangeVehicleStatusForm();
             //form.Show();
-            var changeVehicleStatus = new ChangeVehicleStatusForm();
+            var changeVehicleStatus = new ChangeVehicleStatusForm(_vehicleID, _loggedUser);
             var mainForm = (MainAdministrationForm)ParentForm; // get reference to the parent form
 
             // load AddEmployeeForm in the main panel of the parent form
@@ -377,7 +415,7 @@ namespace CarFleet.Views.VehicleForms
 
         private void BtnOpenInsurenceForm_Click_1(object sender, EventArgs e)
         {
-            var addOrEditInsurence = new AddOrEditInsurenceForm(0, _vehicleID, _loggedUser);
+            var addOrEditInsurence = new AddNewInsurenceForm(0, _vehicleID, _loggedUser);
             var mainForm = (MainAdministrationForm)ParentForm; // get reference to the parent form
 
             // load AddEmployeeForm in the main panel of the parent form
@@ -396,5 +434,7 @@ namespace CarFleet.Views.VehicleForms
             //var form = new AddOrEditDescriptionForm(0, _vehicleID, loggedUser);
             //form.Show();
         }
+
+        #endregion
     }
 }

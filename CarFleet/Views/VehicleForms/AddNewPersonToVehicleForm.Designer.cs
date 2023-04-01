@@ -40,7 +40,7 @@
             // 
             this.LabelWarning.AutoSize = true;
             this.LabelWarning.ForeColor = System.Drawing.Color.Red;
-            this.LabelWarning.Location = new System.Drawing.Point(558, 330);
+            this.LabelWarning.Location = new System.Drawing.Point(574, 318);
             this.LabelWarning.Name = "LabelWarning";
             this.LabelWarning.Size = new System.Drawing.Size(73, 13);
             this.LabelWarning.TabIndex = 24;
@@ -100,7 +100,7 @@
             // 
             // TBSearchEmployee
             // 
-            this.TBSearchEmployee.Location = new System.Drawing.Point(254, 252);
+            this.TBSearchEmployee.Location = new System.Drawing.Point(197, 234);
             this.TBSearchEmployee.Name = "TBSearchEmployee";
             this.TBSearchEmployee.Size = new System.Drawing.Size(368, 20);
             this.TBSearchEmployee.TabIndex = 31;

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Data;
 using System.Data.SqlClient;
+using System.Diagnostics;
 using System.Drawing;
 using System.Windows.Forms;
 using CarFleet.Views.MainForms;
@@ -10,11 +11,11 @@ namespace CarFleet.Views.VehicleForms
 {
     public partial class CarListForm : Form
     {
-        private readonly Users loggedUser;
+        private readonly Users _loggedUser;
 
         public CarListForm(Users loggedUser)
         {
-            this.loggedUser = loggedUser;
+            _loggedUser = loggedUser;
             InitializeComponent();
         }
 
@@ -43,36 +44,45 @@ namespace CarFleet.Views.VehicleForms
 
         private void BtnAddNewVehicle_Click(object sender, EventArgs e)
         {
-            var addNewVehicleForm = new AddNewVehicleForm(loggedUser); // create instance of AddEmployeeForm
+            var addNewVehicleForm = new AddNewVehicleForm(_loggedUser); // create instance of AddEmployeeForm
             var mainForm = (MainAdministrationForm)ParentForm; // get reference to the parent form
 
-            // load AddEmployeeForm in the mainpanel of the parent form
-            mainForm.loadForm(addNewVehicleForm);
+            // load AddEmployeeForm in the main panel of the parent form
+            mainForm?.loadForm(addNewVehicleForm);
             //var form = new AddNewVehicleForm(loggedUser);
             //form.Show();
         }
 
         private void BtnViewVehicleDetailsHandler(int id)
         {
-            var carDetails = new CarDetailsForm(id, loggedUser);
+            var carDetails = new CarDetailsForm(id, _loggedUser);
             var mainForm = (MainAdministrationForm)ParentForm;
-            mainForm.loadForm(carDetails);
+            mainForm?.loadForm(carDetails);
             //var form = new CarDetailsForm(id, loggedUser);
             //form.Show();
         }
 
         private void DataGridViewVehicles_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            var grid = (DataGridView)sender;
-
-            if (e.RowIndex < 0) return; //Run if header column was clicked
-
-            if (grid[e.ColumnIndex, e.RowIndex] is DataGridViewButtonCell)
+            try
             {
-                var clickHandler = (Action<int>)grid.Columns[e.ColumnIndex].Tag;
-                var vehicleID = (int)grid[1, e.RowIndex].Value;
+                var grid = (DataGridView)sender;
 
-                clickHandler(vehicleID);
+                if (e.RowIndex < 0) return; //Run if header column was clicked
+
+                if (grid[e.ColumnIndex, e.RowIndex] is DataGridViewButtonCell)
+                {
+                    var clickHandler = (Action<int>)grid.Columns[e.ColumnIndex].Tag;
+                    var vehicleID = (int)grid["ID", e.RowIndex].Value;
+
+                    clickHandler(vehicleID);
+                }
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex);
+                MessageBox.Show("Something went wrong! Please try again or contact with IT support team!", "Error",
+                    MessageBoxButtons.OK);
             }
         }
 
@@ -85,32 +95,32 @@ namespace CarFleet.Views.VehicleForms
                 if (DataGridViewVehicles.Columns[e.ColumnIndex].Name == "Status")
                 {
                     var enumValue = (VehicleStatusEnum)e.Value;
-                    var enumstring = "No data";
+                    var enumString = "No data";
                     switch (enumValue)
                     {
                         case VehicleStatusEnum.Free:
-                            enumstring = "Free";
+                            enumString = "Free";
                             e.CellStyle.BackColor = Color.Chartreuse;
                             break;
                         case VehicleStatusEnum.Reserved:
-                            enumstring = "Reserved";
+                            enumString = "Reserved";
                             e.CellStyle.BackColor = Color.Gray;
                             break;
                         case VehicleStatusEnum.InUse:
-                            enumstring = "InUse";
+                            enumString = "InUse";
                             e.CellStyle.BackColor = Color.MediumVioletRed;
                             break;
                         case VehicleStatusEnum.InService:
-                            enumstring = "InService";
+                            enumString = "InService";
                             e.CellStyle.BackColor = Color.CadetBlue;
                             break;
                         case VehicleStatusEnum.EoL:
-                            enumstring = "EoL";
+                            enumString = "EoL";
                             e.CellStyle.BackColor = Color.DimGray;
                             break;
                     }
 
-                    e.Value = enumstring;
+                    e.Value = enumString;
                 }
 
                 if (DataGridViewVehicles.Columns[e.ColumnIndex].Name == "NextInspection")
@@ -135,13 +145,11 @@ namespace CarFleet.Views.VehicleForms
 
         private void BtnAddNewVehicle_Click_1(object sender, EventArgs e)
         {
-            var addNewVehicleForm = new AddNewVehicleForm(loggedUser); // create instance of AddEmployeeForm
+            var addNewVehicleForm = new AddNewVehicleForm(_loggedUser); // create instance of AddEmployeeForm
             var mainForm = (MainAdministrationForm)ParentForm; // get reference to the parent form
 
-            // load AddEmployeeForm in the mainpanel of the parent form
-            mainForm.loadForm(addNewVehicleForm);
-            //var form = new AddNewVehicleForm(loggedUser);
-            //form.Show();
+            // load AddEmployeeForm in the main panel of the parent form
+            mainForm?.loadForm(addNewVehicleForm);
         }
     }
 }

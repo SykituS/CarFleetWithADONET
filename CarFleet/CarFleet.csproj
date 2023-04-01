@@ -89,11 +89,11 @@
     <Compile Include="Views\VehicleForms\AddOrEditDescriptionForm.Designer.cs">
       <DependentUpon>AddOrEditDescriptionForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\VehicleForms\AddOrEditInsurenceForm.cs">
+    <Compile Include="Views\VehicleForms\AddNewInsurenceForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Views\VehicleForms\AddOrEditInsurenceForm.Designer.cs">
-      <DependentUpon>AddOrEditInsurenceForm.cs</DependentUpon>
+    <Compile Include="Views\VehicleForms\AddNewInsurenceForm.Designer.cs">
+      <DependentUpon>AddNewInsurenceForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\VehicleForms\CarDetailsForm.cs">
       <SubType>Form</SubType>
@@ -169,8 +169,8 @@
     <EmbeddedResource Include="Views\VehicleForms\AddOrEditDescriptionForm.resx">
       <DependentUpon>AddOrEditDescriptionForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Views\VehicleForms\AddOrEditInsurenceForm.resx">
-      <DependentUpon>AddOrEditInsurenceForm.cs</DependentUpon>
+    <EmbeddedResource Include="Views\VehicleForms\AddNewInsurenceForm.resx">
+      <DependentUpon>AddNewInsurenceForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\VehicleForms\CarDetailsForm.resx">
       <DependentUpon>CarDetailsForm.cs</DependentUpon>

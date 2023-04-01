@@ -98,7 +98,7 @@
             this.BtnAddOrEditDescritpion.Text = "Create";
             this.BtnAddOrEditDescritpion.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.BtnAddOrEditDescritpion.UseVisualStyleBackColor = false;
-            this.BtnAddOrEditDescritpion.Click += new System.EventHandler(this.BtnAddOrEditDescritpion_Click);
+            this.BtnAddOrEditDescritpion.Click += new System.EventHandler(this.BtnAddOrEditDescription_Click);
             // 
             // BtnBack
             // 

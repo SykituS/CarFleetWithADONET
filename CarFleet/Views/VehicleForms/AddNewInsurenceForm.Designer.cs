@@ -1,6 +1,6 @@
 ﻿namespace CarFleet.Views.VehicleForms
 {
-    partial class AddOrEditInsurenceForm
+    partial class AddNewInsurenceForm
     {
         /// <summary>
         /// Required designer variable.

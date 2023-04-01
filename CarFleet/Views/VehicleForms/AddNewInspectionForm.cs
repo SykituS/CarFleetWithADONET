@@ -101,6 +101,7 @@ namespace CarFleet.Views.VehicleForms
             {
                 LabelWarning.Text = "Mileage successfully added!";
                 LabelWarning.ForeColor = Color.GreenYellow;
+                GoBackToDetailsPage();
             }
             else
             {
@@ -111,12 +112,16 @@ namespace CarFleet.Views.VehicleForms
 
         private void BtnBack_Click(object sender, EventArgs e)
         {
+            GoBackToDetailsPage();
+        }
 
-            CarDetailsForm carDetails = new CarDetailsForm(_vehicleID, _loggedUser);  // create instance of AddEmployeeForm
-            MainAdministrationForm mainForm = (MainAdministrationForm)this.ParentForm;  // get reference to the parent form
+        private void GoBackToDetailsPage()
+        {
+            var carDetails = new CarDetailsForm(_vehicleID, _loggedUser); // create instance of AddEmployeeForm
+            var mainForm = (MainAdministrationForm)this.ParentForm; // get reference to the parent form
 
-            // load AddEmployeeForm in the mainpanel of the parent form
-            mainForm.loadForm(carDetails);
+            // load AddEmployeeForm in the main panel of the parent form
+            mainForm?.loadForm(carDetails);
         }
     }
 }

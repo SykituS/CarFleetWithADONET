@@ -13,12 +13,12 @@ using CarFleet.Views.MainForms;
 
 namespace CarFleet.Views.VehicleForms
 {
-    public partial class AddOrEditInsurenceForm : Form
+    public partial class AddNewInsurenceForm : Form
     {
         private readonly int _insurenceID;
         private readonly int _vehicleID;
         private readonly Users _loggedUser;
-        public AddOrEditInsurenceForm(int insurenceID, int vehicleID, Users loggedUser)
+        public AddNewInsurenceForm(int insurenceID, int vehicleID, Users loggedUser)
         {
             _insurenceID = insurenceID;
             _vehicleID = vehicleID;
@@ -80,6 +80,7 @@ namespace CarFleet.Views.VehicleForms
             {
                 LabelWarning.Text = "Insurence successfully added!";
                 LabelWarning.ForeColor = Color.GreenYellow;
+                GoBackToDetailsPage();
             }
             else
             {
@@ -90,11 +91,16 @@ namespace CarFleet.Views.VehicleForms
 
         private void BtnBack_Click(object sender, EventArgs e)
         {
-            CarDetailsForm carDetails = new CarDetailsForm(_vehicleID, _loggedUser);  // create instance of AddEmployeeForm
-            MainAdministrationForm mainForm = (MainAdministrationForm)this.ParentForm;  // get reference to the parent form
+            GoBackToDetailsPage();
+        }
 
-            // load AddEmployeeForm in the mainpanel of the parent form
-            mainForm.loadForm(carDetails);
+        private void GoBackToDetailsPage()
+        {
+            var carDetails = new CarDetailsForm(_vehicleID, _loggedUser); // create instance of AddEmployeeForm
+            var mainForm = (MainAdministrationForm)this.ParentForm; // get reference to the parent form
+
+            // load AddEmployeeForm in the main panel of the parent form
+            mainForm?.loadForm(carDetails);
         }
     }
 }

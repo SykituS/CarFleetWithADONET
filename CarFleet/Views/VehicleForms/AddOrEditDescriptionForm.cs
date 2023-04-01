@@ -16,13 +16,13 @@ namespace CarFleet.Views.VehicleForms
     public partial class AddOrEditDescriptionForm : Form
     {
         private readonly int _descriptionID;
-        private readonly int vehicleID;
-        private readonly Users loggedUser;
+        private readonly int _vehicleID;
+        private readonly Users _loggedUser;
         public AddOrEditDescriptionForm(int descriptionID, int vehicleID, Users loggedUser)
         {
             _descriptionID = descriptionID;
-            this.vehicleID = vehicleID;
-            this.loggedUser = loggedUser;
+            _vehicleID = vehicleID;
+            _loggedUser = loggedUser;
             InitializeComponent();
         }
 
@@ -30,8 +30,6 @@ namespace CarFleet.Views.VehicleForms
         {
 
         }
-
-     
 
         private DataResponse CheckGivenData()
         {
@@ -57,7 +55,7 @@ namespace CarFleet.Views.VehicleForms
             return response;
         }
 
-        private void BtnAddOrEditDescritpion_Click(object sender, EventArgs e)
+        private void BtnAddOrEditDescription_Click(object sender, EventArgs e)
         {
             var returnedCheck = CheckGivenData();
             if (!returnedCheck.Success)
@@ -68,14 +66,15 @@ namespace CarFleet.Views.VehicleForms
             }
             var dataSet = new DataSet();
             var response = VehicleSystem.InsertNewVehicleDescription(dataSet,
-                                                                    vehicleID,
-                                                                    loggedUser,
+                                                                    _vehicleID,
+                                                                    _loggedUser,
                                                                     RichTextBoxDescription.Text);
 
             if (response.Success)
             {
                 LabelWarning.Text = "Mileage successfully added!";
                 LabelWarning.ForeColor = Color.GreenYellow;
+                GoBackToDetails();
             }
             else
             {
@@ -86,11 +85,16 @@ namespace CarFleet.Views.VehicleForms
 
         private void BtnBack_Click(object sender, EventArgs e)
         {
-            CarDetailsForm carDetails = new CarDetailsForm(vehicleID, loggedUser);  // create instance of AddEmployeeForm
-            MainAdministrationForm mainForm = (MainAdministrationForm)this.ParentForm;  // get reference to the parent form
+            GoBackToDetails();
+        }
 
-            // load AddEmployeeForm in the mainpanel of the parent form
-            mainForm.loadForm(carDetails);
+        private void GoBackToDetails()
+        {
+            var carDetails = new CarDetailsForm(_vehicleID, _loggedUser); // create instance of AddEmployeeForm
+            var mainForm = (MainAdministrationForm)this.ParentForm; // get reference to the parent form
+
+            // load AddEmployeeForm in the main panel of the parent form
+            mainForm?.loadForm(carDetails);
         }
     }
 }
