@@ -170,22 +170,23 @@ namespace CarFleet.Views.VehicleForms
                 if (response.Success)
                 {
                     DataGridViewDescriptionHistory.DataSource = dataSet.Tables[nameof(VehicleDescription)];
+
                     var btnEdit = new DataGridViewButtonColumn();
                     btnEdit.Text = "Edit";
                     btnEdit.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
                     btnEdit.UseColumnTextForButtonValue = true;
                     btnEdit.Tag = (Action<int>)BtnEditDescriptionHandler;
                     DataGridViewDescriptionHistory.Columns.Add(btnEdit);
-
                     var btnDelete = new DataGridViewButtonColumn();
                     btnDelete.Text = "Remove";
                     btnDelete.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
                     btnDelete.UseColumnTextForButtonValue = true;
                     btnDelete.Tag = (Action<int>)BtnDeleteDescriptionHandler;
                     DataGridViewDescriptionHistory.Columns.Add(btnDelete);
+
+
                     DataGridViewDescriptionHistory.Columns[0].Visible = false;
-                    DataGridViewDescriptionHistory.Columns["Description"].DefaultCellStyle.WrapMode =
-                        DataGridViewTriState.True;
+                    DataGridViewDescriptionHistory.Columns["Description"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
                 }
                 else
                 {
@@ -294,7 +295,21 @@ namespace CarFleet.Views.VehicleForms
 
         private void BtnDeleteDescriptionHandler(int descriptionID)
         {
-            var result = MessageBox.Show("Delete Function Started", "", MessageBoxButtons.OKCancel);
+            var result = MessageBox.Show("Do you want to delete this row?", "", MessageBoxButtons.OKCancel);
+
+            if (result != DialogResult.OK) return;
+
+            var response = VehicleDescription.DeleteVehicleCommand(descriptionID);
+
+            var dataSet = new DataSet();
+            var cmd = new SqlCommand();
+            cmd.CommandText =
+                "SELECT veh.ID, veh.Description, veh.CreatedOn as 'Created On', CreatedBy.FirstName + ' ' + CreatedBy.LastName as 'Created By', veh.UpdatedOn as 'Updated On', UpdatedBy.FirstName + ' ' + UpdatedBy.LastName as 'Updated By' FROM VehicleDescription as veh join Persons as CreatedBy on veh.CreatedByID = CreatedBy.ID join Persons as UpdatedBy on veh.UpdatedByID = UpdatedBy.ID where VehicleID = @vid order by CreatedOn desc";
+            cmd.Parameters.AddWithValue("@vid", _vehicleID);
+            VehicleDescription.GetVehicleDescriptionQuery(dataSet, cmd);
+            DataGridViewDescriptionHistory.DataSource = dataSet.Tables[nameof(VehicleDescription)];
+
+            MessageBox.Show(response.Message, "", MessageBoxButtons.OK);
         }
 
         #endregion

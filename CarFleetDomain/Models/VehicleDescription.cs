@@ -133,9 +133,41 @@ namespace CarFleetDomain.Models
             }
         }
 
-        public static DataResponse DeleteVehicleCommand(DataSet dataSet)
+        public static DataResponse DeleteVehicleCommand(int descriptionID)
         {
-            throw (new NotImplementedException());
+            using (var connection = new SqlConnection(Context.ConnectionString))
+            {
+                try
+                {
+                    var dataSet = new DataSet();
+                    // Create a new SqlDataAdapter and configure the INSERT command
+                    var adapter = new SqlDataAdapter();
+
+                    adapter.DeleteCommand = new SqlCommand(DeleteCommand, connection);
+                    adapter.DeleteCommand.Parameters.Add("@UID", SqlDbType.Int).SourceColumn = "ID";
+
+                    adapter.SelectCommand = new SqlCommand(SelectCommand, connection);
+                    GetVehicleDescriptionQuery(dataSet);
+
+                    var table = dataSet.Tables[nameof(VehicleDescription)];
+
+                    var rowToDelete = table.AsEnumerable()
+                        .FirstOrDefault(e => e.Field<int>(nameof(ID)) == descriptionID);
+
+                    if (rowToDelete == null)
+                        return new DataResponse() { Success = false, Message = "Error while deleting given data!" };
+                    
+                    rowToDelete.Delete();
+                    adapter.Update(table);
+
+                    return new DataResponse() { Success = true, Message = "Data was deleted successfully" };
+                }
+                catch (Exception ex)
+                {
+                    Debug.WriteLine(ex);
+                    return new DataResponse() { Success = false, Message = "There was error while updating data: " + ex };
+                }
+            }
         }
 
         #endregion
