@@ -3,6 +3,7 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Diagnostics;
 using System.Drawing;
+using System.Runtime.InteropServices.ComTypes;
 using System.Windows.Forms;
 using CarFleet.Views.MainForms;
 using CarFleetDomain.Models;
@@ -22,12 +23,10 @@ namespace CarFleet.Views.VehicleForms
         private void CarListForm_Load(object sender, EventArgs e)
         {
             var dataSet = new DataSet();
-            var cmd =
-                "SELECT veh.id, veh.Manufacturer, veh.Model, (Select top(1) vehStatus.Status FROM [VehicleStatus] as vehStatus where vehStatus.VehicleID = veh.ID order by CreatedOn desc) as Status, " +
-                "veh.ProductionYear, veh.LicensePlate, veh.VinNumber, (Select top(1) vehInspection.DateOfnextInspection from VehicleInspection as vehInspection where vehInspection.VehicleID = veh.ID Order by vehInspection.CreatedOn desc) as NextInspection, " +
-                "(Select top(1) vehInsurer.EndDateOfInsurence from VehicleInsurer as vehInsurer where vehInsurer.VehicleID = veh.ID Order by vehInsurer.CreatedOn desc) as Insurence FROM Vehicle as veh";
-
-            //TODO: Show vehicle person in dataGridView
+            const string cmd = @"SELECT veh.id, veh.Manufacturer, veh.Model, (Select top(1) vehStatus.Status FROM [VehicleStatus] as vehStatus where vehStatus.VehicleID = veh.ID order by CreatedOn desc) as Status,
+                            (SELECT top(1) p.FirstName + ' ' + p.LastName FROM VehiclePersonHistory as vehPerson JOIN Persons as p on p.ID = vehPerson.PersonID WHERE vehPerson.VehicleID = veh.ID ORDER BY vehPerson.CreatedOn desc) as 'Used by',
+                            veh.ProductionYear as 'Production Year', veh.LicensePlate as 'License Plate', veh.VinNumber as 'Vin Number', (Select top(1) vehInspection.DateOfnextInspection from VehicleInspection as vehInspection where vehInspection.VehicleID = veh.ID Order by vehInspection.CreatedOn desc) as NextInspection, 
+                            (Select top(1) vehInsurer.EndDateOfInsurence from VehicleInsurer as vehInsurer where vehInsurer.VehicleID = veh.ID Order by vehInsurer.CreatedOn desc) as Insurence FROM Vehicle as veh";
 
             Vehicle.GetVehicleQuery(dataSet, new SqlCommand(cmd));
             DataGridViewVehicles.DataSource = dataSet.Tables[nameof(Vehicle)];
@@ -39,18 +38,6 @@ namespace CarFleet.Views.VehicleForms
             btnDetails.Tag = (Action<int>)BtnViewVehicleDetailsHandler;
             DataGridViewVehicles.Columns.Add(btnDetails);
             DataGridViewVehicles.Columns[0].Visible = false;
-        }
-
-
-        private void BtnAddNewVehicle_Click(object sender, EventArgs e)
-        {
-            var addNewVehicleForm = new AddNewVehicleForm(_loggedUser); // create instance of AddEmployeeForm
-            var mainForm = (MainAdministrationForm)ParentForm; // get reference to the parent form
-
-            // load AddEmployeeForm in the main panel of the parent form
-            mainForm?.loadForm(addNewVehicleForm);
-            //var form = new AddNewVehicleForm(loggedUser);
-            //form.Show();
         }
 
         private void BtnViewVehicleDetailsHandler(int id)
@@ -123,6 +110,27 @@ namespace CarFleet.Views.VehicleForms
                     e.Value = enumString;
                 }
 
+                if (DataGridViewVehicles.Columns[e.ColumnIndex].Name == "Used by")
+                {
+                    var status = (VehicleStatusEnum)DataGridViewVehicles.Rows[e.RowIndex].Cells[e.ColumnIndex-1].Value;
+
+                    switch (status)
+                    {
+                        case VehicleStatusEnum.Free:
+                            e.Value = " ---- ";
+                            break;
+                        case VehicleStatusEnum.EoL:
+                            e.Value = " ---- ";
+                            break;
+                    }
+
+                    var value = (string)e.Value;
+                    if (string.IsNullOrWhiteSpace(value))
+                    {
+                        e.Value = "----";
+                    }
+                }
+
                 if (DataGridViewVehicles.Columns[e.ColumnIndex].Name == "NextInspection")
                 {
                     var inspectionDate = (DateTime)e.Value;
@@ -143,7 +151,7 @@ namespace CarFleet.Views.VehicleForms
             }
         }
 
-        private void BtnAddNewVehicle_Click_1(object sender, EventArgs e)
+        private void BtnAddNewVehicle_Click(object sender, EventArgs e)
         {
             var addNewVehicleForm = new AddNewVehicleForm(_loggedUser); // create instance of AddEmployeeForm
             var mainForm = (MainAdministrationForm)ParentForm; // get reference to the parent form

@@ -69,7 +69,7 @@
             this.BtnAddNewVehicle.Text = "Add new vehicle";
             this.BtnAddNewVehicle.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.BtnAddNewVehicle.UseVisualStyleBackColor = false;
-            this.BtnAddNewVehicle.Click += new System.EventHandler(this.BtnAddNewVehicle_Click_1);
+            this.BtnAddNewVehicle.Click += new System.EventHandler(this.BtnAddNewVehicle_Click);
             // 
             // CarListForm
             // 
