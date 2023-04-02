@@ -62,6 +62,13 @@ namespace CarFleetDomain.Functions
                 return reply;
             }
 
+            if ((bool)personRow[5])
+            {
+                reply.Message = "Account was disabled! Please contact with IT support team!";
+                reply.Success = false;
+                return reply;
+            }
+
             reply.ReturnedValue = CastObject.CreateItemFromRow<Users>(userRow);
             reply.ReturnedValue.Person = CastObject.CreateItemFromRow<Persons>(personRow);
             reply.Success = true;

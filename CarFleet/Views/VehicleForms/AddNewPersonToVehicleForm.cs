@@ -80,9 +80,89 @@ namespace CarFleet.Views.VehicleForms
             DataGridViewAddPersonToVehicle.Columns[0].Visible = false;
         }
 
-        private void TBSearchEmployee_TextChanged(object sender, EventArgs e)
+        private void TbSearch_TextChanged(object sender, EventArgs e)
         {
-
+            SearchDataGridView(TbSearch.Text.ToLower());
         }
+
+        private void SearchDataGridView(string searchText)
+        {
+            // End any current editing to ensure that any new rows are properly created
+            DataGridViewAddPersonToVehicle.EndEdit();
+            DataGridViewAddPersonToVehicle.ClearSelection();
+            // If the search text is empty or null, clear any selected rows and exit the method
+            if (string.IsNullOrWhiteSpace(searchText))
+            {
+                DataGridViewAddPersonToVehicle.ClearSelection();
+
+                // Make all rows visible if there is no search text
+                foreach (DataGridViewRow row in DataGridViewAddPersonToVehicle.Rows)
+                    if (!row.IsNewRow && !row.Frozen)
+                        row.Visible = true;
+                return;
+            }
+
+            // Split the search text on whitespace to search for each substring
+            var searchTerms = searchText.Split((char[])null, StringSplitOptions.RemoveEmptyEntries);
+
+            // Loop through each row in the DataGridView
+            foreach (DataGridViewRow row in DataGridViewAddPersonToVehicle.Rows)
+                // Skip new rows that haven't been associated with an index yet
+                if (!row.IsNewRow && !row.Frozen)
+                {
+                    var matchFound = true; // initialize to true outside of the inner loop
+
+                    // Loop through each cell in the row and check if it contains any of the search terms
+                    foreach (var term in searchTerms)
+                    {
+                        var termMatchFound = false;
+                        // Loop through each column in the row and check if it contains the search term
+                        foreach (DataGridViewCell cell in row.Cells)
+                            if (cell.Value != null &&
+                                cell.Value.ToString().IndexOf(term, StringComparison.OrdinalIgnoreCase) >= 0)
+                            {
+                                // If a match is found, mark the row as visible and break the inner loop
+                                row.Visible = true;
+                                termMatchFound = true;
+                                break;
+                            }
+
+                        if (!termMatchFound)
+                        {
+                            // Check if the row is associated with the CurrencyManager position
+                            var cm = (CurrencyManager)BindingContext[DataGridViewAddPersonToVehicle.DataSource];
+                            if (cm.Position == row.Index) continue;
+                            row.Visible = false;
+                            matchFound = false;
+                            break;
+                        }
+                    }
+
+                    // If no match was found in the current row, mark it as not visible
+                    if (!matchFound)
+                    {
+                        // Check if the row is associated with the CurrencyManager position
+                        var cm = (CurrencyManager)BindingContext[DataGridViewAddPersonToVehicle.DataSource];
+                        if (cm.Position == row.Index) continue;
+                        row.Visible = false;
+                    }
+                }
+
+            // Clear any selected rows if they are no longer visible
+            if (DataGridViewAddPersonToVehicle.SelectedRows.Count > 0)
+            {
+                var selectionCleared = false;
+                foreach (DataGridViewRow row in DataGridViewAddPersonToVehicle.SelectedRows)
+                    if (!row.Visible)
+                    {
+                        row.Selected = false; // set Selected property to false
+                        selectionCleared = true;
+                    }
+
+                if (!selectionCleared && !DataGridViewAddPersonToVehicle.SelectedRows[0].Displayed)
+                    DataGridViewAddPersonToVehicle.ClearSelection();
+            }
+        }
+
     }
 }

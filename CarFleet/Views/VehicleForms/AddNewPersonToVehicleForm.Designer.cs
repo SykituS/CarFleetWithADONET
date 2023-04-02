@@ -32,7 +32,7 @@
             this.BtnAddUserToVehicle = new FontAwesome.Sharp.IconButton();
             this.BtnBack = new FontAwesome.Sharp.IconButton();
             this.DataGridViewAddPersonToVehicle = new System.Windows.Forms.DataGridView();
-            this.TBSearchEmployee = new System.Windows.Forms.TextBox();
+            this.TbSearch = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.DataGridViewAddPersonToVehicle)).BeginInit();
             this.SuspendLayout();
             // 
@@ -98,20 +98,20 @@
             this.DataGridViewAddPersonToVehicle.Size = new System.Drawing.Size(703, 150);
             this.DataGridViewAddPersonToVehicle.TabIndex = 30;
             // 
-            // TBSearchEmployee
+            // TbSearch
             // 
-            this.TBSearchEmployee.Location = new System.Drawing.Point(197, 234);
-            this.TBSearchEmployee.Name = "TBSearchEmployee";
-            this.TBSearchEmployee.Size = new System.Drawing.Size(368, 20);
-            this.TBSearchEmployee.TabIndex = 31;
-            this.TBSearchEmployee.TextChanged += new System.EventHandler(this.TBSearchEmployee_TextChanged);
+            this.TbSearch.Location = new System.Drawing.Point(197, 234);
+            this.TbSearch.Name = "TbSearch";
+            this.TbSearch.Size = new System.Drawing.Size(368, 20);
+            this.TbSearch.TabIndex = 31;
+            this.TbSearch.TextChanged += new System.EventHandler(this.TbSearch_TextChanged);
             // 
             // AddNewPersonToVehicleForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(811, 450);
-            this.Controls.Add(this.TBSearchEmployee);
+            this.Controls.Add(this.TbSearch);
             this.Controls.Add(this.DataGridViewAddPersonToVehicle);
             this.Controls.Add(this.BtnBack);
             this.Controls.Add(this.BtnAddUserToVehicle);
@@ -131,6 +131,6 @@
         private FontAwesome.Sharp.IconButton BtnAddUserToVehicle;
         private FontAwesome.Sharp.IconButton BtnBack;
         private System.Windows.Forms.DataGridView DataGridViewAddPersonToVehicle;
-        private System.Windows.Forms.TextBox TBSearchEmployee;
+        private System.Windows.Forms.TextBox TbSearch;
     }
 }
