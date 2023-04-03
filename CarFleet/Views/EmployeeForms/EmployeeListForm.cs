@@ -37,9 +37,9 @@ namespace CarFleet.Views.EmployeeForms
 
             // Add a new DataGridViewButtonColumn for the "Delete" button
             var deleteButtonColumn = new DataGridViewButtonColumn();
-            deleteButtonColumn.Name = "Delete";
-            deleteButtonColumn.Text = "Delete";
-            deleteButtonColumn.HeaderText = "Delete";
+            deleteButtonColumn.Name = "Disable";
+            deleteButtonColumn.Text = "Disable";
+            deleteButtonColumn.HeaderText = "Disable";
             deleteButtonColumn.UseColumnTextForButtonValue = true;
             DataGridViewEmployeeList.Columns.Add(deleteButtonColumn);
         }
@@ -71,7 +71,7 @@ namespace CarFleet.Views.EmployeeForms
                 mainForm?.loadForm(editEmployeeForm);
             }
 
-            if (DataGridViewEmployeeList.Columns[e.ColumnIndex].Name == "Delete")
+            if (DataGridViewEmployeeList.Columns[e.ColumnIndex].Name == "Disable")
             {
                 var employeeSystem = new EmployeeSystem();
                 var id = (int)DataGridViewEmployeeList.Rows[e.RowIndex].Cells["ID"].Value;

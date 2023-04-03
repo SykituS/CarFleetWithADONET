@@ -117,11 +117,11 @@
             this.BtnEditEmplyee.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.BtnEditEmplyee.IconSize = 32;
             this.BtnEditEmplyee.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BtnEditEmplyee.Location = new System.Drawing.Point(384, 437);
+            this.BtnEditEmplyee.Location = new System.Drawing.Point(396, 437);
             this.BtnEditEmplyee.Name = "BtnEditEmplyee";
-            this.BtnEditEmplyee.Size = new System.Drawing.Size(194, 45);
+            this.BtnEditEmplyee.Size = new System.Drawing.Size(145, 45);
             this.BtnEditEmplyee.TabIndex = 18;
-            this.BtnEditEmplyee.Text = "New Employee";
+            this.BtnEditEmplyee.Text = "Edit";
             this.BtnEditEmplyee.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.BtnEditEmplyee.UseVisualStyleBackColor = false;
             this.BtnEditEmplyee.Click += new System.EventHandler(this.BtnNewEmployee_Click);
@@ -189,7 +189,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.ForeColor = System.Drawing.Color.Red;
-            this.label6.Location = new System.Drawing.Point(201, 35);
+            this.label6.Location = new System.Drawing.Point(211, 21);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(44, 16);
             this.label6.TabIndex = 23;

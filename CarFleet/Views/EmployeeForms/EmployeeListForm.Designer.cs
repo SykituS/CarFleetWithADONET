@@ -44,6 +44,8 @@
             // 
             // DataGridViewEmployeeList
             // 
+            this.DataGridViewEmployeeList.AllowUserToAddRows = false;
+            this.DataGridViewEmployeeList.AllowUserToDeleteRows = false;
             this.DataGridViewEmployeeList.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
@@ -51,6 +53,7 @@
             this.DataGridViewEmployeeList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DataGridViewEmployeeList.Location = new System.Drawing.Point(26, 48);
             this.DataGridViewEmployeeList.Margin = new System.Windows.Forms.Padding(4);
+            this.DataGridViewEmployeeList.MultiSelect = false;
             this.DataGridViewEmployeeList.Name = "DataGridViewEmployeeList";
             this.DataGridViewEmployeeList.ReadOnly = true;
             this.DataGridViewEmployeeList.RowHeadersWidth = 51;
