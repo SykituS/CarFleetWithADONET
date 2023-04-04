@@ -18,6 +18,8 @@ namespace CarFleet.Views.VehicleForms
         private readonly int _descriptionID;
         private readonly int _vehicleID;
         private readonly Users _loggedUser;
+        private string DescriptionText { get; set; }
+
         public AddOrEditDescriptionForm(int descriptionID, int vehicleID, Users loggedUser)
         {
             _descriptionID = descriptionID;
@@ -28,7 +30,26 @@ namespace CarFleet.Views.VehicleForms
 
         private void AddOrEditDescriptionForm_Load(object sender, EventArgs e)
         {
+            try
+            {
+                if (_descriptionID != 0)
+                {
+                    var dataSet = new DataSet();
+                    var response = VehicleDescription.GetVehicleDescriptionQuery(dataSet);
+                    if (response.Success)
+                    {
+                        DescriptionText = dataSet.Tables[nameof(VehicleDescription)].AsEnumerable().FirstOrDefault(_ => _.Field<int>(nameof(VehicleDescription.ID)) == _descriptionID)["Description"] as string;
+                    }
 
+                    RichTextBoxDescription.Text = DescriptionText;
+                    BtnAddOrEditDescritpion.Text = "Edit";
+                }
+            }
+            catch (Exception ex)
+            {
+                LabelWarning.Text = "Something went wrong while loading a description for edit! Please contact with IT support team";
+                LabelWarning.ForeColor = Color.Red;
+            }
         }
 
         private DataResponse CheckGivenData()
@@ -64,15 +85,37 @@ namespace CarFleet.Views.VehicleForms
                 LabelWarning.ForeColor = Color.Red;
                 return;
             }
-            var dataSet = new DataSet();
-            var response = VehicleSystem.InsertNewVehicleDescription(dataSet,
-                                                                    _vehicleID,
-                                                                    _loggedUser,
-                                                                    RichTextBoxDescription.Text);
 
+            var dataSet = new DataSet();
+            DataResponse response;
+            if (_descriptionID != 0)
+            {
+                try
+                {
+                    response = VehicleDescription.GetVehicleDescriptionQuery(dataSet);
+                    if (response.Success)
+                    {
+                        dataSet.Tables[nameof(VehicleDescription)].AsEnumerable().FirstOrDefault(_ => _.Field<int>(nameof(VehicleDescription.ID)) == _descriptionID)["Description"] = RichTextBoxDescription.Text;
+                        response = VehicleDescription.UpdateVehicleDescriptionCommand(dataSet);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    LabelWarning.Text = "Something went wrong! Please try again";
+                    LabelWarning.ForeColor = Color.Red;
+                    return;
+                }
+            }
+            else
+            {
+                response = VehicleSystem.InsertNewVehicleDescription(dataSet,
+                                                                        _vehicleID,
+                                                                        _loggedUser,
+                                                                        RichTextBoxDescription.Text);
+            }
             if (response.Success)
             {
-                LabelWarning.Text = "Mileage successfully added!";
+                LabelWarning.Text = "Description successfully added!";
                 LabelWarning.ForeColor = Color.GreenYellow;
                 GoBackToDetails();
             }

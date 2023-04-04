@@ -290,7 +290,13 @@ namespace CarFleet.Views.VehicleForms
 
         private void BtnEditDescriptionHandler(int descriptionID)
         {
-            MessageBox.Show("Edit Function Started", "", MessageBoxButtons.OK);
+            var addOrEditDescription = new AddOrEditDescriptionForm(descriptionID, _vehicleID, _loggedUser);
+            var mainForm = (MainAdministrationForm)ParentForm; // get reference to the parent form
+
+            // load AddEmployeeForm in the main panel of the parent form
+            mainForm?.loadForm(addOrEditDescription);
+            //var form = new AddOrEditDescriptionForm(0, _vehicleID, loggedUser);
+            //form.Show();
         }
 
         private void BtnDeleteDescriptionHandler(int descriptionID)
