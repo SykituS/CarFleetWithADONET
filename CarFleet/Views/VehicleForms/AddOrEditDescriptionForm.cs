@@ -30,6 +30,8 @@ namespace CarFleet.Views.VehicleForms
 
         private void AddOrEditDescriptionForm_Load(object sender, EventArgs e)
         {
+            LabelWarning.Text = "";
+
             try
             {
                 if (_descriptionID != 0)
@@ -95,7 +97,13 @@ namespace CarFleet.Views.VehicleForms
                     response = VehicleDescription.GetVehicleDescriptionQuery(dataSet);
                     if (response.Success)
                     {
-                        dataSet.Tables[nameof(VehicleDescription)].AsEnumerable().FirstOrDefault(_ => _.Field<int>(nameof(VehicleDescription.ID)) == _descriptionID)["Description"] = RichTextBoxDescription.Text;
+                        var row = dataSet.Tables[nameof(VehicleDescription)].AsEnumerable().FirstOrDefault(_ =>
+                            _.Field<int>(nameof(VehicleDescription.ID)) == _descriptionID);
+
+                        row["Description"] = RichTextBoxDescription.Text;
+                        row["UpdatedOn"] = DateTime.Now;
+                        row["UpdatedByID"] = _loggedUser.PersonID;
+
                         response = VehicleDescription.UpdateVehicleDescriptionCommand(dataSet);
                     }
                 }
