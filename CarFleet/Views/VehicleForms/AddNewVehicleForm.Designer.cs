@@ -70,7 +70,7 @@
             // 
             this.TBManufacturer.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.TBManufacturer.Location = new System.Drawing.Point(209, 4);
-            this.TBManufacturer.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.TBManufacturer.Margin = new System.Windows.Forms.Padding(4);
             this.TBManufacturer.Name = "TBManufacturer";
             this.TBManufacturer.Size = new System.Drawing.Size(173, 22);
             this.TBManufacturer.TabIndex = 1;
@@ -211,7 +211,7 @@
             this.panel1.Controls.Add(this.label4);
             this.panel1.Controls.Add(this.label5);
             this.panel1.Location = new System.Drawing.Point(301, 34);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(388, 214);
             this.panel1.TabIndex = 16;
@@ -219,7 +219,7 @@
             // NumericUDMileage
             // 
             this.NumericUDMileage.Location = new System.Drawing.Point(209, 175);
-            this.NumericUDMileage.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.NumericUDMileage.Margin = new System.Windows.Forms.Padding(4);
             this.NumericUDMileage.Maximum = new decimal(new int[] {
             1410065407,
             2,
@@ -244,7 +244,7 @@
             this.DateTimePickerProductionYear.CustomFormat = "yyyy";
             this.DateTimePickerProductionYear.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.DateTimePickerProductionYear.Location = new System.Drawing.Point(209, 135);
-            this.DateTimePickerProductionYear.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.DateTimePickerProductionYear.Margin = new System.Windows.Forms.Padding(4);
             this.DateTimePickerProductionYear.Name = "DateTimePickerProductionYear";
             this.DateTimePickerProductionYear.ShowUpDown = true;
             this.DateTimePickerProductionYear.Size = new System.Drawing.Size(173, 22);
@@ -254,7 +254,7 @@
             // 
             this.TBLicensePlate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.TBLicensePlate.Location = new System.Drawing.Point(209, 71);
-            this.TBLicensePlate.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.TBLicensePlate.Margin = new System.Windows.Forms.Padding(4);
             this.TBLicensePlate.MaxLength = 7;
             this.TBLicensePlate.Name = "TBLicensePlate";
             this.TBLicensePlate.Size = new System.Drawing.Size(173, 22);
@@ -264,7 +264,7 @@
             // 
             this.TBModel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.TBModel.Location = new System.Drawing.Point(209, 39);
-            this.TBModel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.TBModel.Margin = new System.Windows.Forms.Padding(4);
             this.TBModel.Name = "TBModel";
             this.TBModel.Size = new System.Drawing.Size(173, 22);
             this.TBModel.TabIndex = 6;
@@ -273,7 +273,7 @@
             // 
             this.TBVinNumber.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.TBVinNumber.Location = new System.Drawing.Point(209, 103);
-            this.TBVinNumber.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.TBVinNumber.Margin = new System.Windows.Forms.Padding(4);
             this.TBVinNumber.MaxLength = 17;
             this.TBVinNumber.Name = "TBVinNumber";
             this.TBVinNumber.Size = new System.Drawing.Size(173, 22);
@@ -289,7 +289,7 @@
             this.panel2.Controls.Add(this.label6);
             this.panel2.Controls.Add(this.label7);
             this.panel2.Location = new System.Drawing.Point(301, 256);
-            this.panel2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel2.Margin = new System.Windows.Forms.Padding(4);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(388, 123);
             this.panel2.TabIndex = 17;
@@ -298,7 +298,7 @@
             // 
             this.DateTimePickerInsurenceEnd.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.DateTimePickerInsurenceEnd.Location = new System.Drawing.Point(209, 71);
-            this.DateTimePickerInsurenceEnd.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.DateTimePickerInsurenceEnd.Margin = new System.Windows.Forms.Padding(4);
             this.DateTimePickerInsurenceEnd.Name = "DateTimePickerInsurenceEnd";
             this.DateTimePickerInsurenceEnd.Size = new System.Drawing.Size(173, 22);
             this.DateTimePickerInsurenceEnd.TabIndex = 21;
@@ -307,7 +307,7 @@
             // 
             this.DateTimePickerInsurenceStart.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.DateTimePickerInsurenceStart.Location = new System.Drawing.Point(209, 39);
-            this.DateTimePickerInsurenceStart.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.DateTimePickerInsurenceStart.Margin = new System.Windows.Forms.Padding(4);
             this.DateTimePickerInsurenceStart.Name = "DateTimePickerInsurenceStart";
             this.DateTimePickerInsurenceStart.Size = new System.Drawing.Size(173, 22);
             this.DateTimePickerInsurenceStart.TabIndex = 20;
@@ -317,7 +317,7 @@
             // 
             this.TBInsurer.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.TBInsurer.Location = new System.Drawing.Point(209, 4);
-            this.TBInsurer.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.TBInsurer.Margin = new System.Windows.Forms.Padding(4);
             this.TBInsurer.Name = "TBInsurer";
             this.TBInsurer.Size = new System.Drawing.Size(173, 22);
             this.TBInsurer.TabIndex = 19;
@@ -330,7 +330,7 @@
             this.panel3.Controls.Add(this.label9);
             this.panel3.Controls.Add(this.label10);
             this.panel3.Location = new System.Drawing.Point(301, 394);
-            this.panel3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel3.Margin = new System.Windows.Forms.Padding(4);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(388, 76);
             this.panel3.TabIndex = 18;
@@ -339,7 +339,7 @@
             // 
             this.DateTimePickerNextInspection.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.DateTimePickerNextInspection.Location = new System.Drawing.Point(209, 36);
-            this.DateTimePickerNextInspection.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.DateTimePickerNextInspection.Margin = new System.Windows.Forms.Padding(4);
             this.DateTimePickerNextInspection.Name = "DateTimePickerNextInspection";
             this.DateTimePickerNextInspection.Size = new System.Drawing.Size(173, 22);
             this.DateTimePickerNextInspection.TabIndex = 23;
@@ -348,7 +348,7 @@
             // 
             this.DateTimePickerInspection.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.DateTimePickerInspection.Location = new System.Drawing.Point(209, 4);
-            this.DateTimePickerInspection.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.DateTimePickerInspection.Margin = new System.Windows.Forms.Padding(4);
             this.DateTimePickerInspection.Name = "DateTimePickerInspection";
             this.DateTimePickerInspection.Size = new System.Drawing.Size(173, 22);
             this.DateTimePickerInspection.TabIndex = 22;
@@ -360,7 +360,7 @@
             this.panel4.Controls.Add(this.RichTextBoxDescription);
             this.panel4.Controls.Add(this.label12);
             this.panel4.Location = new System.Drawing.Point(301, 479);
-            this.panel4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel4.Margin = new System.Windows.Forms.Padding(4);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(388, 100);
             this.panel4.TabIndex = 19;
@@ -369,7 +369,7 @@
             // 
             this.RichTextBoxDescription.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.RichTextBoxDescription.Location = new System.Drawing.Point(0, 21);
-            this.RichTextBoxDescription.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.RichTextBoxDescription.Margin = new System.Windows.Forms.Padding(4);
             this.RichTextBoxDescription.Name = "RichTextBoxDescription";
             this.RichTextBoxDescription.Size = new System.Drawing.Size(388, 79);
             this.RichTextBoxDescription.TabIndex = 15;
@@ -383,7 +383,6 @@
             this.LabelWarning.Name = "LabelWarning";
             this.LabelWarning.Size = new System.Drawing.Size(387, 177);
             this.LabelWarning.TabIndex = 22;
-            this.LabelWarning.Text = "LabelWarnings";
             this.LabelWarning.Visible = false;
             // 
             // BtnAddCar
@@ -441,7 +440,7 @@
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "AddNewVehicleForm";
             this.Text = "AddNewVehicleForm";
             this.Load += new System.EventHandler(this.AddNewVehicleForm_Load);

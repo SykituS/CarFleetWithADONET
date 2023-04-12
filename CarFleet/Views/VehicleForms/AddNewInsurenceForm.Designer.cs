@@ -123,9 +123,8 @@
             this.LabelWarning.Location = new System.Drawing.Point(35, 155);
             this.LabelWarning.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.LabelWarning.Name = "LabelWarning";
-            this.LabelWarning.Size = new System.Drawing.Size(91, 16);
+            this.LabelWarning.Size = new System.Drawing.Size(0, 16);
             this.LabelWarning.TabIndex = 24;
-            this.LabelWarning.Text = "LabelWarning";
             // 
             // BtnAddInsurence
             // 
@@ -166,7 +165,7 @@
             this.BtnBack.UseVisualStyleBackColor = false;
             this.BtnBack.Click += new System.EventHandler(this.BtnBack_Click);
             // 
-            // AddOrEditInsurenceForm
+            // AddNewInsurenceForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -177,7 +176,7 @@
             this.Controls.Add(this.panel2);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(4);
-            this.Name = "AddOrEditInsurenceForm";
+            this.Name = "AddNewInsurenceForm";
             this.Text = "AddOrEditInsurenceForm";
             this.Load += new System.EventHandler(this.AddOrEditInsurenceForm_Load);
             this.panel2.ResumeLayout(false);

@@ -70,9 +70,8 @@
             this.LabelWarning.Location = new System.Drawing.Point(29, 69);
             this.LabelWarning.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.LabelWarning.Name = "LabelWarning";
-            this.LabelWarning.Size = new System.Drawing.Size(91, 16);
+            this.LabelWarning.Size = new System.Drawing.Size(0, 16);
             this.LabelWarning.TabIndex = 4;
-            this.LabelWarning.Text = "LabelWarning";
             // 
             // BtnResetTextBox
             // 

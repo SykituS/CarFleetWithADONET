@@ -76,9 +76,8 @@
             this.LabelWarning.Location = new System.Drawing.Point(48, 194);
             this.LabelWarning.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.LabelWarning.Name = "LabelWarning";
-            this.LabelWarning.Size = new System.Drawing.Size(91, 16);
+            this.LabelWarning.Size = new System.Drawing.Size(0, 16);
             this.LabelWarning.TabIndex = 23;
-            this.LabelWarning.Text = "LabelWarning";
             // 
             // BtnAddOrEditDescritpion
             // 
