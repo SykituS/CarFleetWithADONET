@@ -17,15 +17,15 @@ namespace CarFleet.Views.MainForms
 
             if (response.Success)
             {
-                switch (response.ReturnedValue.Role)
+                switch (response.ReturnedValue.RoleID)
                 {
-                    case RoleEnum.Employee:
-                        new MainAdministrationForm(response.ReturnedValue).Show();
-                        break;
-                    case RoleEnum.Admin:
+                    case (int)RoleEnum.Employee:
                         //new MainEmployeeForms().Show();
                         MessageBox.Show("Sorry, but you don't have access to this application yet!", "Error",
                             MessageBoxButtons.OK);
+                        break;
+                    case (int)RoleEnum.Admin:
+                        new MainAdministrationForm(response.ReturnedValue).Show();
                         break;
                 }
             }
