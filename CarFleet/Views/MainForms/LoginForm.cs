@@ -23,7 +23,9 @@ namespace CarFleet.Views.MainForms
                         new MainAdministrationForm(response.ReturnedValue).Show();
                         break;
                     case RoleEnum.Admin:
-                        new MainEmployeeForms().Show();
+                        //new MainEmployeeForms().Show();
+                        MessageBox.Show("Sorry, but you don't have access to this application yet!", "Error",
+                            MessageBoxButtons.OK);
                         break;
                 }
             }
