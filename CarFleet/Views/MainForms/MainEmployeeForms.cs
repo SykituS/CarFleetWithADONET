@@ -82,13 +82,13 @@ namespace CarFleet.Views.MainForms
         private void iconButton1_Click(object sender, EventArgs e)
         {
             ActiveButton(sender, RGBColors.color1);
-            loadForm(new EmployeeListForm());
+          
         }
 
         private void btnCarList_Click(object sender, EventArgs e)
         {
             ActiveButton(sender, RGBColors.color2);
-            //loadForm(new CarHistoryForm());
+           
         }
 
         private void btnClose_Click(object sender, EventArgs e)
