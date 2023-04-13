@@ -1,3 +1,6 @@
+CREATE DATABASE CarFleetDB
+GO
+
 USE [CarFleetDB]
 GO
 /****** Object:  Table [dbo].[Persons]    Script Date: 13.04.2023 16:00:17 ******/
