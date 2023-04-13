@@ -210,7 +210,7 @@
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.label4);
             this.panel1.Controls.Add(this.label5);
-            this.panel1.Location = new System.Drawing.Point(301, 34);
+            this.panel1.Location = new System.Drawing.Point(304, 123);
             this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(388, 214);
@@ -288,7 +288,7 @@
             this.panel2.Controls.Add(this.label8);
             this.panel2.Controls.Add(this.label6);
             this.panel2.Controls.Add(this.label7);
-            this.panel2.Location = new System.Drawing.Point(301, 256);
+            this.panel2.Location = new System.Drawing.Point(304, 345);
             this.panel2.Margin = new System.Windows.Forms.Padding(4);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(388, 123);
@@ -329,7 +329,7 @@
             this.panel3.Controls.Add(this.DateTimePickerInspection);
             this.panel3.Controls.Add(this.label9);
             this.panel3.Controls.Add(this.label10);
-            this.panel3.Location = new System.Drawing.Point(301, 394);
+            this.panel3.Location = new System.Drawing.Point(304, 483);
             this.panel3.Margin = new System.Windows.Forms.Padding(4);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(388, 76);
@@ -359,7 +359,7 @@
             this.panel4.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.panel4.Controls.Add(this.RichTextBoxDescription);
             this.panel4.Controls.Add(this.label12);
-            this.panel4.Location = new System.Drawing.Point(301, 479);
+            this.panel4.Location = new System.Drawing.Point(304, 568);
             this.panel4.Margin = new System.Windows.Forms.Padding(4);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(388, 100);
@@ -395,7 +395,7 @@
             this.BtnAddCar.IconColor = System.Drawing.Color.White;
             this.BtnAddCar.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.BtnAddCar.IconSize = 32;
-            this.BtnAddCar.Location = new System.Drawing.Point(511, 586);
+            this.BtnAddCar.Location = new System.Drawing.Point(514, 675);
             this.BtnAddCar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.BtnAddCar.Name = "BtnAddCar";
             this.BtnAddCar.Size = new System.Drawing.Size(172, 37);
@@ -416,7 +416,7 @@
             this.BtnBack.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.BtnBack.IconSize = 32;
             this.BtnBack.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BtnBack.Location = new System.Drawing.Point(308, 586);
+            this.BtnBack.Location = new System.Drawing.Point(311, 675);
             this.BtnBack.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.BtnBack.Name = "BtnBack";
             this.BtnBack.Size = new System.Drawing.Size(165, 37);

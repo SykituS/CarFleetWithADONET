@@ -40,7 +40,7 @@
             // NumericUDMileage
             // 
             this.NumericUDMileage.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.NumericUDMileage.Location = new System.Drawing.Point(105, 20);
+            this.NumericUDMileage.Location = new System.Drawing.Point(135, 20);
             this.NumericUDMileage.Margin = new System.Windows.Forms.Padding(4);
             this.NumericUDMileage.Maximum = new decimal(new int[] {
             999999,
@@ -55,7 +55,7 @@
             // 
             this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(25, 22);
+            this.label1.Location = new System.Drawing.Point(55, 22);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(56, 16);
@@ -67,7 +67,7 @@
             this.LabelWarning.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.LabelWarning.AutoSize = true;
             this.LabelWarning.ForeColor = System.Drawing.Color.Red;
-            this.LabelWarning.Location = new System.Drawing.Point(29, 69);
+            this.LabelWarning.Location = new System.Drawing.Point(59, 69);
             this.LabelWarning.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.LabelWarning.Name = "LabelWarning";
             this.LabelWarning.Size = new System.Drawing.Size(0, 16);
@@ -83,10 +83,10 @@
             this.BtnResetTextBox.IconColor = System.Drawing.Color.White;
             this.BtnResetTextBox.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.BtnResetTextBox.IconSize = 20;
-            this.BtnResetTextBox.Location = new System.Drawing.Point(272, 14);
+            this.BtnResetTextBox.Location = new System.Drawing.Point(302, 14);
             this.BtnResetTextBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.BtnResetTextBox.Name = "BtnResetTextBox";
-            this.BtnResetTextBox.Size = new System.Drawing.Size(88, 36);
+            this.BtnResetTextBox.Size = new System.Drawing.Size(107, 36);
             this.BtnResetTextBox.TabIndex = 5;
             this.BtnResetTextBox.Text = "Reset";
             this.BtnResetTextBox.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -104,7 +104,7 @@
             this.BtnAddInspection.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.BtnAddInspection.IconSize = 32;
             this.BtnAddInspection.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BtnAddInspection.Location = new System.Drawing.Point(204, 124);
+            this.BtnAddInspection.Location = new System.Drawing.Point(234, 124);
             this.BtnAddInspection.Name = "BtnAddInspection";
             this.BtnAddInspection.Size = new System.Drawing.Size(163, 45);
             this.BtnAddInspection.TabIndex = 27;
@@ -123,7 +123,7 @@
             this.BtnBack.IconColor = System.Drawing.Color.White;
             this.BtnBack.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.BtnBack.IconSize = 32;
-            this.BtnBack.Location = new System.Drawing.Point(32, 124);
+            this.BtnBack.Location = new System.Drawing.Point(62, 124);
             this.BtnBack.Name = "BtnBack";
             this.BtnBack.Size = new System.Drawing.Size(145, 45);
             this.BtnBack.TabIndex = 28;
@@ -136,7 +136,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(379, 181);
+            this.ClientSize = new System.Drawing.Size(439, 181);
             this.Controls.Add(this.BtnBack);
             this.Controls.Add(this.BtnAddInspection);
             this.Controls.Add(this.BtnResetTextBox);

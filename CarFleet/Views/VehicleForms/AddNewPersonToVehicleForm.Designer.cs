@@ -43,9 +43,10 @@
             // 
             this.LabelWarning.AutoSize = true;
             this.LabelWarning.ForeColor = System.Drawing.Color.Red;
-            this.LabelWarning.Location = new System.Drawing.Point(574, 318);
+            this.LabelWarning.Location = new System.Drawing.Point(765, 391);
+            this.LabelWarning.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.LabelWarning.Name = "LabelWarning";
-            this.LabelWarning.Size = new System.Drawing.Size(0, 13);
+            this.LabelWarning.Size = new System.Drawing.Size(0, 16);
             this.LabelWarning.TabIndex = 24;
             // 
             // BtnAddUserToVehicle
@@ -59,10 +60,10 @@
             this.BtnAddUserToVehicle.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.BtnAddUserToVehicle.IconSize = 32;
             this.BtnAddUserToVehicle.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BtnAddUserToVehicle.Location = new System.Drawing.Point(388, 247);
-            this.BtnAddUserToVehicle.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.BtnAddUserToVehicle.Location = new System.Drawing.Point(517, 304);
+            this.BtnAddUserToVehicle.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.BtnAddUserToVehicle.Name = "BtnAddUserToVehicle";
-            this.BtnAddUserToVehicle.Size = new System.Drawing.Size(122, 37);
+            this.BtnAddUserToVehicle.Size = new System.Drawing.Size(163, 46);
             this.BtnAddUserToVehicle.TabIndex = 28;
             this.BtnAddUserToVehicle.Text = "Add user";
             this.BtnAddUserToVehicle.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -79,10 +80,10 @@
             this.BtnBack.IconColor = System.Drawing.Color.White;
             this.BtnBack.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.BtnBack.IconSize = 32;
-            this.BtnBack.Location = new System.Drawing.Point(200, 247);
-            this.BtnBack.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.BtnBack.Location = new System.Drawing.Point(267, 304);
+            this.BtnBack.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.BtnBack.Name = "BtnBack";
-            this.BtnBack.Size = new System.Drawing.Size(109, 37);
+            this.BtnBack.Size = new System.Drawing.Size(145, 46);
             this.BtnBack.TabIndex = 29;
             this.BtnBack.Text = "Back";
             this.BtnBack.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -91,30 +92,34 @@
             // 
             // DataGridViewAddPersonToVehicle
             // 
+            this.DataGridViewAddPersonToVehicle.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.DataGridViewAddPersonToVehicle.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.DataGridViewAddPersonToVehicle.Location = new System.Drawing.Point(4, 57);
+            this.DataGridViewAddPersonToVehicle.Location = new System.Drawing.Point(5, 70);
+            this.DataGridViewAddPersonToVehicle.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.DataGridViewAddPersonToVehicle.MultiSelect = false;
             this.DataGridViewAddPersonToVehicle.Name = "DataGridViewAddPersonToVehicle";
             this.DataGridViewAddPersonToVehicle.ReadOnly = true;
             this.DataGridViewAddPersonToVehicle.RowHeadersWidth = 51;
             this.DataGridViewAddPersonToVehicle.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.DataGridViewAddPersonToVehicle.Size = new System.Drawing.Size(703, 150);
+            this.DataGridViewAddPersonToVehicle.Size = new System.Drawing.Size(937, 185);
             this.DataGridViewAddPersonToVehicle.TabIndex = 30;
             // 
             // TbSearch
             // 
-            this.TbSearch.Location = new System.Drawing.Point(260, 21);
+            this.TbSearch.Location = new System.Drawing.Point(347, 26);
+            this.TbSearch.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.TbSearch.Name = "TbSearch";
-            this.TbSearch.Size = new System.Drawing.Size(368, 20);
+            this.TbSearch.Size = new System.Drawing.Size(489, 22);
             this.TbSearch.TabIndex = 31;
             this.TbSearch.TextChanged += new System.EventHandler(this.TbSearch_TextChanged);
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(162, 24);
+            this.label3.Location = new System.Drawing.Point(155, 26);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(92, 13);
+            this.label3.Size = new System.Drawing.Size(117, 16);
             this.label3.TabIndex = 32;
             this.label3.Text = "Search employee:";
             // 
@@ -125,19 +130,21 @@
             this.panel1.Controls.Add(this.BtnAddUserToVehicle);
             this.panel1.Controls.Add(this.TbSearch);
             this.panel1.Controls.Add(this.DataGridViewAddPersonToVehicle);
-            this.panel1.Location = new System.Drawing.Point(48, 49);
+            this.panel1.Location = new System.Drawing.Point(64, 60);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(710, 305);
+            this.panel1.Size = new System.Drawing.Size(947, 375);
             this.panel1.TabIndex = 33;
             // 
             // AddNewPersonToVehicleForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(811, 450);
+            this.ClientSize = new System.Drawing.Size(1081, 554);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.LabelWarning);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "AddNewPersonToVehicleForm";
             this.Text = "AddNewPersonToVehicleForm";
             this.Load += new System.EventHandler(this.AddNewPersonToVehicleForm_Load);

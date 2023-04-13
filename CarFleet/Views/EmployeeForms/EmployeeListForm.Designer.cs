@@ -33,10 +33,10 @@
             this.label1 = new System.Windows.Forms.Label();
             this.mainpanel = new System.Windows.Forms.Panel();
             this.menupanel = new System.Windows.Forms.Panel();
+            this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.TbSearch = new System.Windows.Forms.TextBox();
             this.panelmain = new System.Windows.Forms.Panel();
-            this.label3 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.DataGridViewEmployeeList)).BeginInit();
             this.mainpanel.SuspendLayout();
             this.menupanel.SuspendLayout();
@@ -52,12 +52,13 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.DataGridViewEmployeeList.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.DataGridViewEmployeeList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.DataGridViewEmployeeList.Location = new System.Drawing.Point(20, 39);
+            this.DataGridViewEmployeeList.Location = new System.Drawing.Point(27, 48);
+            this.DataGridViewEmployeeList.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.DataGridViewEmployeeList.MultiSelect = false;
             this.DataGridViewEmployeeList.Name = "DataGridViewEmployeeList";
             this.DataGridViewEmployeeList.ReadOnly = true;
             this.DataGridViewEmployeeList.RowHeadersWidth = 51;
-            this.DataGridViewEmployeeList.Size = new System.Drawing.Size(557, 401);
+            this.DataGridViewEmployeeList.Size = new System.Drawing.Size(743, 494);
             this.DataGridViewEmployeeList.TabIndex = 6;
             this.DataGridViewEmployeeList.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DataGridViewEmployeeList_CellContentClick_1);
             // 
@@ -72,10 +73,10 @@
             this.BtnAddEmployee.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.BtnAddEmployee.IconSize = 32;
             this.BtnAddEmployee.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BtnAddEmployee.Location = new System.Drawing.Point(4, 84);
-            this.BtnAddEmployee.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.BtnAddEmployee.Location = new System.Drawing.Point(5, 103);
+            this.BtnAddEmployee.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.BtnAddEmployee.Name = "BtnAddEmployee";
-            this.BtnAddEmployee.Size = new System.Drawing.Size(183, 43);
+            this.BtnAddEmployee.Size = new System.Drawing.Size(244, 53);
             this.BtnAddEmployee.TabIndex = 7;
             this.BtnAddEmployee.Text = "NEW EMPLOYEE";
             this.BtnAddEmployee.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -85,10 +86,9 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(598, 217);
-            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label1.Location = new System.Drawing.Point(797, 267);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(25, 13);
+            this.label1.Size = new System.Drawing.Size(28, 16);
             this.label1.TabIndex = 10;
             this.label1.Text = "123";
             // 
@@ -99,9 +99,9 @@
             this.mainpanel.Controls.Add(this.label1);
             this.mainpanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.mainpanel.Location = new System.Drawing.Point(0, 0);
-            this.mainpanel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.mainpanel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.mainpanel.Name = "mainpanel";
-            this.mainpanel.Size = new System.Drawing.Size(800, 450);
+            this.mainpanel.Size = new System.Drawing.Size(1067, 554);
             this.mainpanel.TabIndex = 6;
             // 
             // menupanel
@@ -111,31 +111,40 @@
             this.menupanel.Controls.Add(this.TbSearch);
             this.menupanel.Controls.Add(this.BtnAddEmployee);
             this.menupanel.Dock = System.Windows.Forms.DockStyle.Right;
-            this.menupanel.Location = new System.Drawing.Point(611, 0);
-            this.menupanel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.menupanel.Location = new System.Drawing.Point(815, 0);
+            this.menupanel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.menupanel.Name = "menupanel";
-            this.menupanel.Size = new System.Drawing.Size(189, 450);
+            this.menupanel.Size = new System.Drawing.Size(252, 554);
             this.menupanel.TabIndex = 12;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(5, 169);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(117, 16);
+            this.label3.TabIndex = 11;
+            this.label3.Text = "Search employee:";
             // 
             // label2
             // 
             this.label2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label2.AutoSize = true;
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.label2.Location = new System.Drawing.Point(4, 275);
-            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label2.Location = new System.Drawing.Point(5, 338);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(35, 13);
+            this.label2.Size = new System.Drawing.Size(44, 16);
             this.label2.TabIndex = 10;
             this.label2.Text = "label2";
             this.label2.Visible = false;
             // 
             // TbSearch
             // 
-            this.TbSearch.Location = new System.Drawing.Point(2, 153);
-            this.TbSearch.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.TbSearch.Location = new System.Drawing.Point(5, 207);
+            this.TbSearch.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.TbSearch.Name = "TbSearch";
-            this.TbSearch.Size = new System.Drawing.Size(184, 20);
+            this.TbSearch.Size = new System.Drawing.Size(244, 22);
             this.TbSearch.TabIndex = 9;
             this.TbSearch.TextChanged += new System.EventHandler(this.TbSearch_TextChanged);
             // 
@@ -144,28 +153,20 @@
             this.panelmain.Controls.Add(this.DataGridViewEmployeeList);
             this.panelmain.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelmain.Location = new System.Drawing.Point(0, 0);
-            this.panelmain.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panelmain.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panelmain.Name = "panelmain";
-            this.panelmain.Size = new System.Drawing.Size(800, 450);
+            this.panelmain.Size = new System.Drawing.Size(1067, 554);
             this.panelmain.TabIndex = 11;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(4, 137);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(92, 13);
-            this.label3.TabIndex = 11;
-            this.label3.Text = "Search employee:";
             // 
             // EmployeeListForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1067, 554);
             this.Controls.Add(this.mainpanel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "EmployeeListForm";
             this.Text = "EmployeeListForm";
             this.Load += new System.EventHandler(this.EmployeeListForm_Load);
