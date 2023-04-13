@@ -129,9 +129,6 @@ namespace CarFleetDomain.Functions
             row[nameof(VehiclePersonHistory.UpdatedOn)] = DateTime.Now;
 
             dataSet.Tables[nameof(VehiclePersonHistory)].Rows.Add(row);
-
-            //TODO: Change status to In Use
-
             return VehiclePersonHistory.InsertVehiclePersonHistoryCommand(dataSet);
         }
     }
