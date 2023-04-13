@@ -177,7 +177,7 @@ namespace CarFleet.Views.EmployeeForms
                 var userName = TbEmail.Text;
                 var passwordHash = PasswordHasher.EncodePassword(TbPass.Text);
                 var roleID = CbBox.SelectedIndex;
-                var userResponse = employeeSystem.InesertorUpdateUser(_personID, userName, passwordHash, roleID);
+                var userResponse = employeeSystem.InsertOrUpdateUser(_personID, userName, passwordHash, roleID);
 
                 if (userResponse.Success) GoBackToParentForm();
 

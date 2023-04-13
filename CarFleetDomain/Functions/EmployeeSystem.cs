@@ -124,7 +124,7 @@ namespace CarFleetDomain.Functions
             return response;
         }
 
-        public CommandResponse<Users> InesertorUpdateUser(int personID, string userName, string passwordHash,
+        public CommandResponse<Users> InsertOrUpdateUser(int personID, string userName, string passwordHash,
             int roleID)
         {
             var response = new CommandResponse<Users>(new Users());
